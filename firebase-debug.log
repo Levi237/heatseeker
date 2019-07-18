@@ -1,0 +1,21 @@
+[debug] [2019-07-17T20:24:03.223Z] ----------------------------------------------------------------------
+[debug] [2019-07-17T20:24:03.225Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2019-07-17T20:24:03.225Z] CLI Version:   7.1.0
+[debug] [2019-07-17T20:24:03.225Z] Platform:      darwin
+[debug] [2019-07-17T20:24:03.225Z] Node Version:  v10.15.3
+[debug] [2019-07-17T20:24:03.227Z] Time:          Wed Jul 17 2019 13:24:03 GMT-0700 (Pacific Daylight Time)
+[debug] [2019-07-17T20:24:03.227Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-17T20:24:03.233Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-17T20:24:03.234Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/Levi/GA-Proj/hot-sauce-app
+
