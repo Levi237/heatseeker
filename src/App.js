@@ -12,46 +12,11 @@ const firebase = require('firebase')
 export default class App extends Component {
 
   state = {
-      chilis: [{
-          name: "ghost",
-          heat: 10,
-          price: 600,
-          select: true,
-        },
-        {
-          name: "reaper",
-          heat: 14,
-          price: 1000,
-          select: false,
-        }],
-  
-      spices: [{
-          name: "thai",
-          items: ["salt", "curry"],
-          heat: 1,
-          price: 400,
-          select: false,
-        },
-          {
-          name: "indian",
-          items: ["cumin", "pepper"],
-          heat: 1,
-          price: 500,
-          select: false,
-        }],
+      chilis: [],
+      spices: [],
+      extras: [],
+      vinegars: [],
 
-        extras: [{
-          name: "fresh garlic",
-          heat: 0,
-          price: 200,
-          select: true,
-        },
-        {
-          name: "fresh onion",
-          heat: 0,
-          price: 300,
-          select: false,
-        }],
         selectedNoteIndex: null,
         selectedNote: null, 
         notes: null,
@@ -59,17 +24,62 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    firebase
+    
+    // firebase
+    //   .firestore()
+    //   .collection('notes')
+    //   .onSnapshot(serverUpdate => {
+    //     const notes = serverUpdate.docs.map(_doc => {
+    //       const data = _doc.data();
+    //       data['id'] = _doc.id;
+    //       return data;
+    //     });
+    //     console.log(notes);
+    //     this.setState({ notes: notes });
+    //   });
+      firebase
       .firestore()
-      .collection('notes')
+      .collection('chilis')
       .onSnapshot(serverUpdate => {
-        const notes = serverUpdate.docs.map(_doc => {
+        const chilis = serverUpdate.docs.map(_doc => {
           const data = _doc.data();
           data['id'] = _doc.id;
           return data;
         });
-        console.log(notes);
-        this.setState({ notes: notes });
+        this.setState({ chilis: chilis });
+      });
+      firebase
+      .firestore()
+      .collection('spices')
+      .onSnapshot(serverUpdate => {
+        const spices = serverUpdate.docs.map(_doc => {
+          const data = _doc.data();
+          data['id'] = _doc.id;
+          return data;
+        });
+        this.setState({ spices: spices });
+      });
+      firebase
+      .firestore()
+      .collection('extras')
+      .onSnapshot(serverUpdate => {
+        const extras = serverUpdate.docs.map(_doc => {
+          const data = _doc.data();
+          data['id'] = _doc.id;
+          return data;
+        });
+        this.setState({ extras: extras });
+      });
+      firebase
+      .firestore()
+      .collection('vinegars')
+      .onSnapshot(serverUpdate => {
+        const vinegars = serverUpdate.docs.map(_doc => {
+          const data = _doc.data();
+          data['id'] = _doc.id;
+          return data;
+        });
+        this.setState({ vinegars: vinegars });
       });
   }
 
@@ -134,10 +144,10 @@ export default class App extends Component {
 
   setToggleApp = (e) => {
     console.log("click setToggleApp")
-    console.log(e.target.name)
-    console.log(e.target.heat)
+    console.log(e.target.name, "<========e.target.name setToggleApp")
+    console.log(e.target.value,  "<===========================e.target.value setToggleApp")
     const { name } = e.target
-    console.log(name)
+    console.log(name, "<---- post deconstruct name")
     this.setState({
       // options{chilis.ghost.select}: true,
         [name]: !this.state[name]
@@ -146,7 +156,7 @@ export default class App extends Component {
 
 
   render(){
-    const { chilis, spices, extras, selectedNoteIndex, notes } = this.state
+    const { chilis, spices, extras, vinegars, selectedNoteIndex, notes } = this.state
     return (
       <div className="grid-container">
         <div className="grid-header">HEADER</div>
@@ -168,7 +178,7 @@ export default class App extends Component {
           noteUpdate={this.noteUpdate}></EditorComponent> :
           null
         }
-        <br/><Form chilis={chilis} spices={spices} extras={extras} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/></div>
+        <br/><Form chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/></div>
         <div className="grid-footer">FOOTER</div>
       </div>
     );

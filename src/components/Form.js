@@ -7,37 +7,38 @@ import React, { Component } from 'react'
 
 export default class Form extends Component {
     state = {
-        //chiliSection
-        chili1: false,   //setToggle
-        chili2: false,   //setToggle
-        chili3: false,   //setToggle
-        chili4: false,   //setToggle
-        //spiceSection
-        spice1: false,
-        spice2: false,
-        spice3: false,
-        spice4: false,
-        spice5: false,
-        //extraSection
-        extra1: false,
-        extra2: false,
-        extra3: false,
-        extra4: false,
-        extra5: false,
-        //vinegarSection
-        vinegar1: false,
-        vinegar2: false,
-        vinegar3: false,
-        vinegar4: false,
-        vinegar5: false,
+        chilis: [],
+        // //chiliSection
+        // chili1: false,   //setToggle
+        // chili2: false,   //setToggle
+        // chili3: false,   //setToggle
+        // chili4: false,   //setToggle
+        // //spiceSection
+        // spice1: false,
+        // spice2: false,
+        // spice3: false,
+        // spice4: false,
+        // spice5: false,
+        // //extraSection
+        // extra1: false,
+        // extra2: false,
+        // extra3: false,
+        // extra4: false,
+        // extra5: false,
+        // //vinegarSection
+        // vinegar1: false,
+        // vinegar2: false,
+        // vinegar3: false,
+        // vinegar4: false,
+        // vinegar5: false,
 
     }
 
     setToggle=(e) => {
         console.log("click setToggle")
-        console.log(e.target.name)
+        console.log(e.target, "<------ e.target setToggle")
         this.setState({
-            [e.target.name]: !this.state[e.target.name]
+            [e.target.name]: !this.state.chilis[e.target.name]
         })
     }
     // toggle = e => {
@@ -45,16 +46,17 @@ export default class Form extends Component {
     // }
     render(){
         const { setToggleApp, submitForm } = this.props
-        const { chilis, spices, extras } = this.props
+        const { chilis, spices, extras, vinegars } = this.props
 
-        const { chili1, chili2, chili3, chili4, spice1, spice2, spice3, spice4, spice5, extra1, extra2, extra3, extra4, extra5, vinegar1, vinegar2, vinegar3, vinegar4, vinegar5 } = this.state
+        // const { chili1, chili2, chili3, chili4, spice1, spice2, spice3, spice4, spice5, extra1, extra2, extra3, extra4, extra5, vinegar1, vinegar2, vinegar3, vinegar4, vinegar5 } = this.state
         
 
         const chiliList = chilis.map((chili, i) => {
+            console.log(chili)
             return(
 
                         <section key={i}>
-                            <button name="select" className={(chili.select ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {setToggleApp(e)}} type="button"></button>
+                            <button name="select" className={(chili.select ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {setToggleApp(e)}} type="button" value={chili.select}></button>
                             <section><img src="red-pin.png" alt="placeholder"/><br/>{chili.name}</section>
                         </section>
 
@@ -78,6 +80,17 @@ export default class Form extends Component {
         const extraList = extras.map((extra, i) => {
             return (
                 <section key={i}>
+                    <button name="select" className={(extra.select ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e)}} type="button"></button>
+                    <section><h3>{extra.name}</h3></section>
+
+                </section>
+            )
+        })
+        const vinegarList = vinegars.map((vinegar, i) => {
+            return (
+                <section key={i}>
+                    <button name="select" className={(vinegar.select ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e)}} type="button"></button>
+                    <section><h3>{vinegar.name}</h3></section>
 
                 </section>
             )
@@ -146,7 +159,8 @@ export default class Form extends Component {
                     </section> */}
                 </div>
                 <div className="extraSection">
-                    <section>
+                {extraList}
+                    {/* <section>
                         <button name="extra1" className={(extra1 ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e)}} type="button"></button>
                         <section><h3>Fresh Garlic</h3></section>
                     </section>
@@ -165,10 +179,11 @@ export default class Form extends Component {
                     <section>
                         <button name="extra5" className={(extra5 ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e)}} type="button"></button>
                         <section><h3>Extras FIVE</h3></section>
-                    </section>
+                    </section> */}
                 </div>
                 <div className="vinegarSection">
-                    <section>
+                {vinegarList}
+                    {/* <section>
                         <button name="vinegar1" className={(vinegar1 ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e)}} type="button"></button>
                         <section><h3>Vinegar ONE</h3></section>
                     </section>
@@ -187,7 +202,7 @@ export default class Form extends Component {
                     <section>
                         <button name="vinegar5" className={(vinegar5 ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e)}} type="button"></button>
                         <section><h3>Vinegar FIVE</h3></section>
-                    </section>
+                    </section> */}
                 </div>
 
 
