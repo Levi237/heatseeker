@@ -40,23 +40,7 @@ import styles from './styles';
       id: this.props.selectedNote.id
     });
   }
-//     componentDidMount = () => {
-//         this.setState({
-//             text: this.props.selectedNote.body,
-//             title: this.props.selectedNote.title,
-//             id: this.props.selectedNote.id
-//         })
-//     }
 
-//     componentDidUpdate = () => {
-//         if(this.props.selectedNote.id !== this.state.id){
-//             this.setState({
-//                 text: this.props.selectedNote.body,
-//                 title: this.props.selectedNote.title,
-//                 id: this.props.selectedNote.id
-//             })
-//         }
-//     }
   componentDidUpdate = () => {
     if(this.props.selectedNote.id !== this.state.id) {
       this.setState({
@@ -70,26 +54,7 @@ import styles from './styles';
   render() {
 
     const { classes } = this.props;
-//     render(){
-//         const { classes } = this.props
 
-//         return(
-//             <div className={classes.editorContainer}>
-//             <BorderColorIcon className={classes.editIcon} />
-//             <input 
-//                 className={classes.titleInput}
-//                 placeholder="Note title"
-//                 value={this.state.title ? this.state.title : ""}
-//                 onChange={(e) => this.updateTitle(e.target.value)} >
-
-//             </input>
-//                 <ReactQuill 
-//                     value={this.state.text} 
-//                     onChange={this.updateBody}>
-//                 </ReactQuill>
-//             </div>
-//         )
-//     }
     return(
       <div className={classes.editorContainer}>
         <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
@@ -122,22 +87,6 @@ import styles from './styles';
   }, 1500);
 }
 
-//     updateBody = async (value) => {
-//         await this.setState({text: value});
-//         this.update();
-//     }or
-//     updateTitle = async (txt) => {
-//         await this.setState({title: txt})
-//         this.update();
-//     }
-//     update = debounce(() => {
-//         this.props.noteUpdate(this.state.id, {
-//             title: this.state.title,
-//             body: this.state.text
-//         }, 1500)
-//     })
-// }
-// export default withStyles(styles)(EditorComponent)
 
 export default withStyles(styles)(EditorComponent);
 
