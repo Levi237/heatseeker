@@ -83,19 +83,32 @@ export default class App extends Component {
       });
   }
 
-  selectNote = (note, index) => this.setState({ selectedNoteIndex: index, selectedNote: note });
-  noteUpdate = (id, noteObj) => {
+  selectChili = (chili, index) => this.setState({ selectedChiliIndex: index, selectedChili: chili });
+  chiliUpdate = (id, chiliObj) => {
     firebase
       .firestore()
-      .collection('notes')
+      .collection('chilis')
       .doc(id)
       .update({
-        title: noteObj.title, 
-        body: noteObj.body,
+        title: chiliObj.title, 
+        body: chiliObj.body,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       });
   
   }
+  // selectNote = (note, index) => this.setState({ selectedNoteIndex: index, selectedNote: note });
+  // noteUpdate = (id, noteObj) => {
+  //   firebase
+  //     .firestore()
+  //     .collection('notes')
+  //     .doc(id)
+  //     .update({
+  //       title: noteObj.title, 
+  //       body: noteObj.body,
+  //       timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  //     });
+  
+  // }
 
 
   newNote = async (title) => {
