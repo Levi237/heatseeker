@@ -8,38 +8,24 @@ import React, { Component } from 'react'
 export default class Form extends Component {
     state = {
         chilis: [],
-        // //chiliSection
-        // chili1: false,   //setToggle
-        // chili2: false,   //setToggle
-        // chili3: false,   //setToggle
-        // chili4: false,   //setToggle
-        // //spiceSection
-        // spice1: false,
-        // spice2: false,
-        // spice3: false,
-        // spice4: false,
-        // spice5: false,
-        // //extraSection
-        // extra1: false,
-        // extra2: false,
-        // extra3: false,
-        // extra4: false,
-        // extra5: false,
-        // //vinegarSection
-        // vinegar1: false,
-        // vinegar2: false,
-        // vinegar3: false,
-        // vinegar4: false,
-        // vinegar5: false,
+        spices: [],
+        spice: [],
+        // indian: false,
+        // thai: false,
+       
 
     }
 
-    setToggle=(e) => {
+    setToggle=(e, spice) => {
         console.log("click setToggle")
         console.log(e.target, "<------ e.target setToggle")
+        console.log(e.target.name, "<------ e.target.name setToggle")
+        console.log(e.target.value, "<------ e.target.value setToggle")
+        console.log(spice, "<---spice")
         this.setState({
-            [e.target.name]: !this.state.chilis[e.target.name]
+            [e.target.name]: spice
         })
+        console.log(this.state)
     }
     // toggle = e => {
     //     e.currentTarget.classList.toggle('toggleOn');
@@ -48,15 +34,14 @@ export default class Form extends Component {
         const { setToggleApp, submitForm } = this.props
         const { chilis, spices, extras, vinegars } = this.props
 
-        // const { chili1, chili2, chili3, chili4, spice1, spice2, spice3, spice4, spice5, extra1, extra2, extra3, extra4, extra5, vinegar1, vinegar2, vinegar3, vinegar4, vinegar5 } = this.state
-        
+          
 
         const chiliList = chilis.map((chili, i) => {
             console.log(chili)
             return(
 
                         <section key={i}>
-                            <button name="select" className={(chili.select ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {setToggleApp(e)}} type="button" value={chili.select}></button>
+                            <button name="select" className={(this.state.chili ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {setToggleApp(e)}} type="button" value={chili.select}></button>
                             <section><img src="red-pin.png" alt="placeholder"/><br/>{chili.name}</section>
                         </section>
 
@@ -71,7 +56,7 @@ export default class Form extends Component {
             })
                 return (
                     <section key={i}>
-                        <button name="select" className={(spice.select ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e)}} type="button"></button>
+                        <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
                     <section><h3>{spice.name}</h3><ul>{spiceItems}</ul></section>
                 </section>
             )
@@ -96,35 +81,13 @@ export default class Form extends Component {
             )
         })
 
-        // const alertList = closureList.map((park, i) => {
-        //     return (
-                                
-        //         <section className="alertList" key={i}>
-        //             <form className="mapBtn" onSubmit={(map) => this.showOnMap(map, park)}>
-        //                 <button type="submit" onClick={handleSetMap} value={park.latLong}>Map</button>
-        //             </form>
-        //             <div className="title" onClick={this.toggle}>
-        //                 <div>
-        //                     <strong>
-        //                         <div className="currentlyClosed">CURRENTLY CLOSED</div>
-        //                         <div>{park.fullName}</div>                            
-        //                     <small>
-        //                         <a className="npsLink" href={park.url} target="_blank" rel="noopener noreferrer">{park.title}</a>
-        //                     </small>
-        //                     </strong>
-        //                 </div>
-        //                 <div className="details">
-        //                     {park.description}
-        //                 </div>
-        //             </div>
-        //                 { currentUser && 
-        //                 <form className="addBox" onSubmit={(e) => this.doAddAlert(e, park)}>                                 
-        //                     <button className={currentUserList.map((check) => check.title === park.title && " selected ")+" alertsButton"} type="submit">Add to List</button>                    
-        //                 </form>
-        //                 }                
-        //         </section>  
-        //     )  
-        // })
+
+
+
+
+
+
+       
         
         return(
             <>
