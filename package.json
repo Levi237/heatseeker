@@ -1,6 +1,9 @@
 {
   "name": "hot-sauce.app",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.3.0"
+  },
   "private": true,
   "dependencies": {
     "node-pre-gyp": "^0.13.0",
