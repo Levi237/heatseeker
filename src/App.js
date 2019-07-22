@@ -166,7 +166,7 @@ export default class App extends Component {
         <div className="grid-logo"><img src={logo} className="App-logo" alt="logo" /></div>
         <div className="grid-main">
 
-        <SideBar 
+        {/* <SideBar 
           selectedNoteIndex={this.state.selectedNoteIndex}
           notes={this.state.notes}
           deleteNote={this.deleteNote}
@@ -179,7 +179,7 @@ export default class App extends Component {
           notes={this.state.notes}
           noteUpdate={this.noteUpdate}></EditorComponent> :
           null
-        }
+        } */}
         <br/><Form chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/></div>
         <div className="grid-footer">FOOTER</div>
       </div>
