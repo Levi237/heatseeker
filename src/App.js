@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 
-import Form from './components/Form'
+import About  from './components/About'
+import Form   from './components/Form'
+import Nav    from './components/Nav'
 
-import SideBar from './sidebar/sidebar'
-import EditorComponent from './editor/editor';
+// import SideBar from './tutorial/sidebar/sidebar'
+// import EditorComponent from './tutorial/editor/editor';
+
+import * as routes  from './constants/routes';
 
 const firebase = require('firebase')
 
@@ -18,9 +24,9 @@ export default class App extends Component {
       vinegars: [],
       newRecipe: [],
 
-        selectedNoteIndex: null,
-        selectedNote: null, 
-        notes: null,
+        // selectedNoteIndex: null,
+        // selectedNote: null, 
+        // notes: null,
     
   }
 
@@ -158,14 +164,26 @@ export default class App extends Component {
     return (
       <div className="grid-container">
         <div className="grid-header">HEADER</div>
-        <div className="grid-nav">NAV</div>
+        <div className="grid-nav"><Nav /></div>
         <div className="grid-logo"><img src={logo} className="App-logo" alt="logo" /></div>
         <div className="grid-main">
         
-
-
-        <br/><Form chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/></div>
+          <Switch>
+            <Route path={routes.FORM} exact render={() => 
+                                      <Form chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
+            <Route path={routes.INFO} exact render={() => 
+                                      <About /> }/>
+            <Route path={routes.ROOT} render={() => 
+                                      <About /> }/>
+          </Switch>
+        </div>
+                
+                
+                
         <div className="grid-footer">FOOTER</div>
+
+
+
       </div>
     );
   }

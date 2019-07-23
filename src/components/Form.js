@@ -47,7 +47,7 @@ export default class Form extends Component {
     render(){
         // const { setToggleApp, submitForm } = this.props
         const {chili, spice, vinegar, extra} = this.state
-        const { chilis, spices, extras, vinegars, submitForm, move } = this.props
+        const { chilis, spices, extras, vinegars, submitForm } = this.props
 
           
 
