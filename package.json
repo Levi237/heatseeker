@@ -8,6 +8,7 @@
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
+    "dotenv": "^8.0.0",
     "node-pre-gyp": "^0.13.0",
     "peer": "^0.2.10",
     "react": "^16.8.6",
