@@ -47,7 +47,7 @@ export default class Form extends Component {
     render(){
         // const { setToggleApp, submitForm } = this.props
         const {chili, spice, vinegar, extra} = this.state
-        const { chilis, spices, extras, vinegars, submitForm } = this.props
+        const { chilis, spices, extras, vinegars, submitForm, move } = this.props
 
           
 
@@ -107,28 +107,25 @@ export default class Form extends Component {
             <>
             <h1>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00</h1>
             <h1>Heat Factor: {chili.heat + spice.heat + extra.heat}</h1>
+            <div className="myProgress">
+          <progress className="bored-bar" value={chili.heat + spice.heat + extra.heat} max="15"></progress>
+          </div>
             <h1>Create Your Own Hot Sauce Here</h1>
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
-            <button type="submit">SAVE</button>
+                <button type="submit">SAVE</button>
 
                 <div className="chiliSection">
                     {chiliList}
                 </div>
                 <div className="spiceSection">
                     {spiceList}
-                   
                 </div>
                 <div className="extraSection">
-                {extraList}
-                   
+                    {extraList} 
                 </div>
                 <div className="vinegarSection">
-                {vinegarList}
-                  
+                    {vinegarList}                  
                 </div>
-
-
-
             </form>
             </>
         )

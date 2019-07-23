@@ -126,7 +126,23 @@ export default class App extends Component {
 
 
   }
-  
+  // newNote = async (title) => {
+  //   const note = {
+  //     title: title,
+  //     body: ""
+  //   }
+  //   const newFromDB = await firebase.firestore()
+  //   .collection('notes')
+  //   .add({
+  //     title: note.title,
+  //     body: note.body,
+  //     timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  //   })
+  //   const newID = newFromDB.id;
+  //   await this.setState({notes: [...this.state.notes, note]});
+  //   const newNoteIndex =  this.state.notes.indexOf(this.state.notes.filter(_note => _note.id === newID)[0])
+  //   this.setState({ selectedNote: this.state.notes[newNoteIndex], selectedNoteIndex: newNoteIndex});
+  // }
 
   // deleteNote = async (note) => {
   //       const noteIndex = this.state.notes.indexOf(note);
@@ -143,27 +159,46 @@ export default class App extends Component {
 
 
 
- 
 
 
 
+
+//   setToggleApp = (e) => {
+//     console.log("click setToggleApp")
+//     console.log(e.target.name, "<========e.target.name setToggleApp")
+//     console.log(e.target.value,  "<===========================e.target.value setToggleApp")
+//     const { name } = e.target
+//     console.log(name, "<---- post deconstruct name")
+//     this.setState({
+//       // options{chilis.ghost.select}: true,
+//         [name]: !this.state[name]
+//     })
+// }
 
 
   render(){
-    const { chilis, spices, extras, vinegars, selectedNoteIndex, notes, newRecipe } = this.state
-
-
-
-
+    const { chilis, spices, extras, vinegars, selectedNoteIndex, notes } = this.state
     return (
       <div className="grid-container">
         <div className="grid-header">HEADER</div>
         <div className="grid-nav">NAV</div>
         <div className="grid-logo"><img src={logo} className="App-logo" alt="logo" /></div>
         <div className="grid-main">
-        
 
-
+        {/* <SideBar 
+          selectedNoteIndex={this.state.selectedNoteIndex}
+          notes={this.state.notes}
+          deleteNote={this.deleteNote}
+          selectNote={this.selectNote}
+          newNote={this.newNote}></SideBar>
+        {
+          this.state.selectedNote ?
+          <EditorComponent selectedNote={this.state.selectedNote}
+          selectedNoteIndex={this.state.selectedNoteIndex}
+          notes={this.state.notes}
+          noteUpdate={this.noteUpdate}></EditorComponent> :
+          null
+        } */}
         <br/><Form chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/></div>
         <div className="grid-footer">FOOTER</div>
       </div>
