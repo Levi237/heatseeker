@@ -56,7 +56,7 @@ export default class Form extends Component {
 
                         <section key={i}>
                             <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, chili)}} type="button"></button>
-                            <section><img src="red-pin.png" alt="placeholder"/><br/>{chili.name}</section>
+                            <section><img src="../red-pin.png" alt="placeholder"/><br/>{chili.name}</section>
                         </section>
 
 
