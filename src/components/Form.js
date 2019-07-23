@@ -52,7 +52,6 @@ export default class Form extends Component {
           
 
         const chiliList = chilis.map((chili, i) => {
-            console.log(chili)
             return(
 
                         <section key={i}>
@@ -109,7 +108,8 @@ export default class Form extends Component {
             <h1>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00</h1>
             <h1>Heat Factor: {chili.heat + spice.heat + extra.heat}</h1>
             <h1>Create Your Own Hot Sauce Here</h1>
-            <form onSubmit={submitForm}>
+            <form onSubmit={(e) => { submitForm(e, this.state)}}>
+            <button type="submit">SAVE</button>
                 {/* <button name="click1" className={(click1 ? "toggleOn" : "offBtn")} onClick={(e) => {this.setToggle(e)}} type="button">Button 1</button> */}
                 {/* <button name="click2" className={(click2 ? "toggleOn" : "offBtn")} onClick={(e) => {this.setToggle(e)}} type="button">Button 2</button> */}
                 <div className="chiliSection">
@@ -207,6 +207,7 @@ export default class Form extends Component {
                         <section><img src="green-pin.png" alt="placeholder"/><br/>Spice 2</section>
                     </section>
                 </div> */}
+
             </form>
             </>
         )
