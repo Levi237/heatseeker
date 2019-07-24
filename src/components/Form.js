@@ -31,15 +31,9 @@ export default class Form extends Component {
     }
 
     setToggle=(e, value) => {
-        console.log("click setToggle")
-        console.log(e.target, "<------ e.target setToggle")
-        console.log(e.target.name, "<------ e.target.name setToggle")
-        console.log(e.target.value, "<------ e.target.value setToggle")
-        console.log(value, "<---value")
         this.setState({
             [e.target.name]: value
         })
-        console.log(this.state)
     }
     // toggle = e => {
     //     e.currentTarget.classList.toggle('toggleOn');
@@ -53,13 +47,10 @@ export default class Form extends Component {
 
         const chiliList = chilis.map((chili, i) => {
             return(
-
-                        <section key={i}>
-                            <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, chili)}} type="button"></button>
-                            <section><img src="../red-pin.png" alt="placeholder"/><br/>{chili.name}</section>
-                        </section>
-
-
+                <section key={i}>
+                    <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, chili)}} type="button"></button>
+                    <section><img src="../red-pin.png" alt="placeholder"/><br/>{chili.name}</section>
+                </section>
             )
         })
         const spiceList = spices.map((spice, i) => {
@@ -68,20 +59,18 @@ export default class Form extends Component {
                     <li key={k}>{item}</li>
                 )
             })
-                return (
-                    <section key={i}>
-                        <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
+            return (
+                <section key={i}>
+                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
                     <section><h3>{spice.name}</h3><ul>{spiceItems}</ul></section>
                 </section>
             )
-
         })
         const extraList = extras.map((extra, i) => {
             return (
                 <section key={i}>
                     <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
                     <section><h3>{extra.name}</h3></section>
-
                 </section>
             )
         })
@@ -90,27 +79,17 @@ export default class Form extends Component {
                 <section key={i}>
                     <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
                     <section><h3>{vinegar.name}</h3></section>
-
                 </section>
             )
         })
 
-
-
-
-
-
-
-       
-        
         return(
             <>
             <h1>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00</h1>
             <h1>Heat Factor: {chili.heat + spice.heat + extra.heat}</h1>
             <div className="myProgress">
-          <progress className="bored-bar" value={chili.heat + spice.heat + extra.heat} max="15"></progress>
-          </div>
-            {/* <h1>Create Your Own Hot Sauce Here</h1> */}
+                <progress className="bored-bar" value={chili.heat + spice.heat + extra.heat} max="15"></progress>
+            </div>
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
                 <button type="submit">SAVE</button>
 

@@ -30,6 +30,7 @@ export default class App extends Component {
     
   }
 
+  // DRY THIS UP!
   componentDidMount = () => {
     
     // firebase
@@ -126,11 +127,8 @@ export default class App extends Component {
         spice: data.spice,
         extra: data.extra,
         vinegar: data.vinegar,
-        // recipe: recipe.data, // this is probably not right
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
-
-
   }
   
 
