@@ -118,6 +118,7 @@ grid-template-areas:
 .grid-nav {
   grid-area: nav;
   background-color: rgb(123, 63, 0);
+  text-align: right;
 }
 
 /*********************************************************************************************************/
@@ -130,6 +131,7 @@ grid-template-areas:
 .grid-main {
   grid-area: main;
   background-color: white;
+  text-align: center;
 }
 
 /*********************************************************************************************************/

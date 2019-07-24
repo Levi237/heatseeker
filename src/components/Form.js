@@ -110,7 +110,7 @@ export default class Form extends Component {
             <div className="myProgress">
           <progress className="bored-bar" value={chili.heat + spice.heat + extra.heat} max="15"></progress>
           </div>
-            <h1>Create Your Own Hot Sauce Here</h1>
+            {/* <h1>Create Your Own Hot Sauce Here</h1> */}
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
                 <button type="submit">SAVE</button>
 
