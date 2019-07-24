@@ -17,6 +17,7 @@
 * clean CSS
 * Select multiple items
 * User Accounts
+* Purchase steps
 
 # Future Goals:
 * Admin capabilities
