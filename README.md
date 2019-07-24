@@ -2,6 +2,8 @@
 <p>The purpose of this website is to allow customers to create their own personalized hot-sauces in small batches.  From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste in hot sauce.</p>
 <p>Currently can select one item from each section, tally the "heat" and "price", and display data both as numbers and progress (heat) bar.  New recipe gets saved to database in recipe field.</p>
 
+<img src="../heatseeker1.gif"/>
+
 # Progress Report
 ## Capabilities:
 * Create items in firebase database
