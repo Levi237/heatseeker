@@ -7,6 +7,7 @@ import './App.css';
 import About  from './components/About'
 import Form   from './components/Form'
 import Nav    from './components/Nav'
+import Sale   from './components/Sale'
 
 // import SideBar from './tutorial/sidebar/sidebar'
 // import EditorComponent from './tutorial/editor/editor';
@@ -170,6 +171,8 @@ export default class App extends Component {
           <Switch>
             <Route path={routes.FORM} exact render={() => 
                                       <Form chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
+            <Route path={routes.SALE} render={() => 
+                                      <Sale /> }/>            
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ROOT} render={() => 
