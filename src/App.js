@@ -24,6 +24,7 @@ export default class App extends Component {
       vinegars: [],
       newRecipe: [],
 
+
         // selectedNoteIndex: null,
         // selectedNote: null, 
         // notes: null,
@@ -32,7 +33,6 @@ export default class App extends Component {
 
   // DRY THIS UP!
   componentDidMount = () => {
-    
     // firebase
     //   .firestore()
     //   .collection('notes')
@@ -155,6 +155,7 @@ export default class App extends Component {
 
   render(){
     const { chilis, spices, extras, vinegars, selectedNoteIndex, notes, newRecipe } = this.state
+    // const { chilis, spices, extras, vinegars } = this.state.options
 
 
 
