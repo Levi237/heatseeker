@@ -14,6 +14,7 @@
 * Progress bar
 * Create and save recipe in database via firebase
 * NavBar with Switch Routes set
+* Add Save Module Prompt
 
 ## ToDo:
 * Data
@@ -21,7 +22,7 @@
 * Select multiple items
 * User Accounts
 * Purchase steps
+* Label Maker
 
-# Future Goals:
+## Future Goals:
 * Admin capabilities
-* Firebase Storage
