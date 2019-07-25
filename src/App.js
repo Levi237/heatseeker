@@ -108,6 +108,7 @@ export default class App extends Component {
   //     });
   // }
   submitForm =  async (e, data) => {
+    console.log("click submitForm")
     e.preventDefault();
     console.log(e.target, '<-----submitForm e  SUBMITFORM')
     console.log(data, '<-----submitForm data  SUBMITFORM')
