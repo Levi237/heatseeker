@@ -59,6 +59,7 @@ h2 {
   /* position: absolute; */
   float: right;
   z-index: 1;
+  margin: -7vw;
 }
 
 

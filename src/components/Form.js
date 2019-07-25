@@ -99,8 +99,7 @@ export default class Form extends Component {
 
         return(
             <>
-            <h1>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00</h1>
-            <h1>Heat Factor: {chili.heat + spice.heat + extra.heat}</h1>
+            <h2>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00   |   Heat Factor: {chili.heat + spice.heat + extra.heat}</h2>
             <div className="myProgress">
                 <progress className="bored-bar" value={chili.heat + spice.heat + extra.heat} max="15"></progress>
             </div>
