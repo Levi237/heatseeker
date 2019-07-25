@@ -15,10 +15,13 @@ export default class Model extends Component {
             <div className="modal">
                 <div>
                     {this.props.children}
-                <button className="close" onClick={(e) => {this.onClose(e)}}>
-                    I would like to keep working on this
+                    <button className="close" onClick={(e) => {this.onClose(e)}}>
+                    I am not finished yet
                 </button>
                 </div>
+                <button className="close" onClick={(e) => {this.onClose(e)}}>
+                    X
+                </button>
             </div>
         )
     }

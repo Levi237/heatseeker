@@ -109,10 +109,12 @@ export default class Form extends Component {
                 <Modal show={show} onClose={this.showModal}>
                 <h2>Are you sure you want to save?</h2>
                     {chili.name} pepper + {spice.name} spice + {extra.name ? extra.name : "none"} + {vinegar.name} vinegar
-                    <br />
-                    <Link to={routes.SALE}><button type="submit">
-                        Save For Real
-                    </button></Link>
+                    <br /><br /><br />
+                    <Link to={routes.SALE}>
+                        <button type="submit">
+                            Save For Real
+                        </button>
+                    </Link>
                 </Modal>
                 
 
