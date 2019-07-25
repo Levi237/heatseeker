@@ -14,14 +14,17 @@ export default class Model extends Component {
         return(
             <div className="modal">
                 <div>
+                    <button className="close x" onClick={(e) => {this.onClose(e)}}>
+                        X
+                    </button>
+
                     {this.props.children}
+                    
                     <button className="close" onClick={(e) => {this.onClose(e)}}>
-                    I am not finished yet
-                </button>
+                        I am not finished yet
+                    </button>
                 </div>
-                <button className="close" onClick={(e) => {this.onClose(e)}}>
-                    X
-                </button>
+
             </div>
         )
     }
