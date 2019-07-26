@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 
 // make buttons that change color when selected and also update form
 // onClick toggles true/false
@@ -8,6 +9,37 @@ import { Link } from 'react-router-dom';
 import Modal from './modal/Modal'
 
 import * as routes from '../constants/routes'
+
+// All items component
+// Important! add unique key
+const MenuItem = ({text, selected}) => {
+    return <div
+      className={`menu-item ${selected ? 'active' : ''}`}
+      >{text}</div>;
+  };
+export const Menu = (list, selected) =>
+  list.map(el => {
+    const {name} = el;
+ 
+    return <MenuItem text={name} key={name} selected={selected} />;
+  });
+ 
+//   const menu = this.menuItems;
+const Arrow = ({ text, className }) => {
+  return (
+    <div
+      className={className}
+    >{text}</div>
+  );
+};
+ 
+ 
+const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
+const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
+ 
+const selected = 'item1';
+ 
+
 
 export default class Form extends Component {
     state = {
@@ -33,6 +65,7 @@ export default class Form extends Component {
             price: 400,
         },
         show: false,
+        selected: false,
     }
     showModal = () => {
         console.log("click")
@@ -52,11 +85,20 @@ export default class Form extends Component {
     // toggle = e => {
     //     e.currentTarget.classList.toggle('toggleOn');
     // }
+    onSelect = key => {
+        this.setState({ selected: key });
+      }
+
+
     render(){
         // const { setToggleApp, submitForm } = this.props
         const {chili, spice, vinegar, extra, show} = this.state
         const { chilis, spices, extras, vinegars, submitForm } = this.props
+        const { selected } = this.state;
+        // Create menu from items
+        const menu = this.menuItems;
 
+        
           
 
         const chiliList = chilis.map((chili, i) => {
@@ -99,6 +141,13 @@ export default class Form extends Component {
 
         return(
             <>
+                    <ScrollMenu
+          data={chiliList}
+          arrowLeft={ArrowLeft}
+          arrowRight={ArrowRight}
+          selected={selected}
+          onSelect={this.onSelect}
+        />
             <h2>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00   |   Heat Factor: {chili.heat}</h2>
             <div className="myProgress">
                 <progress className="bored-bar" value={chili.heat} max="15"></progress>
