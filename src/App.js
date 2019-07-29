@@ -23,7 +23,7 @@ export default class App extends Component {
       spices: [],
       extras: [],
       vinegars: [],
-      newRecipe: [],
+      newRecipe: null,
 
 
         // selectedNoteIndex: null,
@@ -171,9 +171,9 @@ export default class App extends Component {
         
           <Switch>
             <Route path={routes.FORM} exact render={() => 
-                                      <Form chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
+                                      <Form newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 
-                                      <Sale /> }/>            
+                                      <Sale newRecipe={newRecipe}/> }/>            
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ROOT} render={() => 

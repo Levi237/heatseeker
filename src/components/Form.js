@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 
 // make buttons that change color when selected and also update form
@@ -93,7 +93,7 @@ export default class Form extends Component {
     render(){
         // const { setToggleApp, submitForm } = this.props
         const {chili, spice, vinegar, extra, show} = this.state
-        const { chilis, spices, extras, vinegars, submitForm } = this.props
+        const { chilis, spices, extras, vinegars, submitForm, newRecipe } = this.props
         const { selected } = this.state;
         // Create menu from items
         const menu = this.menuItems;
@@ -142,33 +142,35 @@ export default class Form extends Component {
         return(
             <>
                     <ScrollMenu
-          data={chiliList}
-          arrowLeft={ArrowLeft}
-          arrowRight={ArrowRight}
-          selected={selected}
-          onSelect={this.onSelect}
-        />
+                        data={chiliList}
+                        arrowLeft={ArrowLeft}
+                        arrowRight={ArrowRight}
+                        selected={selected}
+                        onSelect={this.onSelect}
+                    />
             <h2>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00   |   Heat Factor: {chili.heat}</h2>
             <div className="myProgress">
                 <progress className="bored-bar" value={chili.heat} max="15"></progress>
             </div>
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
             <input className="" type="button" onClick={this.showModal} value="save"/>
+            {
+                newRecipe ? <Redirect to={'/complete-sale'} /> :
+            
                 <Modal show={show} onClose={this.showModal}>
                 <h2>Are you sure you want to save?</h2>
                 <br />
                     {chili.name} pepper + {spice.name} spice + {extra.name ? extra.name : "none"} + {vinegar.name} vinegar
                     <br /><br /><br />
-                    {/* <Link to={routes.SALE}> */}
                 <button type="submit">
-{/* <div>
-                            <a href="/complete-sale"> */}
+                    <Link to={routes.SALE}>
+                            {/* <div><a href="/complete-sale"> */}
                             Save For Real
                             {/* </a></div> */}
-                        </button>
-                    {/* </Link> */}
+                    </Link>
+                </button>
                 </Modal>
-
+            }
                 <div className="chiliSection">
                     {chiliList}
                 </div>
