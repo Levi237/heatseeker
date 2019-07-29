@@ -7,10 +7,10 @@ export default class Sale extends Component {
             <>
             { newRecipe ?
             <ul>
-                <li>{ newRecipe.chili }</li>
-                <li>{ newRecipe.spice }</li>
-                <li>{ newRecipe.extra }</li>
-                <li>{ newRecipe.vinegar }</li>
+                { newRecipe.chili.name && <li>{ newRecipe.chili.name }</li>}
+                { newRecipe.spice.name && <li>{ newRecipe.spice.name }</li>}
+                { newRecipe.extra.name && <li>{ newRecipe.extra.name }</li>}
+                { newRecipe.vinegar.name && <li>{ newRecipe.vinegar.name }</li>}
             </ul>
             : ""
             }

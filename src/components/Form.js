@@ -152,25 +152,26 @@ export default class Form extends Component {
             <div className="myProgress">
                 <progress className="bored-bar" value={chili.heat} max="15"></progress>
             </div>
+
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
-            <input className="" type="button" onClick={this.showModal} value="save"/>
-            {
-                newRecipe ? <Redirect to={'/complete-sale'} /> :
-            
-                <Modal show={show} onClose={this.showModal}>
-                <h2>Are you sure you want to save?</h2>
-                <br />
-                    {chili.name} pepper + {spice.name} spice + {extra.name ? extra.name : "none"} + {vinegar.name} vinegar
-                    <br /><br /><br />
-                <button type="submit">
-                    <Link to={routes.SALE}>
+                <input className="" type="button" onClick={this.showModal} value="save"/>
+                {
+                newRecipe 
+                ? <Redirect to={'/complete-sale'} /> 
+                : <Modal show={show} onClose={this.showModal}>
+                    <h2>Are you sure you want to save?</h2>
+                    <br />
+                        {chili.name} pepper + {spice.name} spice + {extra.name ? extra.name : "none"} + {vinegar.name} vinegar
+                        <br /><br /><br />
+                    <button type="submit">
+                        {/* <Link to={routes.SALE}> */}
                             {/* <div><a href="/complete-sale"> */}
                             Save For Real
                             {/* </a></div> */}
-                    </Link>
-                </button>
-                </Modal>
-            }
+                        {/* </Link> */}
+                    </button>
+                  </Modal>
+                }
                 <div className="chiliSection">
                     {chiliList}
                 </div>
