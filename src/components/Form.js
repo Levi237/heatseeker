@@ -44,15 +44,14 @@ const selected = 'item1';
 export default class Form extends Component {
     state = {
         chili: {
-            name: "ghost",
+            name: "Ghost Pepper",
             heat: 10,
-            info: "this is super hot",
             price: 600
         },
         spice: {
-            name: "indian",
+            name: "Indian",
             heat: 1,
-            items: ["indian curry", "cumin"],
+            items: ["Indian curry", "cumin"],
             price: 500,
         },
         extra: {
@@ -60,8 +59,7 @@ export default class Form extends Component {
             price: 0,
         },
         vinegar: {
-            name: "white",
-            info: "strong",
+            name: "White",
             price: 400,
         },
         show: false,

@@ -165,7 +165,7 @@ export default class App extends Component {
     return (
       <div className="grid-container">
         <div className="grid-header">HEADER</div>
-        <div className="grid-nav"><Nav /></div>
+        <div className="grid-nav"><Nav newRecipe={newRecipe}/></div>
         <div className="grid-logo"><img src={logo} className="App-logo" alt="logo" /></div>
         <div className="grid-main">
         
