@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 
 // make buttons that change color when selected and also update form
@@ -8,7 +8,7 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 
 import Modal from './modal/Modal'
 
-import * as routes from '../constants/routes'
+// import * as routes from '../constants/routes'
 
 // All items component
 // Important! add unique key
@@ -96,12 +96,10 @@ export default class Form extends Component {
         // Create menu from items
         const menu = this.menuItems;
 
-        
-          
 
         const chiliList = chilis.map((chili, i) => {
             return(
-                <section key={i}>
+                <section className="chiliSection" key={i}>
                     <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, chili)}} type="button"></button>
                     <section><img src={`../${chili.src}`} alt="placeholder"/><br/>{chili.name}</section>
                 </section>
@@ -114,7 +112,7 @@ export default class Form extends Component {
                 )
             })
             return (
-                <section key={i}>
+                <section className="spiceSection" key={i}>
                     <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
                     <section><h3>{spice.name}</h3><ul>{spiceItems}</ul></section>
                 </section>
@@ -122,7 +120,7 @@ export default class Form extends Component {
         })
         const extraList = extras.map((extra, i) => {
             return (
-                <section key={i}>
+                <section className="extraSection" key={i}>
                     <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
                     <section><h3>{extra.name}</h3></section>
                 </section>
@@ -130,7 +128,7 @@ export default class Form extends Component {
         })
         const vinegarList = vinegars.map((vinegar, i) => {
             return (
-                <section key={i}>
+                <section className="vinegarSection"key={i}>
                     <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
                     <section><h3>{vinegar.name}</h3></section>
                 </section>
@@ -139,13 +137,6 @@ export default class Form extends Component {
 
         return(
             <>
-                    <ScrollMenu
-                        data={chiliList}
-                        arrowLeft={ArrowLeft}
-                        arrowRight={ArrowRight}
-                        selected={selected}
-                        onSelect={this.onSelect}
-                    />
             <h2>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00   |   Heat Factor: {chili.heat}</h2>
             <div className="myProgress">
                 <progress className="bored-bar" value={chili.heat} max="15"></progress>
@@ -153,8 +144,7 @@ export default class Form extends Component {
 
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
                 <input className="" type="button" onClick={this.showModal} value="save"/>
-                {
-                newRecipe 
+                { newRecipe 
                 ? <Redirect to={'/complete-sale'} /> 
                 : <Modal show={show} onClose={this.showModal}>
                     <h2>Are you sure you want to save?</h2>
@@ -171,14 +161,18 @@ export default class Form extends Component {
                   </Modal>
                 }
                 <div className="chiliSection">
-                    {chiliList}
+                <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                    {/* {chiliList} */}
                 </div>
+                <hr />
                 <div className="spiceSection">
                     {spiceList}
                 </div>
+                <hr />
                 <div className="extraSection">
                     {extraList} 
                 </div>
+                <hr />
                 <div className="vinegarSection">
                     {vinegarList}                  
                 </div>

@@ -1,21 +1,4 @@
-.menu-item {
-  padding: 0 40px;
-  margin: 5px 10px;
-  user-select: auto;
-  cursor: pointer;
-  border: none;
-}
-.menu-item-wrapper.active {
-  border: 1px blue solid;
-}
-.menu-item.active {
-  border: 1px green solid;
-}
- 
-.scroll-menu-arrow {
-  padding: 20px;
-  cursor: pointer;
-}
+
 
 
 
@@ -199,7 +182,7 @@ grid-template-areas:
   text-align: center;
 }
 
-.chiliSection > section > section > img {
+.chiliSection > section > img {
   height: 60px;
   width: 30px;
 }
@@ -216,6 +199,7 @@ grid-template-areas:
   background-color: lightgrey;
 }
 
+
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
 /***************************************           PICK            ***************************************/
@@ -227,35 +211,33 @@ button {
 }
 
 li {
-  text-align: left;
+  /* text-align: left; */
 }
 
 .toggleOn {
-  background-color: rgb(255, 69, 0, .5);
+  background-color: rgb(255, 69, 0, .2);
+  /* z-index: -1; */
 }
 
 
-.chiliSection > section, .spiceSection > section, .extraSection > section, .vinegarSection > section  {
+.spiceSection, .extraSection, .vinegarSection  {
   display: inline-block;
   margin: 10px;
 }
 
-.chiliSection > section > section, .chiliSection > section > button { 
-  /* border: none; */
-  /* background-color: transparent; */
-  /* padding: 10px; */
+.chiliSection > section, .chiliSection > button { 
   height: 90px;
-  width: 60px;
-  margin: 0 20px;
+  width: 100px;
+  /* margin: 0 20px; */
 }
 
-.chiliSection > section > button, .spiceSection > section > button, .extraSection > section > button, .vinegarSection > section > button {
+.chiliSection > button, .spiceSection > button, .extraSection > button, .vinegarSection > button {
   position: absolute;
   border: none;
 }
 
 
-.chiliBtn, .spiceBtn, .extraBtn {
+.chiliBtn {
   display: inline-block;
   position: relative;
   z-index: 1;
@@ -263,22 +245,22 @@ li {
   margin-bottom: -10px;
 }
 
-.chiliSection > section > section, .spiceSection > section > section {
-  display: inline-block;
+.chiliSection > section, .spiceSection > section {
+  /* display: inline-block; */
   text-align: center; 
   /* padding: 10px; */
   font-size: 10px;
   /* margin-left:-80px; */
 }
 
-.spiceSection > section > section, .spiceSection > section > button { 
+.spiceSection > section, .spiceSection > button { 
   /* border: none; */
   /* padding: 10px; */
   height: 80px;
   width: 100px;
 }
 
-.extraSection > section > section, .extraSection > section > button { 
+.extraSection > section, .extraSection > button { 
   /* border: none; */
   /* padding: 10px; */
   text-align: center;
@@ -286,10 +268,36 @@ li {
   width: 100px;
 }
 
-.vinegarSection > section > section, .vinegarSection > section > button { 
+.vinegarSection > section, .vinegarSection > button { 
   /* border: none; */
   /* padding: 10px; */
   text-align: center;
   height: 80px;
   width: 100px;
+}
+
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************           HORIZONTAL      ***************************************/
+/***************************************           SCROLL          ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+.menu-item {
+  padding: 0 40px;
+  margin: 5px 10px;
+  user-select: auto;
+  cursor: pointer;
+  border: none;
+}
+.menu-item-wrapper.active {
+  border: none;
+  /* border: 1px blue solid; */
+}
+.menu-item.active {
+  border: 1px green solid;
+}
+ 
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
 }
