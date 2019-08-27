@@ -43,25 +43,26 @@ export default class LoginRegister extends Component{
         }
     };
 
-    render(props){
+    render(){
+        const { fireErrors, loginBtn, formTitle, email, password } = this.state
 
-        let errorNotification = this.state.fireErrors ? 
-            <div className="Error">{this.state.fireErrors}</div> : null;
-        let submitBtn = this.state.loginBtn ? 
+        let errorNotification = fireErrors ? 
+            <div className="Error">{fireErrors}</div> : null;
+        let submitBtn = loginBtn ? 
             <button className="loginBtn" type="submit" onClick={this.login}>Enter</button> : 
             <button className="loginBtn" type="submit" onClick={this.register}>Register</button>;
-        let login_register = this.state.loginBtn ? 
+        let login_register = loginBtn ? 
             <button className="registerBtn" onClick={() => this.getAction('reg')}>Register</button> : 
             <button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>;
 
         return(
             <div className="form-block">
             {errorNotification}
-                <div id="title">{this.state.formTitle}</div>
+                <div id="title">{formTitle}</div>
                 <div className="body">
                     <form>
-                        <input type="email" value={this.state.email} onChange={this.handleChange} name="email" placeholder="name"/> <br />
-                        <input type="password" value={this.state.password} onChange={this.handleChange} name="password" placeholder="password"  /><br />
+                        <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="name"/> <br />
+                        <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  /><br />
                         {submitBtn}
                     </form>
                     {login_register}
