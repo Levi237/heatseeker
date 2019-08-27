@@ -52,7 +52,6 @@ export default class App extends Component {
     //       data['id'] = _doc.id;
     //       return data;
     //     });
-    //     console.log(notes);
     //     this.setState({ notes: notes });
     //   });
       firebase
@@ -127,10 +126,7 @@ export default class App extends Component {
   //     });
   // }
   submitForm =  async (e, data) => {
-    console.log("click submitForm")
     e.preventDefault();
-    console.log(e.target, '<-----submitForm e  SUBMITFORM')
-    console.log(data, '<-----submitForm data  SUBMITFORM')
     this.setState({
       newRecipe: data
     })
@@ -140,7 +136,6 @@ export default class App extends Component {
       extra: data.extra,
       vinegar: data.vinegar
     }
-    console.log(recipe, "<---- submit recipe")
     const newFromDB = await firebase.firestore()
       .collection('recipes')
       .add({
@@ -187,12 +182,14 @@ export default class App extends Component {
         <div className="grid-nav"><Nav newRecipe={newRecipe} logout={this.logout} user={user}/></div>
         <div className="grid-logo"><img src={logo} className="App-logo" alt="logo" /></div>
         <div className="grid-main">
-        {user ? <Home /> : <LoginRegister/>}
+
           <Switch>
+            <Route path={routes.HOME} render={() => 
+                                      user ? <Home /> : <LoginRegister/>} />
             <Route path={routes.FORM} exact render={() => 
                                       <Form newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 
-                                      <Sale newRecipe={newRecipe}/> }/>            
+                                      <Sale newRecipe={newRecipe} user={user}/> }/>            
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ROOT} render={() => 

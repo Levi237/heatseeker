@@ -54,7 +54,6 @@ class SideBarComponnt extends Component {
 }
     newNoteBtnClick = () => {
         this.setState({title: null, addingNote: !this.state.addingNote})
-        console.log('New Button Clicker')
     }
     updateTitle = (txt) => {
         this.setState({title: txt})

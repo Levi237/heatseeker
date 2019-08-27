@@ -66,7 +66,6 @@ export default class Form extends Component {
         selected: false,
     }
     showModal = () => {
-        console.log("click")
         this.setState({
           ...this.state,
           show: !this.state.show

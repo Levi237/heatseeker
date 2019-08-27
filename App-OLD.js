@@ -35,7 +35,7 @@ export default class App extends Component {
     //       data['id'] = _doc.id;
     //       return data;
     //     });
-    //     console.log(notes);
+
     //     this.setState({ notes: notes });
     //   });
       firebase
@@ -101,8 +101,6 @@ export default class App extends Component {
   // }
   submitForm =  async (e, data) => {
     e.preventDefault();
-    console.log(e.target, '<-----submitForm e  SUBMITFORM')
-    console.log(data, '<-----submitForm data  SUBMITFORM')
     this.setState({
       newRecipe: data
     })
@@ -112,7 +110,6 @@ export default class App extends Component {
       extra: data.extra,
       vinegar: data.vinegar
     }
-    console.log(recipe, "<---- submit recipe")
     const newFromDB = await firebase.firestore()
       .collection('recipes')
       .add({
@@ -164,11 +161,7 @@ export default class App extends Component {
 
 
 //   setToggleApp = (e) => {
-//     console.log("click setToggleApp")
-//     console.log(e.target.name, "<========e.target.name setToggleApp")
-//     console.log(e.target.value,  "<===========================e.target.value setToggleApp")
 //     const { name } = e.target
-//     console.log(name, "<---- post deconstruct name")
 //     this.setState({
 //       // options{chilis.ghost.select}: true,
 //         [name]: !this.state[name]

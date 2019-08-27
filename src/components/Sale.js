@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom'
 
 export default class Sale extends Component {
     render(){
+
+
         const { newRecipe } = this.props
         return(
             <>
