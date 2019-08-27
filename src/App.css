@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* FORM-BLOCK */
+.form-block {
+  width: 500px;
+  height: 300px;
+  
+}
+.form-block input {
+  height: 20px;
+  width: 400px;
+  border: 1px solid rgb(123, 63, 0);
+  border-radius: 3px;
+  margin-top: 10px;
+
+
+}
+
+.form-block button {
+  height: 20px;
+}

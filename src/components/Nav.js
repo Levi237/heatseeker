@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import * as routes from '../constants/routes'
 
-const Nav = ({newRecipe}) => 
+const Nav = ({newRecipe, user, logout}) => 
     <div className="navBox">
     { !newRecipe && 
     <>
@@ -11,6 +11,7 @@ const Nav = ({newRecipe}) =>
     <NavLink activeClassName="" to={routes.INFO}>ABOUT</NavLink>
     </>
     }
+    {user ? <NavLink activeClassName="" to={routes.HOME} onClick={logout}>LOGOUT</NavLink> : ""}
     </div>
 
 export default Nav

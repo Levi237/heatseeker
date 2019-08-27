@@ -37,7 +37,7 @@ const Arrow = ({ text, className }) => {
 const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
  
-const selected = 'item1';
+// const selected = 'item1';
  
 
 

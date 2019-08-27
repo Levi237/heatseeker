@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
+
 import { Switch, Route } from 'react-router-dom';
 
 import logo from './logo.svg';
 import './App.css';
 
-import About  from './components/About'
-import Form   from './components/Form'
-import Nav    from './components/Nav'
-import Sale   from './components/Sale'
+import About  from './components/About';
+import Form   from './components/Form';
+import Nav    from './components/Nav';
+import Sale   from './components/Sale';
+
+import Home from './components/Home';
+import LoginRegister from './components/LoginRegister';
 
 // import SideBar from './tutorial/sidebar/sidebar'
 // import EditorComponent from './tutorial/editor/editor';
 
 import * as routes  from './constants/routes';
 
+
 const firebase = require('firebase')
 
 export default class App extends Component {
 
   state = {
+
+      use: null,
+
       chilis: [],
       spices: [],
       extras: [],
@@ -34,6 +42,7 @@ export default class App extends Component {
 
   // DRY THIS UP!
   componentDidMount = () => {
+    this.authListener();
     // firebase
     //   .firestore()
     //   .collection('notes')
@@ -92,9 +101,19 @@ export default class App extends Component {
       });
   }
 
+  authListener(){
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user){
+        this.setState({user});
+      }else{
+        this.setState({user: null});
+      }
+    });
+  };
   
-
-  
+  logout = () => {
+    firebase.auth().signOut();
+  }
   // selectNote = (note, index) => this.setState({ selectedNoteIndex: index, selectedNote: note });
   // noteUpdate = (id, noteObj) => {
   //   firebase
@@ -156,7 +175,7 @@ export default class App extends Component {
 
 
   render(){
-    const { chilis, spices, extras, vinegars, selectedNoteIndex, notes, newRecipe } = this.state
+    const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
     // const { chilis, spices, extras, vinegars } = this.state.options
 
 
@@ -165,10 +184,10 @@ export default class App extends Component {
     return (
       <div className="grid-container">
         <div className="grid-header">HEADER</div>
-        <div className="grid-nav"><Nav newRecipe={newRecipe}/></div>
+        <div className="grid-nav"><Nav newRecipe={newRecipe} logout={this.logout} user={user}/></div>
         <div className="grid-logo"><img src={logo} className="App-logo" alt="logo" /></div>
         <div className="grid-main">
-        
+        {user ? <Home /> : <LoginRegister/>}
           <Switch>
             <Route path={routes.FORM} exact render={() => 
                                       <Form newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
