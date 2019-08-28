@@ -12,11 +12,12 @@ const Nav = ({newRecipe, user, logout}) =>
     : <></>
     }
     { user &&
-    <NavLink activeClassName="" to={routes.USER}>HOME</NavLink>
+    <NavLink activeClassName="" to={routes.HOME} onClick={logout}>LOGOUT</NavLink>
+    
     }
 
 
-    {user ? <NavLink activeClassName="" to={routes.HOME} onClick={logout}>LOGOUT</NavLink> : <NavLink activeClassName="" to={routes.HOME} onClick={logout}>LOGIN</NavLink>}
+    {user ? <NavLink activeClassName="" to={routes.USER}>HOME</NavLink> : <NavLink activeClassName="" to={routes.HOME} onClick={logout}>HOME</NavLink>}
     </div>
 
 export default Nav

@@ -65,6 +65,7 @@ export default class LoginRegister extends Component{
             <button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>;
 
         return(
+            <div className="home">
             <div className="form-block">
             <div className="errorNotification">{errorNotification}</div>
                 <div id="title">{formTitle}</div>
@@ -77,6 +78,7 @@ export default class LoginRegister extends Component{
                     </form>
                     {login_register}
                 </div>
+            </div>
             </div>
         );
     };

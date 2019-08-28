@@ -193,11 +193,9 @@ grid-template-areas:
   grid-area: main;
   background-color: white;
   text-align: center;
-  background-image: url('./tiedye.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
+
+
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
