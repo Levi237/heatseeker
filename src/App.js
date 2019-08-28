@@ -25,7 +25,7 @@ export default class App extends Component {
 
   state = {
 
-      use: null,
+      user: null,
 
       chilis: [],
       spices: [],
@@ -146,7 +146,6 @@ export default class App extends Component {
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       })
   }
-  
 
   // deleteNote = async (note) => {
   //       const noteIndex = this.state.notes.indexOf(note);
@@ -161,28 +160,25 @@ export default class App extends Component {
   //       firebase.firestore.collection('notes').doc(note.id).delete()
   // }
 
-
-
- 
-
-
-
-
-
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
-    // const { chilis, spices, extras, vinegars } = this.state.options
-
-
-
 
     return (
       <div className="grid-container">
-        <div className="grid-header">HEADER</div>
-        <div className="grid-nav"><Nav newRecipe={newRecipe} logout={this.logout} user={user}/></div>
-        <div className="grid-logo"><img src={logo} className="App-logo" alt="logo" /></div>
-        <div className="grid-main">
+      
+        <div className="grid-logo">
+          <img src="tiedye-heatseekersauce.png" className="App-logo" alt="logo" />
+        </div>
 
+        <div className="grid-header">
+          <h1>HEATMAKERSAUCE</h1>
+        </div>
+
+        <div className="grid-nav">
+          <Nav newRecipe={newRecipe} logout={this.logout} user={user}/>
+        </div>
+
+        <div className="grid-main">
           <Switch>
             <Route path={routes.HOME} render={() => 
                                       user ? <Home /> : <LoginRegister/>} />
@@ -195,14 +191,9 @@ export default class App extends Component {
             <Route path={routes.ROOT} render={() => 
                                       <About /> }/>
           </Switch>
-        </div>
-                
-                
-                
+        </div>     
+
         <div className="grid-footer">FOOTER</div>
-
-
-
       </div>
     );
   }

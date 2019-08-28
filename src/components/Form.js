@@ -74,9 +74,7 @@ export default class Form extends Component {
             [e.target.name]: value
         })
     }
-    // toggle = e => {
-    //     e.currentTarget.classList.toggle('toggleOn');
-    // }
+
     onSelect = key => {
         this.setState({ selected: key });
       }
@@ -151,21 +149,14 @@ export default class Form extends Component {
                   </Modal>
                 }
                 <div className="chiliSection">
-                <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
-                    {/* {chiliList} */}
+                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
                 </div>
-                <hr />
-                <div className="spiceDiv">
+                <hr />  
                     {spiceList}
-                </div>
                 <hr />
-                <div className="extraDiv">
                     {extraList} 
-                </div>
                 <hr />
-                <div className="vinegarDiv">
                     {vinegarList}                  
-                </div>
             </form>
             </>
         )
