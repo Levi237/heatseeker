@@ -6,6 +6,7 @@ export default class LoginRegister extends Component{
     state = {
         email: "",
         password: "",
+        // displayName: "",
         fireErrors:"",
         formTitle: "Login",
         loginBtn: true,
@@ -30,7 +31,16 @@ export default class LoginRegister extends Component{
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .catch((error) => {
                 this.setState({fireErrors: error.message})
-            });
+            })
+        // let currentUser = firebase.auth().currentUser;
+        // currentUser.updateProfile({
+        //   displayName: this.state.displayName,
+        //   // photoURL: "https://example.com/jane-q-user/profile.jpg"
+        // }).then(function() {
+        //   // Update successful.
+        // }).catch((error) => {
+        //     this.setState({updateErrors: error.message}) // need to add to state
+        // });
     };
 
     getAction = action => {
@@ -43,7 +53,7 @@ export default class LoginRegister extends Component{
     };
 
     render(){
-        const { fireErrors, loginBtn, formTitle, email, password } = this.state
+        const { fireErrors, loginBtn, formTitle, email, password, displayName } = this.state
 
         let errorNotification = fireErrors ? 
             <div className="Error">{fireErrors}</div> : null;
@@ -60,7 +70,8 @@ export default class LoginRegister extends Component{
                 <div id="title">{formTitle}</div>
                 <div className="body">
                     <form>
-                        <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="name"/>
+                        {/* <input type="text" value={displayName} onChange={this.handleChange} name="displayName" placeholder="name"/> */}
+                        <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="email"/>
                         <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
                         {submitBtn}
                     </form>

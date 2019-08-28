@@ -10,7 +10,9 @@ import Form   from './components/Form';
 import Nav    from './components/Nav';
 import Sale   from './components/Sale';
 
+
 import Home from './components/Home';
+import Username from './components/Username';
 import LoginRegister from './components/LoginRegister';
 
 // import SideBar from './tutorial/sidebar/sidebar'
@@ -120,6 +122,7 @@ export default class App extends Component {
     firebase.auth().signOut();
   }
 
+
   
   // selectNote = (note, index) => this.setState({ selectedNoteIndex: index, selectedNote: note });
   // noteUpdate = (id, noteObj) => {
@@ -176,7 +179,7 @@ export default class App extends Component {
     let currentUser = firebase.auth().currentUser;
     console.log(currentUser, "<--- currentUser")
     if (currentUser != null) {
-      currentUser.providerData.forEach(function (profile) {
+      currentUser.providerData.forEach((profile) => {
         console.log("Sign-in provider: " + profile.providerId);
         console.log("  Provider-specific UID: " + profile.uid);
         console.log("  Name: " + profile.displayName);
@@ -201,12 +204,15 @@ export default class App extends Component {
 
         <div className="grid-main">
           <Switch>
-            <Route path={routes.HOME} render={() => 
-                                      user ? <Home /> : <LoginRegister/>} />
+            <Route path={routes.HOME} render={() => user 
+                                    ? <Home /> 
+                                    : <LoginRegister/>} />
+            <Route path={routes.USER} render={() => 
+                                      <Username /> }/>
             <Route path={routes.FORM} exact render={() => 
                                       <Form newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 
-                                      <Sale newRecipe={newRecipe} user={user}/> }/>            
+                                      <Sale newRecipe={newRecipe} user={user}/> }/>                                         
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ROOT} render={() => 
