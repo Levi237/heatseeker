@@ -11,7 +11,7 @@ export default class Home extends Component {
         return(
             <div className="home">
                 {currentUser && currentUser.displayName}, Welcome Home, you are logged in right now
-
+<br /><br />
                 <Username />
             </div>
         )
