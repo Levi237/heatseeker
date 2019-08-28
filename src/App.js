@@ -26,7 +26,7 @@ export default class App extends Component {
   state = {
 
       user: null,
-
+      currentUser: [],
       chilis: [],
       spices: [],
       extras: [],
@@ -43,6 +43,7 @@ export default class App extends Component {
   // DRY THIS UP!
   componentDidMount = () => {
     this.authListener();
+    this.loadForm();
     // firebase
     //   .firestore()
     //   .collection('notes')
@@ -54,50 +55,55 @@ export default class App extends Component {
     //     });
     //     this.setState({ notes: notes });
     //   });
-      firebase
-      .firestore()
-      .collection('chilis')
-      .onSnapshot(serverUpdate => {
-        const chilis = serverUpdate.docs.map(_doc => {
-          const data = _doc.data();
-          data['id'] = _doc.id;
-          return data;
-        });
-        this.setState({ chilis: chilis });
+
+  }
+
+
+  loadForm(){
+    firebase
+    .firestore()
+    .collection('chilis')
+    .onSnapshot(serverUpdate => {
+      const chilis = serverUpdate.docs.map(_doc => {
+        const data = _doc.data();
+        data['id'] = _doc.id;
+        return data;
       });
-      firebase
-      .firestore()
-      .collection('spices')
-      .onSnapshot(serverUpdate => {
-        const spices = serverUpdate.docs.map(_doc => {
-          const data = _doc.data();
-          data['id'] = _doc.id;
-          return data;
-        });
-        this.setState({ spices: spices });
+      this.setState({ chilis: chilis });
+    });
+    firebase
+    .firestore()
+    .collection('spices')
+    .onSnapshot(serverUpdate => {
+      const spices = serverUpdate.docs.map(_doc => {
+        const data = _doc.data();
+        data['id'] = _doc.id;
+        return data;
       });
-      firebase
-      .firestore()
-      .collection('extras')
-      .onSnapshot(serverUpdate => {
-        const extras = serverUpdate.docs.map(_doc => {
-          const data = _doc.data();
-          data['id'] = _doc.id;
-          return data;
-        });
-        this.setState({ extras: extras });
+      this.setState({ spices: spices });
+    });
+    firebase
+    .firestore()
+    .collection('extras')
+    .onSnapshot(serverUpdate => {
+      const extras = serverUpdate.docs.map(_doc => {
+        const data = _doc.data();
+        data['id'] = _doc.id;
+        return data;
       });
-      firebase
-      .firestore()
-      .collection('vinegars')
-      .onSnapshot(serverUpdate => {
-        const vinegars = serverUpdate.docs.map(_doc => {
-          const data = _doc.data();
-          data['id'] = _doc.id;
-          return data;
-        });
-        this.setState({ vinegars: vinegars });
+      this.setState({ extras: extras });
+    });
+    firebase
+    .firestore()
+    .collection('vinegars')
+    .onSnapshot(serverUpdate => {
+      const vinegars = serverUpdate.docs.map(_doc => {
+        const data = _doc.data();
+        data['id'] = _doc.id;
+        return data;
       });
+      this.setState({ vinegars: vinegars });
+    });
   }
 
   authListener(){
@@ -113,6 +119,8 @@ export default class App extends Component {
   logout = () => {
     firebase.auth().signOut();
   }
+
+  
   // selectNote = (note, index) => this.setState({ selectedNoteIndex: index, selectedNote: note });
   // noteUpdate = (id, noteObj) => {
   //   firebase
@@ -125,6 +133,9 @@ export default class App extends Component {
   //       timestamp: firebase.firestore.FieldValue.serverTimestamp()
   //     });
   // }
+
+
+  
   submitForm =  async (e, data) => {
     e.preventDefault();
     this.setState({
@@ -162,7 +173,17 @@ export default class App extends Component {
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
-
+    let currentUser = firebase.auth().currentUser;
+    console.log(currentUser, "<--- currentUser")
+    if (currentUser != null) {
+      currentUser.providerData.forEach(function (profile) {
+        console.log("Sign-in provider: " + profile.providerId);
+        console.log("  Provider-specific UID: " + profile.uid);
+        console.log("  Name: " + profile.displayName);
+        console.log("  Email: " + profile.email);
+        console.log("  Photo URL: " + profile.photoURL);
+      });
+    }
     return (
       <div className="grid-container">
       
