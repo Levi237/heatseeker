@@ -50,7 +50,7 @@ h1 {
   font-family: 'Smokum', 'Times New Roman', Times, serif;
   /* display: block; */
   font-size: 4em;
-  margin-block-start: 0em;
+  margin-block-start: 10px;
   margin-block-end: 0em;
   /* margin-inline-start: 0px; */
   /* margin-inline-end: 0px; */
@@ -104,7 +104,7 @@ body {
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-rows: 100px 40px auto 100px;
+  grid-template-rows: 100px 40px auto 60px;
   grid-template-columns: 100px calc(100vw - 200px) 100px;
   background-color: orangered;
   /* justify-content: space-evenly; */
@@ -204,7 +204,10 @@ grid-template-areas:
 
 .grid-footer {
   grid-area: footer;
-  background-color: lightgrey;
+  background-color: orangered;
+  bottom: 0;
+  text-align: right;
+  padding: 40px 0 0 0;
 }
 
 
@@ -367,8 +370,8 @@ section > section {
     /* display: grid; */
     /* width: 100vw; */
     /* height: 100vh; */
-    /* grid-template-rows: 100px 40px auto 100px; */
-    grid-template-columns: 100px calc(100vw - 100px);
+    grid-template-rows: 60px 40px auto 40px;
+    grid-template-columns: 60px calc(100vw - 60px);
     /* background-color: orangered; */
     /* grid-gap: 0; */
     /* padding: 0; */
@@ -379,10 +382,18 @@ section > section {
     ' footer footer';
     grid-gap: 0;
   }
+
+  .grid-footer {
+    padding: 10px 0 0 0;
+  }
+
   h1 {
-    font-size: 2em;
+    font-size: 11vw;
   }
   h2 {
     font-size: 1em;
+  }
+  .App-logo {
+    height: 60px;
   }
 }

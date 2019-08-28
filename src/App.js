@@ -193,7 +193,7 @@ export default class App extends Component {
           </Switch>
         </div>     
 
-        <div className="grid-footer">FOOTER</div>
+        <div className="grid-footer">&copy;HEATSEEKERSAUCE</div>
       </div>
     );
   }

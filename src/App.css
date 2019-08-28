@@ -2,11 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 .App-logo {
   height: 100px;
@@ -29,8 +29,9 @@
   height: 300px;
   border: 3px rgb(123, 63, 0) solid;
   border-radius: 3px;
-  margin: auto;
+  margin: 20px auto;
 }
+
 .form-block input {
   height: 20px;
   width: 400px;
@@ -64,3 +65,13 @@
   float: left;
 }
 
+.errorNotification {
+  height: 40px;
+}
+
+@media screen and (max-width: 500px) {
+  
+  .App-logo {
+    height: 60px;
+}
+}

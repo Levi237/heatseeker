@@ -56,7 +56,7 @@ export default class LoginRegister extends Component{
 
         return(
             <div className="form-block">
-            {errorNotification}
+            <div className="errorNotification">{errorNotification}</div>
                 <div id="title">{formTitle}</div>
                 <div className="body">
                     <form>
