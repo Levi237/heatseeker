@@ -41,7 +41,7 @@
 
 }
 
-.form-block button {
+.form-block button, .saveBtn {
   width: 80px;
   height: 30px;
   font-size: 14px;
@@ -63,3 +63,4 @@
 .loginBtn {
   float: left;
 }
+

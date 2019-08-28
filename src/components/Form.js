@@ -135,7 +135,18 @@ export default class Form extends Component {
             </div>
 
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
-                <input className="" type="button" onClick={this.showModal} value="save"/>
+
+                <div className="chiliSection">
+                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                </div>
+                <hr />  
+                    {spiceList}
+                <hr />
+                    {extraList} 
+                <hr />
+                    {vinegarList}      
+                <hr />
+                <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
                 { newRecipe 
                 ? <Redirect to={'/complete-sale'} /> 
                 : <Modal show={show} onClose={this.showModal}>
@@ -147,16 +158,7 @@ export default class Form extends Component {
                             Save For Real
                     </button>
                   </Modal>
-                }
-                <div className="chiliSection">
-                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
-                </div>
-                <hr />  
-                    {spiceList}
-                <hr />
-                    {extraList} 
-                <hr />
-                    {vinegarList}                  
+                }            
             </form>
             </>
         )
