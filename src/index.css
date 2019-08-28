@@ -210,8 +210,25 @@ button {
   background-color: transparent;
 }
 
-li {
-  /* text-align: left; */
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: .5em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 25px;
+  text-align: left;
+  font-size: 10px;
+  font-weight: 200;
+}
+
+section > section {
+  margin-block-start: .5em;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 5px;
+  font-size: 14px;
 }
 
 .toggleOn {
@@ -234,6 +251,7 @@ li {
 .chiliSection > button, .spiceSection > button, .extraSection > button, .vinegarSection > button {
   position: absolute;
   border: none;
+
 }
 
 
@@ -243,9 +261,21 @@ li {
   z-index: 1;
   border-radius: 15px;
   margin-bottom: -10px;
+  /* margin-left: -50px; */
 }
 
-.chiliSection > section, .spiceSection > section {
+.selectBtn {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
+  margin-bottom: -10px;
+  margin-left: -50px;
+  padding: 0;
+}
+
+.chiliSection > section {
+  /* background-color: purple; */
   /* display: inline-block; */
   text-align: center; 
   /* padding: 10px; */
@@ -254,6 +284,8 @@ li {
 }
 
 .spiceSection > section, .spiceSection > button { 
+  /* background-color: red; */
+  /* background-color: green; */
   /* border: none; */
   /* padding: 10px; */
   height: 80px;
@@ -261,18 +293,20 @@ li {
 }
 
 .extraSection > section, .extraSection > button { 
+  /* background-color: blue; */
   /* border: none; */
   /* padding: 10px; */
   text-align: center;
-  height: 80px;
+  height: 30px;
   width: 100px;
 }
 
 .vinegarSection > section, .vinegarSection > button { 
+  /* background-color: yellow; */
   /* border: none; */
   /* padding: 10px; */
   text-align: center;
-  height: 80px;
+  height: 30px;
   width: 100px;
 }
 

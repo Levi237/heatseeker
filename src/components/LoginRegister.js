@@ -19,7 +19,6 @@ export default class LoginRegister extends Component{
 
     login = e => {
         e.preventDefault();
-        
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .catch((error) => {
                 this.setState({fireErrors: error.message})
@@ -61,8 +60,8 @@ export default class LoginRegister extends Component{
                 <div id="title">{formTitle}</div>
                 <div className="body">
                     <form>
-                        <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="name"/> <br />
-                        <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  /><br />
+                        <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="name"/>
+                        <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
                         {submitBtn}
                     </form>
                     {login_register}

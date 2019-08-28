@@ -46,7 +46,7 @@ export default class Form extends Component {
         chili: {
             name: "Ghost Pepper",
             heat: 10,
-            price: 600
+            price: 4600
         },
         spice: {
             name: "Indian",
@@ -112,31 +112,31 @@ export default class Form extends Component {
             })
             return (
                 <section className="spiceSection" key={i}>
-                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
-                    <section><h3>{spice.name}</h3><ul>{spiceItems}</ul></section>
+                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn selectBtn" : "selectBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
+                    <section>{spice.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
         })
         const extraList = extras.map((extra, i) => {
             return (
                 <section className="extraSection" key={i}>
-                    <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
-                    <section><h3>{extra.name}</h3></section>
+                    <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn selectBtn" : "selectBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
+                    <section>{extra.name}</section>
                 </section>
             )
         })
         const vinegarList = vinegars.map((vinegar, i) => {
             return (
                 <section className="vinegarSection"key={i}>
-                    <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
-                    <section><h3>{vinegar.name}</h3></section>
+                    <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn selectBtn" : "selectBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
+                    <section>{vinegar.name}</section>
                 </section>
             )
         })
 
         return(
             <>
-            <h2>Price: ${(chili.price + spice.price + vinegar.price + extra.price)/100}.00   |   Heat Factor: {chili.heat}</h2>
+            <h2>Price: ${chili.price/100}.00   |   Heat Factor: {chili.heat}</h2>
             <div className="myProgress">
                 <progress className="bored-bar" value={chili.heat} max="15"></progress>
             </div>
@@ -151,11 +151,7 @@ export default class Form extends Component {
                         {chili.name} pepper + {spice.name} spice + {extra.name ? extra.name : "none"} + {vinegar.name} vinegar
                         <br /><br /><br />
                     <button type="submit">
-                        {/* <Link to={routes.SALE}> */}
-                            {/* <div><a href="/complete-sale"> */}
                             Save For Real
-                            {/* </a></div> */}
-                        {/* </Link> */}
                     </button>
                   </Modal>
                 }
@@ -164,15 +160,15 @@ export default class Form extends Component {
                     {/* {chiliList} */}
                 </div>
                 <hr />
-                <div className="spiceSection">
+                <div className="spiceDiv">
                     {spiceList}
                 </div>
                 <hr />
-                <div className="extraSection">
+                <div className="extraDiv">
                     {extraList} 
                 </div>
                 <hr />
-                <div className="vinegarSection">
+                <div className="vinegarDiv">
                     {vinegarList}                  
                 </div>
             </form>
