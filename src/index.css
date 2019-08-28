@@ -232,10 +232,11 @@ ul {
 }
 
 section > section {
-  margin-block-start: .5em;
+  margin-block-start: 6px;
+  /* margin-block-end: -6px; */
   font-size: 18px;
   font-weight: 600;
-  margin-top: 5px;
+  /* margin-top: 5px; */
   font-size: 14px;
 }
 
@@ -247,7 +248,8 @@ section > section {
 
 .spiceSection, .extraSection, .vinegarSection  {
   display: inline-block;
-  margin: 10px;
+  margin: 0 10px;
+  margin-block-end: -6px;
 }
 
 .chiliSection > section, .chiliSection > button { 
