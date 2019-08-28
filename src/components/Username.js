@@ -3,7 +3,7 @@ import firebase from 'firebase/app'
 
 export default class Username extends Component {
     state = {
-        name: null,
+        name: "",
     }
     handleChange = e => {
         this.setState({
