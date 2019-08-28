@@ -50,17 +50,12 @@ export default class Form extends Component {
         },
         spice: {
             name: "Indian",
-            heat: 1,
             items: ["Indian curry", "cumin"],
-            price: 500,
         },
         extra: {
-            heat: 0,
-            price: 0,
         },
         vinegar: {
             name: "White",
-            price: 400,
         },
         show: false,
         selected: false,
