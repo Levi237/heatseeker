@@ -12,7 +12,7 @@ import Sale   from './components/Sale';
 
 
 import Home from './components/Home';
-import Username from './components/Username';
+// import Username from './components/Username';
 import LoginRegister from './components/LoginRegister';
 
 // import SideBar from './tutorial/sidebar/sidebar'
@@ -205,10 +205,10 @@ export default class App extends Component {
         <div className="grid-main">
           <Switch>
             <Route path={routes.HOME} render={() => user 
-                                    ? <Home /> 
+                                    ? <Home/> 
                                     : <LoginRegister/>} />
             <Route path={routes.USER} render={() => 
-                                      <Username /> }/>
+                                      <Home /> }/>
             <Route path={routes.FORM} exact render={() => 
                                       <Form newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 
