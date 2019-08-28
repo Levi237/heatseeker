@@ -128,7 +128,7 @@ export default class Form extends Component {
         })
 
         return(
-            <>
+            <div className="form">
             <h2>Price: ${chili.price/100}.00   |   Heat Factor: {chili.heat}</h2>
             <div className="myProgress">
                 <progress className="bored-bar" value={chili.heat} max="15"></progress>
@@ -160,7 +160,7 @@ export default class Form extends Component {
                   </Modal>
                 }            
             </form>
-            </>
+            </div>
         )
     }
 }

@@ -18,7 +18,7 @@ export default class Sale extends Component {
                         { newRecipe.extra.name ? <li>{ newRecipe.extra.name }</li> : ""}
                         { newRecipe.vinegar.name && <li>{ newRecipe.vinegar.name }</li>}
                     </ul>
-                    <h3>Total: ${(newRecipe.chili.price + newRecipe.spice.price + newRecipe.extra.price + newRecipe.vinegar.price)/100}.00</h3>
+                    <h3>Total: ${(newRecipe.chili.price)/100}.00</h3>
                 </>
             :   <Redirect to={'/home'} /> 
             }
