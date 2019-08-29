@@ -63,35 +63,36 @@
       width: calc(100vw - 300px)
   }
 
+.arrow-prev, .arrow-prev-small {
+    width: 0; 
+    height: 0;
+    border-right: 20px solid green; 
+    margin-left: 10px;
+}
 
 .arrow-prev {
-    width: 0; 
-    height: 0; 
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent; 
-    border-right: 20px solid green; 
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent; 
 }
-  .arrow-next {
-    width: 0; 
-  height: 0; 
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-left: 20px solid red;
-  }
-  .arrow-prev-small {
-    width: 0; 
-    height: 0; 
+.arrow-prev-small {
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent; 
-    border-right: 20px solid green; 
 }
-  .arrow-next-small {
+
+.arrow-next, .arrow-next-small {
     width: 0; 
-  height: 0; 
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid red;
-  }
+    height: 0; 
+    border-left: 20px solid red;
+    margin-right: 10px;
+}
+.arrow-next {
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+}
+.arrow-next-small {
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+}
   @media screen and (max-width: 500px) {
     .box1 {
         width: 100vw;
