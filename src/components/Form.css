@@ -3,26 +3,15 @@
     /* display: inline-block; */
   }
   .box1 {
+      float: left;
       width: 300px;
       display: inline-block;
-      float: left;
   }
   .box2 {
     width: calc(100vw - 300px);
     display: inline-block;
   }
   
-  @media screen and (max-width: 500px) {
-    .box1 {
-        width: 100vw;
-        display: block;
-        float: none;
-    }
-    .box2 {
-      width: 100vw;
-      display: block;
-    }
-  }
 
 
 
@@ -72,4 +61,20 @@
   .chalk {
       height: 5px;
       width: calc(100vw - 400px)
+  }
+
+  @media screen and (max-width: 500px) {
+    .box1 {
+        width: 100vw;
+        display: block;
+        float: none;
+    }
+    .box2 {
+      width: 100vw;
+      display: block;
+    }
+    .bored-bar {
+        width: calc(100vw - 40px);
+        margin: 20px 0;
+      }
   }
