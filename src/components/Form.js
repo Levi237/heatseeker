@@ -52,10 +52,31 @@ export default class Form extends Component {
         },
         show: false,
         selected: false,
-        userInfo: {
-            name: null,
-        }
+        creator: "Janers",
     }
+
+
+    setUser = () => {
+
+    if (this.props.currentUser != null) {
+    //     // console.log(firebase.User.UserInfo.displayName)
+    //     console.log(this.props.currentUser.providerData[0].displayName)
+        // currentUser.providerData.forEach((profile) => {
+        //   console.log("Sign-in provider: " + profile.providerId);
+        //   console.log("  Provider-specific UID: " + profile.uid);
+        //   console.log("  Name: " + profile.displayName);
+        //   console.log("  Email: " + profile.email);
+        //   console.log("  Photo URL: " + profile.photoURL);
+        //   if (!this.state.userInfo.name && profile.displayName) {
+            this.setState({
+                creator: this.props.currentUser.providerData[0].displayName
+            })
+        //   }
+        // });
+        
+    }    
+    }
+
     showModal = () => {
         this.setState({
           ...this.state,
@@ -76,33 +97,18 @@ export default class Form extends Component {
       }
 
 
+
+
     render(){
         // const { setToggleApp, submitForm } = this.props
         const { chili, spice, vinegar, extra, show, selected} = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, currentUser, user } = this.props
-console.log(user, "user")
-console.log(currentUser, "currentUser")
-        // Create menu from items
-        // const menu = this.menuItems;
-        // console.log(menu, "menu")
+// console.log(user, "user")
+// console.log(currentUser, "currentUser")
+//         // Create menu from items
+//         // const menu = this.menuItems;
+//         // console.log(menu, "menu")
 
-        if (currentUser != null) {
-            // console.log(firebase.User.UserInfo.displayName)
-            console.log(currentUser.providerData[0].displayName)
-            // currentUser.providerData.forEach((profile) => {
-            //   console.log("Sign-in provider: " + profile.providerId);
-            //   console.log("  Provider-specific UID: " + profile.uid);
-            //   console.log("  Name: " + profile.displayName);
-            //   console.log("  Email: " + profile.email);
-            //   console.log("  Photo URL: " + profile.photoURL);
-            //   if (!this.state.userInfo.name && profile.displayName) {
-            //     this.setState({
-            //         name: profile.displayName
-            //     })
-            //   }
-            // });
-            
-          }
 
 
         const chiliList = chilis.map((chili, i) => {
@@ -161,7 +167,7 @@ console.log(currentUser, "currentUser")
                     </button>
                   </Modal>
                 }  
-            <div className="container">
+
             <div className="box2">
                 <div className="myProgress">
                     <progress className="bored-bar" value={chili.heat} max="15"></progress>
@@ -192,7 +198,7 @@ console.log(currentUser, "currentUser")
                 <span>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</span><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
-            </div>
+
             </form>
             </div>
         )

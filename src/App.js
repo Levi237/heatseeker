@@ -163,7 +163,7 @@ export default class App extends Component {
       chili: data.chili,
       spice: data.spice,
       extra: data.extra,
-      vinegar: data.vinegar
+      vinegar: data.vinegar,
     }
     const newFromDB = await firebase.firestore()
       .collection('recipes')
@@ -172,7 +172,9 @@ export default class App extends Component {
         spice: data.spice,
         extra: data.extra,
         vinegar: data.vinegar,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        creator: firebase.auth().currentUser.providerData[0],
+        // creator: firebase.User
       })
   }
 
