@@ -4,11 +4,7 @@ import { Redirect }         from 'react-router-dom';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 import Modal                from './modal/Modal'
 
-import firebase from 'firebase/app'
-
 import './Form.css'
-
-// import * as routes from '../constants/routes'
 
 //Scroll Menu
 const MenuItem = ({text, selected}) => {
@@ -31,8 +27,6 @@ const Arrow = ({ text, className }) => {
 };
 const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
-// const selected = 'item1';
- 
 
 
 export default class Form extends Component {
@@ -48,7 +42,7 @@ export default class Form extends Component {
         extra: {
         },
         vinegar: {
-            name: "white",
+            name: "White Wine",
         },
         show: false,
         selected: false,
@@ -76,15 +70,13 @@ export default class Form extends Component {
     render(){
 
         const { chili, spice, vinegar, extra, show, selected} = this.state
-        const { chilis, spices, extras, vinegars, submitForm, newRecipe, currentUser } = this.props
-
-
+        const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         const chiliList = chilis.map((chili, i) => {
             return(
                 <section className="chiliSection" key={i}>
                     <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, chili)}} type="button"></button>
-                    <section><img src={`../${chili.src}`} alt="placeholder"/><br/>{chili.name}</section>
+                    <section><img src={`../chilis/${chili.src}`} alt={chili.name}/><br/>{chili.name}</section>
                 </section>
             )
         })
@@ -105,8 +97,7 @@ export default class Form extends Component {
             return (
                 <section className="chiliSection" key={i}>
                     <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
-                    <section><img src={`../${extra.img}`} alt={`${extra.name}`}/><br/>{extra.name}</section>
-                    {/* <section></section> */}
+                    <section><img src={`../extras/${extra.img}`} alt={`${extra.name}`}/><br/>{extra.name}</section>
                 </section>
             )
         })
@@ -114,7 +105,7 @@ export default class Form extends Component {
             return (
                 <section className="chiliSection" key={i}>
                     <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
-                    <section><img src={`../${vinegar.img}`} alt={`${vinegar.name}`}/><br/>{vinegar.name}</section>
+                    <section><img src={`../vinegars/${vinegar.img}`} alt={`${vinegar.name}`}/><br/>{vinegar.name}</section>
                 </section>
             )
         })
@@ -145,22 +136,19 @@ export default class Form extends Component {
                 <div className="chiliSection">
                     <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
                 </div>
-                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
                     <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
-                    
-                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
                     <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
-
-                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
                     <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
-                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
-                    
-
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
             </div>   
+
             <div className="box1">
                 <h2>   Heat Factor: {chili.heat}</h2>
                 <h2>Price: ${chili.price/100}.00   </h2>
-                {currentUser != null && currentUser.providerData[0].displayName ? <span><strong>Created By: {currentUser.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br />
+                {user != null && user.providerData[0].displayName ? <span><strong>Created By: {user.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br />
                 <span>{chili.name}</span><br />
                 <span>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</span><br />
                 <span>add: {extra.name ? extra.name.charAt(0).toUpperCase() + extra.name.slice(1) : "none"}</span><br />

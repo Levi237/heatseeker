@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import { Switch, Route } from 'react-router-dom';
 
-import logo from './logo.svg';
 import './App.css';
 
 import About  from './components/About';
@@ -167,7 +165,8 @@ export default class App extends Component {
     //   extra: data.extra,
     //   vinegar: data.vinegar,
     // }
-    const newFromDB = await firebase.firestore()
+    // const newFromDB = await firebase.firestore()
+    await firebase.firestore()
       .collection('recipes')
       .add({
         chili: data.chili,
@@ -196,18 +195,18 @@ export default class App extends Component {
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
 
-    const currentUser = firebase.auth().currentUser;
+    // const currentUser = firebase.auth().currentUser;
 
-    if (currentUser != null) {
-      console.log(currentUser.providerData[0], "console")
-      currentUser.providerData.forEach((profile) => {
-        console.log("Sign-in provider: " + profile.providerId);
-        console.log("  Provider-specific UID: " + profile.uid);
-        console.log("  Name: " + profile.displayName);
-        console.log("  Email: " + profile.email);
-        console.log("  Photo URL: " + profile.photoURL);
-      });
-    }
+    // if (currentUser != null) {
+    //   console.log(currentUser.providerData[0], "console")
+    //   currentUser.providerData.forEach((profile) => {
+    //     console.log("Sign-in provider: " + profile.providerId);
+    //     console.log("  Provider-specific UID: " + profile.uid);
+    //     console.log("  Name: " + profile.displayName);
+    //     console.log("  Email: " + profile.email);
+    //     console.log("  Photo URL: " + profile.photoURL);
+    //   });
+    // }
     return (
       <div className="grid-container">
       
@@ -231,7 +230,7 @@ export default class App extends Component {
             <Route path={routes.USER} render={() => 
                                       <Home /> }/>
             <Route path={routes.FORM} exact render={() => 
-                                      <Form user={user} currentUser={currentUser} newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
+                                      <Form user={user} newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 
                                       <Sale newRecipe={newRecipe} user={user}/> }/>                                         
             <Route path={routes.INFO} exact render={() => 
@@ -242,7 +241,7 @@ export default class App extends Component {
         </div>     
         
         <div className="grid-footer">
-        <img className="chalk-bottom" src="chalkdarkorange.png"/><br />
+        <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
           <section>&copy;HEATSEEKERSAUCE</section>
           </div>
       </div>

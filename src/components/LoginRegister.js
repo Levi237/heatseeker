@@ -53,7 +53,7 @@ export default class LoginRegister extends Component{
     };
 
     render(){
-        const { fireErrors, loginBtn, formTitle, email, password, displayName } = this.state
+        const { fireErrors, loginBtn, formTitle, email, password } = this.state
 
         let errorNotification = fireErrors ? 
             <div className="Error">{fireErrors}</div> : null;
