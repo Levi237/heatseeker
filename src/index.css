@@ -71,7 +71,7 @@ button {
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-rows: 100px 40px auto 60px;
+  grid-template-rows: 120px 40px auto 60px;
   grid-template-columns: 100px calc(100vw - 200px) 100px;
   background-color: orangered;
   /* justify-content: space-evenly; */
@@ -165,6 +165,7 @@ grid-template-areas:
   grid-area: main;
   background-color: white;
   text-align: center;
+  padding: 0 20px;
 }
 
 
