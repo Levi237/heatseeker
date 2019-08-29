@@ -161,6 +161,7 @@ console.log(currentUser, "currentUser")
                     </button>
                   </Modal>
                 }  
+            <div className="container">
             <div className="box2">
                 <div className="myProgress">
                     <progress className="bored-bar" value={chili.heat} max="15"></progress>
@@ -191,7 +192,7 @@ console.log(currentUser, "currentUser")
                 <span>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</span><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
-
+            </div>
             </form>
             </div>
         )

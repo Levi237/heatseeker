@@ -1,14 +1,19 @@
-  .box1 {
-      float: left;
-      width: 250px;
-      display: inline-block;
-  }
-  .box2 {
+.container {
+    width: calc(100vw - 80px);
+    /* padding: 0 40px; */
+}
+  
+.box1 {
+    float: left;
+    width: 250px;
+    display: inline-block;
+}
+.box2 {
     width: calc(100vw - 350px);
     display: inline-block;
     /* margin-bottom: 20px; */
     /* margin-right: 100px; */
-  }
+}
   
 /*********************************************************************************************************/
 /***************************************                           ***************************************/

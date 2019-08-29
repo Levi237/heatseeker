@@ -32,10 +32,10 @@
   width: calc(100vw - 40px);
   padding: 20px;
   margin-top: 0px;
-  background-image: url('./tiedye.jpg');
+  /* background-image: url('./tiedye.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 .form-block {
