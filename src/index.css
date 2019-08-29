@@ -169,12 +169,17 @@ grid-template-areas:
 
 .grid-footer {
   grid-area: footer;
-  color: white;
-  /* font-weight: 400; */
-  background-color: rgb(123, 63, 0);
-  bottom: 0;
-  text-align: right;
-  padding: 40px 0 0 0;
+  /* color: white; */
+  background-color: white;
+  /* background-color: rgb(123, 63, 0); */
+  /* bottom: 0; */
+  /* text-align: right; */
+  padding: 0 0 0 0;
+}
+
+.grid-footer > section {
+  /* position: fixed; */
+  float: right;
 }
 
 
@@ -303,7 +308,10 @@ section > section {
   width: 100px;
 }
 
-
+.extraSection img {
+  height: 50px;
+  width: 50px;
+}
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/

@@ -76,7 +76,7 @@ export default class Form extends Component {
     render(){
         // const { setToggleApp, submitForm } = this.props
         const { chili, spice, vinegar, extra, show, selected} = this.state
-        const { chilis, spices, extras, vinegars, submitForm, newRecipe } = this.props
+        const { chilis, spices, extras, vinegars, submitForm, newRecipe, currentUser, user } = this.props
 
         // Create menu from items
         // const menu = this.menuItems;
@@ -109,6 +109,7 @@ export default class Form extends Component {
                 <section className="extraSection" key={i}>
                     <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn selectBtn" : "selectBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
                     <section>{extra.name}</section>
+                    <section><img src={`../${extra.img}`} alt={`${extra.name}`}/></section>
                 </section>
             )
         })
@@ -154,18 +155,20 @@ export default class Form extends Component {
 
                     <img className="chalk" src="chalkdarkorange.png"/>  <br />
                     <ScrollMenu data={vinegarList} arrowLeft={ArrowLeftSmall} arrowRight={ArrowRightSmall} selected={selected} onSelect={this.onSelect} />
-  
+                    
 
             </div>   
             <div className="box1">
                 <h2>   Heat Factor: {chili.heat}</h2>
                 <h2>Price: ${chili.price/100}.00   </h2>
+                {/* {user.name ? <span>Created By: {user.name}</span >: <span>Your Order:</span>} */}
                 <span>{chili.name}</span><br />
                 <span>{spice.name} Spice</span><br />
                 <span>add: {extra.name ? extra.name : "none"}</span><br />
                 <span>{vinegar.name} Vinegar</span><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
+
             </form>
             </div>
         )

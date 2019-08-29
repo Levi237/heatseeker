@@ -10,6 +10,7 @@
   .box2 {
     width: calc(100vw - 300px);
     display: inline-block;
+    /* margin-bottom: 20px; */
   }
   
 
@@ -57,7 +58,12 @@
     margin: 20px 10px;
   }
 
-
+.chalk-bottom {
+    height: 5px;
+    width: calc(100vw - 0px);
+    position: relative;
+    top: -12px;
+}
   .chalk {
       height: 5px;
       width: calc(100vw - 300px)
@@ -102,6 +108,7 @@
     .box2 {
       width: 100vw;
       display: block;
+      margin-bottom: auto;
     }
     .bored-bar {
         width: calc(100vw - 40px);
