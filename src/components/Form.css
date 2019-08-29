@@ -1,7 +1,3 @@
-.container {
-
-    /* display: inline-block; */
-  }
   .box1 {
       float: left;
       width: 300px;
@@ -13,7 +9,134 @@
     /* margin-bottom: 20px; */
   }
   
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************           PICK            ***************************************/
+/***************************************           CHILI           ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+button {
+    background-color: transparent;
+  }
+  
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: .5em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 25px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 200;
+  }
+  
+  section > section {
+    margin-block-start: 6px;
+    /* margin-block-end: -6px; */
+    font-size: 18px;
+    font-weight: 600;
+    /* margin-top: 5px; */
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .toggleOn {
+    background-color: rgb(255, 69, 0, .2);
+    /* z-index: -1; */
+  }
+  
+  
+  .spiceSection, .extraSection, .vinegarSection  {
+    display: inline-block;
+    margin: 0 10px;
+    margin-block-end: -6px;
+  }
+  
+  .chiliSection > section, .chiliSection > button { 
+    height: 90px;
+    width: 100px;
+  }
+  
+  .chiliSection > button, .spiceSection > button, .extraSection > button, .vinegarSection > button {
+    position: absolute;
+    border: none;
+  
+  }
+  
+  .chiliSection {
+    max-width: 100vw
+  }
 
+  
+  .chiliSection > section > img {
+    height: 60px;
+    width: 30px;
+  }
+  
+  .chiliBtn {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    border-radius: 15px;
+    margin-bottom: -10px;
+    /* margin-left: -50px; */
+  }
+  
+  .selectBtn {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    border-radius: 15px;
+    margin-bottom: -10px;
+    margin-left: 0px;
+    padding: 0;
+  }
+  
+  .chiliSection > section {
+    /* background-color: purple; */
+    /* display: inline-block; */
+    text-align: center; 
+    /* padding: 10px; */
+    font-size: 10px;
+    /* margin-left:-80px; */
+  }
+  
+  .spiceSection > section, .spiceSection > button { 
+    /* background-color: red; */
+    /* background-color: green; */
+    /* border: none; */
+    /* padding: 10px; */
+    height: 80px;
+    width: 100px;
+    top: 0;
+  }
+  
+  
+  
+  .extraSection > section, .extraSection > button { 
+    /* background-color: blue; */
+    /* border: none; */
+    /* padding: 10px; */
+    text-align: center;
+    height: 30px;
+    width: 100px;
+  }
+  
+  .vinegarSection > section, .vinegarSection > button { 
+    /* background-color: yellow; */
+    /* border: none; */
+    /* padding: 10px; */
+    text-align: center;
+    height: 30px;
+    width: 100px;
+  }
+  
+  .spiceSection img, .vinegarSection img {
+    height: 50px;
+    width: 50px;
+  }
 
 
   progress {
@@ -52,7 +175,6 @@
   
   }
 
-
   .bored-bar {
     width: calc(100vw - 320px);
     margin: 20px 10px;
@@ -69,35 +191,22 @@
       width: calc(100vw - 300px)
   }
 
-.arrow-prev, .arrow-prev-small {
+.arrow-prev, .arrow-next {
     width: 0; 
-    height: 0;
-    border-right: 20px solid green; 
-    margin-left: 10px;
+    height: 0; 
 }
 
 .arrow-prev {
+    border-right: 20px solid green; 
+    margin-left: 10px;
     border-top: 50px solid transparent;
     border-bottom: 50px solid transparent; 
 }
-.arrow-prev-small {
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent; 
-}
-
-.arrow-next, .arrow-next-small {
-    width: 0; 
-    height: 0; 
+.arrow-next {
     border-left: 20px solid red;
     margin-right: 10px;
-}
-.arrow-next {
     border-top: 50px solid transparent;
     border-bottom: 50px solid transparent;
-}
-.arrow-next-small {
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
 }
   @media screen and (max-width: 500px) {
     .box1 {

@@ -29,8 +29,6 @@ const Arrow = ({ text, className }) => {
 };
 const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
-const ArrowLeftSmall  = Arrow({ text: '', className: 'arrow-prev-small' });
-const ArrowRightSmall = Arrow({ text: '', className: 'arrow-next-small' });
 // const selected = 'item1';
  
 
@@ -99,25 +97,25 @@ export default class Form extends Component {
             })
             return (
                 <section className="spiceSection" key={i}>
-                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn selectBtn" : "selectBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
+                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
                     <section>{spice.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
         })
         const extraList = extras.map((extra, i) => {
             return (
-                <section className="extraSection" key={i}>
-                    <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn selectBtn" : "selectBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
-                    <section>{extra.name}</section>
-                    <section><img src={`../${extra.img}`} alt={`${extra.name}`}/></section>
+                <section className="chiliSection" key={i}>
+                    <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
+                    <section><img src={`../${extra.img}`} alt={`${extra.name}`}/><br/>{extra.name}</section>
+                    {/* <section></section> */}
                 </section>
             )
         })
         const vinegarList = vinegars.map((vinegar, i) => {
             return (
-                <section className="vinegarSection"key={i}>
-                    <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn selectBtn" : "selectBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
-                    <section>{vinegar.name}</section>
+                <section className="chiliSection" key={i}>
+                    <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
+                    <section><img src={`../${vinegar.img}`} alt={`${vinegar.name}`}/><br/>{vinegar.name}</section>
                 </section>
             )
         })
@@ -151,10 +149,10 @@ export default class Form extends Component {
                     <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
                     
                     <img className="chalk" src="chalkdarkorange.png"/>  <br />
-                    <ScrollMenu data={extraList} arrowLeft={ArrowLeftSmall} arrowRight={ArrowRightSmall} selected={selected} onSelect={this.onSelect} />
+                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
 
                     <img className="chalk" src="chalkdarkorange.png"/>  <br />
-                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeftSmall} arrowRight={ArrowRightSmall} selected={selected} onSelect={this.onSelect} />
+                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
                     
 
             </div>   
