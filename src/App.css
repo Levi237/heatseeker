@@ -29,7 +29,7 @@
 
 .home {
   height: 100%;
-  width: 100%;
+  width: calc(100vw - 40px);
   padding: 20px;
   margin-top: 0px;
   background-image: url('./tiedye.jpg');

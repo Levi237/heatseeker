@@ -225,7 +225,7 @@ export default class App extends Component {
             <Route path={routes.USER} render={() => 
                                       <Home /> }/>
             <Route path={routes.FORM} exact render={() => 
-                                      <Form user={user} newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
+                                      <Form user={user} currentUser={currentUser} newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 
                                       <Sale newRecipe={newRecipe} user={user}/> }/>                                         
             <Route path={routes.INFO} exact render={() => 

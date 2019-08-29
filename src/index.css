@@ -66,6 +66,8 @@ button {
 /*********************************************************************************************************/
 
 .grid-container {
+  background-image: url('woodpanelsheader.png');
+  background-repeat: repeat-x;
   display: grid;
   width: 100vw;
   height: 100vh;
@@ -95,6 +97,8 @@ grid-template-areas:
 .grid-header {
   grid-area: header;
   text-align: center;
+  /* color: orangered; */
+  text-shadow: rgb(253, 118, 76, 0.5);
 }
 
 /*********************************************************************************************************/
@@ -118,7 +122,10 @@ grid-template-areas:
 
 .grid-nav {
   grid-area: nav;
-  background-color: rgb(123, 63, 0);
+  /* background-image: url('woodpanels.png');
+  background-repeat: repeat-x; */
+  /* background-color: rgb(0, 0, 0, .5); */
+  background-color: orangered;
   text-align: right;
 }
 

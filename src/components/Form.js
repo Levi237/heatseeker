@@ -4,6 +4,8 @@ import { Redirect }         from 'react-router-dom';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 import Modal                from './modal/Modal'
 
+import firebase from 'firebase/app'
+
 import './Form.css'
 
 // import * as routes from '../constants/routes'
@@ -50,6 +52,9 @@ export default class Form extends Component {
         },
         show: false,
         selected: false,
+        userInfo: {
+            name: null,
+        }
     }
     showModal = () => {
         this.setState({
@@ -75,10 +80,29 @@ export default class Form extends Component {
         // const { setToggleApp, submitForm } = this.props
         const { chili, spice, vinegar, extra, show, selected} = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, currentUser, user } = this.props
-
+console.log(user, "user")
+console.log(currentUser, "currentUser")
         // Create menu from items
         // const menu = this.menuItems;
         // console.log(menu, "menu")
+
+        if (currentUser != null) {
+            // console.log(firebase.User.UserInfo.displayName)
+            console.log(currentUser.providerData[0].displayName)
+            // currentUser.providerData.forEach((profile) => {
+            //   console.log("Sign-in provider: " + profile.providerId);
+            //   console.log("  Provider-specific UID: " + profile.uid);
+            //   console.log("  Name: " + profile.displayName);
+            //   console.log("  Email: " + profile.email);
+            //   console.log("  Photo URL: " + profile.photoURL);
+            //   if (!this.state.userInfo.name && profile.displayName) {
+            //     this.setState({
+            //         name: profile.displayName
+            //     })
+            //   }
+            // });
+            
+          }
 
 
         const chiliList = chilis.map((chili, i) => {
@@ -153,17 +177,18 @@ export default class Form extends Component {
 
                     <img className="chalk" src="chalkdarkorange.png"/>  <br />
                     <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
                     
 
             </div>   
             <div className="box1">
                 <h2>   Heat Factor: {chili.heat}</h2>
                 <h2>Price: ${chili.price/100}.00   </h2>
-                {/* {user.name ? <span>Created By: {user.name}</span >: <span>Your Order:</span>} */}
+                {currentUser != null && currentUser.providerData[0].displayName ? <span><strong>Created By: {currentUser.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br />
                 <span>{chili.name}</span><br />
-                <span>{spice.name} Spice</span><br />
-                <span>add: {extra.name ? extra.name : "none"}</span><br />
-                <span>{vinegar.name} Vinegar</span><br />
+                <span>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</span><br />
+                <span>add: {extra.name ? extra.name.charAt(0).toUpperCase() + extra.name.slice(1) : "none"}</span><br />
+                <span>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</span><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
 
