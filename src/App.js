@@ -28,7 +28,7 @@ export default class App extends Component {
   state = {
 
       user: null,
-      currentUser: [],
+      // currentUser: [],
       chilis: [],
       spices: [],
       extras: [],
@@ -155,6 +155,8 @@ export default class App extends Component {
 
   
   submitForm =  async (e, data) => {
+    const thiscurrentUser = firebase.auth().currentUser;
+    const user = thiscurrentUser.providerData[0]
     e.preventDefault();
     this.setState({
       newRecipe: data
@@ -173,8 +175,8 @@ export default class App extends Component {
         extra: data.extra,
         vinegar: data.vinegar,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        creator: firebase.auth().currentUser.providerData[0],
-        // creator: firebase.User
+        // creator: firebase.auth().currentUser.providerData[0],
+        creator: user
       })
   }
 
@@ -194,8 +196,10 @@ export default class App extends Component {
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
 
-    let currentUser = firebase.auth().currentUser;
+    const currentUser = firebase.auth().currentUser;
+
     if (currentUser != null) {
+      console.log(currentUser.providerData[0], "console")
       currentUser.providerData.forEach((profile) => {
         console.log("Sign-in provider: " + profile.providerId);
         console.log("  Provider-specific UID: " + profile.uid);
