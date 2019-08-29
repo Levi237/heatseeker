@@ -155,18 +155,18 @@ export default class App extends Component {
 
   
   submitForm =  async (e, data) => {
-    const thiscurrentUser = firebase.auth().currentUser;
-    const user = thiscurrentUser.providerData[0]
+    const creator = firebase.auth().currentUser;
+    const creatorData = creator.providerData[0]
     e.preventDefault();
     this.setState({
       newRecipe: data
     })
-    const recipe = {
-      chili: data.chili,
-      spice: data.spice,
-      extra: data.extra,
-      vinegar: data.vinegar,
-    }
+    // const recipe = {
+    //   chili: data.chili,
+    //   spice: data.spice,
+    //   extra: data.extra,
+    //   vinegar: data.vinegar,
+    // }
     const newFromDB = await firebase.firestore()
       .collection('recipes')
       .add({
@@ -176,7 +176,7 @@ export default class App extends Component {
         vinegar: data.vinegar,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         // creator: firebase.auth().currentUser.providerData[0],
-        creator: user
+        creator: creatorData
       })
   }
 

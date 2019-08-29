@@ -52,29 +52,6 @@ export default class Form extends Component {
         },
         show: false,
         selected: false,
-        creator: "Janers",
-    }
-
-
-    setUser = () => {
-
-    if (this.props.currentUser != null) {
-    //     // console.log(firebase.User.UserInfo.displayName)
-    //     console.log(this.props.currentUser.providerData[0].displayName)
-        // currentUser.providerData.forEach((profile) => {
-        //   console.log("Sign-in provider: " + profile.providerId);
-        //   console.log("  Provider-specific UID: " + profile.uid);
-        //   console.log("  Name: " + profile.displayName);
-        //   console.log("  Email: " + profile.email);
-        //   console.log("  Photo URL: " + profile.photoURL);
-        //   if (!this.state.userInfo.name && profile.displayName) {
-            this.setState({
-                creator: this.props.currentUser.providerData[0].displayName
-            })
-        //   }
-        // });
-        
-    }    
     }
 
     showModal = () => {
@@ -83,31 +60,23 @@ export default class Form extends Component {
           show: !this.state.show
         })
       }
-      onClose = (e) => {
+    onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     }
+
     setToggle=(e, value) => {
         this.setState({
             [e.target.name]: value
         })
     }
-
     onSelect = key => {
         this.setState({ selected: key });
-      }
-
-
-
+    }
 
     render(){
-        // const { setToggleApp, submitForm } = this.props
+
         const { chili, spice, vinegar, extra, show, selected} = this.state
-        const { chilis, spices, extras, vinegars, submitForm, newRecipe, currentUser, user } = this.props
-// console.log(user, "user")
-// console.log(currentUser, "currentUser")
-//         // Create menu from items
-//         // const menu = this.menuItems;
-//         // console.log(menu, "menu")
+        const { chilis, spices, extras, vinegars, submitForm, newRecipe, currentUser } = this.props
 
 
 
