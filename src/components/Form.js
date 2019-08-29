@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
+import { Redirect }         from 'react-router-dom';
 
-// make buttons that change color when selected and also update form
-// onClick toggles true/false
-// each "click" is essentially an option to be selected
+import ScrollMenu           from 'react-horizontal-scrolling-menu';
+import Modal                from './modal/Modal'
 
-import Modal from './modal/Modal'
+import './Form.css'
 
 // import * as routes from '../constants/routes'
 
-// All items component
-// Important! add unique key
+//Scroll Menu
 const MenuItem = ({text, selected}) => {
     return <div
       className={`menu-item ${selected ? 'active' : ''}`}
@@ -23,8 +20,6 @@ export const Menu = (list, selected) =>
  
     return <MenuItem text={name} key={name} selected={selected} />;
   });
- 
-//   const menu = this.menuItems;
 const Arrow = ({ text, className }) => {
   return (
     <div
@@ -32,11 +27,8 @@ const Arrow = ({ text, className }) => {
     >{text}</div>
   );
 };
- 
- 
 const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
- 
 // const selected = 'item1';
  
 
@@ -45,12 +37,11 @@ export default class Form extends Component {
     state = {
         chili: {
             name: "Ghost Pepper",
-            heat: 10,
-            price: 4600
+            heat: 15,
+            price: 6000
         },
         spice: {
             name: "Indian",
-            items: ["Indian curry", "cumin"],
         },
         extra: {
         },
@@ -86,7 +77,8 @@ export default class Form extends Component {
         const { chilis, spices, extras, vinegars, submitForm, newRecipe } = this.props
         const { selected } = this.state;
         // Create menu from items
-        const menu = this.menuItems;
+        // const menu = this.menuItems;
+        // console.log(menu, "menu")
 
 
         const chiliList = chilis.map((chili, i) => {
@@ -128,26 +120,11 @@ export default class Form extends Component {
         })
 
         return(
-            <div className="form">
-            <h2>Price: ${chili.price/100}.00   |   Heat Factor: {chili.heat}</h2>
-            <div className="myProgress">
-                <progress className="bored-bar" value={chili.heat} max="15"></progress>
-            </div>
+            <div className="form container">
 
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
 
-                <div className="chiliSection">
-                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
-                </div>
-                <hr />  
-                    {spiceList}
-                <hr />
-                    {extraList} 
-                <hr />
-                    {vinegarList}      
-                <hr />
-                <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
-                { newRecipe 
+            { newRecipe 
                 ? <Redirect to={'/complete-sale'} /> 
                 : <Modal show={show} onClose={this.showModal}>
                     <h2>Are you sure you want to save?</h2>
@@ -158,7 +135,31 @@ export default class Form extends Component {
                             Save For Real
                     </button>
                   </Modal>
-                }            
+                }  
+            <div className="box2">
+                <div className="myProgress">
+                    <progress className="bored-bar" value={chili.heat} max="15"></progress>
+                </div>
+
+                <div className="chiliSection">
+                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                </div>
+                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
+                    {spiceList}
+                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
+                    {extraList} 
+                    <img className="chalk" src="chalkdarkorange.png"/>  <br />
+                    {vinegarList}      
+            </div>   
+            <div className="box1">
+                <h2>   Heat Factor: {chili.heat}</h2>
+                <h2>Price: ${chili.price/100}.00   </h2>
+                <span>{chili.name}</span><br />
+                <span>{spice.name} Spice</span><br />
+                <span>add: {extra.name ? extra.name : "none"}</span><br />
+                <span>{vinegar.name} Vinegar</span><br />
+                <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
+            </div>      
             </form>
             </div>
         )

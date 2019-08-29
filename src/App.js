@@ -33,7 +33,10 @@ export default class App extends Component {
       spices: [],
       extras: [],
       vinegars: [],
+      options: [],
       newRecipe: null,
+      selection: {},
+      recipes: [],
 
 
         // selectedNoteIndex: null,
@@ -46,18 +49,18 @@ export default class App extends Component {
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
-    // firebase
-    //   .firestore()
-    //   .collection('notes')
-    //   .onSnapshot(serverUpdate => {
-    //     const notes = serverUpdate.docs.map(_doc => {
-    //       const data = _doc.data();
-    //       data['id'] = _doc.id;
-    //       return data;
-    //     });
-    //     this.setState({ notes: notes });
-    //   });
-
+    firebase
+      .firestore()
+      .collection('selection')
+      .onSnapshot(serverUpdate => {
+        const selection = serverUpdate.docs.map(_doc => {
+          const data = _doc.data();
+          data['id'] = _doc.id;
+          return data;
+        });
+        this.setState({ selection: selection });
+      });
+      
   }
 
 
@@ -84,6 +87,18 @@ export default class App extends Component {
       });
       this.setState({ spices: spices });
     });
+
+    // firebase
+    // .firestore()
+    // .collection('options')
+    // .onSnapshot(serverUpdate => {
+    //   const options = serverUpdate.docs.map(_doc => {
+    //     const data = _doc.data();
+    //     data['id'] = _doc.id;
+    //     return data;
+    //   });
+    //   this.setState({ options: options });
+    // });
     firebase
     .firestore()
     .collection('extras')
@@ -176,8 +191,8 @@ export default class App extends Component {
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
+    
     let currentUser = firebase.auth().currentUser;
-    console.log(currentUser, "<--- currentUser")
     if (currentUser != null) {
       currentUser.providerData.forEach((profile) => {
         console.log("Sign-in provider: " + profile.providerId);

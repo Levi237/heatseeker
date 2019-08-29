@@ -7,12 +7,12 @@ const Nav = ({newRecipe, user, logout}) =>
     <div className="navBox">
         <NavLink activeClassName="" to={routes.INFO}>ABOUT</NavLink>
 
-        { !newRecipe && user ?
+        { !newRecipe ?
         <NavLink activeClassName="" to={routes.FORM}>CREATE</NavLink>
         : <></>
         }
 
-        {user ? <NavLink activeClassName="" to={routes.USER}>HOME</NavLink> : <NavLink activeClassName="" to={routes.HOME} onClick={logout}>HOME</NavLink>}
+        {user ? <NavLink activeClassName="" to={routes.USER}>HOME</NavLink> : <NavLink activeClassName="" to={routes.HOME}>LOGIN</NavLink>}
         
         { user &&
         <NavLink activeClassName="" to={routes.HOME} onClick={logout}>LOGOUT</NavLink>
