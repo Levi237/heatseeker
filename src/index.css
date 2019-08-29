@@ -166,7 +166,7 @@ grid-template-areas:
   grid-area: main;
   background-color: white;
   text-align: center;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
 

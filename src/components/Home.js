@@ -9,7 +9,7 @@ export default class Home extends Component {
     render(){
         let currentUser = firebase.auth().currentUser;
         return(
-            <div className="home">
+            <div className="">
                 {currentUser && currentUser.displayName}, Welcome Home, you are logged in right now
 <br /><br />
                 <Username />
