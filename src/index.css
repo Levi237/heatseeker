@@ -71,7 +71,7 @@ button {
   display: grid;
   width: 100vw;
   height: 100vh;
-  grid-template-rows: 160px 40px auto 60px;
+  grid-template-rows: 150px 40px auto 60px;
   grid-template-columns: 100px calc(100vw - 200px) 100px;
   background-color: orangered;
   /* justify-content: space-evenly; */
@@ -110,7 +110,7 @@ grid-template-areas:
 
 .grid-logo {
   grid-area: logo;
-  padding: 30px;
+  padding: 25px;
   /* background-color: orangered; */
 }
 
