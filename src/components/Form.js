@@ -27,8 +27,10 @@ const Arrow = ({ text, className }) => {
     >{text}</div>
   );
 };
-const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
+const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
+const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
+const ArrowLeftSmall  = Arrow({ text: '', className: 'arrow-prev-small' });
+const ArrowRightSmall = Arrow({ text: '', className: 'arrow-next-small' });
 // const selected = 'item1';
  
 
@@ -46,7 +48,7 @@ export default class Form extends Component {
         extra: {
         },
         vinegar: {
-            name: "White",
+            name: "white",
         },
         show: false,
         selected: false,
@@ -73,9 +75,9 @@ export default class Form extends Component {
 
     render(){
         // const { setToggleApp, submitForm } = this.props
-        const {chili, spice, vinegar, extra, show} = this.state
+        const { chili, spice, vinegar, extra, show, selected} = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe } = this.props
-        const { selected } = this.state;
+
         // Create menu from items
         // const menu = this.menuItems;
         // console.log(menu, "menu")
@@ -145,11 +147,15 @@ export default class Form extends Component {
                     <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
                 </div>
                     <img className="chalk" src="chalkdarkorange.png"/>  <br />
-                    {spiceList}
+                    <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                    
                     <img className="chalk" src="chalkdarkorange.png"/>  <br />
-                    {extraList} 
+                    <ScrollMenu data={extraList} arrowLeft={ArrowLeftSmall} arrowRight={ArrowRightSmall} selected={selected} onSelect={this.onSelect} />
+
                     <img className="chalk" src="chalkdarkorange.png"/>  <br />
-                    {vinegarList}      
+                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeftSmall} arrowRight={ArrowRightSmall} selected={selected} onSelect={this.onSelect} />
+  
+
             </div>   
             <div className="box1">
                 <h2>   Heat Factor: {chili.heat}</h2>

@@ -208,6 +208,7 @@ section > section {
   font-weight: 600;
   /* margin-top: 5px; */
   font-size: 14px;
+  text-align: center;
 }
 
 .toggleOn {
@@ -262,7 +263,7 @@ section > section {
   z-index: 1;
   border-radius: 15px;
   margin-bottom: -10px;
-  margin-left: -50px;
+  margin-left: 0px;
   padding: 0;
 }
 
@@ -353,6 +354,7 @@ section > section {
   }
   .grid-nav {
     text-align: center;
+    padding-left: 20px;
   }
   .grid-footer {
     padding: 10px 0 0 0;
