@@ -68,14 +68,39 @@ export default class Form extends Component {
 
     multiToggle = (e, value) => {
         const target = e.currentTarget;
-        this.setState({
-            [e.target.name]: this.state.extra + " " + value.name
-        })
+
+        if (this.state.extra.includes(value.name)){
+            console.log("you need to filter out this value somehow")
+            // this.state.extra.filter(value.name)
+        }else{
+            this.setState({
+                extra: [...this.state.extra, value.name]
+            })
+            // this.setState(prevState => ({
+            //     extra: [...prevState, value]
+            // }))
+        }
+
         if (target.classList.contains('active', 'extraBtn')){
             target.classList.remove('active');
         }else {
             target.classList.add('active');
     }
+
+    // handleAddPlayer = () => {
+    //     // create a clone of your array of players; don't modify objects on the state directly
+
+    //   };
+    // multiToggle = (e, value) => {
+    //     const target = e.currentTarget;
+    //     this.setState({
+    //         [e.target.name]: this.state.extra + " " + value.name
+    //     })
+    //     if (target.classList.contains('active', 'extraBtn')){
+    //         target.classList.remove('active');
+    //     }else {
+    //         target.classList.add('active');
+    // }
 }
 
 
