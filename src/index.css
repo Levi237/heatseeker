@@ -127,6 +127,7 @@ grid-template-areas:
   background-repeat: repeat-x; */
   /* background-color: rgb(0, 0, 0, .5); */
   background-color: orangered;
+  /* background-color: #000; */
   text-align: right;
 }
 
