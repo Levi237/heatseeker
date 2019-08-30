@@ -167,7 +167,7 @@ export default class Form extends Component {
                 {user != null && user.providerData[0].displayName ? <span><strong>Created By: {user.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br />
                 <span>{chili.name}</span><br />
                 <span>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</span><br />
-                <span>add: {extra.name ? extra.name.charAt(0).toUpperCase() + extra.name.slice(1) : "none"}</span><br />
+                <span>add: {extra ? extra : "none"}</span><br />
                 <span>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</span><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
