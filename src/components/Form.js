@@ -72,7 +72,7 @@ export default class Form extends Component {
         if (this.state.extra.includes(value.name)){
             console.log("you need to filter out this value somehow")
             // this.state.extra.filter(value.name)
-            // this.setState(prevState => ({ extra: prevState.people.filter(x => x !== e.target.value) }));
+            this.setState(prevState => ({ extra: prevState.extra.filter(x => x !== value.name) }));
         }else{
             this.setState({
                 extra: [...this.state.extra, value.name]
