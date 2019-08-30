@@ -65,21 +65,15 @@ export default class Form extends Component {
             [e.target.name]: value
         })
     }
-    // this.setState(prevState => ({ people: prevState.people.filter(person => person !== e.target.value) }));
     multiToggle = (e, value) => {
         const target = e.currentTarget;
 
         if (this.state.extra.includes(value.name)){
-            console.log("you need to filter out this value somehow")
-            // this.state.extra.filter(value.name)
             this.setState(prevState => ({ extra: prevState.extra.filter(x => x !== value.name) }));
         }else{
             this.setState({
                 extra: [...this.state.extra, value.name]
             })
-            // this.setState(prevState => ({
-            //     extra: [...prevState, value]
-            // }))
         }
 
         if (target.classList.contains('active', 'extraBtn')){
