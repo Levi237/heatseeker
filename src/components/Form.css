@@ -22,9 +22,11 @@
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 
+.menu-item-wrapper {
+    background-color: white !important;
+}
 
-
-.toggleOn {
+.toggleOn, .active {
     background-color: rgb(255, 69, 0, .2);
 }
 
@@ -78,7 +80,7 @@ section > section {
     font-weight: 200;
 }
 
-.chiliBtn, .selectBtn {
+.chiliBtn, .selectBtn, .extraBtn {
     display: inline-block;
     position: relative;
     z-index: 1;

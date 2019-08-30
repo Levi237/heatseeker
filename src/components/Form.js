@@ -5,6 +5,7 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 import Modal                from './modal/Modal'
 
 import './Form.css'
+// import { tsThisType } from '@babel/types';
 
 //Scroll Menu
 const MenuItem = ({text, selected}) => {
@@ -39,14 +40,13 @@ export default class Form extends Component {
         spice: {
             name: "Indian",
         },
-        extra: {
-            // name: "none",
-        }
+        extra: []
         ,
         vinegar: {
             name: "White Wine",
         },
         show: false,
+        toggle: false,
         // selected: false,
     }
 
@@ -67,17 +67,16 @@ export default class Form extends Component {
     }
 
     multiToggle = (e, value) => {
-        if (this.state.extra) {
-            this.setState({
-                [e.target.name]: this.state.extra + " " + value.name
-            })
-        }else{
-            this.setState({
-                [e.target.name]: value.name
-            })
-        }
-
+        const target = e.currentTarget;
+        this.setState({
+            [e.target.name]: this.state.extra + " " + value.name
+        })
+        if (target.classList.contains('active', 'extraBtn')){
+            target.classList.remove('active');
+        }else {
+            target.classList.add('active');
     }
+}
 
 
     render(){
@@ -109,7 +108,7 @@ export default class Form extends Component {
         const extraList = extras.map((extra, i) => {
             return (
                 <section className="chiliSection" key={i}>
-                    <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.multiToggle(e, extra)}} type="button"></button>
+                    <button name="extra" className="extraBtn" onClick={(e) => {this.multiToggle(e, extra)}} type="button"></button>
                     <section><img src={`../extras/${extra.img}`} alt={`${extra.name}`}/><br/>{extra.name}</section>
                 </section>
             )
