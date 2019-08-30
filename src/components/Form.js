@@ -140,14 +140,18 @@ export default class Form extends Component {
             )
         })
         const vinegarList = vinegars.map((vinegar, i) => {
-            return (
+            return(
                 <section className="chiliSection" key={i}>
                     <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
                     <section><img src={`../vinegars/${vinegar.img}`} alt={`${vinegar.name}`}/><br/>{vinegar.name}</section>
                 </section>
             )
         })
-
+        const addExtra = extra.map((e, i) => {
+            return(
+                <span key={i}>{e} </span>
+            )
+        })
         return(
             <div className="form container">
 
@@ -193,7 +197,7 @@ export default class Form extends Component {
                 {user != null && user.providerData[0].displayName ? <span><strong>Created By: {user.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br />
                 <span>{chili.name}</span><br />
                 <span>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</span><br />
-                <span>add: {extra ? extra : "none"}</span><br />
+                <span>add: {addExtra}</span><br />
                 <span>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</span><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
