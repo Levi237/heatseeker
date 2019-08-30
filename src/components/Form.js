@@ -40,12 +40,14 @@ export default class Form extends Component {
             name: "Indian",
         },
         extra: {
-        },
+            // name: "none",
+        }
+        ,
         vinegar: {
             name: "White Wine",
         },
         show: false,
-        selected: false,
+        // selected: false,
     }
 
     showModal = () => {
@@ -58,18 +60,29 @@ export default class Form extends Component {
         this.props.onClose && this.props.onClose(e);
     }
 
-    setToggle=(e, value) => {
+    setToggle = (e, value) => {
         this.setState({
             [e.target.name]: value
         })
     }
-    onSelect = key => {
-        this.setState({ selected: key });
+
+    multiToggle = (e, value) => {
+        if (this.state.extra) {
+            this.setState({
+                [e.target.name]: this.state.extra + " " + value.name
+            })
+        }else{
+            this.setState({
+                [e.target.name]: value.name
+            })
+        }
+
     }
+
 
     render(){
 
-        const { chili, spice, vinegar, extra, show, selected} = this.state
+        const { chili, spice, vinegar, extra, show } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         const chiliList = chilis.map((chili, i) => {
@@ -96,7 +109,7 @@ export default class Form extends Component {
         const extraList = extras.map((extra, i) => {
             return (
                 <section className="chiliSection" key={i}>
-                    <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, extra)}} type="button"></button>
+                    <button name="extra" className={(this.state.extra.name === extra.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.multiToggle(e, extra)}} type="button"></button>
                     <section><img src={`../extras/${extra.img}`} alt={`${extra.name}`}/><br/>{extra.name}</section>
                 </section>
             )
@@ -134,14 +147,18 @@ export default class Form extends Component {
                 </div>
 
                 <div className="chiliSection">
-                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                    {/* <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
                 </div>
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
-                    <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                    <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                    {/* <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
-                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                    {/* <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
-                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} />
+                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                    {/* <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
             </div>   
 
