@@ -67,7 +67,6 @@ export default class Form extends Component {
     }
     multiToggle = (e, value) => {
         const target = e.currentTarget;
-
         if (this.state.extra.includes(value.name)){
             this.setState(prevState => ({ extra: prevState.extra.filter(x => x !== value.name) }));
         }else{
@@ -143,7 +142,7 @@ export default class Form extends Component {
         })
         const addExtra = extra.map((e, i) => {
             return(
-                <span key={i}>{e} </span>
+                <li key={i}>{e}</li>
             )
         })
         return(
@@ -191,7 +190,8 @@ export default class Form extends Component {
                 {user != null && user.providerData[0].displayName ? <span><strong>Created By: {user.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br />
                 <span>{chili.name}</span><br />
                 <span>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</span><br />
-                <span>add: {addExtra}</span><br />
+                <span>Add On: </span><br />
+                <ol>{addExtra}</ol>
                 <span>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</span><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
