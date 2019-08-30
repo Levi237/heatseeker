@@ -165,8 +165,8 @@ export default class App extends Component {
     //   extra: data.extra,
     //   vinegar: data.vinegar,
     // }
-    // const newFromDB = await firebase.firestore()
-    await firebase.firestore()
+    const newFromDB = await firebase.firestore()
+    // await firebase.firestore()
       .collection('recipes')
       .add({
         chili: data.chili,
