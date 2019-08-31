@@ -9,13 +9,13 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
   firebase.initializeApp({
-    apiKey: "AIzaSyB06q_xc_3K7zv8_iCW3KTM0GTMl4OyHUA",
-    authDomain: "heatseeker-custom.firebaseapp.com",
-    databaseURL: "https://heatseeker-custom.firebaseio.com",
-    projectId: "heatseeker-custom",
-    storageBucket: "heatseeker-custom.appspot.com",
-    messagingSenderId: "419102714310",
-    appId: "1:419102714310:web:78e1e61a67ec4cad"
+    apiKey: "process.env.API_KEY",
+    authDomain: "process.env.AUTH_DOMAIN",
+    databaseURL: "process.env.DATABASE_URL",
+    projectId: "process.env.PROJECT_ID",
+    storageBucket: "process.env.STORAGE_BUCKET",
+    messagingSenderId: "process.env.MESSAGE_SENDER_ID",
+    appId: "process.env.APP_ID"
   });
 
   ReactDOM.render(
