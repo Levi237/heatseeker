@@ -187,7 +187,7 @@ export default class Form extends Component {
             <div className="box1">
                 <h2>   Heat Factor: {chili.heat}</h2>
                 <h2>Price: ${chili.price/100}.00   </h2>
-                {user != null && user.providerData[0].displayName ? <span><strong>Created By: {user.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br />
+                {user != null && user.providerData[0].displayName ? <span><strong>Created By: {user.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br /><br />
                 <span>{chili.name}</span><br />
                 <span>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</span><br />
                 <span>Add On: </span><br />

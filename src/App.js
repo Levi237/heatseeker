@@ -135,22 +135,6 @@ export default class App extends Component {
     firebase.auth().signOut();
   }
 
-
-  
-  // selectNote = (note, index) => this.setState({ selectedNoteIndex: index, selectedNote: note });
-  // noteUpdate = (id, noteObj) => {
-  //   firebase
-  //     .firestore()
-  //     .collection('notes')
-  //     .doc(id)
-  //     .update({
-  //       title: noteObj.title, 
-  //       body: noteObj.body,
-  //       timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  //     });
-  // }
-
-
   
   submitForm =  async (e, data) => {
     const creator = firebase.auth().currentUser;
@@ -159,12 +143,7 @@ export default class App extends Component {
     this.setState({
       newRecipe: data
     })
-    // const recipe = {
-    //   chili: data.chili,
-    //   spice: data.spice,
-    //   extra: data.extra,
-    //   vinegar: data.vinegar,
-    // }
+
     const newFromDB = await firebase.firestore()
     // await firebase.firestore()
       .collection('recipes')
