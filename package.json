@@ -37,10 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "presets": [
-      "es2015-node5"
-    ]
   }
+
 }
