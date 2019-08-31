@@ -123,7 +123,6 @@ export default class App extends Component {
     })
 
     const newFromDB = await firebase.firestore()
-    // await firebase.firestore()
       .collection('recipes')
       .add({
         chili: data.chili,
@@ -131,39 +130,14 @@ export default class App extends Component {
         extra: data.extra,
         vinegar: data.vinegar,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        // creator: firebase.auth().currentUser.providerData[0],
         creator: creatorData
       })
+      return newFromDB
   }
-
-  // deleteNote = async (note) => {
-  //       const noteIndex = this.state.notes.indexOf(note);
-  //       await this.setState({notes: this.state.notes.filter(_note=> _note !== note)})
-  //       if(this.state.selectedNoteIndex === noteIndex) {
-  //         this.setState({selectedNoteIndex: null, seectedNote: null})
-  //       } else {
-  //         this.state.notes.length > 1 
-  //         ? this.selectedNote(this.state.notes[this.state.selectedNoteIndex -1], this.state.selectedNoteIndex -1)
-  //         : this.setState({selectedNoteIndex: null, seectedNote: null})
-  //       }
-  //       firebase.firestore.collection('notes').doc(note.id).delete()
-  // }
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
 
-    // const currentUser = firebase.auth().currentUser;
-
-    // if (currentUser != null) {
-    //   console.log(currentUser.providerData[0], "console")
-    //   currentUser.providerData.forEach((profile) => {
-    //     console.log("Sign-in provider: " + profile.providerId);
-    //     console.log("  Provider-specific UID: " + profile.uid);
-    //     console.log("  Name: " + profile.displayName);
-    //     console.log("  Email: " + profile.email);
-    //     console.log("  Photo URL: " + profile.photoURL);
-    //   });
-    // }
     return (
       <div className="grid-container">
       
