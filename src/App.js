@@ -100,6 +100,7 @@ export default class App extends Component {
   }
 
   submitForm =  async (e, data) => {
+    console.log("click")
     const creator = firebase.auth().currentUser;
     const creatorData = creator.providerData[0]
     e.preventDefault();
