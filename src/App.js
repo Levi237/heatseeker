@@ -16,7 +16,7 @@ import * as routes  from './constants/routes';
 import firebase from 'firebase/app';
 import 'firebase/app';
 
-
+console.log(process.env.REACT_APP_FIREBASE_API_KEY)
 export default class App extends Component {
 
   state = {
