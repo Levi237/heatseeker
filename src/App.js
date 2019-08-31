@@ -15,7 +15,7 @@ import LoginRegister from './components/LoginRegister';
 import * as routes  from './constants/routes';
 import firebase from 'firebase/app';
 import 'firebase/app';
-
+console.log(process.env.REACT_APP_FIREBASE_API_KEY)
 // const firebase = require('firebase')
 // require('firebase/app')
 
