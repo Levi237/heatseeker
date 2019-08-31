@@ -17,9 +17,11 @@ import LoginRegister from './components/LoginRegister';
 // import EditorComponent from './tutorial/editor/editor';
 
 import * as routes  from './constants/routes';
+import firebase from 'firebase/app';
+import 'firebase/app';
 
-
-const firebase = require('firebase')
+// const firebase = require('firebase')
+// require('firebase/app')
 
 export default class App extends Component {
 
@@ -47,18 +49,6 @@ export default class App extends Component {
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
-    firebase
-      .firestore()
-      .collection('selection')
-      .onSnapshot(serverUpdate => {
-        const selection = serverUpdate.docs.map(_doc => {
-          const data = _doc.data();
-          data['id'] = _doc.id;
-          return data;
-        });
-        this.setState({ selection: selection });
-      });
-      
   }
 
 
@@ -85,18 +75,6 @@ export default class App extends Component {
       });
       this.setState({ spices: spices });
     });
-
-    // firebase
-    // .firestore()
-    // .collection('options')
-    // .onSnapshot(serverUpdate => {
-    //   const options = serverUpdate.docs.map(_doc => {
-    //     const data = _doc.data();
-    //     data['id'] = _doc.id;
-    //     return data;
-    //   });
-    //   this.setState({ options: options });
-    // });
     firebase
     .firestore()
     .collection('extras')

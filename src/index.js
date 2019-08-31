@@ -5,8 +5,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-const firebase = require('firebase');
-require('firebase/firestore')
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+// const firebase = require('firebase');
+// require('firebase/firestore')
 
   firebase.initializeApp({
     apiKey: "AIzaSyB06q_xc_3K7zv8_iCW3KTM0GTMl4OyHUA",

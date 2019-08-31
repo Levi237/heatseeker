@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-// import firebase from 'firebase/app'
-const firebase = require('firebase')
+import firebase from 'firebase/app';
+import 'firebase/auth';
+// const firebase = require('firebase')
+// require('firebase/auth')
 
 export default class LoginRegister extends Component{
     state = {
