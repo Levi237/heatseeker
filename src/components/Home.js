@@ -7,7 +7,6 @@ import './Home.css'
 
 export default class Home extends Component {
 
-
     render(){
         let currentUser = firebase.auth().currentUser;
         return(

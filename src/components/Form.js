@@ -169,18 +169,14 @@ export default class Form extends Component {
                 </div>
 
                 <div className="chiliSection">
-                <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    {/* <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
+                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
                 </div>
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
                     <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    {/* <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
-                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    {/* <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
+                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
-                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    {/* <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight} selected={selected} onSelect={this.onSelect} /> */}
+                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
             </div>   
 

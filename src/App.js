@@ -10,11 +10,7 @@ import Sale   from './components/Sale';
 
 
 import Home from './components/Home';
-// import Username from './components/Username';
 import LoginRegister from './components/LoginRegister';
-
-// import SideBar from './tutorial/sidebar/sidebar'
-// import EditorComponent from './tutorial/editor/editor';
 
 import * as routes  from './constants/routes';
 import firebase from 'firebase/app';
@@ -28,7 +24,6 @@ export default class App extends Component {
   state = {
 
       user: null,
-      // currentUser: [],
       chilis: [],
       spices: [],
       extras: [],
@@ -37,20 +32,12 @@ export default class App extends Component {
       newRecipe: null,
       selection: {},
       recipes: [],
-
-
-        // selectedNoteIndex: null,
-        // selectedNote: null, 
-        // notes: null,
-    
   }
 
-  // DRY THIS UP!
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
   }
-
 
   loadForm(){
     firebase
@@ -108,12 +95,10 @@ export default class App extends Component {
       }
     });
   };
-  
   logout = () => {
     firebase.auth().signOut();
   }
 
-  
   submitForm =  async (e, data) => {
     const creator = firebase.auth().currentUser;
     const creatorData = creator.providerData[0]
@@ -121,7 +106,6 @@ export default class App extends Component {
     this.setState({
       newRecipe: data
     })
-
     const newFromDB = await firebase.firestore()
       .collection('recipes')
       .add({

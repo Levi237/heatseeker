@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 
+// CONFIRM & CONTINUE w/ ORDER OR SAVE FOR LATER
+
 export default class Sale extends Component {
     render(){
         const { newRecipe } = this.props;
@@ -15,11 +17,12 @@ export default class Sale extends Component {
                 })
                 addExtras.push(addExtra)
         }
+
         return(
             <>
-            {   newRecipe 
-            ?   <>
-                <h1>Your Order:</h1>
+            {   newRecipe &&
+                <>
+                <h1>Your Recipe:</h1>
                 
                     <section>
                         { newRecipe.chili.name && <><span>{ newRecipe.chili.name }</span><br /></>}
@@ -29,10 +32,12 @@ export default class Sale extends Component {
                         { newRecipe.vinegar.name && <span>{ newRecipe.vinegar.name } Vinegar</span>}
                     </section>
                     <h3>Total: ${(newRecipe.chili.price)/100}.00</h3>
+                    <button>Save and Return Home</button><button>Continue with Order</button>
+                    {/* :   <Redirect to={'/home'} />  */}
+                    </>
+                }
                 </>
-            :   <Redirect to={'/home'} /> 
-            }
-            </>
+
         )
     }
 }

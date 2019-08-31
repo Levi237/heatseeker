@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// const firebase = require('firebase')
-// require('firebase/auth')
 
 export default class LoginRegister extends Component{
     state = {
         email: "",
         password: "",
-        // displayName: "",
         fireErrors:"",
         formTitle: "Login",
         loginBtn: true,
@@ -29,26 +26,15 @@ export default class LoginRegister extends Component{
     };
     register = e => {
         e.preventDefault();
-        
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .catch((error) => {
                 this.setState({fireErrors: error.message})
             })
-        // let currentUser = firebase.auth().currentUser;
-        // currentUser.updateProfile({
-        //   displayName: this.state.displayName,
-        //   // photoURL: "https://example.com/jane-q-user/profile.jpg"
-        // }).then(function() {
-        //   // Update successful.
-        // }).catch((error) => {
-        //     this.setState({updateErrors: error.message}) // need to add to state
-        // });
     };
 
     getAction = action => {
         if(action === "reg"){
             this.setState({formTitle: "Register New User", loginBtn: false, fireErrors: ""})
-
         }else{
             this.setState({formTitle: "Login", loginBtn: true, fireErrors: ""})
         }
@@ -73,7 +59,6 @@ export default class LoginRegister extends Component{
                 <div id="title">{formTitle}</div>
                 <div className="body">
                     <form>
-                        {/* <input type="text" value={displayName} onChange={this.handleChange} name="displayName" placeholder="name"/> */}
                         <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="email"/>
                         <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
                         {submitBtn}
