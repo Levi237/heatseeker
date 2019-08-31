@@ -15,9 +15,7 @@ import LoginRegister from './components/LoginRegister';
 import * as routes  from './constants/routes';
 import firebase from 'firebase/app';
 import 'firebase/app';
-console.log(process.env.REACT_APP_FIREBASE_API_KEY)
-// const firebase = require('firebase')
-// require('firebase/app')
+
 
 export default class App extends Component {
 
@@ -100,13 +98,20 @@ export default class App extends Component {
   }
 
   submitForm =  async (e, data) => {
-    console.log("click")
-    const creator = firebase.auth().currentUser;
-    const creatorData = creator.providerData[0]
+    // const creatorData = this.user.state
     e.preventDefault();
     this.setState({
       newRecipe: data
     })
+    let creator = this.state.user;
+    let creatorData = null;
+    if (this.state.user ){
+      let info = firebase.auth().currentUser;
+      creator = info;
+      creatorData = info.providerData[0]
+    } else {
+      creator = null
+    }
     const newFromDB = await firebase.firestore()
       .collection('recipes')
       .add({
