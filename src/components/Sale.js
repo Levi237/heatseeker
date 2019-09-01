@@ -42,8 +42,8 @@ export default class Sale extends Component {
                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                         <span>Spice:</span>{ newRecipe.spice.name && <section><strong>{ newRecipe.spice.name } Spice</strong></section>}
                         { newRecipe.spice.name && <ul>{ showSpices }</ul>}
-                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
-                        <span>Add On:</span><br/>{ newRecipe.extra[0] ? <ul>{ addExtras }</ul> : "none"}
+                        
+                        { newRecipe.extra[0] ? <><img className="chalk" src="chalkdarkorange.png" alt="line break"/><span>Add On:</span><br/><ul>{ addExtras }</ul></> : ""}
                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>

@@ -18,11 +18,11 @@
 .new-recipe ul {
     display: block;
     list-style-type: disc;
-    margin-block-start: .7em;
+    margin-block-start: 1.9em;
     margin-block-end: .2em;
     margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    /* margin-inline-end: 0px; */
+    /* padding-inline-start: 40px; */
 }
 
 .new-recipe li {
