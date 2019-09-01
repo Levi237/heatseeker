@@ -4,4 +4,4 @@ export const INFO = '/about';
 export const USER = '/my-home';
 export const FORM = '/create-sauce';
 export const SALE = '/complete-sale';
-export const ENTER = 'login-register'
+export const ECOM = '/order'
