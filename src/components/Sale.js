@@ -10,31 +10,41 @@ export default class Sale extends Component {
         const { newRecipe } = this.props;
 
         let addExtras = [];
+        let showSpices = [];
         if (newRecipe){
-            let nr = newRecipe.extra
-                const addExtra = nr.map((data, i) => {
+            let nre = newRecipe.extra
+                const addExtra = nre.map((data, i) => {
                     return(
                         <li key={i}>{data}</li>
                     )
                 })
                 addExtras.push(addExtra)
+            let nrs = newRecipe.spice.items;
+            const showSpice = nrs.map((data, i) => {
+                return(
+                    <li key={i}>{data}</li>
+                )
+            })
+            showSpices.push(showSpice)
+
         }
 
         return(
             <>
             {   newRecipe &&
             <>
-                <h1>Your Recipe:</h1>
+                <h2>Your Recipe:</h2>
                 <div className="new-recipe">
                 
-                    <section>
                     <img src={`../chilis/${newRecipe.chili.img}`} />
-                        { newRecipe.chili.name && <><section>{ newRecipe.chili.name }</section><br /></>}
-                        { newRecipe.spice.name && <section>{ newRecipe.spice.name }</section>}
-                        { newRecipe.extra[0] ? <ol>{ addExtras }</ol> : ""}
+                    <div className="show-recipe">
+                        <span>Pepper</span>{ newRecipe.chili.name && <><section><strong>{ newRecipe.chili.name }</strong></section><br /></>}
+                        <span>Spice</span>{ newRecipe.spice.name && <section><strong>{ newRecipe.spice.name } Spice</strong></section>}
+                        { newRecipe.spice.name && <ul>{ showSpices }</ul>}
+                        <span>Add On:</span><br/>{ newRecipe.extra[0] ? <ul>{ addExtras }</ul> : "none"}
 
-                        { newRecipe.vinegar.name && <section>{ newRecipe.vinegar.name } Vinegar</section>}
-                    </section>
+                        <span>Vinegar</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
+                    </div>
                     <h3>Total: ${(newRecipe.chili.price)/100}.00</h3>
                     <button>Save and Return Home</button><button>Continue with Order</button>
                     {/* :   <Redirect to={'/home'} />  */}

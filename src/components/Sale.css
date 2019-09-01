@@ -1,9 +1,26 @@
 .new-recipe {
-    width: 500px;
+    width: calc(500px - 40px);
     margin: 0 auto;
     background-color: yellow;
+    margin-bottom: 30px;
+    padding: 20px;
 }
 
 .new-recipe section {
     text-align: right;
+}
+
+.new-recipe li {
+    text-align: right;
+}
+
+.show-recipe {
+    margin-right: 20px;
+}
+
+.show-recipe span {
+    float: left;
+    margin-left: 20px;
+    font-family: 'Smokum', 'Times New Roman', Times, serif;
+    font-size: 1.5em;
 }
