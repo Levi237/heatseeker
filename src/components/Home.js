@@ -18,10 +18,16 @@ export default class Home extends Component {
             if (e.creator) {
                 let x = e.creator
                 let y = e.chili
-                console.log(currentUser.email, "currentUser.email", recipes)
+                let t = e.timestamp.nanoseconds
+console.log(t)
+                let myDate = Date(t);
+                // console.log(currentUser.email, "currentUser.email", recipes)
                 if (x.email === currentUser.email) {
                     return(
-                        <div key={i}><img src={`../chilis/${y.src}`} /></div>
+                        <div key={i}>
+                            {myDate}
+                            <img src={`../chilis/${y.src}`} />
+                        </div>
                     )
                 }
             }
