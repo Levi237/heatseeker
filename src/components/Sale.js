@@ -36,7 +36,7 @@ export default class Sale extends Component {
                 <h2>Your Recipe</h2>
                 <div className="new-recipe">
                 <progress className="bored-bar" value={newRecipe.chili.heat} max="15"></progress>
-                    <img src={`../chilis/${newRecipe.chili.src}`} />
+                    <img src={`../chilis/${newRecipe.chili.src}`} alt={newRecipe.chili.name} />
                     <div className="show-recipe">
                         <span>Pepper:</span>{ newRecipe.chili.name && <><section><strong>{ newRecipe.chili.name }</strong></section></>}
                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>

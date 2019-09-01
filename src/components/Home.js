@@ -9,24 +9,25 @@ export default class Home extends Component {
 
     render(){
         const { recipes } = this.props
+
         let currentUser = firebase.auth().currentUser;
+
+        // let sort = recipes.sort((a, b) => a.chili.length  > b.chili.length)
         let listList = []
         if (currentUser && recipes){
 
-
+            
         let list = recipes.map((e, i) => {
             if (e.creator) {
                 let x = e.creator
                 let y = e.chili
-                let t = e.timestamp.seconds
-console.log(t)
-                let myDate = Date(t);
-                // console.log(currentUser.email, "currentUser.email", recipes)
+                // let t = e.timestamp.seconds
+
                 if (x.email === currentUser.email) {
                     return(
                         <div key={i}>
                             {/* {myDate} */}
-                            <img src={`../chilis/${y.src}`} />
+                            <img className="recipeList" alt={y.name} src={`../chilis/${y.src}`} />
                         </div>
                     )
                 }

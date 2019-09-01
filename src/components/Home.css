@@ -1,3 +1,7 @@
 .userHome {
     width: calc(100vw - 00px);
 }
+
+.recipeList {
+    height: 40px;
+}
