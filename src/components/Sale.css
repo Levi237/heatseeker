@@ -1,0 +1,9 @@
+.new-recipe {
+    width: 500px;
+    margin: 0 auto;
+    background-color: yellow;
+}
+
+.new-recipe section {
+    text-align: right;
+}
