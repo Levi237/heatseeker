@@ -34,6 +34,21 @@ export default class App extends Component {
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
+    this.loadRecipes();
+  }
+
+  loadRecipes(){
+    firebase
+    .firestore()
+    .collection('recipes')
+    .onSnapshot(serverUpdate => {
+      const recipesData = serverUpdate.docs.map(_doc => {
+        const data = _doc.data();
+        data['id'] = _doc.id;
+        return data;
+      });
+      this.setState({ recipes: recipesData });
+    });
   }
 
   loadForm(){
@@ -125,7 +140,7 @@ export default class App extends Component {
   }
 
   render(){
-    const { chilis, spices, extras, vinegars, newRecipe, user } = this.state
+    const { chilis, spices, extras, vinegars, newRecipe, user, recipes } = this.state
 
     return (
       <div className="grid-container">
@@ -148,7 +163,7 @@ export default class App extends Component {
                                     ? <Home/> 
                                     : <LoginRegister/>} />
             <Route path={routes.USER} render={() => 
-                                      <Home /> }/>
+                                      <Home recipes={recipes} /> }/>
             <Route path={routes.FORM} exact render={() => 
                                       <Form user={user} newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 

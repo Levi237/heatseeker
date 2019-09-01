@@ -33,7 +33,7 @@ export default class Sale extends Component {
             <>
             {   newRecipe &&
             <>
-                <h2>Your Recipe:</h2>
+                <h2>Your Recipe</h2>
                 <div className="new-recipe">
                 <progress className="bored-bar" value={newRecipe.chili.heat} max="15"></progress>
                     <img src={`../chilis/${newRecipe.chili.img}`} />
@@ -43,7 +43,7 @@ export default class Sale extends Component {
                         <span>Spice:</span>{ newRecipe.spice.name && <section><strong>{ newRecipe.spice.name } Spice</strong></section>}
                         { newRecipe.spice.name && <ul>{ showSpices }</ul>}
                         
-                        { newRecipe.extra[0] ? <><img className="chalk" src="chalkdarkorange.png" alt="line break"/><span>Add On:</span><br/><ul>{ addExtras }</ul></> : ""}
+                        { newRecipe.extra[0] ? <><img className="chalk" src="chalkdarkorange.png" alt="line break"/><section><span>Add On:</span></section><br /><ul>{ addExtras }</ul></> : ""}
                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>
