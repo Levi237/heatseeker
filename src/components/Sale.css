@@ -1,13 +1,28 @@
 .new-recipe {
     width: calc(500px - 40px);
     margin: 0 auto;
-    background-color: yellow;
+    /* background-color: yellow; */
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 0 20px 30px 20px;
+}
+
+.new-recipe > img {
+    height: 60px;
+    width: 60px;
 }
 
 .new-recipe section {
     text-align: right;
+}
+
+.new-recipe ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: .7em;
+    margin-block-end: .2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 
 .new-recipe li {
@@ -18,9 +33,15 @@
     margin-right: 20px;
 }
 
+.show-recipe > img {
+    width: 460px;
+    /* margin: 0 auto; */
+}
+
 .show-recipe span {
     float: left;
     margin-left: 20px;
     font-family: 'Smokum', 'Times New Roman', Times, serif;
     font-size: 1.5em;
 }
+

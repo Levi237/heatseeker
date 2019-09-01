@@ -35,15 +35,17 @@ export default class Sale extends Component {
             <>
                 <h2>Your Recipe:</h2>
                 <div className="new-recipe">
-                
+                <progress className="bored-bar" value={newRecipe.chili.heat} max="15"></progress>
                     <img src={`../chilis/${newRecipe.chili.img}`} />
                     <div className="show-recipe">
-                        <span>Pepper</span>{ newRecipe.chili.name && <><section><strong>{ newRecipe.chili.name }</strong></section><br /></>}
-                        <span>Spice</span>{ newRecipe.spice.name && <section><strong>{ newRecipe.spice.name } Spice</strong></section>}
+                        <span>Pepper:</span>{ newRecipe.chili.name && <><section><strong>{ newRecipe.chili.name }</strong></section></>}
+                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
+                        <span>Spice:</span>{ newRecipe.spice.name && <section><strong>{ newRecipe.spice.name } Spice</strong></section>}
                         { newRecipe.spice.name && <ul>{ showSpices }</ul>}
+                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                         <span>Add On:</span><br/>{ newRecipe.extra[0] ? <ul>{ addExtras }</ul> : "none"}
-
-                        <span>Vinegar</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
+                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
+                        <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>
                     <h3>Total: ${(newRecipe.chili.price)/100}.00</h3>
                     <button>Save and Return Home</button><button>Continue with Order</button>
