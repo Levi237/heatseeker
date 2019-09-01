@@ -36,7 +36,7 @@ export default class Form extends Component {
             name: "Ghost Pepper",
             heat: 15,
             price: 6000,
-            img: "ghost_pepper.JPG"
+            src: "ghost_pepper.JPG"
         },
         spice: {
             name: "Indian",

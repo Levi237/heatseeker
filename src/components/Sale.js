@@ -48,7 +48,7 @@ export default class Sale extends Component {
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>
                     <h3>Total: ${(newRecipe.chili.price)/100}.00</h3>
-                    <button>Save and Return Home</button><button>Continue with Order</button>
+                    <button><a href="/my-home"> Save and Return Home</a></button><button><a href="/order">Continue with Order</a></button>
                     {/* :   <Redirect to={'/home'} />  */}
                     </div>
                     </>
