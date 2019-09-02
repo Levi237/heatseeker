@@ -33,10 +33,10 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 export default class Form extends Component {
     state = {
         chili: [{
-            name: "",
-            heat: null,
-            price: null,
-            src: ""
+            name: "Serrano",
+            heat: 10,
+            price: 3500,
+            src: "serrano.JPG"
         }],
         spice: {
             name: "Indian",
@@ -104,7 +104,6 @@ export default class Form extends Component {
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         const chiliList = chilis.map((c, i) => {
-            console.log(c)
             return(
                 <section className="chiliSection" key={i}>
                     <button name="chili" value={c} className="chiliBtn" onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
@@ -128,7 +127,7 @@ export default class Form extends Component {
         const extraList = extras.map((x, i) => {
             return (
                 <section className="chiliSection" key={i}>
-                    <button name="extra" className="extraBtn" onClick={(e) => {this.multiToggle(e, x)}} type="button"></button>
+                    <button name="extra" value={x} className="extraBtn" onClick={(e) => {this.multiToggle(e, x)}} type="button"></button>
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
             )
@@ -172,9 +171,9 @@ export default class Form extends Component {
             <div className="box2">
                 <div className="myProgress">
                 { chili[2] ? 
-<progress className="bored-bar" value={(chili[1].heat + chili[2].heat)/2} max="15"></progress>
-: 
-<progress className="bored-bar" value={chili[1] ? (chili[1].heat) : 0} max="15"></progress>           }
+                    <progress className="bored-bar" value={(chili[1].heat + chili[2].heat)/2} max="15"></progress>
+                    : 
+                    <progress className="bored-bar" value={chili[1] ? (chili[1].heat) : 0} max="15"></progress>           }
                 </div>
 
                 <div className="chiliSection">
