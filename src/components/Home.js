@@ -5,6 +5,9 @@ import Username from '../components/Username';
 
 import './Home.css'
 
+
+// HOW TO SET TIME STAMP TO SORT ARRAY
+
 export default class Home extends Component {
 
     render(){

@@ -5,6 +5,7 @@ import './Sale.css'
 import Enter from './Enter';
 
 // CONFIRM & CONTINUE w/ ORDER OR SAVE FOR LATER
+// IF USER: NULL THEN PROMPT TO LOG IN WHEN CLICKING SAVE RECIPE BUTTON AND NOT PLACE ORDER BUTTON
 
 export default class Sale extends Component {
     // state = {

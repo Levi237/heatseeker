@@ -30,14 +30,14 @@ const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
 
+
+// NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.  NEED DEFAULT LABEL IMAGE
+
+// CREATE PRESETTING SAUCES.  {GREEN. RED. CHIPOTLE}
+
 export default class Form extends Component {
     state = {
-        chili: [
-            // name: null,
-            // heat: null,
-            // price: null,
-            // src: null,
-        ],
+        chili: [],
         spice: {
             name: "Indian",
             items: ["cumin", "curry", "sea salt", "pepper"]
