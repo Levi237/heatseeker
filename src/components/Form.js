@@ -32,12 +32,12 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
 export default class Form extends Component {
     state = {
-        chili: {
-            name: "Ghost Pepper",
-            heat: 15,
-            price: 6000,
-            src: "ghost_pepper.JPG"
-        },
+        chili: [{
+            name: "",
+            heat: null,
+            price: null,
+            src: ""
+        }],
         spice: {
             name: "Indian",
             items: ["cumin", "curry", "sea salt", "pepper"]
@@ -82,12 +82,13 @@ export default class Form extends Component {
         }
     }
     chiliToggle = (e, value) => {
+        const { chili } = this.state
         const target = e.currentTarget;
-        if (this.state.chili.includes(value.name)){
-            this.setState(prevState => ({ chili: prevState.chili.filter(x => x !== value.name) }));
+        if (chili.includes(value)){
+            this.setState(prevState => ({ chili: prevState.chili.filter(x => x !== value) }));
         }else{
             this.setState({
-                chili: [...this.state.chili, value.name]
+                chili: [...chili, value]
             })
         }
         if (target.classList.contains('active', 'chiliBtn')){
@@ -102,46 +103,52 @@ export default class Form extends Component {
         const { chili, spice, vinegar, extra, show } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
-        const chiliList = chilis.map((chili, i) => {
+        const chiliList = chilis.map((c, i) => {
+            console.log(c)
             return(
                 <section className="chiliSection" key={i}>
-                    <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.chiliiToggle(e, chili)}} type="button"></button>
-                    <section><img src={`../chilis/${chili.src}`} alt={chili.name}/><br/>{chili.name}</section>
+                    <button name="chili" value={c} className="chiliBtn" onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
+                    <section><img src={`../chilis/${c.src}`} alt={c.name}/><br/>{c.name}</section>
                 </section>
             )
         })
-        const spiceList = spices.map((spice, i) => {
-            const spiceItems= spice.items.map((item, k) => {
+        const spiceList = spices.map((s, i) => {
+            const spiceItems= s.items.map((item, k) => {
                 return (
                     <li key={k}>{item}</li>
                 )
             })
             return (
                 <section className="spiceSection" key={i}>
-                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
-                    <section>{spice.name}<ul>{spiceItems}</ul></section>
+                    <button name="spice" value={s} className={(spice.name === s.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, s)}} type="button"></button>
+                    <section>{s.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
         })
-        const extraList = extras.map((extra, i) => {
+        const extraList = extras.map((x, i) => {
             return (
                 <section className="chiliSection" key={i}>
-                    <button name="extra" className="extraBtn" onClick={(e) => {this.multiToggle(e, extra)}} type="button"></button>
-                    <section><img src={`../extras/${extra.img}`} alt={`${extra.name}`}/><br/>{extra.name}</section>
+                    <button name="extra" className="extraBtn" onClick={(e) => {this.multiToggle(e, x)}} type="button"></button>
+                    <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
             )
         })
-        const vinegarList = vinegars.map((vinegar, i) => {
+        const vinegarList = vinegars.map((v, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                    <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
-                    <section><img src={`../vinegars/${vinegar.img}`} alt={`${vinegar.name}`}/><br/>{vinegar.name}</section>
+                    <button name="vinegar" className={(vinegar.name === v.name? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, v)}} type="button"></button>
+                    <section><img src={`../vinegars/${v.img}`} alt={`${v.name}`}/><br/>{v.name}</section>
                 </section>
             )
         })
         const addExtra = extra.map((e, i) => {
             return(
                 <li key={i}>{e}</li>
+            )
+        })
+        const addChili = chili.map((e, i) => {
+            return(
+                <><strong key={i}>{e.name}</strong><br /></>
             )
         })
         return(
@@ -152,9 +159,9 @@ export default class Form extends Component {
             { newRecipe 
                 ? <Redirect to={'/complete-sale'} /> 
                 : <Modal show={show} onClose={this.showModal}>
-                    <h2>Are you sure you want to save?</h2>
+                    <h3>Are you sure you want to save?</h3>
                     <br />
-                        {chili.name} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
+                        {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
                         <br /><br /><br />
                     <button type="submit">
                             Save For Real
@@ -164,7 +171,10 @@ export default class Form extends Component {
 
             <div className="box2">
                 <div className="myProgress">
-                    <progress className="bored-bar" value={chili.heat} max="15"></progress>
+                { chili[2] ? 
+<progress className="bored-bar" value={(chili[1].heat + chili[2].heat)/2} max="15"></progress>
+: 
+<progress className="bored-bar" value={chili[1] ? (chili[1].heat) : 0} max="15"></progress>           }
                 </div>
 
                 <div className="chiliSection">
@@ -180,14 +190,16 @@ export default class Form extends Component {
             </div>   
 
             <div className="box1">
-                <h2>   Heat Factor: {chili.heat}</h2>
-                <h2>Price: ${chili.price/100}.00   </h2>
-                {user != null && user.providerData[0].displayName ? <span><strong>Created By: {user.providerData[0].displayName}</strong></span > : <span><strong>Your Order:</strong></span>}<br /><br />
-                <span>{chili.name}</span><br />
-                <span>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</span><br />
-                <span>Add On: </span><br />
+
+            {chili[1] ? <><h2>   Heat Factor: {chili[0].heat + chili[1].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>}
+                
+                {/* <h2>Price: ${chili.price/100}.00   </h2> */}
+                {user != null && user.providerData[0].displayName ? <strong>Created By: {user.providerData[0].displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
+                <div>{addChili}</div><br />
+                <strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong><br />
+                <strong>Add On: </strong><br />
                 <ol>{addExtra}</ol>
-                <span>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</span><br />
+                <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
                 <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
             </div>      
 
