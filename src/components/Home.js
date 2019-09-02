@@ -8,13 +8,12 @@ import './Home.css'
 export default class Home extends Component {
 
     render(){
-        const { recipes } = this.props
+        const { recipes, user } = this.props
 
-        let currentUser = firebase.auth().currentUser;
 
         // let sort = recipes.sort((a, b) => a.chili.length  > b.chili.length)
         let listList = []
-        if (currentUser && recipes){
+        if (user && recipes){
 
             
         let list = recipes.map((e, i) => {
@@ -23,7 +22,7 @@ export default class Home extends Component {
                 let y = e.chili
                 // let t = e.timestamp.seconds
 
-                if (x.email === currentUser.email) {
+                if (x.email === user.email) {
                     return(
                         <div key={i}>
                             {/* {myDate} */}
@@ -38,9 +37,12 @@ export default class Home extends Component {
         
         return(
             <div className="userHome">
-                {currentUser && currentUser.displayName}, Welcome Home, you are logged in right now
-            <br />{listList}<br />
-                <Username />
+                {user && 
+                <div>{user.displayName}, Welcome Home, you are logged in right now
+                    <br />{listList}<br />
+                    <Username />
+                </div>
+                }
             </div>
         )
     }

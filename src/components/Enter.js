@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-export default class LoginRegister extends Component{
+export default class Enter extends Component{
     state = {
         email: "",
         password: "",
@@ -40,6 +40,7 @@ export default class LoginRegister extends Component{
         }
     };
 
+
     render(){
         const { fireErrors, loginBtn, formTitle, email, password } = this.state
 
@@ -54,18 +55,18 @@ export default class LoginRegister extends Component{
 
         return(
             <div className="home">
-            <div className="form-block">
-            <div className="errorNotification">{errorNotification}</div>
-                <div id="title">{formTitle}</div>
-                <div className="body">
-                    <form>
-                        <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="email"/>
-                        <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
-                        {submitBtn}
-                    </form>
-                    {login_register}
+                <div className="form-block">
+                    <div className="errorNotification">{errorNotification}</div>
+                    <div id="title">{formTitle}</div>
+                        <div className="body">
+                            <form>
+                                <input type="email" value={email} onChange={this.handleChange} name="email" placeholder="email"/>
+                                <input type="password" value={password} onChange={this.handleChange} name="password" placeholder="password"  />
+                                {submitBtn}
+                            </form>
+                            {login_register}
+                        </div>
                 </div>
-            </div>
             </div>
         );
     };

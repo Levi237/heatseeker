@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom'
 
 import './Sale.css'
+import Enter from './Enter';
 
 // CONFIRM & CONTINUE w/ ORDER OR SAVE FOR LATER
 
 export default class Sale extends Component {
+    state = {
+        login: false,
+    }
+    showModal = () => {
+        this.setState({
+          ...this.state,
+          login: !this.state.login
+        })
+      }
+
     render(){
-        const { newRecipe, clearNewRecipe, currentUser } = this.props;
+        const { login } = this.state
+        const { newRecipe, clearNewRecipe, user } = this.props;
 
         let addExtras = [];
         let showSpices = [];
@@ -33,6 +45,12 @@ export default class Sale extends Component {
             <>
             {   newRecipe &&
             <>
+
+
+            <Enter login={login} onClose={this.showModal}>
+
+            </Enter>
+
                 <h2>Your Recipe</h2>
                 <div className="new-recipe">
                 <progress className="bored-bar" value={newRecipe.chili.heat} max="15"></progress>
@@ -48,8 +66,9 @@ export default class Sale extends Component {
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>
                     <h3>Total: ${(newRecipe.chili.price)/100}.00</h3>
-                    { currentUser &&
-                        <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
+                    { user 
+                        ? <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
+                        : <button onClick={this.showModal}> Save to Account</button>
                     }
                     <button><a href="/order">Continue with Order</a></button>
                     {/* :   <Redirect to={'/home'} />  */}

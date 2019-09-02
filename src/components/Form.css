@@ -90,7 +90,7 @@ section > section {
     font-weight: 200;
 }
 
-.chiliBtn, .selectBtn, .extraBtn {
+.chiliBtn, .selectBtn, .extraBtn, .btn {
     display: inline-block;
     position: relative;
     z-index: 1;

@@ -1,5 +1,6 @@
 export const ROOT = '/';
 export const HOME = '/home';
+export const LOGN = '/login-register'
 export const INFO = '/about';
 export const USER = '/my-home';
 export const FORM = '/create-sauce';

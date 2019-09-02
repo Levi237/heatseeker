@@ -49,7 +49,6 @@ export default class Form extends Component {
         },
         show: false,
         toggle: false,
-        // selected: false,
     }
 
     showModal = () => {
@@ -76,14 +75,27 @@ export default class Form extends Component {
                 extra: [...this.state.extra, value.name]
             })
         }
-
         if (target.classList.contains('active', 'extraBtn')){
             target.classList.remove('active');
         }else {
             target.classList.add('active');
+        }
     }
-}
-
+    chiliToggle = (e, value) => {
+        const target = e.currentTarget;
+        if (this.state.chili.includes(value.name)){
+            this.setState(prevState => ({ chili: prevState.chili.filter(x => x !== value.name) }));
+        }else{
+            this.setState({
+                chili: [...this.state.chili, value.name]
+            })
+        }
+        if (target.classList.contains('active', 'chiliBtn')){
+            target.classList.remove('active');
+        }else {
+            target.classList.add('active');
+        }
+    }
 
     render(){
 
@@ -93,7 +105,7 @@ export default class Form extends Component {
         const chiliList = chilis.map((chili, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                    <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, chili)}} type="button"></button>
+                    <button name="chili" value={chili} className={(this.state.chili.name === chili.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.chiliiToggle(e, chili)}} type="button"></button>
                     <section><img src={`../chilis/${chili.src}`} alt={chili.name}/><br/>{chili.name}</section>
                 </section>
             )
@@ -106,7 +118,7 @@ export default class Form extends Component {
             })
             return (
                 <section className="spiceSection" key={i}>
-                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
+                    <button name="spice" value={spice} className={(this.state.spice.name === spice.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, spice)}} type="button"></button>
                     <section>{spice.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
@@ -122,7 +134,7 @@ export default class Form extends Component {
         const vinegarList = vinegars.map((vinegar, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                    <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
+                    <button name="vinegar" className={(this.state.vinegar.name === vinegar.name? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, vinegar)}} type="button"></button>
                     <section><img src={`../vinegars/${vinegar.img}`} alt={`${vinegar.name}`}/><br/>{vinegar.name}</section>
                 </section>
             )

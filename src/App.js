@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { Component }        from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.css';
 
@@ -7,10 +7,8 @@ import About  from './components/About';
 import Form   from './components/Form';
 import Nav    from './components/Nav';
 import Sale   from './components/Sale';
-
-
-import Home from './components/Home';
-import LoginRegister from './components/LoginRegister';
+import Home   from './components/Home';
+import Enter from './components/Enter';
 
 import * as routes  from './constants/routes';
 import firebase from 'firebase/app';
@@ -164,14 +162,16 @@ export default class App extends Component {
         <div className="grid-main">
           <Switch>
             <Route path={routes.HOME} render={() => user 
-                                    ? <Home/> 
-                                    : <LoginRegister/>} />
+                                    ? <Home user={user}/> 
+                                    : <Home user={user} recipes={recipes} />} />
+            <Route path={routes.LOGN} exact render={() => user ? <Redirect to={routes.HOME} /> :
+                                      <Enter />} />
             <Route path={routes.USER} render={() => 
                                       <Home recipes={recipes} /> }/>
             <Route path={routes.FORM} exact render={() => 
                                       <Form user={user} newRecipe={newRecipe} chilis={chilis} spices={spices} extras={extras} vinegars={vinegars} setToggleApp={this.setToggleApp} submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} render={() => 
-                                      <Sale currentUser={user} newRecipe={newRecipe} user={user} clearNewRecipe={this.clearNewRecipe}/> }/>                                         
+                                      <Sale user={user} newRecipe={newRecipe} user={user} clearNewRecipe={this.clearNewRecipe}/> }/>                                         
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ECOM} render={() => 

@@ -36,6 +36,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+  z-index: 1;
 }
 
 .form-block {
