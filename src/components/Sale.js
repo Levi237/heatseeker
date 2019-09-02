@@ -7,18 +7,18 @@ import Enter from './Enter';
 // CONFIRM & CONTINUE w/ ORDER OR SAVE FOR LATER
 
 export default class Sale extends Component {
-    state = {
-        login: false,
-    }
-    showModal = () => {
-        this.setState({
-          ...this.state,
-          login: !this.state.login
-        })
-      }
+    // state = {
+    //     login: false,
+    // }
+    // showModal = () => {
+    //     this.setState({
+    //       ...this.state,
+    //       login: !this.state.login
+    //     })
+    //   }
 
     render(){
-        const { login } = this.state
+        // const { login } = this.state
         const { newRecipe, clearNewRecipe, user } = this.props;
 
         let addExtras = [];
@@ -45,8 +45,6 @@ export default class Sale extends Component {
             <>
             {   newRecipe &&
             <>
-
-
             {/* <Enter login={login} onClose={this.showModal}></Enter> */}
 
                 <h2>Your Recipe</h2>
@@ -57,13 +55,10 @@ export default class Sale extends Component {
 <progress className="bored-bar" value={(newRecipe.chili[0].heat)} max="15"></progress>           }
                 <img src={`../chilis/${newRecipe.chili.src}`} alt={newRecipe.chili.name} />
                     <div className="show-recipe">
-                    { newRecipe.chili[1] ? 
-                    <><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name } & { newRecipe.chili[1].name }</strong></section></>
-
-                        :
-                        <><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name }</strong></section></>
-                        
-                    }
+                        { newRecipe.chili[1] 
+                        ? <><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name } & { newRecipe.chili[1].name }</strong></section></>
+                        : <><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name }</strong></section></>
+                        }
                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                         <span>Spice:</span>{ newRecipe.spice.name && <section><strong>{ newRecipe.spice.name } Spice</strong></section>}
                         { newRecipe.spice.name && <ul>{ showSpices }</ul>}
@@ -74,8 +69,8 @@ export default class Sale extends Component {
                     </div>
                     <h3>Total: ${(newRecipe.chili[0].price)/100}.00</h3>
                     { user 
-                        ? <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
-                        : <button onClick={this.showModal}> Save to Account</button>
+                    ? <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
+                    : <button onClick={this.showModal}> Save to Account</button>
                     }
                     <button><a href="/order">Continue with Order</a></button>
                     {/* :   <Redirect to={'/home'} />  */}
