@@ -32,12 +32,12 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
 export default class Form extends Component {
     state = {
-        chili: [{
-            name: "Serrano",
-            heat: 10,
-            price: 3500,
-            src: "serrano.JPG"
-        }],
+        chili: [
+            // name: null,
+            // heat: null,
+            // price: null,
+            // src: null,
+        ],
         spice: {
             name: "Indian",
             items: ["cumin", "curry", "sea salt", "pepper"]
@@ -85,7 +85,11 @@ export default class Form extends Component {
         const { chili } = this.state
         const target = e.currentTarget;
         if (chili.includes(value)){
-            this.setState(prevState => ({ chili: prevState.chili.filter(x => x !== value) }));
+            this.setState(prevState => ({ 
+                chili: prevState.chili.filter(x => (
+                    x !== value
+                )) 
+            }));
         }else{
             this.setState({
                 chili: [...chili, value]
@@ -190,7 +194,7 @@ export default class Form extends Component {
 
             <div className="box1">
 
-            {chili[1] ? <><h2>   Heat Factor: {chili[0].heat + chili[1].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>}
+            {/* {chili[1].heat ? <><h2>   Heat Factor: {chili[0].heat + chili[1].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>} */}
                 
                 {/* <h2>Price: ${chili.price/100}.00   </h2> */}
                 {user != null && user.providerData[0].displayName ? <strong>Created By: {user.providerData[0].displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
