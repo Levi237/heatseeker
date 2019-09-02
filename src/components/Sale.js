@@ -7,7 +7,7 @@ import './Sale.css'
 
 export default class Sale extends Component {
     render(){
-        const { newRecipe, clearNewRecipe } = this.props;
+        const { newRecipe, clearNewRecipe, currentUser } = this.props;
 
         let addExtras = [];
         let showSpices = [];
@@ -48,7 +48,10 @@ export default class Sale extends Component {
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>
                     <h3>Total: ${(newRecipe.chili.price)/100}.00</h3>
-                    <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button><button><a href="/order">Continue with Order</a></button>
+                    { currentUser &&
+                        <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
+                    }
+                    <button><a href="/order">Continue with Order</a></button>
                     {/* :   <Redirect to={'/home'} />  */}
                     </div>
                     </>
