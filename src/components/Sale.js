@@ -47,23 +47,21 @@ export default class Sale extends Component {
             <>
 
 
-            <Enter login={login} onClose={this.showModal}>
-
-            </Enter>
+            {/* <Enter login={login} onClose={this.showModal}></Enter> */}
 
                 <h2>Your Recipe</h2>
                 <div className="new-recipe">
-                { newRecipe.chili[2] ? 
-<progress className="bored-bar" value={(newRecipe.chili[1].heat + newRecipe.chili[2].heat)/2} max="15"></progress>
+                { newRecipe.chili[1] ? 
+<progress className="bored-bar" value={(newRecipe.chili[0].heat + newRecipe.chili[1].heat)/2} max="15"></progress>
 : 
-<progress className="bored-bar" value={(newRecipe.chili[1].heat)} max="15"></progress>           }
+<progress className="bored-bar" value={(newRecipe.chili[0].heat)} max="15"></progress>           }
                 <img src={`../chilis/${newRecipe.chili.src}`} alt={newRecipe.chili.name} />
                     <div className="show-recipe">
-                    { newRecipe.chili[2] ? 
-                    <><span>Pepper:</span><section><strong>{ newRecipe.chili[1].name } & { newRecipe.chili[2].name }</strong></section></>
+                    { newRecipe.chili[1] ? 
+                    <><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name } & { newRecipe.chili[1].name }</strong></section></>
 
                         :
-                        <><span>Pepper:</span><section><strong>{ newRecipe.chili[1].name }</strong></section></>
+                        <><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name }</strong></section></>
                         
                     }
                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
@@ -74,7 +72,7 @@ export default class Sale extends Component {
                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>
-                    <h3>Total: ${(newRecipe.chili[1].price)/100}.00</h3>
+                    <h3>Total: ${(newRecipe.chili[0].price)/100}.00</h3>
                     { user 
                         ? <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
                         : <button onClick={this.showModal}> Save to Account</button>
