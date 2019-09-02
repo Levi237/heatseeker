@@ -84,20 +84,23 @@ export default class Form extends Component {
     chiliToggle = (e, value) => {
         const { chili } = this.state
         const target = e.currentTarget;
+        // if (chili.length > 2 ) {
+        //     return
+        // }
         if (chili.includes(value)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
                     x !== value
                 )) 
             }));
-        }else{
+        }else if(chili.length < 2){
             this.setState({
                 chili: [...chili, value]
             })
         }
         if (target.classList.contains('active', 'chiliBtn')){
             target.classList.remove('active');
-        }else {
+        }else if(chili.length < 2){
             target.classList.add('active');
         }
     }
@@ -174,10 +177,10 @@ export default class Form extends Component {
 
             <div className="box2">
                 <div className="myProgress">
-                { chili[2] ? 
-                    <progress className="bored-bar" value={(chili[1].heat + chili[2].heat)/2} max="15"></progress>
+                { chili[1] ? 
+                    <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
                     : 
-                    <progress className="bored-bar" value={chili[1] ? (chili[1].heat) : 0} max="15"></progress>           }
+                    <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           }
                 </div>
 
                 <div className="chiliSection">
@@ -194,7 +197,7 @@ export default class Form extends Component {
 
             <div className="box1">
 
-            {/* {chili[1].heat ? <><h2>   Heat Factor: {chili[0].heat + chili[1].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>} */}
+            {/* {chili[0].heat ? <><h2>   Heat Factor: {chili[0].heat + chili[0].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>} */}
                 
                 {/* <h2>Price: ${chili.price/100}.00   </h2> */}
                 {user != null && user.providerData[0].displayName ? <strong>Created By: {user.providerData[0].displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
