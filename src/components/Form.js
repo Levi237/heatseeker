@@ -101,10 +101,11 @@ export default class Form extends Component {
         if (extra.includes(value)){
             this.setState(prevState => ({ 
                 extra: prevState.extra.filter(x => (
-                    x !== value
+                    x.id !== value.id
                 ) )
             }));
-        }else{
+            // need unselect preset options from exmples
+         }else{
             this.setState({
                 extra: [...extra, value]
             })
@@ -120,7 +121,7 @@ export default class Form extends Component {
                 )) 
             }));
         // }else if(chili.length < 2){
-        }else if(chili.length < 2 || chili[0].name === value.name || chili[1].name === value.name){
+        }else if(chili.length < 2 || chili[0].id === value.id || chili[1].id === value.id){
             this.setState({
                 chili: [...chili, value]
             })
@@ -185,7 +186,7 @@ export default class Form extends Component {
         const chiliList = chilis.map((c, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                    <button name="chili" value={c} className={(chili1.name === c.name || chili2.name === c.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
+                    <button name="chili" value={c} className={(chili1.id === c.id || chili2.id === c.id ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
                     <section><img src={`../chilis/${c.src}`} alt={c.name}/><br/>{c.name}</section>
                 </section>
             )
@@ -199,7 +200,7 @@ export default class Form extends Component {
             return (
                 <section className="spiceSection" key={i}>
                 
-                    <button name="spice" value={s} className={(spice.name === s.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, s)}} type="button"></button>
+                    <button name="spice" value={s} className={(spice.id === s.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, s)}} type="button"></button>
                     <section>{s.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
@@ -207,7 +208,8 @@ export default class Form extends Component {
         const extraList = extras.map((x, k) => {
                 return (
                     <section className="chiliSection" id={`${x.name}`} key={k}>
-                    <button name="extra" value={x} className={(extra1.name === x.name || extra2.name === x.name || extra3.name === x.name || extra4.name === x.name || extra5.name === x.name || extra6.name === x.name || extra7.name === x.name ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+                    <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+                    {/* <button name="extra" value={x} className={(x == extra ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
             )
