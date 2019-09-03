@@ -98,10 +98,10 @@ export default class Form extends Component {
     extraToggle = (e, value) => {
         const { extra } = this.state
         const target = e.currentTarget;
-        if (extra.includes(value.name)){
+        if (extra.includes(value)){
             this.setState(prevState => ({ 
                 extra: prevState.extra.filter(x => (
-                    x.name !== value.name
+                    x !== value
                 ) )
             }));
         }else{
@@ -121,9 +121,10 @@ export default class Form extends Component {
         if (chili.includes(value)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
-                    x.name !== value.name
+                    x.id !== value.id
                 )) 
             }));
+        // }else if(chili.length < 2){
         }else if(chili.length < 2 || chili[0].name === value.name || chili[1].name === value.name){
             this.setState({
                 chili: [...chili, value]
@@ -145,13 +146,44 @@ export default class Form extends Component {
 
         }
         let chili1 = "";
-        let chili2 = "";
         if (chili[0]){
             chili1 = chili[0]
         } 
+        let chili2 = "";
         if ( chili[1]){
             chili2 = chili[1]
         }
+        let extra1 = "";
+        if ( extra[0]){
+            extra1 = extra[0]
+        }
+        let extra2 = "";
+        if ( extra[1]){
+            extra2 = extra[1]
+        }
+        let extra3 = "";
+        if ( extra[2]){
+            extra3 = extra[2]
+        }
+        let extra4 = "";
+        if ( extra[3]){
+            extra4 = extra[3]
+        }
+        let extra5 = "";
+        if ( extra[4]){
+            extra5 = extra[4]
+        }
+        let extra6 = "";
+        if ( extra[5]){
+            extra6 = extra[5]
+        }
+        let extra7 = "";
+        if ( extra[6]){
+            extra7 = extra[6]
+        }
+
+
+
         const showExamples = examples.map((ex, i) => {
             return(
                 <section className="chiliSection" key={i}>
@@ -185,7 +217,7 @@ export default class Form extends Component {
         const extraList = extras.map((x, k) => {
                 return (
                     <section className="chiliSection" id={`${x.name}`} key={k}>
-                    <button name="extra" value={x} className="extraBtn" onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+                    <button name="extra" value={x} className={(extra1.name === x.name || extra2.name === x.name || extra3.name === x.name || extra4.name === x.name || extra5.name === x.name || extra6.name === x.name || extra7.name === x.name ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
                     {/* <button name="extra" value={x} className={(x == extra ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
