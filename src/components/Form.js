@@ -138,6 +138,10 @@ export default class Form extends Component {
 
         const { chili, spice, vinegar, extra, show, examples } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
+
+        for (let i = 0; i < extra.length; i++){
+
+        }
         let chili1 = "";
         let chili2 = "";
         if (chili[0]){
@@ -170,18 +174,21 @@ export default class Form extends Component {
             })
             return (
                 <section className="spiceSection" key={i}>
+                
                     <button name="spice" value={s} className={(spice.name === s.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.spiceToggle(e, s)}} type="button"></button>
                     <section>{s.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
         })
-        const extraList = extras.map((x, i) => {
-            return (
-                <section className="chiliSection" key={i}>
-                    <button name="extra" value={x} className={(extra.name === x.name ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+        const extraList = extras.map((x, k) => {
+                return (
+                    <section className="chiliSection" key={k}>
+                    <button name="extra" value={x} className="extraBtn" onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+                    {/* <button name="extra" value={x} className={(x == extra ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
             )
+        
         })
         const vinegarList = vinegars.map((v, i) => {
             return(
@@ -193,7 +200,7 @@ export default class Form extends Component {
         })
         const addExtra = extra.map((e, i) => {
             return(
-                <li key={i}>{e}</li>
+                <li key={i}>{e.name}</li>
             )
         })
         const addChili = chili.map((e, i) => {
