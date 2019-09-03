@@ -110,16 +110,13 @@ export default class Form extends Component {
     chiliToggle = (e, value) => {
         const { chili } = this.state
         const target = e.currentTarget;
-        // if (chili.length > 2 ) {
-        //     return
-        // }
         if (chili.includes(value)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
-                    x.name !== value.name
+                    x.name != value.name
                 )) 
             }));
-        }else if(chili.length < 2){
+        }else if(chili.length < 2 || chili[0].name === value.name || chili[1].name === value.name){
             this.setState({
                 chili: [...chili, value]
             })
@@ -143,7 +140,7 @@ export default class Form extends Component {
         } 
         if ( chili[1]) {
             chili2 = chili[1]
-            console.log(chili[0].name)
+            console.log(chili[1].name)
         }
         const showExamples = examples.map((ex, i) => {
             return(
