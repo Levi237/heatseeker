@@ -109,11 +109,6 @@ export default class Form extends Component {
                 extra: [...extra, value]
             })
         }
-        // if (target.classList.contains('active', 'extraBtn')){
-        //     target.classList.remove('active');
-        // }else {
-        //     target.classList.add('active');
-        // }
     }
     chiliToggle = (e, value) => {
         const { chili } = this.state
@@ -130,11 +125,6 @@ export default class Form extends Component {
                 chili: [...chili, value]
             })
         }
-        // if (target.classList.contains('active', 'chiliBtn')){
-        //     target.classList.remove('active');
-        // }else if(chili.length < 2){
-        //     target.classList.add('active');
-        // }
     }
 
     render(){
@@ -218,7 +208,6 @@ export default class Form extends Component {
                 return (
                     <section className="chiliSection" id={`${x.name}`} key={k}>
                     <button name="extra" value={x} className={(extra1.name === x.name || extra2.name === x.name || extra3.name === x.name || extra4.name === x.name || extra5.name === x.name || extra6.name === x.name || extra7.name === x.name ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
-                    {/* <button name="extra" value={x} className={(x == extra ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
             )
