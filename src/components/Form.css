@@ -36,8 +36,12 @@
     background-color: white !important;
 }
 
-.toggleOn, .active {
+.toggleOn {
     background-color: rgb(255, 69, 0, .2);
+}
+
+.active {
+    background-color: rgb(0, 128, 0, .2);
 }
 
 .chiliSection {

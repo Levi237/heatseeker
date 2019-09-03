@@ -69,12 +69,18 @@ export default class Form extends Component {
         })
     }
     exampleToggle = (e, value) => {
+        const target = e.currentTarget
         this.setState({
             chili: value.chili,
             spice: value.spice,
             extra: value.extra,
             vinegar: value.vinegar
         }) 
+        if (target.classList.contains('active', 'chiliBtn')){
+            target.classList.remove('active');
+        }else {
+            target.classList.add('active');
+        }
     }
 
     showModal = () => {
@@ -87,25 +93,25 @@ export default class Form extends Component {
         this.props.onClose && this.props.onClose(e);
     }
 
-    setToggle = (e, value) => {
+    spiceToggle = (e, value) => {
         this.setState({
             [e.target.name]: value
         })
     }
-    multiToggle = (e, value) => {
+    extraToggle = (e, value) => {
         const target = e.currentTarget;
         if (this.state.extra.includes(value.name)){
-            this.setState(prevState => ({ extra: prevState.extra.filter(x => x !== value.name) }));
+            this.setState(prevState => ({ extra: prevState.extra.filter(x => x.name !== value.name) }));
         }else{
             this.setState({
-                extra: [...this.state.extra, value.name]
+                extra: [...this.state.extra, value]
             })
         }
-        if (target.classList.contains('active', 'extraBtn')){
-            target.classList.remove('active');
-        }else {
-            target.classList.add('active');
-        }
+        // if (target.classList.contains('active', 'extraBtn')){
+        //     target.classList.remove('active');
+        // }else {
+        //     target.classList.add('active');
+        // }
     }
     chiliToggle = (e, value) => {
         const { chili } = this.state
@@ -136,16 +142,14 @@ export default class Form extends Component {
         let chili2 = "";
         if (chili[0]){
             chili1 = chili[0]
-            console.log(chili[0].name)
         } 
-        if ( chili[1]) {
+        if ( chili[1]){
             chili2 = chili[1]
-            console.log(chili[1].name)
         }
         const showExamples = examples.map((ex, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                <button name={ex} value={ex} className="chiliBtn" onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
+                <button name={ex} value={ex} className="chiliBtn"  onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
                 <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
             </section>
             )
@@ -166,7 +170,7 @@ export default class Form extends Component {
             })
             return (
                 <section className="spiceSection" key={i}>
-                    <button name="spice" value={s} className={(spice.name === s.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, s)}} type="button"></button>
+                    <button name="spice" value={s} className={(spice.name === s.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.spiceToggle(e, s)}} type="button"></button>
                     <section>{s.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
@@ -174,7 +178,7 @@ export default class Form extends Component {
         const extraList = extras.map((x, i) => {
             return (
                 <section className="chiliSection" key={i}>
-                    <button name="extra" value={x} className="extraBtn" onClick={(e) => {this.multiToggle(e, x)}} type="button"></button>
+                    <button name="extra" value={x} className={(extra.name === x.name ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
             )
