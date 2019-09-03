@@ -78,11 +78,6 @@ export default class Form extends Component {
             extra: value.extra,
             vinegar: value.vinegar
         }) 
-        // if (target.classList.contains('active', 'chiliBtn')){
-        //     target.classList.remove('active');
-        // }else {
-        //     target.classList.add('active');
-        // }
     }
 
     showModal = () => {
@@ -95,7 +90,7 @@ export default class Form extends Component {
         this.props.onClose && this.props.onClose(e);
     }
 
-    spiceToggle = (e, value) => {
+    setToggle = (e, value) => {
         this.setState({
             [e.target.name]: value
         })
@@ -106,7 +101,7 @@ export default class Form extends Component {
         if (extra.includes(value.name)){
             this.setState(prevState => ({ 
                 extra: prevState.extra.filter(x => (
-                    x.name != value.name
+                    x.name !== value.name
                 ) )
             }));
         }else{
@@ -126,7 +121,7 @@ export default class Form extends Component {
         if (chili.includes(value)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
-                    x.name != value.name
+                    x.name !== value.name
                 )) 
             }));
         }else if(chili.length < 2 || chili[0].name === value.name || chili[1].name === value.name){
@@ -182,7 +177,7 @@ export default class Form extends Component {
             return (
                 <section className="spiceSection" key={i}>
                 
-                    <button name="spice" value={s} className={(spice.name === s.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.spiceToggle(e, s)}} type="button"></button>
+                    <button name="spice" value={s} className={(spice.name === s.name ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, s)}} type="button"></button>
                     <section>{s.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
