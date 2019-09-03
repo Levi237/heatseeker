@@ -41,6 +41,7 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 export default class Form extends Component {
     state = {
         examples: [],
+        style: "",
         chili: [],
         spice: {
             name: "Indian",
@@ -71,16 +72,17 @@ export default class Form extends Component {
     exampleToggle = (e, value) => {
         const target = e.currentTarget
         this.setState({
+            style: value.style,
             chili: value.chili,
             spice: value.spice,
             extra: value.extra,
             vinegar: value.vinegar
         }) 
-        if (target.classList.contains('active', 'chiliBtn')){
-            target.classList.remove('active');
-        }else {
-            target.classList.add('active');
-        }
+        // if (target.classList.contains('active', 'chiliBtn')){
+        //     target.classList.remove('active');
+        // }else {
+        //     target.classList.add('active');
+        // }
     }
 
     showModal = () => {
@@ -99,12 +101,17 @@ export default class Form extends Component {
         })
     }
     extraToggle = (e, value) => {
+        const { extra } = this.state
         const target = e.currentTarget;
-        if (this.state.extra.includes(value.name)){
-            this.setState(prevState => ({ extra: prevState.extra.filter(x => x.name !== value.name) }));
+        if (extra.includes(value.name)){
+            this.setState(prevState => ({ 
+                extra: prevState.extra.filter(x => (
+                    x.name != value.name
+                ) )
+            }));
         }else{
             this.setState({
-                extra: [...this.state.extra, value]
+                extra: [...extra, value]
             })
         }
         // if (target.classList.contains('active', 'extraBtn')){
@@ -136,7 +143,7 @@ export default class Form extends Component {
 
     render(){
 
-        const { chili, spice, vinegar, extra, show, examples } = this.state
+        const { chili, spice, vinegar, extra, show, examples, style } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         for (let i = 0; i < extra.length; i++){
@@ -153,7 +160,7 @@ export default class Form extends Component {
         const showExamples = examples.map((ex, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                <button name={ex} value={ex} className="chiliBtn"  onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
+                <button name={ex} value={ex} className={(style === ex.style  ? "active chiliBtn" : "chiliBtn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
                 <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
             </section>
             )
@@ -182,7 +189,7 @@ export default class Form extends Component {
         })
         const extraList = extras.map((x, k) => {
                 return (
-                    <section className="chiliSection" key={k}>
+                    <section className="chiliSection" id={`${x.name}`} key={k}>
                     <button name="extra" value={x} className="extraBtn" onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
                     {/* <button name="extra" value={x} className={(x == extra ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
