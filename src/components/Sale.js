@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom'
 
 import './Sale.css'
-import Enter from './Enter';
+// import Enter from './Enter';
 
 // CONFIRM & CONTINUE w/ ORDER OR SAVE FOR LATER
 // IF USER: NULL THEN PROMPT TO LOG IN WHEN CLICKING SAVE RECIPE BUTTON AND NOT PLACE ORDER BUTTON

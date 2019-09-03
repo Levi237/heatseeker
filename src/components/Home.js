@@ -29,7 +29,7 @@ export default class Home extends Component {
                     return(
                         <div key={i}>
                             {/* {myDate} */}
-                            <img className="recipeList" alt={y.name} src={`../chilis/${y.src}`} />
+                            <img className="recipeList" alt={y[0].name} src={`../chilis/${y[0].src}`} />
                         </div>
                     )
                 }
@@ -40,11 +40,15 @@ export default class Home extends Component {
         
         return(
             <div className="userHome">
-                {user && 
+                {user ?
                 <div>{user.displayName}, Welcome Home, you are logged in right now
                     <br />{listList}<br />
                     <Username />
                 </div>
+                :
+                <>
+                 Hello, Welcome to HeatMakerSauce
+                </>
                 }
             </div>
         )

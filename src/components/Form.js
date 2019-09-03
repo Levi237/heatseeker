@@ -4,6 +4,9 @@ import { Redirect }         from 'react-router-dom';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 import Modal                from './modal/Modal'
 
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+
 import './Form.css'
 // import { tsThisType } from '@babel/types';
 
@@ -37,18 +40,41 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
 export default class Form extends Component {
     state = {
+        examples: [],
         chili: [],
         spice: {
             name: "Indian",
             items: ["cumin", "curry", "sea salt", "pepper"]
         },
-        extra: []
-        ,
+        extra: [],
         vinegar: {
             name: "White Wine",
         },
         show: false,
         toggle: false,
+    }
+    componentDidMount = () => {
+        this.loadExamples();
+    }
+    loadExamples(){
+        firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
+            const examples = serverUpdate.docs.map(_doc => {
+                const data = _doc.data();
+                data['id'] = _doc.id;
+                return data
+            });
+            this.setState({
+                examples: examples
+            })
+        })
+    }
+    exampleToggle = (e, value) => {
+        this.setState({
+            chili: value.chili,
+            spice: value.spice,
+            extra: value.extra,
+            vinegar: value.vinegar
+        }) 
     }
 
     showModal = () => {
@@ -90,7 +116,7 @@ export default class Form extends Component {
         if (chili.includes(value)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
-                    x !== value
+                    x.name !== value.name
                 )) 
             }));
         }else if(chili.length < 2){
@@ -98,22 +124,39 @@ export default class Form extends Component {
                 chili: [...chili, value]
             })
         }
-        if (target.classList.contains('active', 'chiliBtn')){
-            target.classList.remove('active');
-        }else if(chili.length < 2){
-            target.classList.add('active');
-        }
+        // if (target.classList.contains('active', 'chiliBtn')){
+        //     target.classList.remove('active');
+        // }else if(chili.length < 2){
+        //     target.classList.add('active');
+        // }
     }
 
     render(){
 
-        const { chili, spice, vinegar, extra, show } = this.state
+        const { chili, spice, vinegar, extra, show, examples } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
-
+        let chili1 = "";
+        let chili2 = "";
+        if (chili[0]){
+            chili1 = chili[0]
+            console.log(chili[0].name)
+        } 
+        if ( chili[1]) {
+            chili2 = chili[1]
+            console.log(chili[0].name)
+        }
+        const showExamples = examples.map((ex, i) => {
+            return(
+                <section className="chiliSection" key={i}>
+                <button name={ex} value={ex} className="chiliBtn" onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
+                <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
+            </section>
+            )
+        })
         const chiliList = chilis.map((c, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                    <button name="chili" value={c} className="chiliBtn" onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
+                    <button name="chili" value={c} className={(chili1.name === c.name || chili2.name === c.name ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
                     <section><img src={`../chilis/${c.src}`} alt={c.name}/><br/>{c.name}</section>
                 </section>
             )
@@ -176,6 +219,7 @@ export default class Form extends Component {
                 }  
 
             <div className="box2">
+                <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
                 <div className="myProgress">
                 { chili[1] ? 
                     <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
