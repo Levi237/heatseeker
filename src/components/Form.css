@@ -37,9 +37,7 @@
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 
-.menu-item-wrapper {
-    background-color: white !important;
-}
+
 
 .toggleOn {
     background-color: rgb(255, 69, 0, .2);
@@ -60,7 +58,8 @@
 }
 
 .chiliSection > section, .chiliSection > button { 
-    height: 90px;
+    margin-top: 0px;
+    height: 80px;
     width: 100px;
 }
 .spiceSection > section, .spiceSection > button { 
@@ -99,12 +98,12 @@ section > section {
     font-weight: 200;
 }
 
-.chiliBtn, .selectBtn, .extraBtn, .btn {
+.btn {
     display: inline-block;
     position: relative;
     z-index: 1;
     border-radius: 15px;
-    margin-bottom: -10px;    
+    /* margin-bottom: -10px;     */
     position: absolute;
     border: none;
 }
@@ -182,26 +181,45 @@ background-image:
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
+/***************************************           HORIZONTAL      ***************************************/
 /***************************************           SCROLL          ***************************************/
-/***************************************           BAR             ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
+.menu-item {
+    padding: 0 40px;
+    margin: 5px 10px;
+    user-select: auto;
+    cursor: pointer;
+    border: none;
+    /* margin-top: -10px; */
+}
+.scroll-menu-arrow {
+    padding: 0px;
+    cursor: pointer;
+}
+.menu-wrapper {
+    max-height: 80px;
+}
+.menu-item-wrapper {
+    background-color: white !important;
+    max-height: 80px;
+}
+
 .arrow-prev, .arrow-next {
     width: 0; 
     height: 0; 
 }
-
 .arrow-prev {
     border-right: 20px solid green; 
     margin-left: 10px;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent; 
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent; 
 }
 .arrow-next {
     border-left: 20px solid red;
     margin-right: 10px;
-    border-top: 50px solid transparent;
-    border-bottom: 50px solid transparent;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
 }
 
 /*********************************************************************************************************/

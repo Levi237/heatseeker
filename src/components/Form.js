@@ -183,7 +183,7 @@ export default class Form extends Component {
         const showExamples = examples.map((ex, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                <button name={ex} value={ex} className={(style === ex.style  ? "active chiliBtn" : "chiliBtn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
+                <button name={ex} value={ex} className={(style === ex.style  ? "active btn" : "btn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
                 <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
             </section>
             )
@@ -191,7 +191,7 @@ export default class Form extends Component {
         const chiliList = chilis.map((c, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                    <button name="chili" value={c} className={(chili1.id === c.id || chili2.id === c.id ? "toggleOn chiliBtn" : "chiliBtn")} onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
+                    <button name="chili" value={c} className={(chili1.id === c.id || chili2.id === c.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
                     <section><img src={`../chilis/${c.src}`} alt={c.name}/><br/>{c.name}</section>
                 </section>
             )
@@ -213,8 +213,8 @@ export default class Form extends Component {
         const extraList = extras.map((x, k) => {
                 return (
                     <section className="chiliSection" id={`${x.name}`} key={k}>
-                    <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
-                    {/* <button name="extra" value={x} className={(x == extra ? "toggleOn extraBtn" : "extraBtn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
+                    <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+                    {/* <button name="extra" value={x} className={(x == extra ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
                     <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                 </section>
             )
@@ -269,13 +269,13 @@ export default class Form extends Component {
                 <div className="chiliSection">
                     <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
                 </div>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
                     <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
                     <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
                     <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  <br />
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
             </div>   
 
             <div className="box1">

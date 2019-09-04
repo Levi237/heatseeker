@@ -92,7 +92,7 @@ export default class Home extends Component {
                     return(
                         <div key={i}>
 
-{e.style}
+                        {e.style}
                             {/* <img className="recipeList" alt={y.name} src={`../public/chilis/${y[0].src}`} /> */}
                         </div>
                     )
