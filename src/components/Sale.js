@@ -85,7 +85,7 @@ export default class Sale extends Component {
                         : ""}
                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
-                    </div>
+                    </div><br/>
                     {/* <h3>Total: ${(newRecipe.chili[0].price)/100}.00</h3> */}
                     { user 
                     ? <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
