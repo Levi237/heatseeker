@@ -46,7 +46,22 @@ export default class Sale extends Component {
             {newRecipe &&
             <>
             {/* <Enter login={login} onClose={this.showModal}></Enter> */}
-                <h2>Your Recipe</h2>
+                <h2>Your Recipe</h2><br/>
+                { newRecipe.chili[1]
+                        ? <>
+                        <img src={`../chilis/${newRecipe.chili[0].src}`} alt={newRecipe.chili[0].name} className="chili"/>
+                        <h3>{newRecipe.style}</h3>
+                        <img src={`../chilis/${newRecipe.chili[1].src}`} alt={newRecipe.chili[1].name} className="chili"/>
+                        {/* <br/><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name } & { newRecipe.chili[1].name }</strong></section> */}
+                        </>
+                        : <>
+                        <img src={`../chilis/${newRecipe.chili[0].src}`} alt={newRecipe.chili[0].name} className="chili"/>
+                        <h3>{newRecipe.style}</h3>
+                        <img src={`../chilis/${newRecipe.chili[0].src}`} alt={newRecipe.chili[0].name} className="chili"/>
+                        {/* <span>Pepper:</span><section><strong>{ newRecipe.chili[0].name }</strong></section> */}
+                        </>
+                        }
+                
                 <div className="new-recipe">
                 { newRecipe.chili[1] 
                 ? <progress className="bored-bar" value={(newRecipe.chili[0].heat + newRecipe.chili[1].heat)/2} max="15"></progress>
@@ -56,10 +71,10 @@ export default class Sale extends Component {
                     <div className="show-recipe">
                         { newRecipe.chili[1]
                         ? <>
-                        <img src={`../chilis/${newRecipe.chili[0].src}`} alt={newRecipe.chili[0].name} className="chili"/><img src={`../chilis/${newRecipe.chili[1].src}`} alt={newRecipe.chili[1].name} className="chili"/><br/><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name } & { newRecipe.chili[1].name }</strong></section>
+                        <span>Pepper:</span><section><strong>{ newRecipe.chili[0].name } & { newRecipe.chili[1].name }</strong></section>
                         </>
                         : <>
-                        <img src={`../chilis/${newRecipe.chili[0].src}`} alt={newRecipe.chili[0].name} className="chili"/><span>Pepper:</span><section><strong>{ newRecipe.chili[0].name }</strong></section>
+                        <span>Pepper:</span><section><strong>{ newRecipe.chili[0].name }</strong></section>
                         </>
                         }
                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
@@ -71,7 +86,7 @@ export default class Sale extends Component {
                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                         <span>Vinegar:</span>{ newRecipe.vinegar.name && <section><strong>{ newRecipe.vinegar.name }</strong></section>}
                     </div>
-                    <h3>Total: ${(newRecipe.chili[0].price)/100}.00</h3>
+                    {/* <h3>Total: ${(newRecipe.chili[0].price)/100}.00</h3> */}
                     { user 
                     ? <button onClick={clearNewRecipe}><a href="/my-home"> Save and Return Home</a></button>
                     : <button onClick={this.showModal}> Save to Account</button>

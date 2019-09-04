@@ -246,7 +246,7 @@ export default class Form extends Component {
             { newRecipe 
                 ? <Redirect to={'/complete-sale'} /> 
                 : <Modal show={show} onClose={this.showModal}>
-                    <h3>Time to name your Sauce!</h3>
+                    <h3>Time to name your Sauce!</h3><br/>
                     <input name="style" value={style} type="tex" onChange={this.handleChange}/>
                     <br />
                         {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
