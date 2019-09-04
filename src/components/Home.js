@@ -103,6 +103,7 @@ export default class Home extends Component {
         
         return(
             <div className="userHome">
+            {user && !user.displayName ? <Username /> : ""}
                 {user ?
                 <div>{user.displayName}, Welcome Home, you are logged in right now
                     <br />{listList}<br />
