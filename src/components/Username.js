@@ -4,6 +4,7 @@ import firebase from 'firebase/app'
 export default class Username extends Component {
     state = {
         name: "",
+        updateErrors: null,
     }
     handleChange = e => {
         this.setState({
@@ -11,7 +12,9 @@ export default class Username extends Component {
         });
     };
     updateUserName = () => {
+        console.log(this.state.name)
         let currentUser = firebase.auth().currentUser;
+        console.log(currentUser)
         currentUser.updateProfile({
           displayName: this.state.name,
           // photoURL: "https://example.com/jane-q-user/profile.jpg"
@@ -25,7 +28,8 @@ export default class Username extends Component {
 
     render(){
         return(
-            <form >
+            <form>
+            {/* <form onSubmit={this.updateUserName}> */}
                 <input type="text" onChange={this.handleChange} value={this.state.name} name="name" placeholder="Edit Name"/>
                 <button type="submit" onClick={this.updateUserName}>Save</button>
             </form>
