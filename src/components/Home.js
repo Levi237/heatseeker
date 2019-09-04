@@ -83,16 +83,17 @@ export default class Home extends Component {
             
         let list = recipes.map((e, i) => {
             if (e.creator) {
+                let x = e.creator
+                // let y = e.chili
+                // let t = e.timestamp.seconds
 
-
-
-                if (e.creator.id === user.id) {
+                if (x.email === user.email) {
                     console.log(e.chili)
                     return(
                         <div key={i}>
 
 {e.style}
-
+                            {/* <img className="recipeList" alt={y.name} src={`../public/chilis/${y[0].src}`} /> */}
                         </div>
                     )
                 }
@@ -103,7 +104,7 @@ export default class Home extends Component {
         
         return(
             <div className="userHome">
-            {user && !user.displayName ? <Username /> : ""}
+             {user && !user.displayName ? <Username /> : ""}
                 {user ?
                 <div>{user.displayName}, Welcome Home, you are logged in right now
                     <br />{listList}<br />
