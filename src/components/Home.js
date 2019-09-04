@@ -108,7 +108,6 @@ export default class Home extends Component {
                 {user ?
                 <div>{user.displayName}, Welcome Home, you are logged in right now
                     <br />{listList}<br />
-                    <Username />
                 </div>
                 :
                 <>
