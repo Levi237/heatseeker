@@ -83,15 +83,16 @@ export default class Home extends Component {
             
         let list = recipes.map((e, i) => {
             if (e.creator) {
-                let x = e.creator
-                let y = e.chili
-                // let t = e.timestamp.seconds
 
-                if (x.email === user.email) {
+
+
+                if (e.creator.id === user.id) {
+                    console.log(e.chili)
                     return(
                         <div key={i}>
-                            {/* {myDate} */}
-                            <img className="recipeList" alt={y[0].name} src={`../chilis/${y[0].src}`} />
+
+{e.style}
+
                         </div>
                     )
                 }
