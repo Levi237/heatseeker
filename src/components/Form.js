@@ -72,7 +72,7 @@ export default class Form extends Component {
     exampleToggle = (e, value) => {
         const target = e.currentTarget
         this.setState({
-            // style: value.style,
+            style: value.style,
             chili: value.chili,
             spice: value.spice,
             extra: value.extra,
