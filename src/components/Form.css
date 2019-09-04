@@ -182,26 +182,40 @@ top: -12px;
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
+/***************************************           HORIZONTAL      ***************************************/
 /***************************************           SCROLL          ***************************************/
-/***************************************           BAR             ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-.arrow-prev, .arrow-next {
-width: 0; 
-height: 0; 
+.menu-item {
+    padding: 0 40px;
+    margin: 5px 10px;
+    user-select: auto;
+    cursor: pointer;
+    border: none;
+}
+.scroll-menu-arrow {
+    padding: 0px;
+    cursor: pointer;
+}
+.menu-wrapper {
+    height: 80px;
 }
 
+.arrow-prev, .arrow-next {
+    width: 0; 
+    height: 0; 
+}
 .arrow-prev {
-border-right: 20px solid green; 
-margin-left: 10px;
-border-top: 50px solid transparent;
-border-bottom: 50px solid transparent; 
+    border-right: 20px solid green; 
+    margin-left: 10px;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent; 
 }
 .arrow-next {
-border-left: 20px solid red;
-margin-right: 10px;
-border-top: 50px solid transparent;
-border-bottom: 50px solid transparent;
+    border-left: 20px solid red;
+    margin-right: 10px;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
 }
 
 /*********************************************************************************************************/
