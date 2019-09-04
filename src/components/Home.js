@@ -29,7 +29,7 @@ export default class Home extends Component {
                     return(
                         <div key={i}>
                             {/* {myDate} */}
-                            <img className="recipeList" alt={y[0].name} src={`../chilis/${y[0].src}`} />
+                            {/* <img className="recipeList" alt={y[0].name} src={`../chilis/${y[0].src}`} /> */}
                         </div>
                     )
                 }
