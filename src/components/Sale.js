@@ -47,7 +47,6 @@ export default class Sale extends Component {
             <>
             {/* <Enter login={login} onClose={this.showModal}></Enter> */}
                 <h2>Your Recipe</h2>
-                <h2>{newRecipe.style}</h2>
                 <div className="new-recipe">
                 { newRecipe.chili[1] 
                 ? <progress className="bored-bar" value={(newRecipe.chili[0].heat + newRecipe.chili[1].heat)/2} max="15"></progress>
