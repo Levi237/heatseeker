@@ -23,6 +23,8 @@ export default class Home extends Component {
             if (e.creator) {
                 let x = e.creator
                 let y = e.chili
+                let s = e
+                console.log(s)
                 // let t = e.timestamp.seconds
 
                 if (x.email === user.email) {
@@ -30,6 +32,8 @@ export default class Home extends Component {
                         <div key={i}>
                             {/* {myDate} */}
                             <img className="recipeList" alt={y[0].name} src={`../chilis/${y[0].src}`} />
+                            <br/>
+                            <span>{s.style}</span>
                         </div>
                     )
                 }

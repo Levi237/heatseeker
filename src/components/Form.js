@@ -41,7 +41,7 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 export default class Form extends Component {
     state = {
         examples: [],
-        style: "",
+        style: "HeatMaker Hot Sauce",
         chili: [],
         spice: {
             name: "Indian",
@@ -72,7 +72,7 @@ export default class Form extends Component {
     exampleToggle = (e, value) => {
         const target = e.currentTarget
         this.setState({
-            style: value.style,
+            // style: value.style,
             chili: value.chili,
             spice: value.spice,
             extra: value.extra,
@@ -104,7 +104,6 @@ export default class Form extends Component {
                     x.id !== value.id
                 ) )
             }));
-            // need unselect preset options from exmples
          }else{
             this.setState({
                 extra: [...extra, value]
@@ -127,6 +126,12 @@ export default class Form extends Component {
             })
         }
     }
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
 
     render(){
 
@@ -241,7 +246,8 @@ export default class Form extends Component {
             { newRecipe 
                 ? <Redirect to={'/complete-sale'} /> 
                 : <Modal show={show} onClose={this.showModal}>
-                    <h3>Are you sure you want to save?</h3>
+                    <h3>Time to name your Sauce!</h3>
+                    <input name="style" value={style} type="tex" onChange={this.handleChange}/>
                     <br />
                         {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
                         <br /><br /><br />
