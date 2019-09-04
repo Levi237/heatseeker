@@ -127,6 +127,7 @@ export default class App extends Component {
     const newFromDB = await firebase.firestore()
       .collection('recipes')
       .add({
+        style: data.style,
         chili: data.chili,
         spice: data.spice,
         extra: data.extra,
