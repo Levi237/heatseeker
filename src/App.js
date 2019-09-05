@@ -28,6 +28,7 @@ export default class App extends Component {
       vinegars: [],
       options: [],
       newRecipe: null,
+      updateRecipe: null,
       selection: {},
       recipes: [],
   // }
@@ -122,7 +123,6 @@ showThisRecipe = (e) => {
   }
 
   submitForm =  async (e, data) => {
-    // const creatorData = this.user.state
     e.preventDefault();
     this.setState({
       newRecipe: data
@@ -151,21 +151,10 @@ showThisRecipe = (e) => {
       return newFromDB
   }
   updateForm =  async (e, data) => {
-    // const creatorData = this.user.state
     e.preventDefault();
     this.setState({
       updateRecipe: data
     })
-    // let creator = this.state.user;
-    // let creatorData = null;
-    // if (this.state.user ){
-    //   let info = firebase.auth().currentUser;
-    //   creator = info;
-    //   creatorData = info.providerData[0]
-    // } else {
-    //   creator = null
-    // }
-    
     const updateDB = await firebase.firestore()
       .collection('recipes').child()
       .update({
@@ -183,7 +172,7 @@ showThisRecipe = (e) => {
     })
   }
   render(){
-    const { chilis, spices, extras, vinegars, newRecipe, user, recipes, show } = this.state
+    const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show } = this.state
 
     return (
       <div className="grid-container">
@@ -233,6 +222,8 @@ showThisRecipe = (e) => {
                                       <Show 
                                         user={user} 
                                         newRecipe={newRecipe} 
+                                        updateRecipe={updateRecipe} 
+                                        updateForm={this.updateForm}
                                         clearNewRecipe={this.clearNewRecipe}/> }/>                                         
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>

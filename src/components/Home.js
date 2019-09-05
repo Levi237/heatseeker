@@ -84,7 +84,7 @@ export default class Home extends Component {
 // }
 
     render(){
-        const { recipes, user, showThisRecipe, show, newRecipe } = this.props
+        const { recipes, user, showThisRecipe, show, newRecipe, updateForm, updateRecipe } = this.props
 
 
         // let sort = recipes.sort((a, b) => a.chili.length  > b.chili.length)
@@ -120,6 +120,7 @@ export default class Home extends Component {
                     show={show} 
                     recipes={recipes} 
                     newRecipe={newRecipe} 
+                    updateForm={updateForm}
                     user={user}/> 
             :  <>
                 {   user && !user.displayName 
