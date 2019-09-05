@@ -64,7 +64,7 @@ import React, { Component } from 'react';
 // import firebase from "firebase/app"
 
 import Username from '../components/Username';
-
+// import Show from '../components/modal/Show';
 import './Home.css'
 
 
