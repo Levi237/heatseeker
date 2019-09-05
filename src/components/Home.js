@@ -122,7 +122,7 @@ export default class Home extends Component {
         return(
             <div className="userHome">
             {  show 
-            ?  <Show /> 
+            ?  <Show show={show}/> 
             :  <>
                 {   user && !user.displayName 
                     ? <Username /> 
