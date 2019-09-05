@@ -61,6 +61,7 @@
 // }
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 // import firebase from "firebase/app"
 
 import Username from '../components/Username';
@@ -71,9 +72,18 @@ import './Home.css'
 // HOW TO SET TIME STAMP TO SORT ARRAY
 
 export default class Home extends Component {
+// state = {
+//     show: null,
+// }
+// showThisRecipe = (e) => {
+//     console.log(e.target)
+//     //  this.setState({
+//     //      show: e.currentTarget
+//     //  })
+// }
 
     render(){
-        const { recipes, user } = this.props
+        const { recipes, user, showThisRecipe } = this.props
 
 
         // let sort = recipes.sort((a, b) => a.chili.length  > b.chili.length)
@@ -90,11 +100,15 @@ export default class Home extends Component {
                 if (x.email === user.email) {
                     console.log(e.chili)
                     return(
-                        <div key={i}>
+                        <button key={i} type="submit" onClick={(e) => showThisRecipe(e)} value={e}>
+                        <a href={`/show/${e.id}`}>
 
+                        {/* <Link to={`/show/${e.id}`}>  */}
                         {e.style}
+                        </a>
+                        {/* </Link> */}
                             {/* <img className="recipeList" alt={y.name} src={`../public/chilis/${y[0].src}`} /> */}
-                        </div>
+                        </button>
                     )
                 }
             }

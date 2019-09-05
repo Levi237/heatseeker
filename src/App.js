@@ -30,7 +30,16 @@ export default class App extends Component {
       newRecipe: null,
       selection: {},
       recipes: [],
-  }
+  // }
+  // state = {
+    show: null,
+}
+showThisRecipe = (e) => {
+    console.log(e.target)
+    //  this.setState({
+    //      show: e.currentTarget
+    //  })
+}
 
   componentDidMount = () => {
     this.authListener();
@@ -167,7 +176,10 @@ export default class App extends Component {
         <div className="grid-main">
           <Switch>
             <Route path={routes.HOME} render={() =>
-                                      <Home user={user} recipes={recipes} />} />
+                                      <Home 
+                                        user={user} 
+                                        recipes={recipes} 
+                                        showThisRecipe={this.showThisRecipe}/>} />
             <Route path={routes.LOGN} exact render={() => user 
                                       ? <Redirect to={routes.HOME} /> 
                                       : <Enter />} />
@@ -190,7 +202,7 @@ export default class App extends Component {
             <Route path={routes.ECOM} exact render={() => 
                                       <>Time to start eCommerce</> }/>
             <Route path={routes.SHOW} render={() => 
-                                      <Show /> } />
+                                      <Show show={this.state.show}/> } />
             <Route path={routes.ROOT} render={() => 
                                       <About /> }/>
           </Switch>
