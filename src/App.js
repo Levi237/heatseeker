@@ -207,7 +207,7 @@ showThisRecipe = (e) => {
             <Route path={routes.ECOM} exact render={() => 
                                       <>Time to start eCommerce</> }/>
             <Route path={routes.SHOW} render={() => 
-                                      <Show show={show}/> } />
+                                      <Show show={show} recipes={recipes}/> } />
             <Route path={routes.ROOT} render={() => 
                                       <About /> }/>
           </Switch>
