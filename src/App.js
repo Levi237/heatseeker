@@ -35,10 +35,10 @@ export default class App extends Component {
     show: null,
 }
 showThisRecipe = (e) => {
-    console.log(e.target)
-    //  this.setState({
-    //      show: e.currentTarget
-    //  })
+    console.log(e.currentTarget.value, "click showThisREcipe target")
+     this.setState({
+         show: e.currentTarget.value
+     })
 }
 
   componentDidMount = () => {
@@ -156,7 +156,7 @@ showThisRecipe = (e) => {
     })
   }
   render(){
-    const { chilis, spices, extras, vinegars, newRecipe, user, recipes } = this.state
+    const { chilis, spices, extras, vinegars, newRecipe, user, recipes, show } = this.state
 
     return (
       <div className="grid-container">
@@ -175,16 +175,21 @@ showThisRecipe = (e) => {
 
         <div className="grid-main">
           <Switch>
+            <Route path={routes.USER} exact render={() => 
+                                      <Home 
+                                        user={user} 
+                                        recipes={recipes} 
+                                        show={show}
+                                        showThisRecipe={this.showThisRecipe}/>} />
             <Route path={routes.HOME} render={() =>
                                       <Home 
                                         user={user} 
                                         recipes={recipes} 
-                                        showThisRecipe={this.showThisRecipe}/>} />
+                                        show={show}
+                                        showThisRecipe={this.showThisRecipe}/>} />                                        
             <Route path={routes.LOGN} exact render={() => user 
                                       ? <Redirect to={routes.HOME} /> 
                                       : <Enter />} />
-            <Route path={routes.USER} exact render={() => 
-                                      <Home user={user} recipes={recipes} />} />
             <Route path={routes.FORM} exact render={() => 
                                       <Form 
                                         user={user} 
@@ -202,7 +207,7 @@ showThisRecipe = (e) => {
             <Route path={routes.ECOM} exact render={() => 
                                       <>Time to start eCommerce</> }/>
             <Route path={routes.SHOW} render={() => 
-                                      <Show show={this.state.show}/> } />
+                                      <Show show={show}/> } />
             <Route path={routes.ROOT} render={() => 
                                       <About /> }/>
           </Switch>
