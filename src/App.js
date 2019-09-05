@@ -150,6 +150,33 @@ showThisRecipe = (e) => {
       })
       return newFromDB
   }
+  updateForm =  async (e, data) => {
+    // const creatorData = this.user.state
+    e.preventDefault();
+    this.setState({
+      updateRecipe: data
+    })
+    // let creator = this.state.user;
+    // let creatorData = null;
+    // if (this.state.user ){
+    //   let info = firebase.auth().currentUser;
+    //   creator = info;
+    //   creatorData = info.providerData[0]
+    // } else {
+    //   creator = null
+    // }
+    
+    const updateDB = await firebase.firestore()
+      .collection('recipes').child()
+      .update({
+        style: data.style,
+        chili: data.chili,
+        spice: data.spice,
+        extra: data.extra,
+        vinegar: data.vinegar,
+      })
+      return updateDB
+  }
   clearNewRecipe = () => {
     this.setState({
       newRecipe: null
