@@ -7,11 +7,11 @@ import './App.css';
 import About  from './components/About';
 import Form   from './components/Form';
 import Nav    from './components/Nav';
-import Sale   from './components/Sale';
+// import Sale   from './components/Sale';
 import Home   from './components/Home';
 import Enter from './components/Enter';
-
 import Show   from './components/modal/Show';
+
 
 import * as routes  from './constants/routes';
 import firebase from 'firebase/app';
@@ -179,12 +179,14 @@ showThisRecipe = (e) => {
                                       <Home 
                                         user={user} 
                                         recipes={recipes} 
+                                        newRecipe={newRecipe} 
                                         show={show}
                                         showThisRecipe={this.showThisRecipe}/>} />
             <Route path={routes.HOME} render={() =>
                                       <Home 
                                         user={user} 
                                         recipes={recipes} 
+                                        newRecipe={newRecipe} 
                                         show={show}
                                         showThisRecipe={this.showThisRecipe}/>} />                                        
             <Route path={routes.LOGN} exact render={() => user 
@@ -201,7 +203,10 @@ showThisRecipe = (e) => {
                                         setToggleApp={this.setToggleApp} 
                                         submitForm={this.submitForm}/> }/>
             <Route path={routes.SALE} exact render={() => 
-                                      <Sale user={user} newRecipe={newRecipe} learNewRecipe={this.clearNewRecipe}/> }/>                                         
+                                      <Show 
+                                        user={user} 
+                                        newRecipe={newRecipe} 
+                                        clearNewRecipe={this.clearNewRecipe}/> }/>                                         
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ECOM} exact render={() => 

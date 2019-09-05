@@ -213,11 +213,11 @@ export default class Form extends Component {
         const extraList = extras.map((x, k) => {
                 return (
                     <section className="chiliSection" id={`${x.name}`} key={k}>
-                    <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
-                    {/* <button name="extra" value={x} className={(x == extra ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
-                    <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
-                </section>
-            )
+                        <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+                        {/* <button name="extra" value={x} className={(x == extra ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
+                        <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
+                    </section>
+                )
         
         })
         const vinegarList = vinegars.map((v, i) => {
@@ -235,7 +235,7 @@ export default class Form extends Component {
         })
         const addChili = chili.map((e, i) => {
             return(
-                <><strong key={i}>{e.name}</strong><br /></>
+                <div key={i}><strong>{e.name}</strong><br /></div>
             )
         })
         return(
