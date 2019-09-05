@@ -101,8 +101,8 @@ export default class Home extends Component {
                 if (x.email === user.email) {
                     // console.log(e)
                     return(
-                        <form>
-                            <button key={i}  type="button" name="recipe"value={e.id} onClick={(e) => {showThisRecipe(e)}} >
+                        <form key={i} >
+                            <button  type="button" name="recipe"value={e.id} onClick={(e) => {showThisRecipe(e)}} >
                             {/* <a href={`/show/${e.id}`}> */}
 
                             {/* <Link to={`/show/${e.id}`}>  */}
