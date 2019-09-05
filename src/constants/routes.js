@@ -4,6 +4,6 @@ export const LOGN = '/login-register'
 export const INFO = '/about';
 export const USER = '/my-home';
 export const FORM = '/create-sauce';
-export const SALE = '/complete-sale';
+export const SAVE = '/save-recipe';
 export const ECOM = '/order';
 export const SHOW = '/show';

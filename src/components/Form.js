@@ -244,7 +244,7 @@ export default class Form extends Component {
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
 
             { newRecipe 
-                ? <Redirect to={'/complete-sale'} /> 
+                ? <Redirect to={'/save-recipe'} /> 
                 : <Modal show={show} onClose={this.showModal}>
                     <h3>Time to name your Sauce!</h3><br/>
                     <input name="style" value={style} type="tex" onChange={this.handleChange}/>
@@ -289,7 +289,10 @@ export default class Form extends Component {
                 <strong>Add On: </strong><br />
                 <ol>{addExtra}</ol>
                 <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
-                <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
+                { chili[0]
+                ? <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
+                : <input className="saveBtn" type="text" value="add chili"/>
+                }
             </div>      
 
             </form>

@@ -23,7 +23,7 @@ export default class Show extends Component {
     // }
         let addExtras = [];
         let showSpices = [];
-        if (recipe){
+        if (recipe && recipe.extra){
             let nre = recipe.extra
                 const addExtra = nre.map((data, i) => {
                     return(

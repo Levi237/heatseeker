@@ -202,7 +202,7 @@ showThisRecipe = (e) => {
                                         vinegars={vinegars} 
                                         setToggleApp={this.setToggleApp} 
                                         submitForm={this.submitForm}/> }/>
-            <Route path={routes.SALE} exact render={() => 
+            <Route path={routes.SAVE} exact render={() => 
                                       <Show 
                                         user={user} 
                                         newRecipe={newRecipe} 
