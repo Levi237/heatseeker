@@ -243,25 +243,8 @@ export default class Form extends Component {
 
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
 
-            { newRecipe 
-                ? <Redirect to={'/save-recipe'} /> 
-                : <Modal show={show} onClose={this.showModal}>
-
-                    <button type="submit">
-                            Save For Real
-                    </button>
-                  </Modal>
-                                //   : <Modal show={show} onClose={this.showModal}>
-                                //   <h3>Time to name your Sauce!</h3><br/>
-                                //   <input name="style" value={style} type="tex" onChange={this.handleChange}/>
-                                //   <br />
-                                //       {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
-                                //       <br /><br /><br />
-                                //   <button type="submit">
-                                //           Save For Real
-                                //   </button>
-                                // </Modal>
-                }  
+            { newRecipe &&
+                <Redirect to={'/save-recipe'} /> }  
 
             <div className="box2">
                 <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
@@ -298,7 +281,7 @@ export default class Form extends Component {
                 <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
 
                 { chili[0]
-                ? <button className="saveBtn" type="button" onClick={this.showModal}>save</button>
+                ? <button className="saveBtn" type="submit">Review</button>
                 : <input className="saveBtn" type="text" value="add chili"/>
                 }
             </div>      

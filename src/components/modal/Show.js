@@ -121,7 +121,7 @@ export default class Show extends Component {
                         { (user && !newRecipe) && 
                             <button><a href="/my-home">Return Home</a></button> }
                         { (user && newRecipe ) && 
-                            <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Return Home</button> }
+                            <button onClick={() => {this.saveForm(); clearNewRecipe()}}> Save & Return Home</button> }
                         { (!user && newRecipe ) && 
                             <button onClick={this.showEnter}> Save to Account</button> }
 
