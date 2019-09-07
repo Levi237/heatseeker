@@ -9,8 +9,8 @@ const Nav = ({newRecipe, user, logout}) =>
         <NavLink activeClassName="" to={routes.FORM}>CREATE</NavLink>
         <NavLink activeClassName="" to={routes.USER}>HOME</NavLink>
         { user 
-            ?  <NavLink activeClassName="" to={routes.ROOT} onClick={logout}>LOGOUT</NavLink> 
-            :  <NavLink activeClassName="" to={routes.LOGN}>LOGIN</NavLink>
+        ?  <NavLink activeClassName="" to={routes.ROOT} onClick={logout}>LOGOUT</NavLink> 
+        :  <NavLink activeClassName="" to={routes.LOGN}>LOGIN</NavLink>
         }
         
 

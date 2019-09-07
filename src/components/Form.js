@@ -285,7 +285,8 @@ export default class Form extends Component {
             </div>   
 
             <div className="box1">
-
+            <h3>Name your Sauce!</h3><br/>
+                    <input className="name-sauce" name="style" value={style} type="tex" onChange={this.handleChange}/><br/>
             {/* {chili[0].heat ? <><h2>   Heat Factor: {chili[0].heat + chili[0].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>} */}
                 
                 {/* <h2>Price: ${chili.price/100}.00   </h2> */}
@@ -295,8 +296,7 @@ export default class Form extends Component {
                 <strong>Add On: </strong><br />
                 <ol>{addExtra}</ol>
                 <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
-                <h3>Name your Sauce!</h3><br/>
-                    <input name="style" value={style} type="tex" onChange={this.handleChange}/>
+
                 { chili[0]
                 ? <button className="saveBtn" type="button" onClick={this.showModal}>save</button>
                 : <input className="saveBtn" type="text" value="add chili"/>

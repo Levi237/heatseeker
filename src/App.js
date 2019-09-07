@@ -251,7 +251,7 @@ showThisRecipe = (e) => {
         
         <div className="grid-footer">
         <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
-          <section>&copy;HEATSEEKERSAUCE</section>
+          <section>&copy;LEVIEIKO.COM</section>
           </div>
       </div>
     );

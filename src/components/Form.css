@@ -249,3 +249,20 @@ background-image:
         width: 100vw;
     }
 }
+
+
+
+
+
+
+
+
+
+.name-sauce {
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin-bottom: 20px;
+}
