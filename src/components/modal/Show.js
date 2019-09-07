@@ -38,12 +38,10 @@ export default class Show extends Component {
           })
           return newFromDB
       }
-    // onClose = (e) => {
-    //     this.props.onClose && this.props.onClose(e);
-    // }
+
     render(){
         const { show, recipes, newRecipe, user, clearNewRecipe } =  this.props
-        console.log(newRecipe)
+        // console.log(newRecipe)
     
         let recipe = []
         if (show){
@@ -56,11 +54,7 @@ export default class Show extends Component {
                 recipe = newRecipe
         }
     
-    //         return(
-    //             <div>Show, {show}, {recipe.id}</div>
-    //         )
-    //     }
-    // }
+
         let addExtras = [];
         let showSpices = [];
         if (recipe && recipe.extra){
