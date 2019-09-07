@@ -126,12 +126,16 @@ export default class Show extends Component {
                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                         <span>Vinegar:</span>{ recipe.vinegar.name && <section><strong>{ recipe.vinegar.name }</strong></section>}
                     </div><br/>
-                    {/* <h3>Total: ${(recipe.chili[0].price)/100}.00</h3> */}
-                    { user 
+
+
+
+                    { (user && !newRecipe) && <button><a href="/my-home">Return Home</a></button> }
+                    { (user && newRecipe )
                     ? <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Return Home</button>//<a href="/my-home">Return Home</a>
                     // : <button> Save to Account</button>
-                    : <button onClick={this.showEnter}> Save to Account</button>
-                    }
+                    : ""
+                }
+                 { (!user && newRecipe ) && <button onClick={this.showEnter}> Save to Account</button> }
                     <button><a href="/order">Continue with Order</a></button>
                     {/* <button><a href="/my-home">Back Home</a></button> */}
                     {/* :   <Redirect to={'/home'} />  */}
