@@ -94,11 +94,11 @@ export default class Home extends Component {
             
         let list = recipes.map((e, i) => {
             if (e.creator) {
-                let x = e.creator
+                // let x = e
                 // let y = e.chili
                 // let t = e.timestamp.seconds
 
-                if (x.email === user.email) {
+                if (e.email === user.email) {
                     // console.log(e)
                     return(
                         <form key={i} >

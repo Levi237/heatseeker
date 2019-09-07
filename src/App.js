@@ -112,7 +112,7 @@ showThisRecipe = (e) => {
   authListener(){
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
-        this.setState({user});
+        this.setState({user: user.providerData[0]});
       }else{
         this.setState({user: null});
       }

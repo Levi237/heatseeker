@@ -298,7 +298,7 @@ export default class Form extends Component {
                 <h3>Name your Sauce!</h3><br/>
                     <input name="style" value={style} type="tex" onChange={this.handleChange}/>
                 { chili[0]
-                ? <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
+                ? <button className="saveBtn" type="button" onClick={this.showModal}>save</button>
                 : <input className="saveBtn" type="text" value="add chili"/>
                 }
             </div>      

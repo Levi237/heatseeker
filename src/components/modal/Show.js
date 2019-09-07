@@ -13,26 +13,28 @@ export default class Show extends Component {
         })
       }
 
+
       saveForm = async () => {
+          const { newRecipe, user } = this.props
           // do not need if statement for user because all saved recipes will have a user
-          
-          console.log("click")
+        //   const info = firebase.auth().currentUser;
+        //   console.log(info, "<---click info--->", info.providerData[0], "provider data")
         // let creator = this.props.user;
         // let creatorData = null;
-          let info = firebase.auth().currentUser;
         //   creator = info;
-          let creatorData = info.providerData[0]
+        //   let creatorData = info.providerData[0]
 
         const newFromDB = await firebase.firestore()
           .collection('recipes')
           .add({
-            style: this.props.newRecipe.style,
-            chili: this.props.newRecipe.chili,
-            spice: this.props.newRecipe.spice,
-            extra: this.props.newRecipe.extra,
-            vinegar: this.props.newRecipe.vinegar,
+            style: newRecipe.style,
+            chili: newRecipe.chili,
+            spice: newRecipe.spice,
+            extra: newRecipe.extra,
+            vinegar: newRecipe.vinegar,
+            creator: user.displayName,
+            email: user.email,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            // creator: creatorData
           })
           return newFromDB
       }
@@ -83,8 +85,11 @@ export default class Show extends Component {
             {recipe &&
             <>
             {
-                (!user && this.state.login) &&
-            <Enter />
+                (!user && this.state.login) ?
+            <Enter /> :""
+            }
+            {
+                user &&  <>{user.displayName}</>
             }
                 <h2>Your Recipe</h2><br/>
                 { recipe.chili[1]
