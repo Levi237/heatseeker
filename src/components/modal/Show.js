@@ -82,9 +82,9 @@ export default class Show extends Component {
                 }
                 
                     <div className="show-recipe">
-                    <Enter login={this.state.login}>
+                    {/* <Enter login={this.state.login}>
 
-                    </Enter>
+                    </Enter> */}
                         { recipe.chili[1]
                         ? <>
                         <span>Pepper:</span><section><strong>{ recipe.chili[0].name } & { recipe.chili[1].name }</strong></section>

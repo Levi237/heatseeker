@@ -246,15 +246,21 @@ export default class Form extends Component {
             { newRecipe 
                 ? <Redirect to={'/save-recipe'} /> 
                 : <Modal show={show} onClose={this.showModal}>
-                    <h3>Time to name your Sauce!</h3><br/>
-                    <input name="style" value={style} type="tex" onChange={this.handleChange}/>
-                    <br />
-                        {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
-                        <br /><br /><br />
+
                     <button type="submit">
                             Save For Real
                     </button>
                   </Modal>
+                                //   : <Modal show={show} onClose={this.showModal}>
+                                //   <h3>Time to name your Sauce!</h3><br/>
+                                //   <input name="style" value={style} type="tex" onChange={this.handleChange}/>
+                                //   <br />
+                                //       {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
+                                //       <br /><br /><br />
+                                //   <button type="submit">
+                                //           Save For Real
+                                //   </button>
+                                // </Modal>
                 }  
 
             <div className="box2">
@@ -289,6 +295,11 @@ export default class Form extends Component {
                 <strong>Add On: </strong><br />
                 <ol>{addExtra}</ol>
                 <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
+                <h3>Time to name your Sauce!</h3><br/>
+                    <input name="style" value={style} type="tex" onChange={this.handleChange}/>
+                    <br />
+                        {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
+                        <br /><br /><br />
                 { chili[0]
                 ? <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
                 : <input className="saveBtn" type="text" value="add chili"/>
