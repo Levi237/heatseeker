@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
-
+import firebase from 'firebase/app'
 import Enter from '../Enter'
 
 export default class Show extends Component {
     state = {
         login: false
     }
-    // showEnter = () => {
-    //     this.setState({
-    //       ...this.state,
-    //       login: !this.state.login
-    //     })
-    //   }
+    showEnter = () => {
+        this.setState({
+          ...this.state,
+          login: !this.state.login
+        })
+      }
+
+      saveForm = async () => {
+          // do not need if statement for user because all saved recipes will have a user
+          
+          console.log("click")
+        // let creator = this.props.user;
+        // let creatorData = null;
+          let info = firebase.auth().currentUser;
+        //   creator = info;
+          let creatorData = info.providerData[0]
+
+        const newFromDB = await firebase.firestore()
+          .collection('recipes')
+          .add({
+            style: this.props.newRecipe.style,
+            chili: this.props.newRecipe.chili,
+            spice: this.props.newRecipe.spice,
+            extra: this.props.newRecipe.extra,
+            vinegar: this.props.newRecipe.vinegar,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            // creator: creatorData
+          })
+          return newFromDB
+      }
     // onClose = (e) => {
     //     this.props.onClose && this.props.onClose(e);
     // }
@@ -59,7 +83,7 @@ export default class Show extends Component {
             {recipe &&
             <>
             {
-                !user &&
+                (!user && this.state.login) &&
             <Enter />
             }
                 <h2>Your Recipe</h2><br/>
@@ -107,9 +131,9 @@ export default class Show extends Component {
                     </div><br/>
                     {/* <h3>Total: ${(recipe.chili[0].price)/100}.00</h3> */}
                     { user 
-                    ? <button onClick={clearNewRecipe}><a href="/my-home">Return Home</a></button>
-                    : <button> Save to Account</button>
-                    // : <button onClick={this.showEnter}> Save to Account</button>
+                    ? <button onClick={this.saveForm}>Return Home</button>//<a href="/my-home">Return Home</a>
+                    // : <button> Save to Account</button>
+                    : <button onClick={this.showEnter}> Save to Account</button>
                     }
                     <button><a href="/order">Continue with Order</a></button>
                     {/* <button><a href="/my-home">Back Home</a></button> */}
