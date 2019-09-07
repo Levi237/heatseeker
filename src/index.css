@@ -196,6 +196,7 @@ grid-template-areas:
   /* background-color: rgb(123, 63, 0); */
   /* bottom: 0; */
   /* text-align: right; */
+  /* z-index: 500; */
   padding: 0 0 0 0;
 }
 
@@ -282,6 +283,13 @@ grid-template-areas:
 .chili {
   height: 60px;
   width: 60px;
+}
+
+.new-recipe button {
+  height: 40px;
+  width: calc(30vw - 20px);
+  margin: 10px;
+  border-radius: 3px;
 }
 
 .new-recipe section {

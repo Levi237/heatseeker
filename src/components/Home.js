@@ -84,7 +84,7 @@ export default class Home extends Component {
 // }
 
     render(){
-        const { recipes, user, showThisRecipe, show, newRecipe } = this.props
+        const { recipes, user, showThisRecipe, show, newRecipe, updateForm, updateRecipe } = this.props
 
 
         // let sort = recipes.sort((a, b) => a.chili.length  > b.chili.length)
@@ -93,12 +93,12 @@ export default class Home extends Component {
 
             
         let list = recipes.map((e, i) => {
-            if (e.creator) {
-                let x = e.creator
+            if (e.email) {
+                // let x = e
                 // let y = e.chili
                 // let t = e.timestamp.seconds
 
-                if (x.email === user.email) {
+                if (e.email === user.email) {
                     // console.log(e)
                     return(
                         <form key={i} >
@@ -120,13 +120,15 @@ export default class Home extends Component {
                     show={show} 
                     recipes={recipes} 
                     newRecipe={newRecipe} 
+                    updateForm={updateForm}
                     user={user}/> 
             :  <>
                 {   user && !user.displayName 
                     ? <Username /> 
                     : ""}
                 {   user 
-                    ?   <div>{user.displayName}, Welcome Home, you are logged in right now
+                    ?   <div>{user.displayName}, Welcome Home!
+                    <br /> Here is a list of the recipes you've made so far:
                             <br />{listList}<br />
                         </div>
                     :<> Hello, Welcome to HeatMakerSauce </>

@@ -28,6 +28,7 @@ export default class App extends Component {
       vinegars: [],
       options: [],
       newRecipe: null,
+      updateRecipe: null,
       selection: {},
       recipes: [],
   // }
@@ -100,9 +101,9 @@ showThisRecipe = (e) => {
     .collection('vinegars')
     .onSnapshot(serverUpdate => {
       const vinegars = serverUpdate.docs.map(_doc => {
-        const data = _doc.data();
-        data['id'] = _doc.id;
-        return data;
+          const data = _doc.data();
+          data['id'] = _doc.id;
+          return data;
       });
       this.setState({ vinegars: vinegars });
     });
@@ -111,7 +112,7 @@ showThisRecipe = (e) => {
   authListener(){
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
-        this.setState({user});
+        this.setState({user: user.providerData[0]});
       }else{
         this.setState({user: null});
       }
@@ -121,58 +122,66 @@ showThisRecipe = (e) => {
     firebase.auth().signOut();
   }
 
+// split submit into a set state and a save to 
+
   submitForm =  async (e, data) => {
-    // const creatorData = this.user.state
     e.preventDefault();
     this.setState({
       newRecipe: data
     })
-    let creator = this.state.user;
-    let creatorData = null;
-    if (this.state.user ){
-      let info = firebase.auth().currentUser;
-      creator = info;
-      creatorData = info.providerData[0]
-    } else {
-      creator = null
-    }
-    
-    const newFromDB = await firebase.firestore()
-      .collection('recipes')
-      .add({
-        style: data.style,
-        chili: data.chili,
-        spice: data.spice,
-        extra: data.extra,
-        vinegar: data.vinegar,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        creator: creatorData
-      })
-      return newFromDB
   }
-  updateForm =  async (e, data) => {
-    e.preventDefault();
-    this.setState({
-      updateRecipe: data
-    })
-    const updateDB = await firebase.firestore()
-      .collection('recipes').child()
-      .update({
-        style: data.style,
-        chili: data.chili,
-        spice: data.spice,
-        extra: data.extra,
-        vinegar: data.vinegar,
-      })
-      return updateDB
-  }
+
+
+  // submitForm =  async (e, data) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     newRecipe: data
+  //   })
+  //   let creator = this.state.user;
+  //   let creatorData = null;
+  //   if (this.state.user ){
+  //     let info = firebase.auth().currentUser;
+  //     creator = info;
+  //     creatorData = info.providerData[0]
+  //   } else {
+  //     creator = null
+  //   }
+  //   const newFromDB = await firebase.firestore()
+  //     .collection('recipes')
+  //     .add({
+  //       style: data.style,
+  //       chili: data.chili,
+  //       spice: data.spice,
+  //       extra: data.extra,
+  //       vinegar: data.vinegar,
+  //       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //       creator: creatorData
+  //     })
+  //     return newFromDB
+  // }
+  // updateForm =  async (e, data) => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     updateRecipe: data
+  //   })
+  //   const updateDB = await firebase.firestore()
+  //     .collection('recipes').child()
+  //     .update({
+  //       style: data.style,
+  //       chili: data.chili,
+  //       spice: data.spice,
+  //       extra: data.extra,
+  //       vinegar: data.vinegar,
+  //     })
+  //     return updateDB
+  // }
   clearNewRecipe = () => {
     this.setState({
       newRecipe: null
     })
   }
   render(){
-    const { chilis, spices, extras, vinegars, newRecipe, user, recipes, show } = this.state
+    const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show } = this.state
 
     return (
       <div className="grid-container">
@@ -218,11 +227,17 @@ showThisRecipe = (e) => {
                                         vinegars={vinegars} 
                                         setToggleApp={this.setToggleApp} 
                                         submitForm={this.submitForm}/> }/>
-            <Route path={routes.SAVE} exact render={() => 
-                                      <Show 
+            <Route path={routes.SAVE} exact render={() => !newRecipe
+                                      ? <Redirect to={routes.HOME} /> 
+                                      : <Show 
                                         user={user} 
                                         newRecipe={newRecipe} 
-                                        clearNewRecipe={this.clearNewRecipe}/> }/>                                         
+                                        updateRecipe={updateRecipe} 
+                                        updateForm={this.updateForm}
+                                        clearNewRecipe={this.clearNewRecipe}
+                                        // saveForm={this.saveForm}
+                                        /> }/>    
+
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ECOM} exact render={() => 
@@ -236,7 +251,7 @@ showThisRecipe = (e) => {
         
         <div className="grid-footer">
         <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
-          <section>&copy;HEATSEEKERSAUCE</section>
+          <section>&copy;LEVIEIKO.COM</section>
           </div>
       </div>
     );

@@ -246,15 +246,21 @@ export default class Form extends Component {
             { newRecipe 
                 ? <Redirect to={'/save-recipe'} /> 
                 : <Modal show={show} onClose={this.showModal}>
-                    <h3>Time to name your Sauce!</h3><br/>
-                    <input name="style" value={style} type="tex" onChange={this.handleChange}/>
-                    <br />
-                        {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
-                        <br /><br /><br />
+
                     <button type="submit">
                             Save For Real
                     </button>
                   </Modal>
+                                //   : <Modal show={show} onClose={this.showModal}>
+                                //   <h3>Time to name your Sauce!</h3><br/>
+                                //   <input name="style" value={style} type="tex" onChange={this.handleChange}/>
+                                //   <br />
+                                //       {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
+                                //       <br /><br /><br />
+                                //   <button type="submit">
+                                //           Save For Real
+                                //   </button>
+                                // </Modal>
                 }  
 
             <div className="box2">
@@ -279,18 +285,20 @@ export default class Form extends Component {
             </div>   
 
             <div className="box1">
-
+            <h3>Name your Sauce!</h3><br/>
+                    <input className="name-sauce" name="style" value={style} type="tex" onChange={this.handleChange}/><br/>
             {/* {chili[0].heat ? <><h2>   Heat Factor: {chili[0].heat + chili[0].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>} */}
                 
                 {/* <h2>Price: ${chili.price/100}.00   </h2> */}
-                {user !== null && user.providerData[0].displayName ? <strong>Created By: {user.providerData[0].displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
+                {user !== null && user.displayName ? <strong>Created By: {user.displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
                 <div>{addChili}</div><br />
                 <strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong><br />
                 <strong>Add On: </strong><br />
                 <ol>{addExtra}</ol>
                 <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
+
                 { chili[0]
-                ? <input className="saveBtn" type="button" onClick={this.showModal} value="save"/>
+                ? <button className="saveBtn" type="button" onClick={this.showModal}>save</button>
                 : <input className="saveBtn" type="text" value="add chili"/>
                 }
             </div>      
