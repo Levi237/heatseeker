@@ -127,7 +127,8 @@ export default class Home extends Component {
                     ? <Username /> 
                     : ""}
                 {   user 
-                    ?   <div>{user.displayName}, Welcome Home, you are logged in right now
+                    ?   <div>{user.displayName}, Welcome Home!
+                    <br /> Here is a list of the recipes you've made so far:
                             <br />{listList}<br />
                         </div>
                     :<> Hello, Welcome to HeatMakerSauce </>

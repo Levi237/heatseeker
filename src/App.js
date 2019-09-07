@@ -101,9 +101,9 @@ showThisRecipe = (e) => {
     .collection('vinegars')
     .onSnapshot(serverUpdate => {
       const vinegars = serverUpdate.docs.map(_doc => {
-        const data = _doc.data();
-        data['id'] = _doc.id;
-        return data;
+          const data = _doc.data();
+          data['id'] = _doc.id;
+          return data;
       });
       this.setState({ vinegars: vinegars });
     });

@@ -2,6 +2,18 @@
     width: calc(100vw - 00px);
 }
 
-.recipeList {
-    height: 40px;
+.userHome form {
+    display: inline-block;
 }
+
+.userHome form button {
+    height: 40px;
+    width: calc(30vw - 20px);
+    margin: 10px;
+    border-radius: 3px;
+}
+
+.recipeList {
+    /* height: 40px; */
+}
+

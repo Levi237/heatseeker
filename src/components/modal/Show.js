@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 
+import Enter from '../Enter'
+
 export default class Show extends Component {
+    state = {
+        login: false
+    }
+    showEnter = () => {
+        this.setState({
+          ...this.state,
+          login: !this.state.show
+        })
+      }
+    onClose = (e) => {
+        this.props.onClose && this.props.onClose(e);
+    }
     render(){
         const { show, recipes, newRecipe, user, clearNewRecipe } =  this.props
         console.log(newRecipe)
@@ -39,7 +53,7 @@ export default class Show extends Component {
             })
             showSpices.push(showSpice)
         }
-    
+
         return(
             <>
             {recipe &&
@@ -68,6 +82,9 @@ export default class Show extends Component {
                 }
                 
                     <div className="show-recipe">
+                    <Enter login={this.state.login}>
+
+                    </Enter>
                         { recipe.chili[1]
                         ? <>
                         <span>Pepper:</span><section><strong>{ recipe.chili[0].name } & { recipe.chili[1].name }</strong></section>
@@ -88,7 +105,7 @@ export default class Show extends Component {
                     {/* <h3>Total: ${(recipe.chili[0].price)/100}.00</h3> */}
                     { user 
                     ? <button onClick={clearNewRecipe}><a href="/my-home">Return Home</a></button>
-                    : <button onClick={this.showModal}> Save to Account</button>
+                    : <button onClick={this.showEnter}> Save to Account</button>
                     }
                     <button><a href="/order">Continue with Order</a></button>
                     {/* <button><a href="/my-home">Back Home</a></button> */}
