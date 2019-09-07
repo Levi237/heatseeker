@@ -42,15 +42,15 @@ export default class Form extends Component {
     state = {
         examples: [],
         style: "HeatMaker Hot Sauce",
-        chili: [],
-        spice: {
-            name: "Indian",
-            items: ["cumin", "curry", "sea salt", "pepper"]
-        },
-        extra: [],
-        vinegar: {
-            name: "White Wine",
-        },
+        // chili: [],
+        // spice: {
+        //     name: "Indian",
+        //     items: ["cumin", "curry", "sea salt", "pepper"]
+        // },
+        // extra: [],
+        // vinegar: {
+        //     name: "White Wine",
+        // },
         show: false,
         toggle: false,
     }
