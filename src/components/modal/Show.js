@@ -6,15 +6,15 @@ export default class Show extends Component {
     state = {
         login: false
     }
-    showEnter = () => {
-        this.setState({
-          ...this.state,
-          login: !this.state.show
-        })
-      }
-    onClose = (e) => {
-        this.props.onClose && this.props.onClose(e);
-    }
+    // showEnter = () => {
+    //     this.setState({
+    //       ...this.state,
+    //       login: !this.state.login
+    //     })
+    //   }
+    // onClose = (e) => {
+    //     this.props.onClose && this.props.onClose(e);
+    // }
     render(){
         const { show, recipes, newRecipe, user, clearNewRecipe } =  this.props
         console.log(newRecipe)
@@ -58,7 +58,10 @@ export default class Show extends Component {
             <>
             {recipe &&
             <>
-            {/* <Enter login={login} onClose={this.showModal}></Enter> */}
+            {
+                !user &&
+            <Enter />
+            }
                 <h2>Your Recipe</h2><br/>
                 { recipe.chili[1]
                         ? <>
@@ -105,7 +108,8 @@ export default class Show extends Component {
                     {/* <h3>Total: ${(recipe.chili[0].price)/100}.00</h3> */}
                     { user 
                     ? <button onClick={clearNewRecipe}><a href="/my-home">Return Home</a></button>
-                    : <button onClick={this.showEnter}> Save to Account</button>
+                    : <button> Save to Account</button>
+                    // : <button onClick={this.showEnter}> Save to Account</button>
                     }
                     <button><a href="/order">Continue with Order</a></button>
                     {/* <button><a href="/my-home">Back Home</a></button> */}
