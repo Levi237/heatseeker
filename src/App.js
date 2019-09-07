@@ -187,7 +187,7 @@ showThisRecipe = (e) => {
       <div className="grid-container">
       
         <div className="grid-logo">
-          <img src="tiedye-heatseekersauce.png" className="App-logo" alt="logo" />
+          <img src="heatmaker-logo.png" className="App-logo" alt="logo" />
         </div>
 
         <div className="grid-header">
