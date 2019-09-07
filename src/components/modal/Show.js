@@ -37,6 +37,7 @@ export default class Show extends Component {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           return newFromDB
+          this.props.clearNewRecipe();
       }
 
     render(){
@@ -108,9 +109,6 @@ export default class Show extends Component {
                 }
                 
                     <div className="show-recipe">
-                    {/* <Enter login={this.state.login}>
-
-                    </Enter> */}
                         { recipe.chili[1]
                         ? <>
                         <span>Pepper:</span><section><strong>{ recipe.chili[0].name } & { recipe.chili[1].name }</strong></section>
@@ -130,7 +128,7 @@ export default class Show extends Component {
                     </div><br/>
                     {/* <h3>Total: ${(recipe.chili[0].price)/100}.00</h3> */}
                     { user 
-                    ? <button onClick={this.saveForm}>Return Home</button>//<a href="/my-home">Return Home</a>
+                    ? <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Return Home</button>//<a href="/my-home">Return Home</a>
                     // : <button> Save to Account</button>
                     : <button onClick={this.showEnter}> Save to Account</button>
                     }
