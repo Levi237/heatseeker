@@ -174,7 +174,7 @@ background-image:
     width: calc(100vw - 0px);
     position: relative;
     top: -12px;
-    /* z-index: 500; */
+    z-index: 500;
 }
 .chalk {
     height: 5px;

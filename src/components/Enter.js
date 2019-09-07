@@ -43,6 +43,7 @@ export default class Enter extends Component{
 
     render(){
         const { fireErrors, loginBtn, formTitle, email, password } = this.state
+        const { newRecipe, onClose } = this.props
 
         let errorNotification = fireErrors ? 
             <div className="Error">{fireErrors}</div> : null;
@@ -56,6 +57,7 @@ export default class Enter extends Component{
         return(
             <div className="home">
                 <div className="form-block">
+            { newRecipe && <button className="close x" onClick={(e) => {onClose(e)}}>X</button> }
                     <div className="errorNotification">{errorNotification}</div>
                     <div id="title">{formTitle}</div>
                         <div className="body">

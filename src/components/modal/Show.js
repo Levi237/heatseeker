@@ -12,7 +12,9 @@ export default class Show extends Component {
           login: !this.state.login
         })
       }
-
+      onClose = (e) => {
+        this.props.onClose && this.props.onClose(e);
+    }
 
       saveForm = async () => {
           const { newRecipe, user } = this.props
@@ -79,7 +81,7 @@ export default class Show extends Component {
             <>
             {recipe &&
                 <>
-                {  (!user && this.state.login) && <Enter /> }
+                {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
                 {  user ?  <h2>{user.displayName}'s Recipe</h2> : <h2>Your Recipe</h2> }
                     <br/>
                     { recipe.chili[1]
