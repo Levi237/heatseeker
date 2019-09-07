@@ -93,7 +93,7 @@ export default class Home extends Component {
 
             
         let list = recipes.map((e, i) => {
-            if (e.creator) {
+            if (e.email) {
                 // let x = e
                 // let y = e.chili
                 // let t = e.timestamp.seconds
