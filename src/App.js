@@ -5,6 +5,7 @@ import './App.css';
 
 
 import About  from './components/About';
+import Order  from './components/Order';
 import Form   from './components/Form';
 import Nav    from './components/Nav';
 // import Sale   from './components/Sale';
@@ -31,6 +32,7 @@ export default class App extends Component {
       updateRecipe: null,
       selection: {},
       recipes: [],
+      order: false,
   // }
   // state = {
     show: null,
@@ -41,7 +43,13 @@ showThisRecipe = (e) => {
          show: e.currentTarget.value
      })
 }
-
+showOrder = () => {
+  this.setState({
+    ...this.state,
+    order: !this.state.order,
+    newRecipe: null
+  })
+}
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
@@ -137,7 +145,7 @@ showThisRecipe = (e) => {
     })
   }
   render(){
-    const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show } = this.state
+    const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order } = this.state
 
     return (
       <div className="grid-container">
@@ -151,24 +159,28 @@ showThisRecipe = (e) => {
         </div>
 
         <div className="grid-nav">
-          <Nav newRecipe={newRecipe} logout={this.logout} user={user}/>
+          <Nav logout={this.logout} user={user} order={order}/>
         </div>
 
         <div className="grid-main">
           <Switch>
             <Route path={routes.USER} exact render={() => 
                                       <Home 
+                                        order={order}
                                         user={user} 
                                         recipes={recipes} 
                                         newRecipe={newRecipe} 
                                         show={show}
+                                        showOrder={this.showOrder}
                                         showThisRecipe={this.showThisRecipe}/>} />
             <Route path={routes.HOME} render={() =>
                                       <Home 
+                                        order={order}
                                         user={user} 
                                         recipes={recipes} 
                                         newRecipe={newRecipe} 
                                         show={show}
+                                        showOrder={this.showOrder}
                                         showThisRecipe={this.showThisRecipe}/>} />                                        
             <Route path={routes.LOGN} exact render={() => user 
                                       ? <Redirect to={routes.HOME} /> 
@@ -191,13 +203,14 @@ showThisRecipe = (e) => {
                                         updateRecipe={updateRecipe} 
                                         updateForm={this.updateForm}
                                         clearNewRecipe={this.clearNewRecipe}
+                                        showOrder={this.showOrder}
                                         // saveForm={this.saveForm}
                                         /> }/>    
 
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ECOM} exact render={() => 
-                                      <>Time to start eCommerce</> }/>
+                                      <Order /> }/>
             {/* <Route path={routes.SHOW} render={() => 
                                       <Show show={show} recipes={recipes}/> } /> */}
             <Route path={routes.ROOT} render={() => 

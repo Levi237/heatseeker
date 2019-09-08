@@ -328,3 +328,32 @@ grid-template-areas:
   font-family: 'Smokum', 'Times New Roman', Times, serif;
   font-size: 1.5em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.order-form {
+  height: 600px;
+  width: 100vw;
+  background-color: white;
+
+}
+
+
+
+.unlink {
+  color: gray !important;
+  text-shadow: 		
+  -1px -1px 1px rgb(128, 128, 128, .3),
+  1px -1px 1px rgb(128, 128, 128, .3),
+  -1px 1px 1px rgb(128, 128, 128, .3),
+  1px 1px 1px rgb(128, 128, 128, .3);
+}

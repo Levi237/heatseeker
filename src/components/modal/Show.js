@@ -3,9 +3,12 @@ import firebase from 'firebase/app'
 import Enter from '../Enter'
 import { Link } from 'react-router-dom'
 
+
+
 export default class Show extends Component {
     state = {
-        login: false
+        login: false,
+        // order: false,
     }
     showEnter = () => {
         this.setState({
@@ -13,20 +16,13 @@ export default class Show extends Component {
           login: !this.state.login
         })
       }
+
       onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     }
 
       saveForm = async () => {
           const { newRecipe, user } = this.props
-          // do not need if statement for user because all saved recipes will have a user
-        //   const info = firebase.auth().currentUser;
-        //   console.log(info, "<---click info--->", info.providerData[0], "provider data")
-        // let creator = this.props.user;
-        // let creatorData = null;
-        //   creator = info;
-        //   let creatorData = info.providerData[0]
-
         const newFromDB = await firebase.firestore()
           .collection('recipes')
           .add({
@@ -40,11 +36,10 @@ export default class Show extends Component {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           return newFromDB
-
       }
 
     render(){
-        const { show, recipes, newRecipe, user, clearNewRecipe } =  this.props
+        const { show, recipes, newRecipe, user, clearNewRecipe, showOrder } =  this.props
         // console.log(newRecipe)
     
         let recipe = []
@@ -80,6 +75,7 @@ export default class Show extends Component {
 
         return(
             <>
+
             {recipe &&
                 <>
                 {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
@@ -128,7 +124,7 @@ export default class Show extends Component {
                                                     {/* { newRecipe && <button><a href="/create-sauce">GO BACK</a></button>} */}
                         {/* { newRecipe && <button><a href="/create-sauce">GO BACK</a></button>} */}
 
-                        <button onClick={() => {this.saveForm()}}>ddd</button>
+                        <button onClick={() => {this.saveForm(); showOrder();}}>Complete Order</button>
 
                     </div>
                 </>

@@ -63,7 +63,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 // import firebase from "firebase/app"
-
+import Order from './Order'
 import Username from '../components/Username';
 import Show     from './modal/Show';
 // import Show from '../components/modal/Show';
@@ -84,7 +84,7 @@ export default class Home extends Component {
 // }
 
     render(){
-        const { recipes, user, showThisRecipe, show, newRecipe, updateForm, updateRecipe } = this.props
+        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, updateRecipe } = this.props
 
 
         // let sort = recipes.sort((a, b) => a.chili.length  > b.chili.length)
@@ -115,8 +115,10 @@ export default class Home extends Component {
         
         return(
             <div className="userHome">
+            {  (this.props.order) && <Order order={order} showOrder={showOrder} /> }
             {  show 
             ?  <Show 
+                    showOrder={showOrder}
                     show={show} 
                     recipes={recipes} 
                     newRecipe={newRecipe} 
