@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app'
 import Enter from '../Enter'
-import { Link } from 'react-router-dom'
-
-
 
 export default class Show extends Component {
     state = {

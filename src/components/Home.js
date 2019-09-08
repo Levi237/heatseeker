@@ -32,13 +32,13 @@ export default class Home extends Component {
             if (r.email) {
                 if (r.email === user.email && !r.delete) {
                     return(
-                        <div className="user-show-recipe">
-                        <form key={i} >
+                        <div key={i} className="user-show-recipe">
+                        <form>
                             <button  type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}} >
                                 {r.style}
                             </button>
-                        </form>
-                        <button value={r.id} onClick={this.delete}>Delete</button>
+                        </form><br/>
+                        <button className="deleteBtn" value={r.id} onClick={this.delete}>Delete</button>
                         </div>
                     )
                 }
@@ -50,9 +50,10 @@ export default class Home extends Component {
         return(
             <div className="userHome">
             {  (this.props.order) && <Order order={order} showOrder={showOrder} /> }
+            
             {  show 
             ?  <Show 
-            closeShow={closeShow}
+                    closeShow={closeShow}
                     showOrder={showOrder}
                     show={show} 
                     recipes={recipes} 
@@ -60,16 +61,16 @@ export default class Home extends Component {
                     updateForm={updateForm}
                     user={user}/> 
             :  <>
-                {   user && !user.displayName 
-                    ? <Username /> 
-                    : ""}
+                {   (user && !user.displayName) && <Username /> }
+
                 {   user 
-                    ?   <div>{user.displayName}, Welcome Home!
+                ?   <div>{user.displayName}, Welcome Home!
                     <br /> Here is a list of the recipes you've made so far:
                             <br />{listList}<br />
                         </div>
-                    :<> Hello, Welcome to HeatMakerSauce </>
-                }</>
+                :   <> Hello, Welcome to HeatMakerSauce </>
+                } 
+               </>
             }
             </div>
         )
