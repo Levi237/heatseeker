@@ -21,6 +21,8 @@ h1 {
   /* margin-inline-start: 0px; */
   /* margin-inline-end: 0px; */
   font-weight: bolder;
+  letter-spacing: 2px;
+  text-shadow: 0 0 2px rgb(37, 29, 29);
 }
 
 h2 {
