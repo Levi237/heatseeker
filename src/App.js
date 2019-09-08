@@ -131,50 +131,6 @@ showThisRecipe = (e) => {
     })
   }
 
-
-  // submitForm =  async (e, data) => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     newRecipe: data
-  //   })
-  //   let creator = this.state.user;
-  //   let creatorData = null;
-  //   if (this.state.user ){
-  //     let info = firebase.auth().currentUser;
-  //     creator = info;
-  //     creatorData = info.providerData[0]
-  //   } else {
-  //     creator = null
-  //   }
-  //   const newFromDB = await firebase.firestore()
-  //     .collection('recipes')
-  //     .add({
-  //       style: data.style,
-  //       chili: data.chili,
-  //       spice: data.spice,
-  //       extra: data.extra,
-  //       vinegar: data.vinegar,
-  //       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  //       creator: creatorData
-  //     })
-  //     return newFromDB
-  // }
-  // updateForm =  async (e, data) => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     updateRecipe: data
-  //   })
-  //   const updateDB = await firebase.firestore()
-  //     .collection('recipes').child()
-  //     .update({
-  //       style: data.style,
-  //       chili: data.chili,
-  //       spice: data.spice,
-  //       extra: data.extra,
-  //       vinegar: data.vinegar,
-  //     })
-  //     return updateDB
-  // }
   clearNewRecipe = () => {
     this.setState({
       newRecipe: null

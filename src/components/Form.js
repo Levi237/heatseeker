@@ -56,6 +56,9 @@ export default class Form extends Component {
     }
     componentDidMount = () => {
         this.loadExamples();
+        if (this.props.newRecipe) {
+            this.goBack();
+        }
     }
     loadExamples(){
         firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
@@ -69,6 +72,16 @@ export default class Form extends Component {
             })
         })
     }
+    goBack = () => {
+        const { newRecipe } = this.props
+        this.setState({
+            style: newRecipe.style,
+            chili: newRecipe.chili,
+            spice: newRecipe.spice,
+            extra: newRecipe.extra,
+            vinegar: newRecipe.vinegar
+        }) 
+    }
     exampleToggle = (e, value) => {
         const target = e.currentTarget
         this.setState({
@@ -80,12 +93,12 @@ export default class Form extends Component {
         }) 
     }
 
-    showModal = () => {
-        this.setState({
-          ...this.state,
-          show: !this.state.show
-        })
-      }
+    // showModal = () => {
+    //     this.setState({
+    //       ...this.state,
+    //       show: !this.state.show
+    //     })
+    //   }
     onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     }
@@ -133,14 +146,13 @@ export default class Form extends Component {
         });
     };
 
+
+
     render(){
 
         const { chili, spice, vinegar, extra, show, examples, style } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
-        for (let i = 0; i < extra.length; i++){
-
-        }
         let chili1 = "";
         if (chili[0]){
             chili1 = chili[0]
@@ -243,25 +255,8 @@ export default class Form extends Component {
 
             <form onSubmit={(e) => { submitForm(e, this.state)}}>
 
-            { newRecipe 
-                ? <Redirect to={'/save-recipe'} /> 
-                : <Modal show={show} onClose={this.showModal}>
-
-                    <button type="submit">
-                            Save For Real
-                    </button>
-                  </Modal>
-                                //   : <Modal show={show} onClose={this.showModal}>
-                                //   <h3>Time to name your Sauce!</h3><br/>
-                                //   <input name="style" value={style} type="tex" onChange={this.handleChange}/>
-                                //   <br />
-                                //       {addChili} pepper<br/>{spice.name} spice<br/> {addExtra}<br/>{vinegar.name} vinegar
-                                //       <br /><br /><br />
-                                //   <button type="submit">
-                                //           Save For Real
-                                //   </button>
-                                // </Modal>
-                }  
+            { newRecipe &&
+                <Redirect to={'/save-recipe'} /> }  
 
             <div className="box2">
                 <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
@@ -298,7 +293,7 @@ export default class Form extends Component {
                 <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
 
                 { chili[0]
-                ? <button className="saveBtn" type="button" onClick={this.showModal}>save</button>
+                ? <button className="saveBtn" type="submit">Review</button>
                 : <input className="saveBtn" type="text" value="add chili"/>
                 }
             </div>      
