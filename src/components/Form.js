@@ -56,6 +56,9 @@ export default class Form extends Component {
     }
     componentDidMount = () => {
         this.loadExamples();
+        if (this.props.newRecipe) {
+            this.goBack();
+        }
     }
     loadExamples(){
         firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
@@ -69,6 +72,16 @@ export default class Form extends Component {
             })
         })
     }
+    goBack = () => {
+        const { newRecipe } = this.props
+        this.setState({
+            style: newRecipe.style,
+            chili: newRecipe.chili,
+            spice: newRecipe.spice,
+            extra: newRecipe.extra,
+            vinegar: newRecipe.vinegar
+        }) 
+    }
     exampleToggle = (e, value) => {
         const target = e.currentTarget
         this.setState({
@@ -80,12 +93,12 @@ export default class Form extends Component {
         }) 
     }
 
-    showModal = () => {
-        this.setState({
-          ...this.state,
-          show: !this.state.show
-        })
-      }
+    // showModal = () => {
+    //     this.setState({
+    //       ...this.state,
+    //       show: !this.state.show
+    //     })
+    //   }
     onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     }
@@ -132,6 +145,8 @@ export default class Form extends Component {
             [e.target.name]: e.target.value
         });
     };
+
+
 
     render(){
 

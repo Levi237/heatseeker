@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app'
 import Enter from '../Enter'
+import { Link } from 'react-router-dom'
 
 export default class Show extends Component {
     state = {
@@ -39,7 +40,7 @@ export default class Show extends Component {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           return newFromDB
-          this.props.clearNewRecipe();
+
       }
 
     render(){
@@ -124,7 +125,8 @@ export default class Show extends Component {
                             <button onClick={() => {this.saveForm(); clearNewRecipe()}}> Save & Return Home</button> }
                         { (!user && newRecipe ) && 
                             <button onClick={this.showEnter}> Save to Account</button> }
-                        { newRecipe && <button><a href="/create-sauce">GO BACK</a></button>}
+                                                    { newRecipe && <button><a href="/create-sauce">GO BACK</a></button>}
+                        {/* { newRecipe && <button><a href="/create-sauce">GO BACK</a></button>} */}
 
                         <button><a href="/order">Continue with Order</a></button>
 
