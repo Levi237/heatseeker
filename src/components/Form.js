@@ -42,15 +42,15 @@ export default class Form extends Component {
     state = {
         examples: [],
         style: "HeatMaker Hot Sauce",
-        // chili: [],
-        // spice: {
-        //     name: "Indian",
-        //     items: ["cumin", "curry", "sea salt", "pepper"]
-        // },
-        // extra: [],
-        // vinegar: {
-        //     name: "White Wine",
-        // },
+        chili: [],
+        spice: {
+            name: "Indian",
+            items: ["cumin", "curry", "sea salt", "pepper"]
+        },
+        extra: [],
+        vinegar: {
+            name: "White Wine",
+        },
         show: false,
         toggle: false,
     }
@@ -138,9 +138,6 @@ export default class Form extends Component {
         const { chili, spice, vinegar, extra, show, examples, style } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
-        for (let i = 0; i < extra.length; i++){
-
-        }
         let chili1 = "";
         if (chili[0]){
             chili1 = chili[0]
