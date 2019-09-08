@@ -1,4 +1,4 @@
-import React from 'react';
+import React       from 'react';
 import { NavLink } from 'react-router-dom';
 
 import * as routes from '../constants/routes'
@@ -15,8 +15,6 @@ const Nav = ({order, user, logout}) =>
         ?  <NavLink activeClassName="" to={routes.ROOT} onClick={logout}>LOGOUT</NavLink> 
         :  <NavLink activeClassName="" to={routes.LOGN}>LOGIN</NavLink>
         }
-        
-
     </div>
 
 export default Nav

@@ -39,13 +39,13 @@ export default class Show extends Component {
       }
 
     render(){
-        const { show, recipes, newRecipe, user, clearNewRecipe, showOrder } =  this.props
+        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow } =  this.props
     
         let recipe = []
         let addExtras = [];
         let showSpices = [];
 
-        if (show){
+        if (show || order){
             recipes.forEach(e => {
                 if (e.id === show){
                     recipe = e
@@ -118,9 +118,12 @@ export default class Show extends Component {
                             <button onClick={() => {this.saveForm(); clearNewRecipe()}}> Save & Return Home</button> }
                         { (!user && newRecipe ) && 
                             <button onClick={this.showEnter}> Save to Account</button> }
-
-                        <button onClick={() => {this.saveForm(); showOrder();}}>Complete Order</button>
-
+                        {newRecipe 
+                        ? <button onClick={() => {this.saveForm(); showOrder();}}>Complete Order</button>
+                        : <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
+                        }
+                        
+                        
                     </div>
                 </>
             }

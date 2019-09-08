@@ -41,6 +41,12 @@ showOrder = () => {
     newRecipe: null
   })
 }
+
+closeShow = () => {
+  this.setState({
+    show: null,
+  })
+}
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
@@ -161,6 +167,7 @@ showOrder = () => {
                                         newRecipe={newRecipe} 
                                         show={show}
                                         showOrder={this.showOrder}
+                                        closeShow={this.closeShow}
                                         showThisRecipe={this.showThisRecipe}/>} />                                        
             <Route path={routes.LOGN} exact render={() => user 
                                       ? <Redirect to={routes.HOME} /> 
@@ -178,18 +185,18 @@ showOrder = () => {
             <Route path={routes.SAVE} exact render={() => !newRecipe
                                       ? <Redirect to={routes.HOME} /> 
                                       : <Show 
-                                        user={user} 
+                                        user={user}
+                                        order={order} 
                                         newRecipe={newRecipe} 
                                         updateRecipe={updateRecipe} 
                                         updateForm={this.updateForm}
                                         clearNewRecipe={this.clearNewRecipe}
                                         showOrder={this.showOrder}
+                                        closeShow={this.closeShow}
                                         /> }/>    
 
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
-            {/* <Route path={routes.ECOM} exact render={() => 
-                                      <Order /> }/> */}
             <Route path={routes.ROOT} render={() => 
                                       <About /> }/>
           </Switch>

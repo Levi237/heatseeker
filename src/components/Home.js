@@ -10,7 +10,7 @@ import './Home.css'
 export default class Home extends Component {
 
     render(){
-        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, updateRecipe } = this.props
+        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
 
         let listList = []
         if (user && recipes){            
@@ -35,6 +35,7 @@ export default class Home extends Component {
             {  (this.props.order) && <Order order={order} showOrder={showOrder} /> }
             {  show 
             ?  <Show 
+            closeShow={closeShow}
                     showOrder={showOrder}
                     show={show} 
                     recipes={recipes} 
