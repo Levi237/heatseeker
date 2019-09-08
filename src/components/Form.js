@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect }         from 'react-router-dom';
-
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
-import Modal                from './modal/Modal'
 
-import firebase from 'firebase/app'
+import firebase             from 'firebase/app'
 import 'firebase/firestore'
-
 import './Form.css'
 // import { tsThisType } from '@babel/types';
 
@@ -32,11 +29,7 @@ const Arrow = ({ text, className }) => {
 const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
-
-
 // NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.  NEED DEFAULT LABEL IMAGE
-
-// CREATE PRESETTING SAUCES.  {GREEN. RED. CHIPOTLE}
 
 export default class Form extends Component {
     state = {
@@ -83,9 +76,8 @@ export default class Form extends Component {
         }) 
     }
     exampleToggle = (e, value) => {
-        const target = e.currentTarget
+        // const target = e.currentTarget
         this.setState({
-            // style: value.style,
             chili: value.chili,
             spice: value.spice,
             extra: value.extra,
@@ -93,12 +85,6 @@ export default class Form extends Component {
         }) 
     }
 
-    // showModal = () => {
-    //     this.setState({
-    //       ...this.state,
-    //       show: !this.state.show
-    //     })
-    //   }
     onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     }
@@ -110,7 +96,7 @@ export default class Form extends Component {
     }
     extraToggle = (e, value) => {
         const { extra } = this.state
-        const target = e.currentTarget;
+        // const target = e.currentTarget;
         if (extra.includes(value)){
             this.setState(prevState => ({ 
                 extra: prevState.extra.filter(x => (
@@ -125,14 +111,13 @@ export default class Form extends Component {
     }
     chiliToggle = (e, value) => {
         const { chili } = this.state
-        const target = e.currentTarget;
+        // const target = e.currentTarget;
         if (chili.includes(value)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
                     x.id !== value.id
                 )) 
             }));
-        // }else if(chili.length < 2){
         }else if(chili.length < 2 || chili[0].id === value.id || chili[1].id === value.id){
             this.setState({
                 chili: [...chili, value]
@@ -150,7 +135,7 @@ export default class Form extends Component {
 
     render(){
 
-        const { chili, spice, vinegar, extra, show, examples, style } = this.state
+        const { chili, spice, vinegar, extra, examples, style } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         let chili1 = "";

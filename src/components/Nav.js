@@ -10,7 +10,7 @@ const Nav = ({order, user, logout}) =>
         ? <NavLink className="unlink">CREATE</NavLink>
         : <NavLink activeClassName="" to={routes.FORM}>CREATE</NavLink>
         }
-        <NavLink activeClassName="" to={routes.USER}>HOME</NavLink>
+        <NavLink activeClassName="" to={routes.HOME}>HOME</NavLink>
         { user 
         ?  <NavLink activeClassName="" to={routes.ROOT} onClick={logout}>LOGOUT</NavLink> 
         :  <NavLink activeClassName="" to={routes.LOGN}>LOGIN</NavLink>

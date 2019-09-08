@@ -1,41 +1,32 @@
 import React, { Component }        from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import './App.css';
+import About       from './components/About';
+import Form        from './components/Form';
+import Nav         from './components/Nav';
+import Home        from './components/Home';
+import Enter       from './components/Enter';
+import Show        from './components/modal/Show';
+// import Order  from './components/Order';
 
-
-import About  from './components/About';
-import Order  from './components/Order';
-import Form   from './components/Form';
-import Nav    from './components/Nav';
-// import Sale   from './components/Sale';
-import Home   from './components/Home';
-import Enter from './components/Enter';
-import Show   from './components/modal/Show';
-
-
-import * as routes  from './constants/routes';
-import firebase from 'firebase/app';
+import * as routes from './constants/routes';
+import firebase    from 'firebase/app';
 import 'firebase/app';
+
+import './App.css';
 
 export default class App extends Component {
 
   state = {
-
       user: null,
       chilis: [],
       spices: [],
       extras: [],
       vinegars: [],
-      options: [],
       newRecipe: null,
-      updateRecipe: null,
-      selection: {},
       recipes: [],
       order: false,
-  // }
-  // state = {
-    show: null,
+      show: null,
 }
 showThisRecipe = (e) => {
     console.log(e.currentTarget.value, "click showThisREcipe target")
@@ -130,8 +121,6 @@ showOrder = () => {
     firebase.auth().signOut();
   }
 
-// split submit into a set state and a save to 
-
   submitForm =  async (e, data) => {
     e.preventDefault();
     this.setState({
@@ -164,15 +153,6 @@ showOrder = () => {
 
         <div className="grid-main">
           <Switch>
-            <Route path={routes.USER} exact render={() => 
-                                      <Home 
-                                        order={order}
-                                        user={user} 
-                                        recipes={recipes} 
-                                        newRecipe={newRecipe} 
-                                        show={show}
-                                        showOrder={this.showOrder}
-                                        showThisRecipe={this.showThisRecipe}/>} />
             <Route path={routes.HOME} render={() =>
                                       <Home 
                                         order={order}
@@ -204,15 +184,12 @@ showOrder = () => {
                                         updateForm={this.updateForm}
                                         clearNewRecipe={this.clearNewRecipe}
                                         showOrder={this.showOrder}
-                                        // saveForm={this.saveForm}
                                         /> }/>    
 
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
-            <Route path={routes.ECOM} exact render={() => 
-                                      <Order /> }/>
-            {/* <Route path={routes.SHOW} render={() => 
-                                      <Show show={show} recipes={recipes}/> } /> */}
+            {/* <Route path={routes.ECOM} exact render={() => 
+                                      <Order /> }/> */}
             <Route path={routes.ROOT} render={() => 
                                       <About /> }/>
           </Switch>
