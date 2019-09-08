@@ -6,7 +6,7 @@ export default class Order extends Component {
         const { showOrder } = this.props
         return(
             <div className="order-form">
-                Time for eCommerce
+                <h2>Time for eCommerce</h2>
                 <button onClick={showOrder}>Go Back</button>
             </div>
             
