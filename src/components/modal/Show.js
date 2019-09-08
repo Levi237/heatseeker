@@ -122,7 +122,7 @@ export default class Show extends Component {
                         ? <button onClick={() => {this.saveForm(); showOrder();}}>Complete Order</button>
                         : <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
                         }
-                        
+
                         
                     </div>
                 </>

@@ -6,23 +6,40 @@ import Show     from './modal/Show';
 
 import './Home.css'
 
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 export default class Home extends Component {
+    state = {}
+    
+    delete = (e) => {
+        const _id = e.currentTarget.value
+        firebase
+            .firestore()
+            .collection('recipes')
+            .doc(_id)
+            .update({
+                delete: true
+            })
+    }
 
     render(){
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
 
         let listList = []
         if (user && recipes){            
-            let list = recipes.map((e, i) => {
-            if (e.email) {
-                if (e.email === user.email) {
+            let list = recipes.map((r, i) => {
+            if (r.email) {
+                if (r.email === user.email && !r.delete) {
                     return(
+                        <div className="user-show-recipe">
                         <form key={i} >
-                            <button  type="button" name="recipe"value={e.id} onClick={(e) => {showThisRecipe(e)}} >
-                                {e.style}
+                            <button  type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}} >
+                                {r.style}
                             </button>
                         </form>
+                        <button value={r.id} onClick={this.delete}>Delete</button>
+                        </div>
                     )
                 }
             }

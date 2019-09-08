@@ -357,3 +357,12 @@ grid-template-areas:
   -1px 1px 1px rgb(128, 128, 128, .3),
   1px 1px 1px rgb(128, 128, 128, .3);
 }
+
+
+
+
+
+.user-show-recipe {
+  display: inline-block;
+  border: solid black 1px;
+}
