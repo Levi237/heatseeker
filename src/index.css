@@ -5,7 +5,9 @@
 /* font-family: 'Arbutus', cursive; */
 
 
-
+button {
+  padding: 0;
+}
 
 a {
   text-decoration: none;
@@ -227,7 +229,7 @@ grid-template-areas:
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 
-@media screen and (max-width: 767) {
+@media screen and (max-width: 767px) {
   .grid-container {
     /* display: grid; */
     /* width: 100vw; */

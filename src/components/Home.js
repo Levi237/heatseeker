@@ -8,6 +8,7 @@ import './Home.css'
 
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import RecipeList from './list/Recipes';
 
 export default class Home extends Component {
     state = {
@@ -33,35 +34,31 @@ export default class Home extends Component {
     render(){
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
 
+   
 
+        // let listList = []
+        // if (user && recipes){            
+        //     let list = recipes.map((r, i) => {
+        //     if (r.email) {
+        //         if (r.email === user.email && !r.delete) {
+        //             return(
+        //                 <div className="user-show-recipe">
+        //                 <button className={this.state.remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={this.deleteThis}>Delete</button>
+        //                 <form className="linkBtn" key={i}>
+        //                     <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
+        //                     <div className="recipe-data">
+        //                         <section>{r.style}</section>
+        //                     </div>
 
-        let listList = []
-        if (user && recipes){            
-            let list = recipes.map((r, i) => {
-            if (r.email) {
-                if (r.email === user.email && !r.delete) {
-                    return(
-                        <div className="user-show-recipe">
-                        <button className={this.state.remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={this.deleteThis}>Delete</button>
-                        <form className="linkBtn" key={i}>
-                            <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
-                            <div className="recipe-img">FUTURE PICTURE</div>
-                            {/* <form> */}
-                                {/* <button  type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}} > */}
-                            <div className="recipe-data">
-                                <section>{r.style}</section>
-                            </div>
-                                {/* </button> */}
-                            {/* </form><br/> */}
-                            </button>
-                        </form>
-                        </div>
-                    )
-                }
-            }
-            })
-            listList.push(list)
-        }
+        //                     </button>
+        //                 </form>
+        //                 </div>
+        //             )
+        //         }
+        //     }
+        //     })
+        //     listList.push(list)
+        // }
         
         return(
             <div className="userHome">
@@ -87,7 +84,12 @@ export default class Home extends Component {
                     <div className="home-right">
                         <br /> Here is a list of the recipes you've made so far:<br/>
                         <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
-                        <br />{listList}<br />
+                        <RecipeList 
+                            user={user} 
+                            recipes={recipes}
+                            remove={this.state.remove}
+                            deleteThis={this.deleteThis}
+                            showThisRecipe={showThisRecipe} />
                     </div>
                     </div>
                 :   <> Hello, Welcome to HeatMakerSauce </>
