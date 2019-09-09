@@ -54,13 +54,25 @@
     border-radius: 3px;
 } */
 .user-show-recipe {
-
+    display: inline-block;
+    width: 34vw;
 }
 .recipe-data {
 
 }
 .recipe-img {
 
+}
+
+
+.list-left, .list-right {
+    display: inline-block;
+    max-width: 34vw;
+    overflow: auto;
+}
+.list-left {
+    background-color: orange;
+    /* margin: 10px 0; */
 }
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -113,7 +125,7 @@
 
 @media screen and (max-width: 767px) {
     .userHome div {
-        display: block;
+        display: inline-block;
     }
     .order-img {
         /* background-color: yellow; */

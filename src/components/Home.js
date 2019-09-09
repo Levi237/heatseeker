@@ -33,32 +33,6 @@ export default class Home extends Component {
 
     render(){
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
-
-   
-
-        // let listList = []
-        // if (user && recipes){            
-        //     let list = recipes.map((r, i) => {
-        //     if (r.email) {
-        //         if (r.email === user.email && !r.delete) {
-        //             return(
-        //                 <div className="user-show-recipe">
-        //                 <button className={this.state.remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={this.deleteThis}>Delete</button>
-        //                 <form className="linkBtn" key={i}>
-        //                     <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
-        //                     <div className="recipe-data">
-        //                         <section>{r.style}</section>
-        //                     </div>
-
-        //                     </button>
-        //                 </form>
-        //                 </div>
-        //             )
-        //         }
-        //     }
-        //     })
-        //     listList.push(list)
-        // }
         
         return(
             <div className="userHome">
@@ -78,19 +52,46 @@ export default class Home extends Component {
 
                 {   user 
                 ?   <div className="home-container">
-                    <div className="home-left">
-                        {user.displayName}, Welcome Home!
-                    </div>
-                    <div className="home-right">
-                        <br /> Here is a list of the recipes you've made so far:<br/>
-                        <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
-                        <RecipeList 
-                            user={user} 
-                            recipes={recipes}
-                            remove={this.state.remove}
-                            deleteThis={this.deleteThis}
-                            showThisRecipe={showThisRecipe} />
-                    </div>
+
+                        <div className="home-left">
+                            {user.displayName}, Welcome Home!
+                            <br /><br /><br /><br /><br />
+                            <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                        </div>
+
+                        <div className="home-right">
+
+
+                            <div className="home-show-lists">
+                                <h2>CREATIONS</h2>
+                            
+                                <div className="list-left">
+                                    <h2>RECIPES</h2>
+                                    <RecipeList 
+                                        user={user} 
+                                        recipes={recipes}
+                                        remove={this.state.remove}
+                                        deleteThis={this.deleteThis}
+                                        showThisRecipe={showThisRecipe} />
+                                </div>
+
+                                <div className="list-right">
+                                    <h2>LABELS</h2>
+                                    <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
+                                </div>
+                            </div>
+                            {/* <div className="home-show-orders">
+                                <h2>ORDERS</h2>  
+                                <RecipeList 
+                                    user={user} 
+                                    recipes={recipes}
+                                    remove={this.state.remove}
+                                    deleteThis={this.deleteThis}
+                                    showThisRecipe={showThisRecipe} />
+                            </div> */}
+
+                        </div>
+
                     </div>
                 :   <> Hello, Welcome to HeatMakerSauce </>
                 } 
