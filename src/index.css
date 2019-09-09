@@ -227,7 +227,7 @@ grid-template-areas:
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 767) {
   .grid-container {
     /* display: grid; */
     /* width: 100vw; */
@@ -362,7 +362,3 @@ grid-template-areas:
 
 
 
-.user-show-recipe {
-  display: inline-block;
-  border: solid black 1px;
-}

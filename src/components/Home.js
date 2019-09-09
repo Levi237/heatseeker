@@ -41,13 +41,20 @@ export default class Home extends Component {
             if (r.email) {
                 if (r.email === user.email && !r.delete) {
                     return(
-                        <div key={i} className="user-show-recipe">
-                        <form>
-                            <button  type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}} >
-                                {r.style}
-                            </button>
-                        </form><br/>
+                        <div className="user-show-recipe">
                         <button className={this.state.remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={this.deleteThis}>Delete</button>
+                        <form className="linkBtn" key={i}>
+                            <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
+                            <div className="recipe-img">FUTURE PICTURE</div>
+                            {/* <form> */}
+                                {/* <button  type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}} > */}
+                            <div className="recipe-data">
+                                <section>{r.style}</section>
+                            </div>
+                                {/* </button> */}
+                            {/* </form><br/> */}
+                            </button>
+                        </form>
                         </div>
                     )
                 }
@@ -73,10 +80,15 @@ export default class Home extends Component {
                 {   (user && !user.displayName) && <Username /> }
 
                 {   user 
-                ?   <div>{user.displayName}, Welcome Home!
+                ?   <div className="home-container">
+                    <div className="home-left">
+                        {user.displayName}, Welcome Home!
+                    </div>
+                    <div className="home-right">
                         <br /> Here is a list of the recipes you've made so far:<br/>
                         <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                         <br />{listList}<br />
+                    </div>
                     </div>
                 :   <> Hello, Welcome to HeatMakerSauce </>
                 } 

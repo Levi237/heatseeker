@@ -1,22 +1,78 @@
 .userHome {
     width: calc(100vw - 00px);
+    background-color: pink;
 }
 
-.userHome form {
+/* .userHome form {
     display: inline-block;
 }
 
 .userHome form button {
     height: 40px;
-    width: calc(30vw - 20px);
+    width: calc(20vw - 20px);
     margin: 10px;
     border-radius: 3px;
+} */
+.home-left {
+    display: inline-block;
+    width: 300px;
+    /* top: 0; */
+    float: left;
+    /* position: relative; */
+    background-color: blue;
 }
 
-.recipeList {
-    /* height: 40px; */
+.home-right {
+    display: inline-block;
+    width: calc(100vw - 300px);
+    background-color: dodgerblue;
 }
+.home-right form {
+    display: inline-block;
+}
+
+/* .home-right form button {
+    height: 40px;
+    width: calc(20vw - 20px);
+    margin: 10px;
+    border-radius: 3px;
+} */
+.user-show-recipe {
+    background-color: green;
+    display: inline-block;
+    border: solid black 1px;
+    height: 30vw;
+    width: 90%;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+.recipe-data {
+    display: inline-block;
+}
+
+
+.recipe-img {
+    background-color: yellow;
+    height: 25vw;
+    width: 25vw;
+    border: black solid 1px;
+    /* margin: 2.5vw 2.5vw 0 2.5vw; */
+    display: inline-block;
+}
+
 
 .hide-delete {
-    visibility: hidden;
+    display: none;
+}
+.deleteBtn {
+    position: absolute;
+    right: 50px;
+    /* float: right; */
+    z-index: 5;
+}
+
+.linkBtn {
+    width: 100%;
+    background-color: white;
 }
