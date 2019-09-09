@@ -74,7 +74,7 @@ export default class Home extends Component {
 
                 {   user 
                 ?   <div>{user.displayName}, Welcome Home!
-                        <br /> Here is a list of the recipes you've made so far:
+                        <br /> Here is a list of the recipes you've made so far:<br/>
                         <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                         <br />{listList}<br />
                     </div>
