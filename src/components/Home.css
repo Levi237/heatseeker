@@ -8,7 +8,7 @@
 
 .userHome {
     width: calc(100vw - 00px);
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 /* .userHome form {
@@ -23,17 +23,29 @@
 } */
 .home-left {
     display: inline-block;
-    width: 300px;
+    width: 30vw;
     /* top: 0; */
     float: left;
     /* position: relative; */
-    background-color: blue;
+    /* background-color: blue; */
+    text-align: left;
+}
+
+.home-left button {
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+}
+
+.home-left h3 {
+    margin: 2.5vw;
 }
 
 .home-right {
     display: inline-block;
-    width: calc(100vw - 300px);
-    background-color: dodgerblue;
+    width: 70vw;
+    margin-right: 0px;
+    /* background-color: dodgerblue; */
 }
 .home-right form {
     display: inline-block;
@@ -55,7 +67,7 @@
 } */
 .user-show-recipe {
     display: inline-block;
-    width: 34vw;
+    width: 30vw;
 }
 .recipe-data {
 
@@ -67,12 +79,19 @@
 
 .list-left, .list-right {
     display: inline-block;
-    max-width: 34vw;
+    max-width: 33vw;
     overflow: auto;
+    top: 0;
 }
 .list-left {
-    background-color: orange;
+    /* background-color: orange; */
     /* margin: 10px 0; */
+    float: left;
+}
+.list-right {
+    /* background-color: purple; */
+    float: right;
+    margin-right: 2.5vw;
 }
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -136,4 +155,14 @@
         /* display: inline-block; */
         /* left: 0; */
     }
+}
+
+
+
+
+
+
+.user-icon {
+    height: 24px;
+
 }

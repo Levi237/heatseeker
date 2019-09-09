@@ -211,7 +211,6 @@ export default class Form extends Component {
                 return (
                     <section className="chiliSection" id={`${x.name}`} key={k}>
                         <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
-                        {/* <button name="extra" value={x} className={(x == extra ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button> */}
                         <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                     </section>
                 )
@@ -266,10 +265,7 @@ export default class Form extends Component {
 
             <div className="box1">
             <h3>Name your Sauce!</h3><br/>
-                    <input className="name-sauce" name="style" value={style} type="tex" onChange={this.handleChange}/><br/>
-            {/* {chili[0].heat ? <><h2>   Heat Factor: {chili[0].heat + chili[0].heat}</h2></>: <><h2>   Heat Factor: {chili[0].heat}</h2></>} */}
-                
-                {/* <h2>Price: ${chili.price/100}.00   </h2> */}
+                <input className="name-sauce" name="style" value={style} type="tex" onChange={this.handleChange}/><br/>
                 {user !== null && user.displayName ? <strong>Created By: {user.displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
                 <div>{addChili}</div><br />
                 <strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong><br />

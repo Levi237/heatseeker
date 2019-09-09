@@ -151,7 +151,7 @@ export default class App extends Component {
         </div>
 
         <div className="grid-header">
-          <h1>HEATMAKERSAUCE</h1>
+          <h1>HEATMAKERS</h1>
         </div>
 
         <div className="grid-nav">
@@ -204,9 +204,10 @@ export default class App extends Component {
         </div>     
         
         <div className="grid-footer">
-        <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
-          <section>&copy;LEVIEIKO.COM</section>
-          </div>
+          <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
+          <section>&copy;LeviEiko.com</section><br />
+          <section>&copy;HEATMAKERS</section>
+        </div>
       </div>
     );
   }

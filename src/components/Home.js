@@ -54,8 +54,11 @@ export default class Home extends Component {
                 ?   <div className="home-container">
 
                         <div className="home-left">
-                            {user.displayName}, Welcome Home!
-                            <br /><br /><br /><br /><br />
+                            <h3><img src="logo.png" className="user-icon"/> {user.displayName}</h3>
+                
+                            <button>Show Creations</button>
+                            <button>Show Orders</button>
+                            <button>Edit Account</button>
                             <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                         </div>
 
@@ -64,9 +67,10 @@ export default class Home extends Component {
 
                             <div className="home-show-lists">
                                 <h2>CREATIONS</h2>
-                            
+                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 <div className="list-left">
                                     <h2>RECIPES</h2>
+                                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                     <RecipeList 
                                         user={user} 
                                         recipes={recipes}
@@ -77,6 +81,7 @@ export default class Home extends Component {
 
                                 <div className="list-right">
                                     <h2>LABELS</h2>
+                                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                     <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
                                 </div>
                             </div>

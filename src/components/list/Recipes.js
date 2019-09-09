@@ -7,7 +7,9 @@ render(){
     let listList = []
 if (user && recipes){            
     let list = recipes.map((r, i) => {
-    if (r.email) {
+        if (r.email) {
+            let dateCreated = r.timestamp.toDate().toDateString()
+            // console.log(date)
         if (r.email === user.email && !r.delete) {
             return(
                 <div className="user-show-recipe">
@@ -16,6 +18,7 @@ if (user && recipes){
                     <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
                     <div className="recipe-data">
                         <section>{r.style}</section>
+                        <section>{dateCreated}</section>
                     </div>
 
                     </button>
