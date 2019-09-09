@@ -1,12 +1,12 @@
 import React, { Component }        from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import About       from './components/About';
-import Form        from './components/Form';
-import Nav         from './components/Nav';
-import Home        from './components/Home';
-import Enter       from './components/Enter';
-import Show        from './components/modal/Show';
+import About from './components/About';
+import Form  from './components/Form';
+import Nav   from './components/Nav';
+import Home  from './components/Home';
+import Enter from './components/Enter';
+import Show  from './components/modal/Show';
 // import Order  from './components/Order';
 
 import * as routes from './constants/routes';
@@ -27,28 +27,8 @@ export default class App extends Component {
       recipes: [],
       order: false,
       show: null,
-}
+  }
 
-
-showThisRecipe = (e) => {
-    console.log(e.currentTarget.value, "click showThisREcipe target")
-     this.setState({
-         show: e.currentTarget.value
-     })
-}
-showOrder = () => {
-  this.setState({
-    ...this.state,
-    order: !this.state.order,
-    newRecipe: null
-  })
-}
-
-closeShow = () => {
-  this.setState({
-    show: null,
-  })
-}
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
@@ -127,6 +107,25 @@ closeShow = () => {
   };
   logout = () => {
     firebase.auth().signOut();
+  }
+
+  showThisRecipe = (e) => {
+      console.log(e.currentTarget.value, "click showThisREcipe target")
+      this.setState({
+          show: e.currentTarget.value
+      })
+  }
+  showOrder = () => {
+    this.setState({
+      ...this.state,
+      order: !this.state.order,
+      newRecipe: null
+    })
+  }
+  closeShow = () => {
+    this.setState({
+      show: null,
+    })
   }
 
   submitForm =  async (e, data) => {

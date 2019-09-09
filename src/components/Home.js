@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Order from './Order'
-import Username from '../components/Username';
+import Username from './Username';
 import Show     from './modal/Show';
 
 import './Home.css'
@@ -10,9 +10,16 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 export default class Home extends Component {
-    state = {}
-    
-    delete = (e) => {
+    state = {
+        remove: false,
+    }
+    showDelete = () => {
+        this.setState({
+          remove: !this.state.remove,
+
+        })
+      }
+    deleteThis = (e) => {
         const _id = e.currentTarget.value
         firebase
             .firestore()
@@ -26,6 +33,8 @@ export default class Home extends Component {
     render(){
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
 
+
+
         let listList = []
         if (user && recipes){            
             let list = recipes.map((r, i) => {
@@ -38,7 +47,7 @@ export default class Home extends Component {
                                 {r.style}
                             </button>
                         </form><br/>
-                        <button className="deleteBtn" value={r.id} onClick={this.delete}>Delete</button>
+                        <button className={this.state.remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={this.deleteThis}>Delete</button>
                         </div>
                     )
                 }
@@ -65,9 +74,10 @@ export default class Home extends Component {
 
                 {   user 
                 ?   <div>{user.displayName}, Welcome Home!
-                    <br /> Here is a list of the recipes you've made so far:
-                            <br />{listList}<br />
-                        </div>
+                        <br /> Here is a list of the recipes you've made so far:
+                        <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                        <br />{listList}<br />
+                    </div>
                 :   <> Hello, Welcome to HeatMakerSauce </>
                 } 
                </>
