@@ -14,7 +14,7 @@ export default class Home extends Component {
     state = {
         remove: false,
         userEdit: false,
-        // userCreations: true,
+        userCreations: true,
         userOrders: false,
     }
 
@@ -70,9 +70,11 @@ export default class Home extends Component {
                 
                             <button name="userCreations" type="button" onClick={this.toggleValue}>Show Creations</button>
                             <button name="userOrders" type="button" onClick={this.toggleValue}>Show Orders</button>
-                            <button name="userCreations" type="button" onClick={this.toggleValue}>Edit Account</button>
-                            <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
-                            
+                            <button name="userEdit" type="button" onClick={this.toggleValue}>Edit Account</button>
+                            <div className={this.state.userEdit ? "edit-container" : "off edit-container"}>
+                                <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                                <Username />
+                            </div>
                         </div>
 
                         <div className="home-right">

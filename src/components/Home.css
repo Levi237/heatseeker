@@ -170,3 +170,13 @@
     height: 24px;
 
 }
+
+
+.edit-container {
+    width: 20vw;
+    background-color: lightgray;
+    margin: 0 auto;
+}
+.off {
+    display: none
+}
