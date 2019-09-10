@@ -22,9 +22,7 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 export default class RecipeList extends Component {
 render(){
     const { recipes, user, remove, showThisRecipe, deleteThis } = this.props
-
-    // let listList = []
-    // if (user && recipes){            
+       
         let list = recipes.map((r, i) => {
             if (r.email && r.email === user.email && r.timestamp  && !r.delete) {
                 let dateCreated = r.timestamp.toDate().toDateString()
@@ -44,8 +42,7 @@ render(){
                 )
             }
     })
-//     listList.push(list)
-// }
+    
     return(
         // <ScrollMenu data={list} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
         <>{list}</>
