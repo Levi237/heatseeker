@@ -71,15 +71,14 @@ export default class Home extends Component {
                             <button name="userCreations" type="button" class={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
                             <button name="userOrders" type="button" class={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
                             <button name="userEdit" type="button" class={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
-                            <div className={this.state.userEdit ? "edit-container" : "off edit-container"}>
+                            <div className={userEdit ? "edit-container" : "off edit-container"}>
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />
                             </div>
                         </div>
 
                         <div className="home-right">
-{ (this.state.userCreations) &&
-
+                        {   (userCreations) &&
                             <div className="home-show-lists">
                                 <h2>CREATIONS</h2>
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
@@ -109,8 +108,9 @@ export default class Home extends Component {
                             <div className="home-show-orders">
                                 <h2>ORDERS</h2>  
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-<h4>Orders will display combinations of Recipes and Lavels with a history of eCommerce orders.</h4>
-<img className="chalk" src="chalkdarkorange.png" alt="line break"/>
+                                
+                                <h4>Orders will display combinations of Recipes and Lavels with a history of eCommerce orders.</h4>
+                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                             </div>
                             }
                         </div>
