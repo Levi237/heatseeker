@@ -109,12 +109,7 @@ export default class Home extends Component {
                             <div className="home-show-orders">
                                 <h2>ORDERS</h2>  
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                <RecipeList 
-                                    user={user} 
-                                    recipes={recipes}
-                                    remove={this.state.remove}
-                                    deleteThis={this.deleteThis}
-                                    showThisRecipe={showThisRecipe} />
+<h4>Orders will display combinations of Recipes and Lavels with a history of eCommerce orders.</h4>
 <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                             </div>
                             }
