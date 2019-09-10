@@ -66,8 +66,11 @@
     border-radius: 3px;
 } */
 .user-show-recipe {
+    position: relative;
     display: inline-block;
     width: 30vw;
+    height: 6vw;
+    margin: 10px auto 0 auto;
 }
 .recipe-data {
 
@@ -135,7 +138,8 @@
 }
 .deleteBtn {
     position: absolute;
-    right: 50px;
+    left: 28vw;
+    top: .5vw;
     /* float: right; */
     z-index: 5;
 }

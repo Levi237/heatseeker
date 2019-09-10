@@ -265,7 +265,7 @@ export default class Form extends Component {
 
             <div className="box1">
             <h3>Name your Sauce!</h3><br/>
-                <input className="name-sauce" name="style" value={style} type="tex" onChange={this.handleChange}/><br/>
+                <input className="name-sauce" name="style" value={style} type="text" onChange={this.handleChange}/><br/>
                 {user !== null && user.displayName ? <strong>Created By: {user.displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
                 <div>{addChili}</div><br />
                 <strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong><br />

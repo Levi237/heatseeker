@@ -13,7 +13,18 @@ import RecipeList from './list/Recipes';
 export default class Home extends Component {
     state = {
         remove: false,
+        userEdit: false,
+        // userCreations: true,
+        userOrders: false,
     }
+
+    toggleValue = (e) => {
+        this.setState({
+            [e.currentTarget.name]: !this.state[e.currentTarget.name]
+        });
+    };
+
+
     showDelete = () => {
         this.setState({
           remove: !this.state.remove,
@@ -32,6 +43,7 @@ export default class Home extends Component {
     }
 
     render(){
+        const { userEdit } = this.state
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
         
         return(
@@ -56,10 +68,11 @@ export default class Home extends Component {
                         <div className="home-left">
                             <h3><img src="logo.png" className="user-icon"/> {user.displayName}</h3>
                 
-                            <button>Show Creations</button>
-                            <button>Show Orders</button>
-                            <button>Edit Account</button>
+                            <button name="userCreations" type="button" onClick={this.toggleValue}>Show Creations</button>
+                            <button name="userOrders" type="button" onClick={this.toggleValue}>Show Orders</button>
+                            <button name="userCreations" type="button" onClick={this.toggleValue}>Edit Account</button>
                             <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                            
                         </div>
 
                         <div className="home-right">
@@ -69,7 +82,7 @@ export default class Home extends Component {
                                 <h2>CREATIONS</h2>
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 <div className="list-left">
-                                    <h2>RECIPES</h2>
+                                    <h3>RECIPES</h3>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                     <RecipeList 
                                         user={user} 
@@ -80,7 +93,7 @@ export default class Home extends Component {
                                 </div>
 
                                 <div className="list-right">
-                                    <h2>LABELS</h2>
+                                    <h3>LABELS</h3>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                     <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
                                 </div>
