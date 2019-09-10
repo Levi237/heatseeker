@@ -43,7 +43,7 @@ export default class Home extends Component {
     }
 
     render(){
-        const { userEdit } = this.state
+        const { userEdit, userCreations, userOrders } = this.state
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
         
         return(
@@ -68,9 +68,9 @@ export default class Home extends Component {
                         <div className="home-left">
                             <h3><img src="logo.png" className="user-icon"/> {user.displayName}</h3>
                 
-                            <button name="userCreations" type="button" onClick={this.toggleValue}>Show Creations</button>
-                            <button name="userOrders" type="button" onClick={this.toggleValue}>Show Orders</button>
-                            <button name="userEdit" type="button" onClick={this.toggleValue}>Edit Account</button>
+                            <button name="userCreations" type="button" class={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
+                            <button name="userOrders" type="button" class={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
+                            <button name="userEdit" type="button" class={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
                             <div className={this.state.userEdit ? "edit-container" : "off edit-container"}>
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />
@@ -99,6 +99,7 @@ export default class Home extends Component {
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                     <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
                                 </div>
+                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                             </div>
 }
 
@@ -114,9 +115,9 @@ export default class Home extends Component {
                                     remove={this.state.remove}
                                     deleteThis={this.deleteThis}
                                     showThisRecipe={showThisRecipe} />
+<img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                             </div>
                             }
-
                         </div>
 
                     </div>

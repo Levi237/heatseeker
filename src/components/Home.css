@@ -4,37 +4,21 @@
 /***************************************           FLEX            ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
-
 .userHome {
     width: calc(100vw - 00px);
-    /* background-color: pink; */
 }
 
-/* .userHome form {
-    display: inline-block;
-}
-
-.userHome form button {
-    height: 40px;
-    width: calc(20vw - 20px);
-    margin: 10px;
-    border-radius: 3px;
-} */
 .home-left {
     display: inline-block;
     width: 30vw;
-    /* top: 0; */
     float: left;
-    /* position: relative; */
-    /* background-color: blue; */
     text-align: left;
 }
 
 .home-left button {
     display: block;
     margin: 10px auto;
-    width: 100px;
+    width: 18vw;
 }
 
 .home-left h3 {
@@ -45,7 +29,6 @@
     display: inline-block;
     width: 70vw;
     margin-right: 0px;
-    /* background-color: dodgerblue; */
 }
 .home-right form {
     display: inline-block;
@@ -59,12 +42,6 @@
     background-color: white;
 }
 
-/* .home-right form button {
-    height: 40px;
-    width: calc(20vw - 20px);
-    margin: 10px;
-    border-radius: 3px;
-} */
 .user-show-recipe {
     position: relative;
     display: inline-block;
@@ -87,12 +64,9 @@
     top: 0;
 }
 .list-left {
-    /* background-color: orange; */
-    /* margin: 10px 0; */
     float: left;
 }
 .list-right {
-    /* background-color: purple; */
     float: right;
     margin-right: 2.5vw;
 }
@@ -122,7 +96,6 @@
     height: 25vw;
     width: 25vw;
     border: black solid 1px;
-    /* margin: 2.5vw 2.5vw 0 2.5vw; */
     display: inline-block;
     left: 0;
 }
@@ -140,24 +113,16 @@
     position: absolute;
     left: 28vw;
     top: .5vw;
-    /* float: right; */
     z-index: 5;
 }
-
-
 
 @media screen and (max-width: 767px) {
     .userHome div {
         display: inline-block;
     }
     .order-img {
-        /* background-color: yellow; */
         height: 90vw;
         width: 90vw;
-        /* border: black solid 1px; */
-        /* margin: 2.5vw 2.5vw 0 2.5vw; */
-        /* display: inline-block; */
-        /* left: 0; */
     }
 }
 
@@ -173,15 +138,20 @@
 
 
 .edit-container {
-    width: 100px;
+    width: 18vw;
     background-color: lightgray;
     margin: 0 auto;
+}
+.edit-container input {
+    width: 18vw;
 }
 .off {
     display: none;
 }
 
-
+.on {
+    background-color: orangered;
+}
 
 
 .home-show-orders {
