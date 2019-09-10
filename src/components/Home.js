@@ -78,7 +78,7 @@ export default class Home extends Component {
                         </div>
 
                         <div className="home-right">
-
+{ (this.state.userCreations) &&
 
                             <div className="home-show-lists">
                                 <h2>CREATIONS</h2>
@@ -100,7 +100,12 @@ export default class Home extends Component {
                                     <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
                                 </div>
                             </div>
-                            {/* <div className="home-show-orders">
+}
+
+
+                            { (this.state.userOrders) &&
+
+                            <div className="home-show-orders">
                                 <h2>ORDERS</h2>  
                                 <RecipeList 
                                     user={user} 
@@ -108,7 +113,8 @@ export default class Home extends Component {
                                     remove={this.state.remove}
                                     deleteThis={this.deleteThis}
                                     showThisRecipe={showThisRecipe} />
-                            </div> */}
+                            </div>
+                            }
 
                         </div>
 

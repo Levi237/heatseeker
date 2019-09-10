@@ -173,10 +173,18 @@
 
 
 .edit-container {
-    width: 20vw;
+    width: 100px;
     background-color: lightgray;
     margin: 0 auto;
 }
 .off {
-    display: none
+    display: none;
+}
+
+
+
+
+.home-show-orders {
+    width: 60vw;
+    display: inline-block;
 }
