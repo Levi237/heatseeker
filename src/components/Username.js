@@ -31,7 +31,7 @@ export default class Username extends Component {
             <form>
             {/* <form onSubmit={this.updateUserName}> */}
                 <input type="text" onChange={this.handleChange} value={this.state.name} name="name" placeholder="Edit Name"/>
-                <button type="submit" onClick={this.updateUserName}>Save</button>
+                <button type="submit" onClick={this.updateUserName}>Save Name</button>
             </form>
         )
     }

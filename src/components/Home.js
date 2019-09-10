@@ -107,6 +107,7 @@ export default class Home extends Component {
 
                             <div className="home-show-orders">
                                 <h2>ORDERS</h2>  
+                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 <RecipeList 
                                     user={user} 
                                     recipes={recipes}
