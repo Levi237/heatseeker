@@ -8,22 +8,18 @@ import './Form.css'
 // import { tsThisType } from '@babel/types';
 
 //Scroll Menu
-const MenuItem = ({text, selected}) => {
-    return <div
-      className={`menu-item ${selected ? 'active' : ''}`}
-      >{text}</div>;
+const MenuItem = ({text}) => {
+    return <div className="menu-item">{text}</div>;
   };
-export const Menu = (list, selected) =>
+export const Menu = (list) =>
   list.map(el => {
     const {name} = el;
  
-    return <MenuItem text={name} key={name} selected={selected} />;
+    return <MenuItem text={name} key={name} />;
   });
 const Arrow = ({ text, className }) => {
   return (
-    <div
-      className={className}
-    >{text}</div>
+    <div className={className}>{text}</div>
   );
 };
 const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });

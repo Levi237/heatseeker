@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
-const MenuItem = ({text, selected}) => {
-    return <div
-      className={`menu-item ${selected ? 'active' : ''}`}
-      >{text}</div>;
+//Scroll Menu
+const MenuItem = ({text}) => {
+    return <div className="menu-item">{text}</div>;
   };
-export const Menu = (list, selected) =>
+export const Menu = (list) =>
   list.map(el => {
     const {name} = el;
  
-    return <MenuItem text={name} key={name} selected={selected} />;
+    return <MenuItem text={name} key={name} />;
   });
 const Arrow = ({ text, className }) => {
   return (
-    <div
-      className={className}
-    >{text}</div>
+    <div className={className}>{text}</div>
   );
 };
 const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
@@ -26,8 +23,8 @@ export default class RecipeList extends Component {
 render(){
     const { recipes, user, remove, showThisRecipe, deleteThis } = this.props
 
-    let listList = []
-    if (user && recipes){            
+    // let listList = []
+    // if (user && recipes){            
         let list = recipes.map((r, i) => {
             if (r.email && r.email === user.email && r.timestamp  && !r.delete) {
                 let dateCreated = r.timestamp.toDate().toDateString()
@@ -47,11 +44,11 @@ render(){
                 )
             }
     })
-    listList.push(list)
-}
+//     listList.push(list)
+// }
     return(
-        // <ScrollMenu data={listList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-        <>{listList}</>
+        // <ScrollMenu data={list} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+        <>{list}</>
     )
 }
 }
