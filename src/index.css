@@ -255,10 +255,13 @@ grid-template-areas:
   }
 
   h1 {
-    font-size: 11vw;
+    font-size: 10vw;
   }
   h2 {
-    font-size: 1em;
+    font-size: 7vw;
+  }
+  h3 {
+    font-size: 5vw;
   }
   .App-logo {
     height: 30px;

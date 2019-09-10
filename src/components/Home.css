@@ -60,7 +60,8 @@
 .list-left, .list-right {
     display: inline-block;
     max-width: 33vw;
-    overflow: auto;
+    /* overflow: auto; */
+  position: relative;
     top: 0;
 }
 .list-left {
@@ -117,6 +118,7 @@
 }
 
 @media screen and (max-width: 767px) {
+
     .userHome div {
         display: block;
         /* width: 100vw; */
@@ -132,9 +134,11 @@
     .list-left, .list-right {
         /* display: block; */
         width: 100vw;
+        height: 100px;
         max-width: 100vw;
-        overflow: auto;
-        top: 0;
+        /* overflow: auto; */
+        position: relative;
+        top: none;
     }
     .list-left {
         float: none;
