@@ -143,7 +143,7 @@ export default class Home extends Component {
                                 <h2>ORDERS</h2>  
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 
-                                <h4>Orders will display combinations of Recipes and Lavels with a history of eCommerce orders.</h4>
+                                <h4>Orders will display combinations of Recipes and Labels with a history of eCommerce orders.</h4>
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                             </div>
                             }
