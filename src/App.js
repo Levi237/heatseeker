@@ -7,7 +7,6 @@ import Nav   from './components/Nav';
 import Home  from './components/Home';
 import Enter from './components/Enter';
 import Show  from './components/modal/Show';
-// import Order  from './components/Order';
 
 import * as routes from './constants/routes';
 import firebase    from 'firebase/app';
@@ -151,7 +150,6 @@ export default class App extends Component {
         </div>
 
         <div className="grid-header">
-          {/* <h1>HEATMAKERS</h1> */}
           <img src="HEATMAKERS.png" alt="logo title" />
         </div>
 

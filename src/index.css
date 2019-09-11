@@ -3,61 +3,6 @@
 /* font-family: 'Wellfleet', cursive; */
 /* font-family: 'Smokum', cursive; */
 /* font-family: 'Arbutus', cursive; */
-
-
-button {
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1 {
-  /* font-family: 'Holtwood One SC', serif; */
-  font-family: 'Smokum', 'Times New Roman', Times, serif;
-  /* display: block; */
-  font-size: 4em;
-  margin-block-start: 40px;
-  margin-block-end: 0em;
-  /* margin-inline-start: 0px; */
-  /* margin-inline-end: 0px; */
-  font-weight: bolder;
-  letter-spacing: 3px;
-  /* color: black; */
-
-}
-
-h2 {
-  display: block;
-  font-family: 'Smokum', 'Times New Roman', Times, serif;
-  font-size: 3em;
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-  /* margin-inline-start: 0px; */
-  /* margin-inline-end: 0px; */
-  /* font-weight: bold; */
-}
-h3 {
-  display: inline-block;
-  font-family: 'Smokum', 'Times New Roman', Times, serif;
-  font-size: 2em;
-  margin-block-start: 0em;
-  margin-block-end: 0em;
-  /* margin-inline-start: 0px; */
-  /* margin-inline-end: 0px; */
-  /* font-weight: bold; */
-}
-
-
-.x {
-  /* position: absolute; */
-  float: right;
-  z-index: 1;
-  margin: -7vw;
-}
-
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -70,16 +15,50 @@ body {
 *:focus {
   outline: 0;
 }
+
+h1 {
+  font-family: 'Smokum', 'Times New Roman', Times, serif;
+  font-size: 4em;
+  margin-block-start: 40px;
+  margin-block-end: 0em;
+  font-weight: bolder;
+  letter-spacing: 3px;
+}
+
+h2 {
+  display: block;
+  font-family: 'Smokum', 'Times New Roman', Times, serif;
+  font-size: 3em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+h3 {
+  display: inline-block;
+  font-family: 'Smokum', 'Times New Roman', Times, serif;
+  font-size: 2em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
 button {
+  padding: 0;
   background-color: transparent;
 }
+a {
+  text-decoration: none;
+}
+.x {
+  float: right;
+  z-index: 1;
+  margin: -7vw;
+}
+
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
 /***************************************           GRID            ***************************************/
 /***************************************         CONTAINER         ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .grid-container {
   background-image: url('wood-panel-header.png');
   background-repeat: repeat-x;
@@ -89,10 +68,7 @@ button {
   grid-template-rows: 150px 40px auto 60px;
   grid-template-columns: 100px calc(100vw - 200px) 100px;
   background-color: orangered;
-  /* justify-content: space-evenly; */
-  /* justify-content: space-around; */
   grid-gap: 0;
-  /* background-color: #2196F3; */
   padding: 0;
 grid-template-areas:
   ' logo header . '
@@ -108,28 +84,14 @@ grid-template-areas:
 /***************************************          HEADER           ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .grid-header {
   grid-area: header;
   text-align: center;
-  /* color: orangered; */
 }
 
 .grid-header > img {
   height: 110px;
   margin: 20px auto;
-  /* width: 500px; */
-
-}
-
-.grid-header h1 {
-  color: rgb(255, 69, 0, .8);
-  /* text-shadow: 0px 0px 2px rgb(0, 0, 0, .5), -1px -1px 2px rgb(0, 0, 0, .5) ; */
-  text-shadow:
-		-1px -1px 1px rgb(0, 0, 0, .6),
-		1px -1px 1px rgb(0, 0, 0, .5),
-		-1px 1px 1px rgb(0, 0, 0, .5),
-		1px 1px 1px rgb(0, 0, 0, .5);
 }
 
 /*********************************************************************************************************/
@@ -138,11 +100,9 @@ grid-template-areas:
 /***************************************           LOGO            ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .grid-logo {
   grid-area: logo;
   padding: 25px;
-  /* background-color: orangered; */
 }
 
 /*********************************************************************************************************/
@@ -151,14 +111,9 @@ grid-template-areas:
 /***************************************            NAV            ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .grid-nav {
   grid-area: nav;
-  /* background-image: url('woodpanels.png');
-  background-repeat: repeat-x; */
-  /* background-color: rgb(0, 0, 0, .5); */
   background-color: orangered;
-  /* background-color: #000; */
   text-align: right;
 }
 
@@ -193,15 +148,11 @@ grid-template-areas:
 /***************************************           MAIN            ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .grid-main {
   grid-area: main;
   background-color: white;
   text-align: center;
-  /* padding: 0 20px; */
 }
-
-
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -209,23 +160,15 @@ grid-template-areas:
 /***************************************          FOOTER           ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .grid-footer {
   grid-area: footer;
-  /* color: white; */
   background-color: white;
-  /* background-color: rgb(123, 63, 0); */
-  /* bottom: 0; */
-  /* text-align: right; */
-  /* z-index: 500; */
   padding: 0 0 0 0;
 }
 
 .grid-footer > section {
-  /* position: fixed; */
   float: right;
 }
-
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -242,8 +185,6 @@ grid-template-areas:
   font-family: 'Smokum', 'Times New Roman', Times, serif;
   font-size: 2em;
 }
-
-
 
 .new-recipe {
   width: 460px;
@@ -299,12 +240,6 @@ grid-template-areas:
 
 
 
-
-
-
-
-
-
 .order-form {
   height: 600px;
   width: 100vw;
@@ -330,9 +265,6 @@ grid-template-areas:
 
 
 
-
-
-
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
 /***************************************           MEDIA           ***************************************/
@@ -342,14 +274,8 @@ grid-template-areas:
 
 @media screen and (max-width: 767px) {
   .grid-container {
-    /* display: grid; */
-    /* width: 100vw; */
-    /* height: 100vh; */
     grid-template-rows: 25vw 40px auto 40px;
     grid-template-columns: 60px calc(100vw - 60px);
-    /* background-color: orangered; */
-    /* grid-gap: 0; */
-    /* padding: 0; */
   grid-template-areas:
     ' logo header '
     ' nav nav '
@@ -359,7 +285,6 @@ grid-template-areas:
   }
   .grid-nav {
     text-align: center;
-    /* padding-left: 20px; */
   }
   .grid-footer {
     padding: 10px 0 0 0;
@@ -383,7 +308,6 @@ grid-template-areas:
   
   .navBox > a {
     font-size: 4vw;
-    /* font-size: max */
     padding: 0 2vw ;
     color: white;
     font-weight: 700;

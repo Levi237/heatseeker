@@ -28,7 +28,7 @@
 
 @media screen and (min-width: 768px){
     .overflow-list {
-        height: calc(100vh - 380px);
+        height: calc(100vh - 412px);
         overflow: auto;
     }
 }
@@ -92,7 +92,6 @@
 .order-data {
     display: inline-block;
 }
-
 
 .order-img {
     background-color: yellow;
