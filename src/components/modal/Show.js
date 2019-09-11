@@ -110,17 +110,18 @@ export default class Show extends Component {
                             <span>Vinegar:</span>{ recipe.vinegar.name && <section><strong>{ recipe.vinegar.name }</strong></section>}
                         </div><br/>
 
-                        { (user && !newRecipe) && 
-                            <button onClick={() => {closeShow();}}>Return Home</button> }
-                        { (user && newRecipe ) && 
-                            <button onClick={() => {this.saveForm(); clearNewRecipe()}}> Save & Return Home</button> }
-                        { (!user && newRecipe ) && 
-                            <button onClick={this.showEnter}> Save to Account</button> }
-                        {newRecipe 
-                        ? <button onClick={() => {this.saveForm(); showOrder();}}>Complete Order</button>
-                        : <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
-                        }
-
+                        { (user && !newRecipe) && <>
+                            <button onClick={() => {closeShow();}}>Return Home</button>
+                            <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
+                        </> }
+                        { (user && newRecipe ) && <>
+                            <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
+                            <button onClick={() => {showOrder();}}>Complete Order</button>
+                        </> }
+                        { (!user && newRecipe ) && <>
+                            <button onClick={this.showEnter}>Save to Account</button>
+                            <button onClick={() => {showOrder();}}>Complete Order</button>
+                        </> }
                         
                     </div>
                 </>
