@@ -51,11 +51,9 @@ export default class Home extends Component {
         });
     };
 
-
     showDelete = () => {
         this.setState({
           remove: !this.state.remove,
-
         })
       }
     deleteThis = (e) => {
@@ -70,7 +68,7 @@ export default class Home extends Component {
     }
 
     render(){
-        const { userEdit, userCreations, userOrders } = this.state
+        const { remove, userEdit, userCreations, userOrders } = this.state
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
         
         return(
@@ -94,10 +92,9 @@ export default class Home extends Component {
 
                         <div className="home-left">
                             <h3><img src="logo.png" className="user-icon"/> {user.displayName}</h3>
-                
-                            <button name="userCreations" type="button" class={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
-                            <button name="userOrders" type="button" class={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
-                            <button name="userEdit" type="button" class={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
+                                <button name="userOrders" type="button" class={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
+                                <button name="userCreations" type="button" class={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
+                                <button name="userEdit" type="button" class={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
                             <div className={userEdit ? "edit-container" : "off edit-container"}>
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />
@@ -105,6 +102,14 @@ export default class Home extends Component {
                         </div>
 
                         <div className="home-right">
+                        {   (userOrders) &&
+                            <div className="home-show-orders">
+                                <h2>ORDERS</h2>  
+                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                                <h4>Orders will display combinations of Recipes and Labels with a history of eCommerce orders.</h4>
+                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
+                            </div>
+                        }
                         {   (userCreations) &&
                             <div className="home-show-lists">
                                 <h2>CREATIONS</h2>
@@ -112,21 +117,16 @@ export default class Home extends Component {
                                 <div className="list-left">
                                     <h3>RECIPES</h3>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                    <div className="overflow-list">
-                                        <RecipeList 
-                                            user={user} 
-                                            recipes={recipes}
-                                            remove={this.state.remove}
-                                            deleteThis={this.deleteThis}
-                                            // ArrowLeft={this.ArrowLeft}
-                                            // ArrowRight={this.ArrowRight}
-                                            showThisRecipe={showThisRecipe} >
-                                            
-                                            </RecipeList>
+                                        <div className="overflow-list">
+                                            <RecipeList 
+                                                user={user} 
+                                                recipes={recipes}
+                                                remove={remove}
+                                                deleteThis={this.deleteThis}
+                                                showThisRecipe={showThisRecipe} />
                                         </div>
                                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                                 </div>
-
                                 <div className="list-right">
                                     <h3>LABELS</h3>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
@@ -134,24 +134,10 @@ export default class Home extends Component {
                                         <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
                                     </div>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
-                                </div>
-                                
+                                </div> 
                             </div>
-}
-
-
-                            { (this.state.userOrders) &&
-
-                            <div className="home-show-orders">
-                                <h2>ORDERS</h2>  
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                
-                                <h4>Orders will display combinations of Recipes and Labels with a history of eCommerce orders.</h4>
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
-                            </div>
-                            }
+                        }
                         </div>
-
                     </div>
                 :   <> Hello, Welcome to HeatMakerSauce </>
                 } 
