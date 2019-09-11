@@ -233,11 +233,16 @@ background-image:
 /*********************************************************************************************************/
 @media screen and (max-width: 500px) {
     .box1 {
-        width: 100vw;
+        width: 80vw;
         display: block;
         float: none;
-        text-align: center;
+        margin: 0 10vw;
+        /* text-align: left; */
     }
+    /* .box1 input, .box1 h3 {
+        text-align: center;
+        margin: 0 20vw;
+    } */
     .box2 {
         width: 100vw;
         display: block;
