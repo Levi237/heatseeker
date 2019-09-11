@@ -112,17 +112,18 @@ export default class Home extends Component {
                                 <div className="list-left">
                                     <h3>RECIPES</h3>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                    
-                                    <RecipeList 
-                                        user={user} 
-                                        recipes={recipes}
-                                        remove={this.state.remove}
-                                        deleteThis={this.deleteThis}
-                                        // ArrowLeft={this.ArrowLeft}
-                                        // ArrowRight={this.ArrowRight}
-                                        showThisRecipe={showThisRecipe} >
-                                        
-                                        </RecipeList>
+                                    <div className="overflow-list">
+                                        <RecipeList 
+                                            user={user} 
+                                            recipes={recipes}
+                                            remove={this.state.remove}
+                                            deleteThis={this.deleteThis}
+                                            // ArrowLeft={this.ArrowLeft}
+                                            // ArrowRight={this.ArrowRight}
+                                            showThisRecipe={showThisRecipe} >
+                                            
+                                            </RecipeList>
+                                        </div>
                                         <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                                 </div>
 
