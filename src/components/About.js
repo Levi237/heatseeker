@@ -6,7 +6,6 @@ const About = () =>
                 <h4>Desktop/Mobile</h4>
                 <p>The purpose of this website is to allow customers to create personalized hotsauces in small batches.
                 <br />From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste.
-                <br />Review the current price of your recipe before placing an order as prices may have changed since it was last saved.
                 </p>
                 <p>
                     <h3>Need help getting started?  </h3><br/>
@@ -16,7 +15,7 @@ const About = () =>
                     Add other Flavors<br />
                     Pick a Vinegar<br />
                     Name your Hot Sauce!<br />
-                    EVENTUALLY add a Label and place your Order!!!<br />
+                    EVENTUALLY add a Label, Pricing and place your Order!!!<br />
                 </p>
             </div>  
 
