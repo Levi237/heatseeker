@@ -19,6 +19,7 @@
     display: block;
     margin: 10px auto;
     width: 18vw;
+    height: 40px;
 }
 
 .home-left h3 {
@@ -130,8 +131,8 @@
 .edit-container input {
     width: 18vw;
 }
-.off {
-    display: none;
+.off{
+    display: none !important;
 }
 
 .on {
@@ -198,13 +199,46 @@
         width: 100vw;
         /* margin-right: 0px; */
     }
-
+    .home-left {
+        display: inline-block;
+        width: 100vw;
+        float: none;
+        /* text-align: left; */
+    }
+    .home-left > h3 {
+        /* position: absolute; */
+        /* float: right; */
+        z-index: 5;
+    }
+    .home-left > button {
+        display: inline-block;
+        margin: 1vw;
+        height: 40px;
+        /* width: 100vw; */
+        /* float: none; */
+        /* text-align: left; */
+    }
     .user-show-recipe {
         position: relative;
         /* display: inline-block; */
         width: 60vw;
         height: 10vw;
         margin: 10px auto ;
+    }
+    .edit-container {
+        width: 80vw;
+        background-color: lightgray;
+        margin: 0 auto;
+    }
+    .edit-container input {
+        width: 60vw;
+        margin: 0 10vw;
+    }
+    .deleteBtn {
+        position: absolute;
+        left: 55vw;
+        top: 1.5vw;
+        z-index: 5;
     }
 }
 
