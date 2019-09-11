@@ -117,47 +117,9 @@
     z-index: 5;
 }
 
-@media screen and (max-width: 767px) {
-
-    .userHome div {
-        display: block;
-        /* width: 100vw; */
-    }
-    .list-left button, .list-right button {
-        height: 40px;
-        margin: 10px;
-    }
-    .order-img {
-        height: 90vw;
-        width: 90vw;
-    }
-    .list-left, .list-right {
-        /* display: block; */
-        width: 100vw;
-        height: 100px;
-        max-width: 100vw;
-        /* overflow: auto; */
-        position: relative;
-        top: none;
-    }
-    .list-left {
-        float: none;
-    }
-    .list-right {
-        float: none;
-        margin-right: 2.5vw;
-    }
-}
 
 
 
-
-
-
-.user-icon {
-    height: 24px;
-
-}
 
 
 .edit-container {
@@ -181,3 +143,76 @@
     width: 60vw;
     display: inline-block;
 }
+
+
+.user-icon {
+    height: 24px;
+
+}
+
+
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************           MEDIA           ***************************************/
+/***************************************           QUERY           ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+@media screen and (max-width: 767px) {
+
+    .userHome div {
+        display: block;
+        /* width: 100vw; */
+    }
+    .list-left button, .list-right button {
+        /* width: 60vw; */
+        /* height: 40px; */
+        /* margin: 10px; */
+    }
+    .order-img {
+        height: 90vw;
+        width: 90vw;
+    }
+    .list-left, .list-right {
+        /* display: block; */
+        width: 100vw;
+        /* height: 200px; */
+        max-width: 100vw;
+        /* overflow: auto; */
+        position: relative;
+        /* top: none; */
+    }
+    .list-left {
+        float: none;
+    }
+    .list-right {
+        float: none;
+        margin-right: 2.5vw;
+    }
+    .home-show-orders {
+        width: 100vw;
+        /* display: inline-block; */
+    }
+
+    .home-right {
+        /* display: inline-block; */
+        width: 100vw;
+        /* margin-right: 0px; */
+    }
+
+    .user-show-recipe {
+        position: relative;
+        /* display: inline-block; */
+        width: 60vw;
+        height: 10vw;
+        margin: 10px auto ;
+    }
+}
+
+
+
+
+
+
+
+
+

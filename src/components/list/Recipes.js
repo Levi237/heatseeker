@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
+import '../Form.css'
 //Scroll Menu
 const MenuItem = ({text}) => {
     return <div className="menu-item">{text}</div>;
@@ -20,32 +21,36 @@ const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
 export default class RecipeList extends Component {
+    // state = {}
+
 render(){
     const { recipes, user, remove, showThisRecipe, deleteThis } = this.props
        
-        let list = recipes.map((r, i) => {
-            if (r.email && r.email === user.email && r.timestamp  && !r.delete) {
-                let dateCreated = r.timestamp.toDate().toDateString()
+    const list = recipes.map((r, i) => {
+        if (r.email && r.email === user.email && r.timestamp  && !r.delete){
+            let dateCreated = r.timestamp.toDate().toDateString()
 
-                return(
-                    <div className="user-show-recipe" key={i}>
+            return(
+                <div className="user-show-recipe" key={i}>
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
                     <form className="linkBtn" >
                         <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
-                        <div className="recipe-data">
+                        <div key={i} className="recipe-data">
                             <section>{r.style}</section>
                             <section>{dateCreated}</section>
                         </div>
                         </button>
                     </form>
-                    </div>
-                )
-            }
+                </div>
+            )
+        }
     })
-    
+
     return(
-        // <ScrollMenu data={list} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-        <>{list}</>
+        <>
+        {/* <ScrollMenu data={list} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> */}
+        {list}
+        </>
     )
 }
 }
