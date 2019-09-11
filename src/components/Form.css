@@ -236,6 +236,7 @@ background-image:
         width: 100vw;
         display: block;
         float: none;
+        text-align: center;
     }
     .box2 {
         width: 100vw;
