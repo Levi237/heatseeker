@@ -2,8 +2,9 @@ import React from 'react';
 
 const About = () => 
             <div className="about">
-                <h2>Heatseeker's Create Your Own Hot Sauce Site</h2>
+                <h2>HeatMakers's Create Your Own Hot Sauce Site</h2>
                 <h4>Desktop/Mobile</h4>
+                <h5>MVP</h5>
                 <p>The purpose of this website is to allow customers to create personalized hotsauces in small batches.
                 <br />From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste.
                 </p>

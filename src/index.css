@@ -25,13 +25,7 @@ h1 {
   font-weight: bolder;
   letter-spacing: 3px;
   /* color: black; */
-  color: rgb(0, 0, 0);
-  /* text-shadow: 0px 0px 2px rgb(0, 0, 0, .5), -1px -1px 2px rgb(0, 0, 0, .5) ; */
-  text-shadow:
-		-1px -1px 1px rgb(0, 0, 0, .6),
-		1px -1px 1px rgb(0, 0, 0, .5),
-		/* -1px 1px 1px rgb(0, 0, 0, .5), */
-		1px 1px 1px rgb(0, 0, 0, .5);
+
 }
 
 h2 {
@@ -119,6 +113,16 @@ grid-template-areas:
   grid-area: header;
   text-align: center;
   /* color: orangered; */
+}
+
+.grid-header h1 {
+  color: rgb(255, 69, 0, .8);
+  /* text-shadow: 0px 0px 2px rgb(0, 0, 0, .5), -1px -1px 2px rgb(0, 0, 0, .5) ; */
+  text-shadow:
+		-1px -1px 1px rgb(0, 0, 0, .6),
+		1px -1px 1px rgb(0, 0, 0, .5),
+		-1px 1px 1px rgb(0, 0, 0, .5),
+		1px 1px 1px rgb(0, 0, 0, .5);
 }
 
 /*********************************************************************************************************/
