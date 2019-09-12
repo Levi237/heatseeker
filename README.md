@@ -1,6 +1,16 @@
 <h1>HeatMakers's Create Your Own Hot Sauce Site</h1>
 <p>The purpose of this website is to allow customers to create their own personalized hot-sauces in small batches.  From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste in hot sauce.</p>
-<p>Currently can select one item from each section, tally the "heat" and "price", and display data both as numbers and progress (heat) bar.  New recipe gets saved to database in recipe field.</p>
+What you can do:
+<ul>
+    <li>Select one of the examples from the first, top row.</li>
+    <li>Select up to two Chilis. </li>
+    <li>Pick a Spice Style</li>
+    <li>Add other Flavors</li>
+    <li>Pick a Vinegar</li>
+    <li>Name your Hot Sauce!</li>
+    <li>EVENTUALLY add a Label, Pricing and place your Order!!!</li>
+<ul>
+</p>
 
 <img src="./public/heatseeker1.gif"/>
 
