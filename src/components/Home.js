@@ -114,7 +114,7 @@ export default class Home extends Component {
                         }
                         </div>
                     </div>
-                :   <> Hello, Welcome to HeatMakerSauce </>
+                :   <> Hello, Welcome to HEATMAKERS </>
                 } 
                </>
             }
