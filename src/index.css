@@ -71,9 +71,10 @@ a {
   grid-gap: 0;
   padding: 0;
 grid-template-areas:
-  ' logo header . '
+  ' header header header '
   ' nav nav nav'
   ' main main main '
+  /* ' menu main right ' */
   ' footer footer footer';
   grid-gap: 0;
 }
@@ -103,7 +104,19 @@ grid-template-areas:
 .grid-logo {
   grid-area: logo;
   padding: 25px;
+  display: none;
 }
+
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************           GRID            ***************************************/
+/***************************************           RIGHT           ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+.grid-right {
+  grid-area: right;
+}
+
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -176,7 +189,6 @@ grid-template-areas:
 /***************************************           MODAL           ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .form {
   background-color: white;
 }
@@ -189,7 +201,6 @@ grid-template-areas:
 .new-recipe {
   width: 460px;
   margin: 0 auto;
-  /* background-color: yellow; */
   margin-bottom: 30px;
   padding: 0 20px 30px 20px;
 }
@@ -199,7 +210,7 @@ grid-template-areas:
   width: 60px;
 }
 
-.new-recipe button {
+/* .new-recipe button {
   height: 40px;
   width: calc(30vw - 20px);
   margin: 10px;
@@ -216,7 +227,7 @@ grid-template-areas:
 
 .new-recipe li {
   text-align: right;
-}
+} */
 
 .show-recipe {
   margin-right: 20px;
@@ -274,17 +285,33 @@ grid-template-areas:
 
 @media screen and (max-width: 767px) {
   .grid-container {
-    grid-template-rows: 25vw 40px auto 40px;
-    grid-template-columns: 60px calc(100vw - 60px);
+    grid-template-rows: 20vw 8vw auto 40px;
+    grid-template-columns: 100vw;
   grid-template-areas:
-    ' logo header '
-    ' nav nav '
-    ' main main '
-    ' footer footer';
+    ' header '
+    ' nav '
+    ' main '
+    ' footer';
     grid-gap: 0;
+  }
+  .grid-logo {
+    display: none;
+  }
+  .grid-header > img {
+    height: 14vw;
+    margin: 3vw auto;
   }
   .grid-nav {
     text-align: center;
+  }
+  .navBox {
+    margin: 1.5vw 0 !important;
+  }
+  .navBox > a {
+    font-size: 4vw;
+    padding: 0 2vw ;
+    color: white;
+    font-weight: 700;
   }
   .grid-footer {
     padding: 10px 0 0 0;
@@ -305,13 +332,7 @@ grid-template-areas:
   .App-logo {
     height: 30px;
   }
-  
-  .navBox > a {
-    font-size: 4vw;
-    padding: 0 2vw ;
-    color: white;
-    font-weight: 700;
-  }
+
 
   .new-recipe {
     width: 100vw;

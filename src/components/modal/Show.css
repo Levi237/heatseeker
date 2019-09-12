@@ -1,0 +1,19 @@
+.new-recipe button {
+    height: 40px;
+    width: calc(30vw - 20px);
+    margin: 10px;
+    border-radius: 3px;
+  }
+  
+  .new-recipe section {
+    text-align: right;
+  }
+  
+  .new-recipe ul {
+    margin-block-end: 0em;
+  }
+  
+  .new-recipe li {
+    text-align: right;
+  }
+  

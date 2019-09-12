@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import firebase from 'firebase/app'
 import Enter from '../Enter'
 
+import './Show.css'
+
 export default class Show extends Component {
     state = {
         login: false,
