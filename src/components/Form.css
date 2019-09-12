@@ -1,8 +1,6 @@
-/* #green onion {
-    background-color: purple;
-} */
-
-
+.form {
+    background-color: white;
+  }
 .container {
     width: calc(100vw - 80px);
     /* padding: 0 20px; */
@@ -14,18 +12,15 @@
     display: inline-block;
     text-align: right;
 }
-.box2 {
-    width: calc(100vw - 350px);
-    display: inline-block;
-    /* margin-bottom: 20px; */
-    /* margin-right: 100px; */
-}
-
 .box1 ol {
     margin: 0;
     text-align: right;
 }
 
+.box2 {
+    width: calc(100vw - 350px);
+    display: inline-block;
+}
 .box1 h2 {
     text-align: center;
 }
@@ -36,17 +31,6 @@
 /***************************************           CHILI           ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
-
-
-.toggleOn {
-    background-color: rgb(255, 69, 0, .2);
-}
-
-.active {
-    background-color: rgb(0, 128, 0, .2);
-}
-
 .chiliSection {
     max-width: 100vw
 }
@@ -67,7 +51,7 @@
     width: 100px;
     top: 0;
 }
-/* .chiliSection > section, .spiceSection > section { */
+
 section > section {
     margin-block-start: 6px;
     font-weight: 600;
@@ -103,16 +87,20 @@ section > section {
     position: relative;
     z-index: 1;
     border-radius: 15px;
-    /* margin-bottom: -10px;     */
     position: absolute;
     border: none;
 }
-
 .selectBtn {
     margin-left: 0px;
     padding: 0;
 }
 
+.toggleOn {
+    background-color: rgb(255, 69, 0, .2);
+}
+.active {
+    background-color: rgb(0, 128, 0, .2);
+}
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -124,27 +112,15 @@ progress {
     -webkit-appearance: none;
     appearance: none;
 }
-/* @-webkit-keyframes animate-stripes {
-100% { background-position: -100px 0px; }
-}
-
-@keyframes animate-stripes {
-100% { background-position: -100px 0px; }
-} */
 
 progress[value]::-webkit-progress-bar {
     background-color: #eee;
     border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-/* -webkit-animation: animate-stripes 5s linear infinite;
-animation: animate-stripes 5s linear infinite; */
 }
 
 progress[value]::-webkit-progress-value {
 background-image:
-        /* -webkit-linear-gradient(-45deg, 
-                                transparent 33%, rgba(0, 0, 0, .1) 33%, 
-                                rgba(0,0, 0, .1) 66%, transparent 66%), */
         -webkit-linear-gradient(top, 
                                 rgba(255, 255, 255, .25), 
                                 rgba(0, 0, 0, .25)),
@@ -160,27 +136,6 @@ background-image:
     margin: 20px 10px;
 }
 
-
-
-/*********************************************************************************************************/
-/***************************************                           ***************************************/
-/***************************************           CHALK           ***************************************/
-/***************************************           LINE            ***************************************/
-/***************************************                           ***************************************/
-
-
-.chalk-bottom {
-    height: 5px;
-    width: calc(100vw - 0px);
-    position: relative;
-    top: -12px;
-    z-index: 500;
-}
-.chalk {
-    height: 5px;
-    width: calc(100% - 0px);
-    bottom: 0;
-}
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -239,10 +194,6 @@ background-image:
         margin: 0 10vw;
         /* text-align: left; */
     }
-    /* .box1 input, .box1 h3 {
-        text-align: center;
-        margin: 0 20vw;
-    } */
     .box2 {
         width: 100vw;
         display: block;
@@ -252,9 +203,7 @@ background-image:
         width: calc(100vw - 40px);
         margin: 20px 0;
     }
-    .chalk {
-        width: 100vw;
-    }
+
 }
 
 

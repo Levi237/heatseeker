@@ -72,6 +72,7 @@ export default class Form extends Component {
         }) 
     }
     exampleToggle = (e, value) => {
+        e.preventDefault();
         // const target = e.currentTarget
         this.setState({
             chili: value.chili,
@@ -93,6 +94,7 @@ export default class Form extends Component {
     extraToggle = (e, value) => {
         const { extra } = this.state
         // const target = e.currentTarget;
+        e.preventDefault();
         if (extra.includes(value)){
             this.setState(prevState => ({ 
                 extra: prevState.extra.filter(x => (
@@ -107,14 +109,15 @@ export default class Form extends Component {
     }
     chiliToggle = (e, value) => {
         const { chili } = this.state
+        e.preventDefault();
         // const target = e.currentTarget;
-        if (chili.includes(value)){
+        if (chili[0] && chili[0].id === value.id || chili[1] && chili[1].id === value.id){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
                     x.id !== value.id
                 )) 
             }));
-        }else if(chili.length < 2 || chili[0].id === value.id || chili[1].id === value.id){
+        }else if(chili.length < 2 ){
             this.setState({
                 chili: [...chili, value]
             })
@@ -134,49 +137,20 @@ export default class Form extends Component {
         const { chili, spice, vinegar, extra, examples, style } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
-        let chili1 = "";
-        if (chili[0]){
-            chili1 = chili[0]
-        } 
-        let chili2 = "";
-        if ( chili[1]){
-            chili2 = chili[1]
-        }
-        let extra1 = "";
-        if ( extra[0]){
-            extra1 = extra[0]
-        }
-        let extra2 = "";
-        if ( extra[1]){
-            extra2 = extra[1]
-        }
-        let extra3 = "";
-        if ( extra[2]){
-            extra3 = extra[2]
-        }
-        let extra4 = "";
-        if ( extra[3]){
-            extra4 = extra[3]
-        }
-        let extra5 = "";
-        if ( extra[4]){
-            extra5 = extra[4]
-        }
-        let extra6 = "";
-        if ( extra[5]){
-            extra6 = extra[5]
-        }
-        let extra7 = "";
-        if ( extra[6]){
-            extra7 = extra[6]
-        }
-
-
+        let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
+        let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
+        let extra1 = ""; if ( extra[0] ){ extra1 = extra[0] } 
+        let extra2 = ""; if ( extra[1] ){ extra2 = extra[1] } 
+        let extra3 = ""; if ( extra[2] ){ extra3 = extra[2] } 
+        let extra4 = ""; if ( extra[3] ){ extra4 = extra[3] } 
+        let extra5 = ""; if ( extra[4] ){ extra5 = extra[4] } 
+        let extra6 = ""; if ( extra[5] ){ extra6 = extra[5] } 
+        let extra7 = ""; if ( extra[6] ){ extra7 = extra[6] }
 
         const showExamples = examples.map((ex, i) => {
             return(
                 <section className="chiliSection" key={i}>
-                <button name={ex} value={ex} className={(style === ex.style  ? "active btn" : "btn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
+                <button name={ex} value={ex} className={((chili === ex.chili && spice === ex.spice) ? "active btn" : "btn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
                 <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
             </section>
             )
