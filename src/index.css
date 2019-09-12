@@ -186,25 +186,6 @@ grid-template-areas:
   width: 60px;
 }
 
-/* .new-recipe button {
-  height: 40px;
-  width: calc(30vw - 20px);
-  margin: 10px;
-  border-radius: 3px;
-}
-
-.new-recipe section {
-  text-align: right;
-}
-
-.new-recipe ul {
-  margin-block-end: 0em;
-}
-
-.new-recipe li {
-  text-align: right;
-} */
-
 .show-recipe {
   margin-right: 20px;
 }
@@ -222,35 +203,12 @@ grid-template-areas:
   font-size: 1.5em;
 }
 
-
-
-
-
-
 .order-form {
   height: 600px;
   width: 100vw;
   background-color: white;
 
 }
-
-
-
-.unlink {
-  color: gray !important;
-  text-shadow: 		
-  -1px -1px 1px rgb(128, 128, 128, .3),
-  1px -1px 1px rgb(128, 128, 128, .3),
-  -1px 1px 1px rgb(128, 128, 128, .3),
-  1px 1px 1px rgb(128, 128, 128, .3);
-}
-
-
-
-
-
-
-
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -267,11 +225,8 @@ grid-template-areas:
     ' header '
     ' nav '
     ' main '
-    ' footer';
+    ' footer ';
     grid-gap: 0;
-  }
-  .grid-logo {
-    display: none;
   }
   .grid-header > img {
     height: 14vw;
@@ -295,6 +250,7 @@ grid-template-areas:
   .grid-footer section {
     font-size: 10px;
   }
+
   h1 {
     font-size: 10vw;
     margin-block-start: 7vw;
@@ -305,10 +261,10 @@ grid-template-areas:
   h3 {
     font-size: 5vw;
   }
+
   .App-logo {
     height: 30px;
   }
-
 
   .new-recipe {
     width: 100vw;

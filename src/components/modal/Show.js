@@ -32,7 +32,6 @@ export default class Show extends Component {
             creator: user.displayName,
             email: user.email,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            // timestamp: firebase.firestore.FieldValue.serverTimestamp().toDate(),
           })
           return newFromDB
       }
