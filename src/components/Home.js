@@ -99,6 +99,7 @@ export default class Home extends Component {
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />
                             </div>
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                         </div>
 
                         <div className="home-right">
@@ -132,6 +133,7 @@ export default class Home extends Component {
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                     <div className="overflow-list">
                                         <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
+                                        <img className="label" src="chili-logo.png" alt="label" />
                                     </div>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                                 </div> 

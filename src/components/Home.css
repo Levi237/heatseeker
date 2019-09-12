@@ -5,16 +5,14 @@
     float: left;
     text-align: left;
 }
-
+.home-left h3 {
+    margin: 2.5vw;
+}
 .home-left button {
     display: block;
     margin: 10px auto;
     width: 18vw;
     height: 40px;
-}
-
-.home-left h3 {
-    margin: 2.5vw;
 }
 
 .home-right {
@@ -25,6 +23,7 @@
 .home-right form {
     display: inline-block;
 }
+
 
 @media screen and (min-width: 768px){
     .overflow-list {
@@ -51,19 +50,11 @@
     height: 6vw;
     margin: 10px auto 0 auto;
 }
-.recipe-data {
-
-}
-.recipe-img {
-
-}
-
 
 .list-left, .list-right {
     display: inline-block;
     max-width: 33vw;
-    /* overflow: auto; */
-  position: relative;
+    position: relative;
     top: 0;
 }
 .list-left {
@@ -119,20 +110,31 @@
 }
 
 
-
-
-
-
 .edit-container {
+    overflow: hidden;
     width: 18vw;
-    background-color: lightgray;
     margin: 0 auto;
+    /* height: 140px; */
+    max-height: 140px;
+    transition: all 1s ease;
 }
+.off.edit-container {
+    transition: all 1s;
+    position: relative;
+    max-height: 0px;
+    /* height: 0px; */
+}
+
+
+
 .edit-container input {
     width: 17vw;
+    transition: all .5s linear;
 }
+
+
 .off{
-    display: none !important;
+    display: none;
 }
 
 .on {
@@ -151,6 +153,11 @@
 
 }
 
+
+
+.label {
+    width: 150px;
+}
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -200,7 +207,7 @@
         /* margin-right: 0px; */
     }
     .home-left {
-        display: inline-block;
+        /* display: inline-block; */
         width: 100vw;
         float: none;
         /* text-align: left; */
@@ -227,8 +234,8 @@
     }
     .edit-container {
         width: 80vw;
-        background-color: lightgray;
         margin: 0 auto;
+        /* transition: all 1s; */
     }
     .edit-container input {
         width: 60vw;

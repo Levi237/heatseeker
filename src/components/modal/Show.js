@@ -7,7 +7,6 @@ import './Show.css'
 export default class Show extends Component {
     state = {
         login: false,
-        // order: false,
     }
     showEnter = () => {
         this.setState({

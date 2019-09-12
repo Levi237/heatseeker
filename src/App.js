@@ -144,10 +144,7 @@ export default class App extends Component {
 
     return (
       <div className="grid-container">
-      
-        <div className="grid-logo">
-          {/* <img src="chili-logo.png" className="App-logo" alt="logo" /> */}
-        </div>
+
 
         <div className="grid-header">
           <img src="HEATMAKERS.png" alt="logo title" />
