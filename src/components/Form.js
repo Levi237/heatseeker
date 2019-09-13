@@ -61,6 +61,7 @@ export default class Form extends Component {
             })
         })
     }
+
     goBack = () => {
         const { newRecipe } = this.props
         this.setState({
@@ -71,6 +72,7 @@ export default class Form extends Component {
             vinegar: newRecipe.vinegar
         }) 
     }
+
     exampleToggle = (e, value) => {
         e.preventDefault();
         // const target = e.currentTarget
@@ -81,11 +83,6 @@ export default class Form extends Component {
             vinegar: value.vinegar
         }) 
     }
-
-    onClose = (e) => {
-        this.props.onClose && this.props.onClose(e);
-    }
-
     setToggle = (e, value) => {
         this.setState({
             [e.target.name]: value
@@ -111,7 +108,7 @@ export default class Form extends Component {
         const { chili } = this.state
         e.preventDefault();
         // const target = e.currentTarget;
-        if (chili[0] && chili[0].id === value.id || chili[1] && chili[1].id === value.id){
+        if ((chili[0] && chili[0].id === value.id) || (chili[1] && chili[1].id === value.id)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
                     x.id !== value.id
@@ -124,13 +121,14 @@ export default class Form extends Component {
         }
     }
 
+    onClose = (e) => {
+        this.props.onClose && this.props.onClose(e);
+    }
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         });
     };
-
-
 
     render(){
 
@@ -184,7 +182,6 @@ export default class Form extends Component {
                         <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
                     </section>
                 )
-        
         })
         const vinegarList = vinegars.map((v, i) => {
             return(
