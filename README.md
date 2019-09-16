@@ -11,4 +11,4 @@
 * EVENTUALLY add a Label, Pricing and place your Order!!!
 
 
-<img src="./public/heatseeker1.gif"/>
+<img src="./public/screenshot.png"/>

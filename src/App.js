@@ -8,6 +8,8 @@ import Home  from './components/Home';
 import Enter from './components/Enter';
 import Show  from './components/modal/Show';
 
+import HeadersExamples from './components/levi/Headers';
+
 import * as routes from './constants/routes';
 import firebase    from 'firebase/app';
 import 'firebase/app';
@@ -195,7 +197,7 @@ export default class App extends Component {
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ROOT} render={() => 
-                                      <About /> }/>
+                                      <HeadersExamples /> }/>
           </Switch>
         </div>     
         
