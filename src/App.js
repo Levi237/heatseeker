@@ -9,6 +9,7 @@ import Enter from './components/Enter';
 import Show  from './components/modal/Show';
 
 import HeadersExamples from './components/levi/Headers';
+import Labels          from './components/levi/Labels';
 
 import * as routes from './constants/routes';
 import firebase    from 'firebase/app';
@@ -171,6 +172,7 @@ export default class App extends Component {
             <Route path={routes.LOGN} exact render={() => user 
                                       ? <Redirect to={routes.HOME} /> 
                                       : <Enter />} />
+            <Route path={routes.ENTR} exact render={() => <Enter />} />                          
             <Route path={routes.FORM} exact render={() => 
                                       <Form 
                                         user={user} 
@@ -197,7 +199,10 @@ export default class App extends Component {
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ROOT} render={() => 
-                                      <HeadersExamples /> }/>
+                                      <>
+                                        <HeadersExamples />
+                                        <Labels />
+                                      </> }/>
           </Switch>
         </div>     
         

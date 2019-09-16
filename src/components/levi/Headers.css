@@ -4,21 +4,54 @@
     z-index: 1;
     width: 100vw;
     border-bottom: 40px solid orangered;
+
+
 }
 .hex1 {
-    background-image: url('../../wood-panel.png');
+    background-image: url('../../img/wood-panel.png');
 }
 .hex2 {
-    background-image: url('../../wood-panel-vintage.png');
+    background-image: url('../../img/wood-panel-vintage.png');
 }
 .hex3 {
-    background-image: url('../../wood-panel-light.png');
+    background-image: url('../../img/wood-panel-light.png');
 }
 .hex4 {
-    background-image: url('../../wood-panel-header.png');
+    background-image: url('../../img/wood-panel-header.png');
 }
 
 .header-examples img {
     margin: 2vw;
     width: 46vw;
+}
+
+.labels {
+    width: 60vw;
+
+    margin: 20px 20vw;
+}
+
+.labels > div {
+    height: 80vw;
+    width: 60vw;
+    margin: 5vw 0;;
+    background-position: center;
+    background-size: contain;
+
+
+}
+
+.label1 {
+    background-image: url('../../img/labels/wood-label.png');
+}
+.label2 {
+    background-image: url('../../img/labels/green-red-white-label.png');
+}
+.label3 {
+    background-image: url('../../img/labels/white-label.png');
+}
+
+.labels img {
+    width: 100%;
+    height: 60vh;
 }

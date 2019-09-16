@@ -12,7 +12,7 @@ const Nav = ({order, user, logout}) =>
         <NavLink activeClassName="" to={routes.HOME}>HOME</NavLink>
         <NavLink activeClassName="" to={routes.INFO}>ABOUT</NavLink>
         { user 
-        ?  <NavLink activeClassName="" to={routes.ROOT} onClick={logout}>LOGOUT</NavLink> 
+        ?  <NavLink activeClassName="" to={routes.ENTR} onClick={logout}>LOGOUT</NavLink> 
         :  <NavLink activeClassName="" to={routes.LOGN}>LOGIN</NavLink>
         }
     </div>
