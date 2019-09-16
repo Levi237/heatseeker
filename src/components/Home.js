@@ -4,8 +4,10 @@ import Order from './Order'
 import Username from './Username';
 import Show     from './modal/Show';
 import RecipeList from './list/Recipes';
+import Labels from './levi/Labels'
 
 import './Home.css'
+import './levi/Headers.css'
 
 import firebase from 'firebase/app'
 import 'firebase/firestore'
@@ -104,10 +106,11 @@ export default class Home extends Component {
                                 <div className="list-right">
                                     <h3>LABELS</h3>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                    <div className="overflow-list">
+                                    <Labels />
+                                    {/* <div className="overflow-list">
                                         <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
                                         <img className="label" src="chili-logo.png" alt="label" />
-                                    </div>
+                                    </div> */}
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                                 </div> 
                             </div>
