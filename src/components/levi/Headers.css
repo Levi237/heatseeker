@@ -53,6 +53,7 @@
 }
 .label3 {
     background-image: url('../../img/labels/tiedye-example.png');
+    color: white;
 }
 .label4 {
     background-image: url('../../img/labels/white-label.png');
@@ -60,7 +61,7 @@
 
 .labels h3 {
     font-size: 34px;
-    margin-top: 20px;
+    margin-top: 26px;
 }
 
 .labels h4 {
@@ -72,5 +73,5 @@
 .labels img {
     display: block;
     height: 120px;
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
 }

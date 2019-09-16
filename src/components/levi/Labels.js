@@ -11,19 +11,19 @@ render(){
             <div className="labels overflow-list">
                 <div className="label1">
                     <h3>HEATMAKERS</h3>
-                    <img src="../chili-logo.png" />
+                    <img src="chili-burn.png" />
                     <h4>Your Hot Sauce</h4>
                 </div>
                 
                 <div className="label2">
                     <h3>HEATMAKERS</h3>
-                    <img src="../chili-logo.png" />
+                    <img src="real-chili.jpg" />
                     <h4>Your Hot Sauce</h4>
                 </div> 
 
                 <div className="label3">
                     <h3>HEATMAKERS</h3>
-                    <img src="../chili-logo.png" />
+                    <img src="chili-outline-white.png" />
                     <h4>Your Hot Sauce</h4>
                 </div> 
                 
