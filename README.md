@@ -1,4 +1,4 @@
-#HeatMakers Create Your Own Hot Sauce
+# HeatMakers Create Your Own Hot Sauce
 <p>The purpose of this website is to allow customers to create their own personalized hot-sauces in small batches.  From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste in hot sauce.</p>
 
 ## What you can do:
