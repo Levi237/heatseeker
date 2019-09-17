@@ -7,16 +7,23 @@ const About = () =>
                 <p>The purpose of this website is to allow customers to create personalized hotsauces in small batches.
                 <br />From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste.
                 </p>
-                <p>
-                    <h3>Need help getting started?  </h3><br/>
-                    Select one of the examples from the first, top row.<br />
-                    Select up to two Chilis. <br />
-                    Pick a Spice Style<br />
-                    Add other Flavors<br />
-                    Pick a Vinegar<br />
-                    Name your Hot Sauce!<br />
-                    EVENTUALLY add a Label, Pricing and place your Order!!!<br />
-                </p>
+                <h3>Current Function:</h3>
+                <ul>
+                    <li>Create a hotsauce recipe and name it</li>
+                    <li>Create user accounts to save and view recipes</li>
+                    <li>Provide default recipe labels</li>
+                </ul>                
+                <h3>Current Development:</h3>
+                <ul>
+                    <li>Enable edit of recipes</li>
+                    <li>Integrate label maker into create form.js and show.js</li>
+                    <li>Provide default recipe labels</li>
+                </ul>
+                <h3>Points of Pride:</h3>
+                <ul>
+                    <li>Photoshop images including header</li>
+                    <li>Full Stack</li>
+                </ul>
             </div>  
 
 export default About
