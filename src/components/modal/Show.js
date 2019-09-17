@@ -76,22 +76,22 @@ export default class Show extends Component {
                 <>
                 {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
                 {  user ?  <h2>{user.displayName}'s</h2> : <h2>Your Recipe</h2> }
-                    { recipe.chili[1]
-                        ? <div className="show-style-div">
-                            <div className="show-left">
-                                <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
-                            </div>
-                            <div className="show-style">{recipe.style}</div>
-                            <div className="show-right">
-                                <img src={`../chilis/${recipe.chili[1].src}`} alt={recipe.chili[1].name} className="chili"/>
-                            </div>
-                          </div>
-                        : <>
+                    <div className="show-style-div">
+                        <div className="show-left">
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
-                            <h3>{recipe.style}</h3>
+                        </div>
+                        <div className="show-style">
+                            {recipe.style}
+                        </div>
+                        { recipe.chili[1]
+                        ? <div className="show-right">
+                            <img src={`../chilis/${recipe.chili[1].src}`} alt={recipe.chili[1].name} className="chili"/>
+                            </div>
+                        : <div className="show-right">
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
-                          </>
-                    }
+                            </div>
+                        }
+                    </div>
                     <div className="new-recipe">
                     { recipe.chili[1] 
                     ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>

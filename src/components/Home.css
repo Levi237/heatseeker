@@ -26,7 +26,7 @@
 
 
 @media screen and (min-width: 768px){
-    .overflow-list .list-right {
+    .overflow-list{
         height: calc(100vh - 412px);
         overflow: auto;
     }

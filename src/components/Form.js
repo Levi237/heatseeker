@@ -36,12 +36,12 @@ export default class Form extends Component {
         style: "Name Your Sauce",
         chili: [],
         spice: {
-            name: "Indian",
-            items: ["cumin", "curry", "sea salt", "pepper"]
+            name: "Pick a Spice",
+            items: []
         },
         extra: [],
         vinegar: {
-            name: "White Wine",
+            name: "Pick a",
         },
         show: false,
         toggle: false,
@@ -233,7 +233,7 @@ export default class Form extends Component {
             <div className="box1">
             {/* <h3>Name your Sauce!</h3><br/> */}
                 {/* <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/><br/> */}
-                <div className="labels overflow-list">
+                <div className="labels">
                     <div className="label2">
                         <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
                         <img src="real-chili.jpg" />
@@ -243,8 +243,12 @@ export default class Form extends Component {
                 </div>
                 <div className="add-chili">{addChili}</div>
                 <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
-                <div className="add-on"><strong>Add On: </strong></div>
-                <ol>{addExtra}</ol>
+                { (extra.length > 0) && 
+                    <>
+                        <div className="add-on"><strong>Add On: </strong></div>
+                        <ol>{addExtra}</ol><br />
+                    </> 
+                }
                 <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
 
                 { chili[0]
