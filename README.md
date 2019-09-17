@@ -10,5 +10,5 @@
 * Name your Hot Sauce!
 * EVENTUALLY add a Label, Pricing and place your Order!!!
 
-<a href="https://heatmakers247.herokuapp.com" target="_blank">heatmakers247.herokuapp.com</a>
+<a href="https://heatmakers247.herokuapp.com">heatmakers247.herokuapp.com</a>
 <img style="width: 100vw;" src="./screen-shot.png"/>
