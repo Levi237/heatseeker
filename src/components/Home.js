@@ -106,11 +106,7 @@ export default class Home extends Component {
                                 <div className="list-right">
                                     <h3>LABELS</h3>
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                    <Labels user={user} />
-                                    {/* <div className="overflow-list">
-                                        <section>HERE IS WHERE USERS WILL BE ABLE TO CREATE LABELS FOR THEIR SAUCES</section>
-                                        <img className="label" src="chili-logo.png" alt="label" />
-                                    </div> */}
+                                        <Labels user={user} />
                                     <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                                 </div> 
                             </div>

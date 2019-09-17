@@ -41,6 +41,7 @@ export default class App extends Component {
     firebase
     .firestore()
     .collection('recipes')
+    .orderBy('timestamp', 'desc')
     .onSnapshot(serverUpdate => {
       const recipesData = serverUpdate.docs.map(_doc => {
         const data = _doc.data();
