@@ -15,6 +15,7 @@ const About = () =>
                 </ul>                
                 <h3>Current Development:</h3>
                 <ul>
+                    <li>Menu/Info/Help button to explain process</li>
                     <li>Enable edit of recipes</li>
                     <li>Integrate label maker into create form.js and show.js</li>
                     <li>Provide default recipe labels</li>
