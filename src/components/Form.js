@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Redirect }         from 'react-router-dom';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
+import Labels from './levi/Labels'
+
 import firebase             from 'firebase/app'
 import 'firebase/firestore'
 import './Form.css'
@@ -30,7 +32,8 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 export default class Form extends Component {
     state = {
         examples: [],
-        style: "HeatMakers Hot Sauce",
+        header: null,
+        style: "Name Your Sauce",
         chili: [],
         spice: {
             name: "Indian",
@@ -75,7 +78,6 @@ export default class Form extends Component {
 
     exampleToggle = (e, value) => {
         e.preventDefault();
-        // const target = e.currentTarget
         this.setState({
             chili: value.chili,
             spice: value.spice,
@@ -89,8 +91,7 @@ export default class Form extends Component {
         })
     }
     extraToggle = (e, value) => {
-        const { extra } = this.state
-        // const target = e.currentTarget;
+        const { extra } = this.state;
         e.preventDefault();
         if (extra.includes(value)){
             this.setState(prevState => ({ 
@@ -106,8 +107,7 @@ export default class Form extends Component {
     }
     chiliToggle = (e, value) => {
         const { chili } = this.state
-        e.preventDefault();
-        // const target = e.currentTarget;
+        e.preventDefault();;
         if ((chili[0] && chili[0].id === value.id) || (chili[1] && chili[1].id === value.id)){
             this.setState(prevState => ({ 
                 chili: prevState.chili.filter(x => (
@@ -198,7 +198,7 @@ export default class Form extends Component {
         })
         const addChili = chili.map((e, i) => {
             return(
-                <div key={i}><strong>{e.name}</strong><br /></div>
+                <div key={i}><strong className="addChili">{e.name}</strong><br /></div>
             )
         })
         return(
@@ -231,14 +231,21 @@ export default class Form extends Component {
             </div>   
 
             <div className="box1">
-            <h3>Name your Sauce!</h3><br/>
-                <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/><br/>
-                {user !== null && user.displayName ? <strong>Created By: {user.displayName}</strong> : <strong>Your Order:</strong>}<br /><br />
-                <div>{addChili}</div><br />
-                <strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong><br />
-                <strong>Add On: </strong><br />
+            {/* <h3>Name your Sauce!</h3><br/> */}
+                {/* <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/><br/> */}
+                <div className="labels overflow-list">
+                    <div className="label2">
+                        <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
+                        <img src="real-chili.jpg" />
+                        {/* <h4>Hot Sauce</h4> */}
+                        <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
+                    </div>
+                </div>
+                <div className="add-chili">{addChili}</div>
+                <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
+                <div className="add-on"><strong>Add On: </strong></div>
                 <ol>{addExtra}</ol>
-                <strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong><br />
+                <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
 
                 { chili[0]
                 ? <button className="saveBtn" type="submit">Review</button>

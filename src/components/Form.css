@@ -2,7 +2,7 @@
     background-color: white;
   }
 .container {
-    width: calc(100vw - 80px);
+    /* width: calc(100vw - 80px); */
     /* padding: 0 20px; */
 }
   
@@ -10,7 +10,8 @@
     float: left;
     width: 250px;
     display: inline-block;
-    text-align: right;
+    /* text-align: right; */
+    padding: 0 10px 0 40px;
 }
 .box1 ol {
     margin: 0;
@@ -24,7 +25,23 @@
 .box1 h2 {
     text-align: center;
 }
-  
+.add-chili {
+    text-align: right;
+}
+.add-spice {
+    text-align: right;
+}
+.add-on {
+    text-align: left;
+}
+.add-extra {
+    text-align: right;
+}
+.addChili {
+    /* font-family: 'Smokum', 'Times New Roman', Times, serif; */
+    font-size: 18px;
+    font-weight: 800;
+}
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
 /***************************************           PICK            ***************************************/
@@ -102,6 +119,12 @@ section > section {
     background-color: rgb(0, 128, 0, .2);
 }
 
+input::placeholder{
+    color: darkgrey;
+}
+input {
+    font-weight: 600;
+}
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
 /***************************************         PROGRESS          ***************************************/
@@ -218,7 +241,8 @@ background-image:
     height: 30px;
     font-size: 18px;
     border: none;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     text-align: center;
     margin-bottom: 20px;
+    background-color: transparent;
 }
