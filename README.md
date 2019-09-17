@@ -11,4 +11,4 @@
 * EVENTUALLY add a Label, Pricing and place your Order!!!
 
 
-<img src="./public/screenshot.png"/>
+<img src="./screenshot.png"/>

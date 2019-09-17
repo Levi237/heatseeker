@@ -171,7 +171,9 @@ grid-template-areas:
 .chalk-top {
   margin-bottom: -5px;
 }
-
+.chalk-bottom{
+  margin-top: -5px;
+}
 .chalk-line {
   width: 460px;
 }
