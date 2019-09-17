@@ -7,6 +7,7 @@ import Labels from './levi/Labels'
 import firebase             from 'firebase/app'
 import 'firebase/firestore'
 import './Form.css'
+import './levi/Labels.css'
 // import { tsThisType } from '@babel/types';
 
 //Scroll Menu
@@ -231,15 +232,44 @@ export default class Form extends Component {
             </div>   
 
             <div className="box1">
-            {/* <h3>Name your Sauce!</h3><br/> */}
-                {/* <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/><br/> */}
-                <div className="labels">
+                <div className="pick-label">
                     <div className="label2">
                         <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
                         <img src="real-chili.jpg" />
-                        {/* <h4>Hot Sauce</h4> */}
                         <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
                     </div>
+
+
+                    <div className="toggle-labels shrink">
+                        <div className="labels">
+                                <div className="label1">
+                                    <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
+                                    <img src="chili-burn.png" />
+                                    <h4>Hot Sauce</h4>
+                                </div>
+                                
+                                <div className="label2">
+                                    <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
+                                    <img src="real-chili.jpg" />
+                                    <h4>Hot Sauce</h4>
+                                </div> 
+
+                                <div className="label3">
+                                    <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
+                                    <img src="chili-outline-bw-line.png" />
+                                    <h4>Hot Sauce</h4>
+                                </div> 
+                                
+                                <div className="label4">
+                                    <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
+                                    <img src="../chili-logo.png" />
+                                    <h4>Hot Sauce</h4>
+                                </div>
+                        </div>
+                    </div>
+
+
+                    
                 </div>
                 <div className="add-chili">{addChili}</div>
                 <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>

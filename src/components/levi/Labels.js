@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Labels.css'
+// import './Labels.css'
 import '../Home.css'
 
 export default class Labels extends Component {
@@ -9,6 +9,7 @@ render(){
 
 
         return(
+            // <div className="labels overflow-list">
             <div className="labels overflow-list">
                 <div className="label1">
                     <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>

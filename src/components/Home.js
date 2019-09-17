@@ -8,8 +8,8 @@ import RecipeList from './list/Recipes';
 import Labels from './levi/Labels'
 import Info from './modal/Info'
 
+// import './levi/Labels.css'
 import './Home.css'
-import './levi/Headers.css'
 // import * as routes from './constants/routes'
 import firebase from 'firebase/app'
 import 'firebase/firestore'

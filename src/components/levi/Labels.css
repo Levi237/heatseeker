@@ -1,4 +1,4 @@
-.label1 {
+/* .label1 {
     background-image: url('../../img/labels/wood-label.png');
 }
 .label2 {
@@ -18,34 +18,47 @@
 
 .label3 h4 {
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
-}
+} */
 
 /*********************************  FORM */
-.box1 .labels > div {
-    min-height: 250px;
+/* .pick-label > div {
+    position: relative;
+    height: 250px;
+    margin: 20px 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-.box1 .labels h3 {
+.pick-label h3 {
     font-size: 34px;
     margin-top: 26px;
 }
-.box1 .labels h4 {
+.pick-label h4 {
     margin-top: 0px;
     padding: 5px 0 ;
     width: 100%;
 }
-.box1 .labels img {
+.pick-label img {
     display: block;
     height: 120px;
     margin: 10px auto 0 auto;
 }
+.shrink > div {
+    transform: scale(.3);
+} */
 
 /********************************* SCALABLE */
+/* .labels {
+    position: absolute;
+}
+
 .labels > div {
     height: 20vw;
     margin: 1.6vw 0;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    position: relative;
 }
 .labels h3 {
     font-size: 2.7vw;
@@ -63,3 +76,6 @@
     margin: .8vw auto 0 auto;
 }
 
+.toggle-labels {
+    width: 30vw;
+} */
