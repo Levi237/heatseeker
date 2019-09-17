@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Order from './Order'
 import Username from './Username';
@@ -8,7 +9,7 @@ import Labels from './levi/Labels'
 
 import './Home.css'
 import './levi/Headers.css'
-
+// import * as routes from './constants/routes'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
@@ -67,9 +68,10 @@ export default class Home extends Component {
 
                         <div className="home-left">
                             <h3><img src="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
-                                <button name="userOrders" type="button" class={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
-                                <button name="userCreations" type="button" class={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
-                                <button name="userEdit" type="button" class={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
+                                <Link  to='./create-sauce'><button type="button" to={'./create-sauce'}>Create Hotsauce</button></Link>
+                                <button name="userOrders" type="button" className={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
+                                <button name="userCreations" type="button" className={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
+                                <button name="userEdit" type="button" className={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
                             <div className={userEdit ? "edit-container" : "off edit-container"}>
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />
