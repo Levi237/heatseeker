@@ -92,7 +92,7 @@ export default class Home extends Component {
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 <div className="list-left">
                                     <h3>RECIPES</h3>
-                                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                                    <img className="chalk chalk-top" src="chalkdarkorange.png" alt="line break"/> 
                                         <div className="overflow-list">
                                             <RecipeList 
                                                 user={user} 
@@ -101,13 +101,13 @@ export default class Home extends Component {
                                                 deleteThis={this.deleteThis}
                                                 showThisRecipe={showThisRecipe} />
                                         </div>
-                                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
+                                        <img className="chalk chalk-bottom" src="chalkdarkorange.png" alt="line break"/>
                                 </div>
                                 <div className="list-right">
                                     <h3>LABELS</h3>
-                                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                                    <img className="chalk chalk-top" src="chalkdarkorange.png" alt="line break"/> 
                                         <Labels user={user} />
-                                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
+                                    <img className="chalk chalk-bottom" src="chalkdarkorange.png" alt="line break"/>
                                 </div> 
                             </div>
                         }
