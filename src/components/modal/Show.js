@@ -75,14 +75,17 @@ export default class Show extends Component {
             {recipe &&
                 <>
                 {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
-                {  user ?  <h2>{user.displayName}'s Recipe</h2> : <h2>Your Recipe</h2> }
-                    <br/>
+                {  user ?  <h2>{user.displayName}'s</h2> : <h2>Your Recipe</h2> }
                     { recipe.chili[1]
-                        ? <>
-                            <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
-                            <h3>{recipe.style}</h3>
-                            <img src={`../chilis/${recipe.chili[1].src}`} alt={recipe.chili[1].name} className="chili"/>
-                          </>
+                        ? <div className="show-style-div">
+                            <div className="show-left">
+                                <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
+                            </div>
+                            <div className="show-style">{recipe.style}</div>
+                            <div className="show-right">
+                                <img src={`../chilis/${recipe.chili[1].src}`} alt={recipe.chili[1].name} className="chili"/>
+                            </div>
+                          </div>
                         : <>
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
                             <h3>{recipe.style}</h3>
@@ -94,7 +97,7 @@ export default class Show extends Component {
                     ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>
                     : <progress className="bored-bar" value={(recipe.chili[0].heat)} max="15"></progress> 
                     }
-                    
+                    <br /><br/>
                         <div className="show-recipe">
                             { recipe.chili[1]
                             ? <><span>Pepper:</span><section><strong>{ recipe.chili[0].name } & { recipe.chili[1].name }</strong></section></>

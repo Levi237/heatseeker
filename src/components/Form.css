@@ -133,7 +133,7 @@ background-image:
 
 .bored-bar {
     width: calc(100% - 50px);
-    margin: 20px 10px;
+    margin: 0px;
 }
 
 
