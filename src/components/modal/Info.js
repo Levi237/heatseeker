@@ -12,8 +12,8 @@ const Info = () =>
     </p>
 
     <h3>Need help getting started?  </h3><br/>
-    
     Select one of the examples from the first, top row.<br />
+    <h3>Know what you want?</h3><br/>
     Select up to two Chilis. <br />
     Pick a Spice Style<br />
     Add other Flavors<br />

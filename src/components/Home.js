@@ -6,6 +6,7 @@ import Username from './Username';
 import Show     from './modal/Show';
 import RecipeList from './list/Recipes';
 import Labels from './levi/Labels'
+import Info from './modal/Info'
 
 import './Home.css'
 import './levi/Headers.css'
@@ -19,6 +20,7 @@ export default class Home extends Component {
         userEdit: false,
         userCreations: true,
         userOrders: false,
+        userInfo: false,
     }
 
     toggleValue = (e) => {
@@ -44,7 +46,7 @@ export default class Home extends Component {
     }
 
     render(){
-        const { remove, userEdit, userCreations, userOrders } = this.state
+        const { remove, userEdit, userCreations, userOrders, userInfo } = this.state
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
         
         return(
@@ -68,6 +70,7 @@ export default class Home extends Component {
 
                         <div className="home-left">
                             <h3><img src="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
+                                <button name="userInfo" type="button" className={userInfo ? "on" : ""} onClick={this.toggleValue}>How To</button>
                                 <Link  to='./create-sauce'><button type="button" to={'./create-sauce'}>Create Hotsauce</button></Link>
                                 <button name="userOrders" type="button" className={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
                                 <button name="userCreations" type="button" className={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
@@ -80,6 +83,11 @@ export default class Home extends Component {
                         </div>
 
                         <div className="home-right">
+                        {   (userInfo) &&
+
+                                <Info />
+
+                        }
                         {   (userOrders) &&
                             <div className="home-show-orders">
                                 <h2>ORDERS</h2>  
@@ -115,7 +123,7 @@ export default class Home extends Component {
                         }
                         </div>
                     </div>
-                :   <> Hello, Welcome to HEATMAKERS </>
+                :   <Info />
                 } 
                </>
             }

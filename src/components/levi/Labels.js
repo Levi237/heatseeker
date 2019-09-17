@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Headers.css'
+import './Labels.css'
 import '../Home.css'
 
 export default class Labels extends Component {
