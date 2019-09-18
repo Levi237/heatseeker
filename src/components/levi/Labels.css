@@ -21,31 +21,41 @@
 }
 
 /*********************************  FORM */
-.box1 .labels > div {
+.box1 .pick-label > div > div {
     min-height: 250px;
 }
-.box1 .labels h3 {
+.box1 .pick-label h3 {
     font-size: 34px;
     margin-top: 26px;
 }
-.box1 .labels h4 {
+.box1 .pick-label h4 {
     margin-top: 0px;
     padding: 5px 0 ;
     width: 100%;
 }
-.box1 .labels img {
+.box1 .pick-label img {
     display: block;
     height: 120px;
     margin: 10px auto 0 auto;
 }
 
 /********************************* SCALABLE */
-.labels > div {
+.labels > div > div {
     height: 20vw;
     margin: 1.6vw 0;
+    min-width: 17vw;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    /* position: absolute; */
+}
+
+.labels > div > div:hover {
+    position: relative;
+    z-index: 2
+}
+.labels > div {
+position: relative
 }
 .labels h3 {
     font-size: 2.7vw;
@@ -63,3 +73,21 @@
     margin: .8vw auto 0 auto;
 }
 
+
+
+
+.pick-labels {
+    /* display: inline-block; */
+
+    max-height: 200px;
+    /* overflow: hidden; */
+}
+
+.pick-labels > div > div {
+    display: inline-block;
+    transform: scale(.3);
+    margin: -9.5vw -6vw;
+}
+/* .pick-labels h3, .pick-labels h4, .pick-labels img {
+    transform: scale(.7);
+} */

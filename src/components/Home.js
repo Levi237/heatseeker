@@ -69,7 +69,7 @@ export default class Home extends Component {
                 ?   <div className="home-container">
 
                         <div className="home-left">
-                            <h3><img src="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
+                            <h3><img src="chili-logo.png" alt="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
                                 <button name="userInfo" type="button" className={userInfo ? "on" : ""} onClick={this.toggleValue}>How To</button>
                                 <Link  to='./create-sauce'><button type="button" to={'./create-sauce'}>Create Hotsauce</button></Link>
                                 <button name="userOrders" type="button" className={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
@@ -79,7 +79,6 @@ export default class Home extends Component {
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />
                             </div>
-                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                         </div>
 
                         <div className="home-right">
@@ -93,32 +92,18 @@ export default class Home extends Component {
                                 <h2>ORDERS</h2>  
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 <h4>Orders will display combinations of Recipes and Labels with a history of eCommerce orders.</h4>
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
                             </div>
                         }
                         {   (userCreations) &&
                             <div className="home-show-lists">
                                 <h2>CREATIONS</h2>
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                <div className="list-left">
-                                    <h3>RECIPES</h3>
-                                    <img className="chalk chalk-top" src="chalkdarkorange.png" alt="line break"/> 
-                                        <div className="overflow-list">
-                                            <RecipeList 
-                                                user={user} 
-                                                recipes={recipes}
-                                                remove={remove}
-                                                deleteThis={this.deleteThis}
-                                                showThisRecipe={showThisRecipe} />
-                                        </div>
-                                        <img className="chalk chalk-bottom" src="chalkdarkorange.png" alt="line break"/>
-                                </div>
-                                <div className="list-right">
-                                    <h3>LABELS</h3>
-                                    <img className="chalk chalk-top" src="chalkdarkorange.png" alt="line break"/> 
-                                        <Labels user={user} />
-                                    <img className="chalk chalk-bottom" src="chalkdarkorange.png" alt="line break"/>
-                                </div> 
+                                <RecipeList 
+                                    user={user} 
+                                    recipes={recipes}
+                                    remove={remove}
+                                    deleteThis={this.deleteThis}
+                                    showThisRecipe={showThisRecipe} />                                       
                             </div>
                         }
                         </div>

@@ -45,6 +45,7 @@ export default class Form extends Component {
         },
         show: false,
         toggle: false,
+        label: "label2",
     }
     componentDidMount = () => {
         this.loadExamples();
@@ -90,6 +91,25 @@ export default class Form extends Component {
             [e.target.name]: value
         })
     }
+
+
+
+
+    setLabel = (e) => {
+        this.setState({
+            label: e.currentTarget.id,
+        })
+    }
+
+
+
+
+
+
+
+
+
+
     extraToggle = (e, value) => {
         const { extra } = this.state;
         e.preventDefault();
@@ -132,7 +152,7 @@ export default class Form extends Component {
 
     render(){
 
-        const { chili, spice, vinegar, extra, examples, style } = this.state
+        const { chili, spice, vinegar, extra, examples, style, label } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
@@ -231,16 +251,19 @@ export default class Form extends Component {
             </div>   
 
             <div className="box1">
-            {/* <h3>Name your Sauce!</h3><br/> */}
-                {/* <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/><br/> */}
-                <div className="labels">
-                    <div className="label2">
+                <div className="pick-label labels ">
+                    <div>
+                    <div className={label}>
                         <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
-                        <img src="real-chili.jpg" />
-                        {/* <h4>Hot Sauce</h4> */}
+                        {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
+                        {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
+                        {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
+                        {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
                         <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
                     </div>
+                    </div>
                 </div>
+                <div className="pick-labels"><Labels setLabel={this.setLabel}/></div>
                 <div className="add-chili">{addChili}</div>
                 <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
                 { (extra.length > 0) && 

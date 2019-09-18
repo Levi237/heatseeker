@@ -8,9 +8,8 @@
   
 .box1 {
     float: left;
-    width: 250px;
+    width: 270px;
     display: inline-block;
-    /* text-align: right; */
     padding: 0 10px 0 40px;
 }
 .box1 ol {
@@ -38,7 +37,6 @@
     text-align: right;
 }
 .addChili {
-    /* font-family: 'Smokum', 'Times New Roman', Times, serif; */
     font-size: 18px;
     font-weight: 800;
 }
@@ -119,12 +117,20 @@ section > section {
     background-color: rgb(0, 128, 0, .2);
 }
 
-input::placeholder{
-    color: darkgrey;
-}
-input {
+.name-sauce {
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: transparent;
     font-weight: 600;
 }
+
+.name-sauce input::placeholder{
+    color: darkgrey;
+}
+
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
 /***************************************         PROGRESS          ***************************************/
@@ -172,7 +178,6 @@ background-image:
     user-select: auto;
     cursor: pointer;
     border: none;
-    /* margin-top: -10px; */
 }
 .scroll-menu-arrow {
     padding: 0px;
@@ -237,12 +242,3 @@ background-image:
 
 
 
-.name-sauce {
-    height: 30px;
-    font-size: 18px;
-    border: none;
-    /* border-bottom: 1px solid black; */
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: transparent;
-}

@@ -41,7 +41,7 @@
 
 .user-show-recipe {
     position: relative;
-    display: inline-block;
+    /* display: inline-block; */
     width: 30vw;
     height: 6vw;
     margin: 10px auto 0 auto;

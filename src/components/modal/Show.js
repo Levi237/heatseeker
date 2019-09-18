@@ -29,6 +29,7 @@ export default class Show extends Component {
             spice: newRecipe.spice,
             extra: newRecipe.extra,
             vinegar: newRecipe.vinegar,
+            label: newRecipe.label,
             creator: user.displayName,
             email: user.email,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
