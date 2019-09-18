@@ -11,6 +11,24 @@
 .label4 {
     background-image: url('../../img/labels/white-label.png');
 }
+.label1 > input::placeholder {
+    color: lightgray;
+}
+.label2 > input::placeholder {
+    color: darkgray;
+}
+.label3 > input::placeholder {
+    color: lightgrey;
+}
+    .label3 .brand-sauce, .label3 .name-sauce {
+        color: white;
+        text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+    }
+.label4 > input::placeholder {
+    color: darkgray;
+}
+
+
 
 .label3 h3 {
     text-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black, 2px -2px 0 black;
@@ -61,14 +79,12 @@ position: relative
     font-size: 2.7vw;
     margin-top: 2.1vw;
 }
-.brand-sauce
-{
+.brand-sauce {
     font-family: 'Smokum', 'Times New Roman', Times, serif;
-    font-size: 2.7vw;
-    margin-top: 2.1vw;
-    /* margin: 0; */
+    font-size: 34px;
+    margin-top: 26px;
     text-align: center;
-    width: 15vw;
+    width: 160px;
     border: 0;
     background-color: transparent;
 }
