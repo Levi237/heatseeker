@@ -5,12 +5,12 @@ import Order from './Order'
 import Username from './Username';
 import Show     from './modal/Show';
 import RecipeList from './list/Recipes';
-import Labels from './levi/Labels'
+
 import Info from './modal/Info'
 
 import './Home.css'
 import './levi/Headers.css'
-// import * as routes from './constants/routes'
+
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
@@ -64,7 +64,6 @@ export default class Home extends Component {
                     user={user}/> 
             :  <>
                 {   (user && !user.displayName) && <Username /> }
-
                 {   user 
                 ?   <div className="home-container">
 
@@ -82,11 +81,7 @@ export default class Home extends Component {
                         </div>
 
                         <div className="home-right">
-                        {   (userInfo) &&
-
-                                <Info />
-
-                        }
+                        {   (userInfo) && <Info /> }
                         {   (userOrders) &&
                             <div className="home-show-orders">
                                 <h2>ORDERS</h2>  

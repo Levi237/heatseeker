@@ -33,7 +33,7 @@ export default class Form extends Component {
     state = {
         examples: [],
         header: null,
-        style: "Name Your Sauce",
+        style: null,
         chili: [],
         spice: {
             name: "Pick a Spice",
@@ -254,16 +254,16 @@ export default class Form extends Component {
                 <div className="pick-label labels ">
                     <div>
                     <div className={label}>
-                        <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
+                        <input className="brand-sauce" name="style" placeholder="Brand Yourself" type="text" onChange={this.handleChange}/>
                         {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
                         {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                         {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
                         {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
-                        <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
+                        <input className="name-sauce" name="style" placeholder="Name Your Sauce" type="text" onChange={this.handleChange}/>
                     </div>
                     </div>
                 </div>
-                <div className="pick-labels"><Labels setLabel={this.setLabel}/></div>
+                <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
                 <div className="add-chili">{addChili}</div>
                 <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
                 { (extra.length > 0) && 
@@ -274,10 +274,12 @@ export default class Form extends Component {
                 }
                 <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
 
-                { chili[0]
-                ? <button className="saveBtn" type="submit">Review</button>
-                : <input className="saveBtn" type="text" value="add chili"/>
-                }
+            { chili[0] && <button className="saveBtn" type="submit">Review</button> }
+                {/* ? <button className="saveBtn" type="submit">Review</button> */}
+            { (!chili[0] && style) && <input className="saveBtn" type="text" value="add chili"/>}
+            { (!style && chili[0]) && <input className="saveBtn" type="text" value="add label text"/>}
+            { (!style && !chili[0]) && <input className="saveBtn" type="text" value="review"/>}
+                
             </div>      
 
             </form>

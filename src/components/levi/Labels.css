@@ -61,6 +61,17 @@ position: relative
     font-size: 2.7vw;
     margin-top: 2.1vw;
 }
+.brand-sauce
+{
+    font-family: 'Smokum', 'Times New Roman', Times, serif;
+    font-size: 2.7vw;
+    margin-top: 2.1vw;
+    /* margin: 0; */
+    text-align: center;
+    width: 15vw;
+    border: 0;
+    background-color: transparent;
+}
 .labels h4 {
     font-size: 1.3vw;
     margin-top: 0px;
