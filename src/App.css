@@ -1,7 +1,19 @@
 .about {
   padding: 20px;
 }
-
+.about-points {
+  width: 60vw;
+  text-align: justify;
+  margin: 0 20vw;
+}
+.about-points li {
+  width: 50vw;
+  text-align: right;
+  /* margin: 0 5vw; */
+}
+.about-points ul{
+  margin: 0;
+}
 /* FORM-BLOCK */
 
 .home {

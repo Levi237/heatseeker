@@ -7,36 +7,48 @@ const About = () =>
         <p>The purpose of this website is to allow customers to create personalized hotsauces in small batches.
         <br />From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste.
         </p>
-
+    <div className="about-points">
         <h3>Current Function:</h3>
-            <section>Create a hotsauce recipe and name it</section>
-            <section>Create user accounts to save and view recipes</section>
-            <section>Update or Delete your recipes</section>
-            <section>Provide default recipe labels</section>
+        <ul>
+            <li>Create a hotsauce recipe and name it</li>
+            <li>Create user accounts to save and view recipes</li>
+            <li>Update or Delete your recipes</li>
+            <li>Provide default recipe labels</li>
+        </ul>
             <br/>
                         
         <h3>Current Development:</h3>
-            <section>Recipe Cards</section>
+        <ul>
+            <li>Recipe Cards</li>
+        </ul>
             <br/>
         
         <h3>Points of Pride:</h3>
-            <section>Photoshop images including header logo made from screen shot of font</section>
-            <section>Full Stack w/ Firebase | React | CSS | JS</section>
-            <section>Minimal imports</section>
+        <ul>
+            <li>Photoshoped header from screenshot of google fontt</li>
+            <li>Full Stack w/ Firebase | React | CSS | JS</li>
+            <li>Minimal imports</li>
+        </ul>
             <br/>
         
         <h3>Future Goals:</h3>
-            <section>Label upload</section>
-            <section>Menu toggle</section>
-            <section>Menu toggle</section>
-            <section>Mobile Adjustments</section>
-            <section>Info/Help Modal to explain process</section>
+        <ul>
+            <li>Label upload</li>
+            <li>Menu toggle</li>
+            <li>Menu toggle</li>
+            <li>Mobile Adjustments</li>
+            <li>Info/Help Modal to explain process</li>
+            <li>Fix double click on example extras</li>
+        </ul>
             <br/>
         
         <h3>Ultimate Goal:</h3>
-            <section>eCommerce</section>
+        <ul>
+            <li>eCommerce</li>
+        </ul>
             <br/>
-
+            
+        </div>
     </div>  
 
 export default About
