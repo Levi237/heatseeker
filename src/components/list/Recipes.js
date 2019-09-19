@@ -19,6 +19,7 @@ render(){
                     <form className="linkBtn" >
                         <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
                         <div key={i} className="recipe-data">
+                            <h3>{r.header}</h3>
                             <section>{r.style}</section>
                             <section>{dateCreated}</section>
                         </div>

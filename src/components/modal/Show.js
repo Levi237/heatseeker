@@ -117,6 +117,7 @@ export default class Show extends Component {
                             <button onClick={() => {closeShow();}}>Return Home</button>
                             <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
                             <button value={recipe.id} onClick={(e) => {editRecipeID(e)}}>Edit</button>
+                            { edit && <Redirect to={'./edit-recipe'}/> }
                         </> }
                         { (user && newRecipe ) && <>
                             <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
@@ -127,8 +128,6 @@ export default class Show extends Component {
                             <button onClick={() => {showOrder();}}>Complete Order</button>
                         </> }
                         
-                        
-                            { edit && <Redirect to={'./edit-recipe'}/>}
                     </div>
                 </>
             }

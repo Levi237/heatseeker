@@ -7,7 +7,7 @@ const About = () =>
         <p>The purpose of this website is to allow customers to create personalized hotsauces in small batches.
         <br />From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste.
         </p>
-        
+
         <h3>Current Function:</h3>
             <section>Create a hotsauce recipe and name it</section>
             <section>Provide default recipe labels</section>
@@ -27,7 +27,6 @@ const About = () =>
             <section>Minimal imports</section>
         
         <h3>Future Goals:</h3>
-            <section>eCommerce</section>
             <section>Label upload</section>
             <section>Recipe Cards</section>
             <section>Menu toggle</section>
