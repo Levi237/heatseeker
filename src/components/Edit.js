@@ -42,15 +42,12 @@ export default class Edit extends Component {
         toggle: false,
     }
     componentDidMount = () => {
-        // this.loadRecipes();
-        let editThis = []; 
+        // let editThis = []; 
         const { recipes, edit } = this.props
         if (edit){
-            // if recipe id includes edit value then editThis equals that.
-    // console.log("edit true")
             recipes.map(recipe => {
                 if (recipe.id.includes(edit)){
-                    editThis.push(recipe);
+                    // editThis.push(recipe);
                     this.setState({
                         header: recipe.header,
                         style: recipe.style,
@@ -58,34 +55,29 @@ export default class Edit extends Component {
                         chili: recipe.chili,
                         spice: recipe.spice,
                         extra: recipe.extra,
-                        vinegar: recipe.vinegar
+                        vinegar: recipe.vinegar,
                     })
-                    console.log("yay")
                 }
-                console.log(editThis)
             })
         }
     }
 
-    // loadRecipe() {
-
-
-
-    // }
-    updateRecipe = (e, data) => {
-        const _id = e.currentTarget.id
+    updateRecipe = (e, recipe) => {
+        console.log("updateRecipe click")
+        e.preventDefault();
+        const _id = this.props.edit
         firebase
             .firestore()
             .collection('recipes')
             .doc(_id)
             .update({
-                header: data.header,
-                style: data.style,
-                label: data.label,
-                chili: data.chili,
-                spice: data.spice,
-                extra: data.extra,
-                vinegar: data.vinegar,
+                header: recipe.header,
+                style: recipe.style,
+                label: recipe.label,
+                chili: recipe.chili,
+                spice: recipe.spice,
+                extra: recipe.extra,
+                vinegar: recipe.vinegar,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
     }
@@ -144,7 +136,7 @@ export default class Edit extends Component {
     render(){
 
         const { chili, spice, vinegar, extra, style, label, header } = this.state
-        const { chilis, spices, extras, vinegars, newRecipe, user, updateRecipe } = this.props
+        const { chilis, spices, extras, vinegars, newRecipe, user } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
@@ -179,12 +171,12 @@ export default class Edit extends Component {
             )
         })
         const extraList = extras.map((x, k) => {
-                return (
-                    <section className="chiliSection" id={`${x.name}`} key={k}>
-                        <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
-                        <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
-                    </section>
-                )
+            return (
+                <section className="chiliSection" id={`${x.name}`} key={k}>
+                    <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
+                    <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
+                </section>
+            )
         })
         const vinegarList = vinegars.map((v, i) => {
             return(
@@ -207,64 +199,66 @@ export default class Edit extends Component {
         return(
             <div className="form container">
 
-            <form onSubmit={(e) => { updateRecipe(e, this.state)}}>
+            <form onSubmit={(e) => { this.updateRecipe(e, this.state)}}>
 
             { newRecipe &&
                 <Redirect to={'/save-recipe'} /> }  
 
-            <div className="box2">
-                <div className="myProgress">
-                { chili[1] ? 
-                    <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
-                    : 
-                    <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           }
-                </div>
-
-                <div className="chiliSection">
-                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                </div>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-            </div>   
-
-            <div className="box1">
-                <div className="pick-label labels ">
-                    <div>
-                    {label &&
-                    <div className={label}>
-                        <input className="brand-sauce" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
-                        {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
-                        {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
-                        {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
-                        {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
-                        <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
+                <div className="box2">
+                    <div className="myProgress">
+                    { chili[1] ? 
+                        <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
+                        : 
+                        <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           }
                     </div>
+
+                    <div className="chiliSection">
+                        <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                    </div>
+                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                        <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                        <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
+                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                        <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
+                        <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                </div>   
+
+                <div className="box1">
+                    <div className="pick-label labels ">
+                        <div>
+                        { label &&
+                            <div className={label}>
+                                <input className="brand-sauce" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
+                                {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
+                                {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
+                                {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
+                                {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+                                <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
+                            </div>
+                        }
+                        </div>
+                    </div>
+                    <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
+                    { chili[0] &&
+                        <div className="add-chili">{addChili}</div>
+                    }   
+                    { spice.name &&
+                        <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
                     }
-                    </div>
-                </div>
-                <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
-                { chili[0]
-                ? <div className="add-chili">{addChili}</div>
-                : <div className="add-chili"><strong>Pick a couple Peppers</strong></div>
-                }   
-                {/* <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div> */}
-                { (extra.length > 0) && 
-                    <>
+                    { (extra.length > 0) && 
+                        <>
                         <div className="add-on"><strong>Add On: </strong></div>
                         <ol>{addExtra}</ol><br />
-                    </> 
-                }
-                {/* <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div> */}
+                        </> 
+                    }
+                    { vinegar.name &&
+                        <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
+                    }
 
-            { (chili[0] && style && header) && <button className="saveBtn" type="submit">Update</button> }
-            { (!header || !style || !chili[0]) && <input className="saveBtn" type="text" value="..."/>}
-                
-            </div>      
+                    <button className="saveBtn" type="submit">Update</button>
+                    
+                </div>      
 
             </form>
             </div>
