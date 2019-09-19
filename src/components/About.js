@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => 
     <div className="about">
-        <h1>WELCOME TO HEATMAKERS</h1>
+        <h1><img src="chili-logo.png" alt="logo"/>WELCOME TO HEATMAKERS<img src="chili-logo.png" alt="logo"/></h1>
         <h2>Create your own hotsauce right here!</h2>
         <p>The purpose of this website is to allow customers to create personalized hotsauces in small batches.
         <br />From gifts, to parties, to restaruant tables, this is a great way for people to express their own taste.

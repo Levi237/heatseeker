@@ -1,6 +1,9 @@
 .about {
   padding: 20px;
 }
+.about > h1 > img {
+  height: 100px;
+}
 .about-points {
   width: 60vw;
   text-align: justify;
