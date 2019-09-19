@@ -10,33 +10,32 @@ const About = () =>
 
         <h3>Current Function:</h3>
             <section>Create a hotsauce recipe and name it</section>
-            <section>Provide default recipe labels</section>
             <section>Create user accounts to save and view recipes</section>
+            <section>Update or Delete your recipes</section>
+            <section>Provide default recipe labels</section>
             <br/>
                         
         <h3>Current Development:</h3>
-            <section>Info/Help Modal  to explain process</section>
-            <section>Enable edit of recipes</section>
-            <section>Integrate label maker into create form.js and show.js</section>
-            <section>Menu toggle</section>
+            <section>Recipe Cards</section>
             <br/>
         
         <h3>Points of Pride:</h3>
             <section>Photoshop images including header logo made from screen shot of font</section>
             <section>Full Stack w/ Firebase | React | CSS | JS</section>
             <section>Minimal imports</section>
+            <br/>
         
         <h3>Future Goals:</h3>
             <section>Label upload</section>
-            <section>Recipe Cards</section>
+            <section>Menu toggle</section>
             <section>Menu toggle</section>
             <section>Mobile Adjustments</section>
+            <section>Info/Help Modal to explain process</section>
+            <br/>
         
         <h3>Ultimate Goal:</h3>
             <section>eCommerce</section>
-
-        <br/>
-
+            <br/>
 
     </div>  
 
