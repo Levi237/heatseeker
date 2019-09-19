@@ -152,6 +152,8 @@ export default class Show extends Component {
 
 
 
+<div className="show-buttons">
+
 
                         { (user && !newRecipe) && <>
                             <button onClick={() => {closeShow();}}>Return Home</button>
@@ -167,7 +169,7 @@ export default class Show extends Component {
                             <button onClick={this.showEnter}>Save to Account</button>
                             <button onClick={() => {showOrder();}}>Complete Order</button>
                         </> }
-                        
+</div>                        
                     </div>
                 </>
             }
