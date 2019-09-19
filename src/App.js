@@ -177,71 +177,72 @@ export default class App extends Component {
         <div className="grid-main">
           <Switch>
             <Route path={routes.HOME} render={() =>
-                                      <Home 
-                                        order={order}
-                                        user={user} 
-                                        recipes={recipes} 
-                                        newRecipe={newRecipe} 
-                                        show={show}
-                                        edit={edit}
-                                        showOrder={this.showOrder}
-                                        closeShow={this.closeShow}
-                                        editRecipeID={this.editRecipeID}
-                                        showThisRecipe={this.showThisRecipe}/>} />                                        
+                    <Home 
+                      order={order}
+                      user={user} 
+                      recipes={recipes} 
+                      newRecipe={newRecipe} 
+                      show={show}
+                      edit={edit}
+                      showOrder={this.showOrder}
+                      closeShow={this.closeShow}
+                      editRecipeID={this.editRecipeID}
+                      showThisRecipe={this.showThisRecipe}/>} />                                        
             <Route path={routes.LOGN} exact render={() => user 
-                                      ? <Redirect to={routes.HOME} /> 
-                                      : <Enter />} />
+                  ? <Redirect to={routes.HOME} /> 
+                  : <Enter />} />
             <Route path={routes.ENTR} exact render={() => <Enter />} />                          
             <Route path={routes.FORM} exact render={() => 
-                                      <Form 
-                                        user={user} 
-                                        recipes={recipes}
-                                        newRecipe={newRecipe} 
-                                        chilis={chilis} 
-                                        spices={spices} 
-                                        extras={extras} 
-                                        vinegars={vinegars} 
-                                        edit={edit}
-                                        setToggleApp={this.setToggleApp} 
-                                        submitForm={this.submitForm}
-                                        /> }/>
+                    <Form 
+                      user={user} 
+                      recipes={recipes}
+                      newRecipe={newRecipe} 
+                      chilis={chilis} 
+                      spices={spices} 
+                      extras={extras} 
+                      vinegars={vinegars} 
+                      edit={edit}
+                      setToggleApp={this.setToggleApp} 
+                      submitForm={this.submitForm}
+                      /> }/>
             <Route path={routes.SAVE} exact render={() => !newRecipe
-                                      ? <Redirect to={routes.HOME} /> 
-                                      : <Show 
-                                        user={user}
-                                        order={order} 
-                                        newRecipe={newRecipe} 
-                                        updateRecipe={updateRecipe} 
-                                        updateForm={this.updateForm}
-                                        clearNewRecipe={this.clearNewRecipe}
-                                        showOrder={this.showOrder}
-                                        closeShow={this.closeShow}
-                                        edit={edit}
-                                        editRecipeID={this.editRecipeID}
-                                        /> }/>    
+                  ? <Redirect to={routes.HOME} /> 
+                  : <Show 
+                      user={user}
+                      order={order} 
+                      newRecipe={newRecipe} 
+                      updateRecipe={updateRecipe} 
+                      updateForm={this.updateForm}
+                      clearNewRecipe={this.clearNewRecipe}
+                      showOrder={this.showOrder}
+                      closeShow={this.closeShow}
+                      edit={edit}
+                      editRecipeID={this.editRecipeID}
+                      /> }/>    
             <Route path={routes.EDIT} exact render={() => !edit
-                                      ? <Redirect to={routes.HOME} /> 
-                                      : <Edit                                         
-                                        user={user} 
-                                        recipes={recipes}
-                                        newRecipe={newRecipe} 
-                                        chilis={chilis} 
-                                        spices={spices} 
-                                        extras={extras} 
-                                        updateRecipe={updateRecipe} 
-                                        vinegars={vinegars} 
-                                        edit={edit}
-                                        closeEditForm={this.closeEditForm}
-                                        setToggleApp={this.setToggleApp} 
-                                        submitForm={this.submitForm}
-                                        /> }/> 
+                  ? <Redirect to={routes.HOME} /> 
+                  : <Edit                                         
+                      user={user} 
+                      recipes={recipes}
+                      newRecipe={newRecipe} 
+                      chilis={chilis} 
+                      spices={spices} 
+                      extras={extras} 
+                      updateRecipe={updateRecipe} 
+                      vinegars={vinegars} 
+                      edit={edit}
+                      closeEditForm={this.closeEditForm}
+                      setToggleApp={this.setToggleApp} 
+                      submitForm={this.submitForm}
+                      /> }/> 
             <Route path={routes.INFO} exact render={() => 
-                                      <About /> }/>
-            <Route path={routes.ROOT} render={() => 
-                                      <>
-                                        <HeadersExamples />
-                                        <Labels />
-                                      </> }/>
+                    <About /> }/>
+            <Route path={routes.ROOT} render={() => user ? <Home /> : <Enter />
+                    // <>
+                    //   <HeadersExamples />
+                    //   <Labels />
+                    // </> 
+                    }/>
           </Switch>
         </div>     
         

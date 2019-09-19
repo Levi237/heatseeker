@@ -7,7 +7,6 @@ import Labels from './levi/Labels'
 import firebase             from 'firebase/app'
 import 'firebase/firestore'
 import './Form.css'
-// import { tsThisType } from '@babel/types';
 
 //Scroll Menu
 const MenuItem = ({text}) => {
