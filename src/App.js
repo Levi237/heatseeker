@@ -237,12 +237,9 @@ export default class App extends Component {
                       /> }/> 
             <Route path={routes.INFO} exact render={() => 
                     <About /> }/>
-            <Route path={routes.ROOT} render={() => user ? <Home /> : <Enter />
-                    // <>
-                    //   <HeadersExamples />
-                    //   <Labels />
-                    // </> 
-                    }/>
+            <Route path={routes.ROOT} render={() => user 
+                  ? <Home /> 
+                  : <Enter /> }/>
           </Switch>
         </div>     
         
