@@ -131,7 +131,7 @@ export default class Show extends Component {
                         </> }
                         
                         
-                            { edit && <Redirect to={'./create-sauce'}/>}
+                            { edit && <Redirect to={'./edit-recipe'}/>}
                     </div>
                 </>
             }

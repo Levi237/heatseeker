@@ -29,66 +29,78 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
 // NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.  NEED DEFAULT LABEL IMAGE
 
-export default class Form extends Component {
+export default class Edit extends Component {
     state = {
-        examples: [],
         header: null,
         style: null,
-        label: "label2",
+        label: null,
         chili: [],
-        spice: {
-            name: "Pick a",
-            items: []
-        },
+        spice: {},
         extra: [],
-        vinegar: {
-            name: "Pick a",
-        },
+        vinegar: {},
         show: false,
         toggle: false,
-
     }
     componentDidMount = () => {
-        this.loadExamples();
-    }
-    loadExamples(){
-        firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
-            const examples = serverUpdate.docs.map(_doc => {
-                const data = _doc.data();
-                data['id'] = _doc.id;
-                return data
-            });
-            this.setState({
-                examples: examples
+        // this.loadRecipes();
+        let editThis = []; 
+        const { recipes, edit } = this.props
+        if (edit){
+            // if recipe id includes edit value then editThis equals that.
+    // console.log("edit true")
+            recipes.map(recipe => {
+                if (recipe.id.includes(edit)){
+                    editThis.push(recipe);
+                    this.setState({
+                        header: recipe.header,
+                        style: recipe.style,
+                        label: recipe.label,
+                        chili: recipe.chili,
+                        spice: recipe.spice,
+                        extra: recipe.extra,
+                        vinegar: recipe.vinegar
+                    })
+                    console.log("yay")
+                }
+                console.log(editThis)
             })
-        })
+        }
     }
 
-    exampleToggle = (e, value) => {
-        e.preventDefault();
-        this.setState({
-            chili: value.chili,
-            spice: value.spice,
-            extra: value.extra,
-            vinegar: value.vinegar
-        }) 
+    // loadRecipe() {
+
+
+
+    // }
+    updateRecipe = (e, data) => {
+        const _id = e.currentTarget.id
+        firebase
+            .firestore()
+            .collection('recipes')
+            .doc(_id)
+            .update({
+                header: data.header,
+                style: data.style,
+                label: data.label,
+                chili: data.chili,
+                spice: data.spice,
+                extra: data.extra,
+                vinegar: data.vinegar,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
     }
+
     setToggle = (e, value) => {
         this.setState({
             [e.target.name]: value
         })
     }
 
-
-
-
     setLabel = (e) => {
         this.setState({
             label: e.currentTarget.id,
         })
     }
-
-
     extraToggle = (e, value) => {
         const { extra } = this.state;
         e.preventDefault();
@@ -131,8 +143,8 @@ export default class Form extends Component {
 
     render(){
 
-        const { chili, spice, vinegar, extra, examples, style, label, header } = this.state
-        const { chilis, spices, extras, vinegars, submitForm, newRecipe, user, recipes, edit } = this.props
+        const { chili, spice, vinegar, extra, style, label, header } = this.state
+        const { chilis, spices, extras, vinegars, newRecipe, user, updateRecipe } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
@@ -143,15 +155,7 @@ export default class Form extends Component {
         let extra5 = ""; if ( extra[4] ){ extra5 = extra[4] } 
         let extra6 = ""; if ( extra[5] ){ extra6 = extra[5] } 
         let extra7 = ""; if ( extra[6] ){ extra7 = extra[6] }
-        
-        const showExamples = examples.map((ex, i) => {
-            return(
-                <section className="chiliSection" key={i}>
-                <button name={ex} value={ex} className={((chili === ex.chili && spice === ex.spice) ? "active btn" : "btn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
-                <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
-            </section>
-            )
-        })
+
         const chiliList = chilis.map((c, i) => {
             return(
                 <section className="chiliSection" key={i}>
@@ -203,13 +207,12 @@ export default class Form extends Component {
         return(
             <div className="form container">
 
-            <form onSubmit={(e) => { submitForm(e, this.state)}}>
+            <form onSubmit={(e) => { updateRecipe(e, this.state)}}>
 
             { newRecipe &&
                 <Redirect to={'/save-recipe'} /> }  
 
             <div className="box2">
-                <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
                 <div className="myProgress">
                 { chili[1] ? 
                     <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
@@ -232,14 +235,16 @@ export default class Form extends Component {
             <div className="box1">
                 <div className="pick-label labels ">
                     <div>
+                    {label &&
                     <div className={label}>
-                        <input className="brand-sauce" name="header" placeholder="BRAND IT" type="text" onChange={this.handleChange}/>
+                        <input className="brand-sauce" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
                         {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
                         {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                         {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
                         {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
-                        <input className="name-sauce" name="style" placeholder="Name Your Sauce" type="text" onChange={this.handleChange}/>
+                        <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
                     </div>
+                    }
                     </div>
                 </div>
                 <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
@@ -247,16 +252,16 @@ export default class Form extends Component {
                 ? <div className="add-chili">{addChili}</div>
                 : <div className="add-chili"><strong>Pick a couple Peppers</strong></div>
                 }   
-                <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
+                {/* <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div> */}
                 { (extra.length > 0) && 
                     <>
                         <div className="add-on"><strong>Add On: </strong></div>
                         <ol>{addExtra}</ol><br />
                     </> 
                 }
-                <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
+                {/* <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div> */}
 
-            { (chili[0] && style && header) && <button className="saveBtn" type="submit">Review</button> }
+            { (chili[0] && style && header) && <button className="saveBtn" type="submit">Update</button> }
             { (!header || !style || !chili[0]) && <input className="saveBtn" type="text" value="..."/>}
                 
             </div>      

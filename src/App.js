@@ -7,6 +7,7 @@ import Nav   from './components/Nav';
 import Home  from './components/Home';
 import Enter from './components/Enter';
 import Show  from './components/modal/Show';
+import Edit  from './components/Edit';
 
 import HeadersExamples from './components/levi/Headers';
 import Labels          from './components/levi/Labels';
@@ -194,7 +195,8 @@ export default class App extends Component {
                                         vinegars={vinegars} 
                                         edit={edit}
                                         setToggleApp={this.setToggleApp} 
-                                        submitForm={this.submitForm}/> }/>
+                                        submitForm={this.submitForm}
+                                        /> }/>
             <Route path={routes.SAVE} exact render={() => !newRecipe
                                       ? <Redirect to={routes.HOME} /> 
                                       : <Show 
@@ -209,7 +211,20 @@ export default class App extends Component {
                                         edit={edit}
                                         editRecipeID={this.editRecipeID}
                                         /> }/>    
-
+            <Route path={routes.EDIT} exact render={() => !edit
+                                      ? <Redirect to={routes.HOME} /> 
+                                      : <Edit                                         user={user} 
+                                        recipes={recipes}
+                                        newRecipe={newRecipe} 
+                                        chilis={chilis} 
+                                        spices={spices} 
+                                        extras={extras} 
+                                        updateRecipe={updateRecipe} 
+                                        vinegars={vinegars} 
+                                        edit={edit}
+                                        setToggleApp={this.setToggleApp} 
+                                        submitForm={this.submitForm}
+                                        /> }/> 
             <Route path={routes.INFO} exact render={() => 
                                       <About /> }/>
             <Route path={routes.ROOT} render={() => 

@@ -72,7 +72,7 @@ export default class Home extends Component {
                         <div className="home-left">
                             <h3><img src="chili-logo.png" alt="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
                                 <button name="userInfo" type="button" className={userInfo ? "on" : ""} onClick={this.toggleValue}>How To</button>
-                                <Link  to='./create-sauce'><button type="button" to={'./create-sauce'}>Create Hotsauce</button></Link>
+                                <Link  to='./create-recipe'><button type="button" to={'./create-recipe'}>Create Hotsauce</button></Link>
                                 <button name="userOrders" type="button" className={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
                                 <button name="userCreations" type="button" className={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
                                 <button name="userEdit" type="button" className={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
