@@ -81,18 +81,13 @@ export default class Edit extends Component {
                 extra: recipe.extra,
                 vinegar: recipe.vinegar,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            });
-            
-               await this.setState({
+            })
+            // .then(
+               this.setState({
                     close: true,
                 })
-            
+            // )         
     }
-    // closeForm(){
-    //     this.setState({
-    //         close: true,
-    //     })
-    // }
 
     setToggle = (e, value) => {
         this.setState({
@@ -136,9 +131,9 @@ export default class Edit extends Component {
         }
     }
 
-    onClose = (e) => {
-        this.props.onClose && this.props.onClose(e);
-    }
+    // onClose = (e) => {
+    //     this.props.onClose && this.props.onClose(e);
+    // }
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -269,7 +264,8 @@ export default class Edit extends Component {
                     }
 
                     {/* <button className="saveBtn" onClick={this.closeForm} type="submit">Update</button> */}
-                    <button className="saveBtn" type="submit" onClick={closeEditForm}>Update</button>
+                    <button className="saveBtn" type="submit">Update</button>
+                    <button className="saveBtn" type="submit" onClick={closeEditForm} >Close</button>
 
                     
                 </div>      

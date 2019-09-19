@@ -18,21 +18,21 @@ export default class Show extends Component {
       }
 
     saveForm = async () => {
-    const { newRecipe, user } = this.props
-    const newFromDB = await firebase.firestore()
-        .collection('recipes')
-        .add({
-        header: newRecipe.header,
-        style: newRecipe.style,
-        label: newRecipe.label,
-        chili: newRecipe.chili,
-        spice: newRecipe.spice,
-        extra: newRecipe.extra,
-        vinegar: newRecipe.vinegar,
-        creator: user.displayName,
-        email: user.email,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        })
+        const { newRecipe, user } = this.props
+        const newFromDB = await firebase.firestore()
+            .collection('recipes')
+            .add({
+                header: newRecipe.header,
+                style: newRecipe.style,
+                label: newRecipe.label,
+                chili: newRecipe.chili,
+                spice: newRecipe.spice,
+                extra: newRecipe.extra,
+                vinegar: newRecipe.vinegar,
+                creator: user.displayName,
+                email: user.email,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
         return newFromDB
     }
 
