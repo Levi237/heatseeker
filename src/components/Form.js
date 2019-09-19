@@ -46,6 +46,7 @@ export default class Form extends Component {
         },
         show: false,
         toggle: false,
+        examplesVisibility: false,
 
     }
     componentDidMount = () => {
@@ -128,10 +129,21 @@ export default class Form extends Component {
             [e.target.name]: e.target.value
         });
     };
+    toggleChange = e => {
+        this.setState({
+            [e.target.name]: !e.target.value
+        })
+    }
+    // closeScroll = e => {
+    //     this.setState({
+    //         examplesVisibility: false
+    //     });
+    // };
+
 
     render(){
 
-        const { chili, spice, vinegar, extra, examples, style, label, header } = this.state
+        const { chili, spice, vinegar, extra, examples, style, label, header, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user, recipes, edit } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
@@ -209,29 +221,35 @@ export default class Form extends Component {
                 <Redirect to={'/save-recipe'} /> }  
 
             <div className="box2">
+            { examplesVisibility 
+            ? <>
+                <button name="examplesVisibility" value={examplesVisibility} onClick={this.toggleChange}>Close</button>
                 <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                </>
+            : <button name="examplesVisibility" value={examplesVisibility} onClick={this.handleChange}>Examples</button>
+            }
                 <div className="myProgress">
-                { chili[1] ? 
-                    <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
-                    : 
-                    <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           }
+                { chili[1] 
+                ? <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
+                : <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           
+                }
                 </div>
 
                 <div className="chiliSection">
                     <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
                 </div>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
+                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
+                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
             </div>   
 
             <div className="box1">
                 <div className="pick-label labels ">
-                    <div>
+                  <div>
                     <div className={label}>
                         <input className="brand-sauce" name="header" placeholder="BRAND IT" type="text" onChange={this.handleChange}/>
                         {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
@@ -240,7 +258,7 @@ export default class Form extends Component {
                         {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
                         <input className="name-sauce" name="style" placeholder="Name Your Sauce" type="text" onChange={this.handleChange}/>
                     </div>
-                    </div>
+                  </div>
                 </div>
                 <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
                 { chili[0]
@@ -249,10 +267,10 @@ export default class Form extends Component {
                 }   
                 <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
                 { (extra.length > 0) && 
-                    <>
-                        <div className="add-on"><strong>Add On: </strong></div>
-                        <ol>{addExtra}</ol><br />
-                    </> 
+                  <>
+                    <div className="add-on"><strong>Add On: </strong></div>
+                    <ol>{addExtra}</ol><br />
+                  </> 
                 }
                 <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
 
