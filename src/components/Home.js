@@ -47,7 +47,7 @@ export default class Home extends Component {
 
     render(){
         const { remove, userEdit, userCreations, userOrders, userInfo } = this.state
-        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID } = this.props
+        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props
         
         return(
             <div className="userHome">
@@ -58,6 +58,7 @@ export default class Home extends Component {
                     closeShow={closeShow}
                     showOrder={showOrder}
                     show={show} 
+                    edit={edit}
                     recipes={recipes} 
                     newRecipe={newRecipe} 
                     updateForm={updateForm}

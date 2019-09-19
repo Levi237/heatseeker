@@ -168,6 +168,18 @@ export default class Form extends Component {
         let extra6 = ""; if ( extra[5] ){ extra6 = extra[5] } 
         let extra7 = ""; if ( extra[6] ){ extra7 = extra[6] }
 
+        let editThis = []; 
+        if (edit){
+            // if recipe id includes edit value then editThis equals that.
+console.log("edit true")
+            // recipes.map((recipe) => {
+            //     if (recipe.includes(edit)){
+            //         editThis.push(recipe)
+            //     }
+            //     console.log(editThis)
+            // })
+        }
+        
         const showExamples = examples.map((ex, i) => {
             return(
                 <section className="chiliSection" key={i}>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app'
 import Enter from '../Enter'
 
@@ -39,7 +40,7 @@ export default class Show extends Component {
       }
 
     render(){
-        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID } =  this.props
+        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props
     
         let recipe = []
         let addExtras = [];
@@ -130,6 +131,7 @@ export default class Show extends Component {
                         </> }
                         
                         
+                            { edit && <Redirect to={'./create-sauce'}/>}
                     </div>
                 </>
             }

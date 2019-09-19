@@ -174,6 +174,7 @@ export default class App extends Component {
                                         recipes={recipes} 
                                         newRecipe={newRecipe} 
                                         show={show}
+                                        edit={edit}
                                         showOrder={this.showOrder}
                                         closeShow={this.closeShow}
                                         editRecipeID={this.editRecipeID}
@@ -205,6 +206,7 @@ export default class App extends Component {
                                         clearNewRecipe={this.clearNewRecipe}
                                         showOrder={this.showOrder}
                                         closeShow={this.closeShow}
+                                        edit={edit}
                                         editRecipeID={this.editRecipeID}
                                         /> }/>    
 
