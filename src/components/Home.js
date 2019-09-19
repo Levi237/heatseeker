@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Order from './Order'
 import Username from './Username';
-import Show     from './modal/Show';
+import Show     from './Show';
 import RecipeList from './list/Recipes';
 
 import Menu from './Menu'
@@ -79,12 +79,7 @@ export default class Home extends Component {
                                 userCreations={userCreations} 
                                 userEdit={userEdit}
                                 toggleValue={this.toggleValue}
-                            ></Menu>
-                                {/* <button name="userInfo={userInfo}" type="button" className={userInfo ? "on" : ""} onClick={this.toggleValue}>How To</button>
-                                <Link  to='./create-recipe'><button type="button" to={'./create-recipe'}>Create Hotsauce</button></Link>
-                                <button name="userOrders" type="button" className={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
-                                <button name="userCreations" type="button" className={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
-                                <button name="userEdit" type="button" className={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button> */}
+                            />
                             <div className={userEdit ? "edit-container" : "off edit-container"}>
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app'
-import Enter from '../Enter'
+import Enter from './Enter'
 
-import '../levi/Labels.css'
+import './Labels.css'
 
 export default class Show extends Component {
     state = {

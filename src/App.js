@@ -6,11 +6,11 @@ import Form  from './components/Form';
 import Nav   from './components/Nav';
 import Home  from './components/Home';
 import Enter from './components/Enter';
-import Show  from './components/modal/Show';
+import Show  from './components/Show';
 import Edit  from './components/Edit';
 
 import HeadersExamples from './components/levi/Headers';
-import Labels          from './components/levi/Labels';
+import Labels          from './components/Labels';
 
 import * as routes from './constants/routes';
 import firebase    from 'firebase/app';

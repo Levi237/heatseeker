@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect }         from 'react-router-dom';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
-import Labels from './levi/Labels'
+import Labels from './Labels'
 
 import firebase             from 'firebase/app'
 import 'firebase/firestore'

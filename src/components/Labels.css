@@ -1,15 +1,15 @@
 .label1 {
-    background-image: url('../../img/labels/wood-label.png');
+    background-image: url('../img/labels/wood-label.png');
 }
 .label2 {
-    background-image: url('../../img/labels/green-red-white-label.png');
+    background-image: url('../img/labels/green-red-white-label.png');
 }
 .label3 {
-    background-image: url('../../img/labels/tiedye-example.png');
+    background-image: url('../img/labels/tiedye-example.png');
     color: white;
 }
 .label4 {
-    background-image: url('../../img/labels/white-label.png');
+    background-image: url('../img/labels/white-label.png');
 }
 .label1 > input::placeholder {
     color: black;
