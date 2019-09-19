@@ -4,6 +4,7 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels from './levi/Labels'
 
+import * as routes from '../constants/routes';
 import firebase             from 'firebase/app'
 import 'firebase/firestore'
 import './Form.css'
@@ -40,6 +41,7 @@ export default class Edit extends Component {
         vinegar: {},
         show: false,
         toggle: false,
+        close: false,
     }
     componentDidMount = () => {
         // let editThis = []; 
@@ -62,11 +64,11 @@ export default class Edit extends Component {
         }
     }
 
-    updateRecipe = (e, recipe) => {
+    updateRecipe = async (e, recipe) => {
         console.log("updateRecipe click")
         e.preventDefault();
         const _id = this.props.edit
-        firebase
+        const update = await firebase
             .firestore()
             .collection('recipes')
             .doc(_id)
@@ -79,8 +81,18 @@ export default class Edit extends Component {
                 extra: recipe.extra,
                 vinegar: recipe.vinegar,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            })
+            });
+            
+               await this.setState({
+                    close: true,
+                })
+            
     }
+    // closeForm(){
+    //     this.setState({
+    //         close: true,
+    //     })
+    // }
 
     setToggle = (e, value) => {
         this.setState({
@@ -136,7 +148,7 @@ export default class Edit extends Component {
     render(){
 
         const { chili, spice, vinegar, extra, style, label, header } = this.state
-        const { chilis, spices, extras, vinegars, newRecipe, user } = this.props
+        const { chilis, spices, extras, vinegars, newRecipe, user, closeEditForm } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
@@ -201,9 +213,9 @@ export default class Edit extends Component {
 
             <form onSubmit={(e) => { this.updateRecipe(e, this.state)}}>
 
-            { newRecipe &&
-                <Redirect to={'/save-recipe'} /> }  
-
+            {   this.state.close &&
+                        <Redirect to={routes.HOME}/>
+                    }
                 <div className="box2">
                     <div className="myProgress">
                     { chili[1] ? 
@@ -256,7 +268,9 @@ export default class Edit extends Component {
                         <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
                     }
 
-                    <button className="saveBtn" type="submit">Update</button>
+                    {/* <button className="saveBtn" onClick={this.closeForm} type="submit">Update</button> */}
+                    <button className="saveBtn" type="submit" onClick={closeEditForm}>Update</button>
+
                     
                 </div>      
 

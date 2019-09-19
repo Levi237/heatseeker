@@ -9,6 +9,7 @@ export default class Show extends Component {
     state = {
         login: false,
     }
+
     showEnter = () => {
         this.setState({
           ...this.state,
@@ -16,28 +17,24 @@ export default class Show extends Component {
         })
       }
 
-      onClose = (e) => {
-        this.props.onClose && this.props.onClose(e);
+    saveForm = async () => {
+    const { newRecipe, user } = this.props
+    const newFromDB = await firebase.firestore()
+        .collection('recipes')
+        .add({
+        header: newRecipe.header,
+        style: newRecipe.style,
+        label: newRecipe.label,
+        chili: newRecipe.chili,
+        spice: newRecipe.spice,
+        extra: newRecipe.extra,
+        vinegar: newRecipe.vinegar,
+        creator: user.displayName,
+        email: user.email,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+        return newFromDB
     }
-
-      saveForm = async () => {
-          const { newRecipe, user } = this.props
-        const newFromDB = await firebase.firestore()
-          .collection('recipes')
-          .add({
-            header: newRecipe.header,
-            style: newRecipe.style,
-            label: newRecipe.label,
-            chili: newRecipe.chili,
-            spice: newRecipe.spice,
-            extra: newRecipe.extra,
-            vinegar: newRecipe.vinegar,
-            creator: user.displayName,
-            email: user.email,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          })
-          return newFromDB
-      }
 
     render(){
         const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props

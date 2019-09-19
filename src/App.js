@@ -145,11 +145,19 @@ export default class App extends Component {
   }
 
   editRecipeID = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     this.setState({
         edit: e.target.value
     })
-}
+    }
+  closeEditForm = (e) => {
+    e.preventDefault();
+    this.setState({
+      edit: null
+    })
+  }
+
+
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order, edit } = this.state
@@ -213,7 +221,8 @@ export default class App extends Component {
                                         /> }/>    
             <Route path={routes.EDIT} exact render={() => !edit
                                       ? <Redirect to={routes.HOME} /> 
-                                      : <Edit                                         user={user} 
+                                      : <Edit                                         
+                                        user={user} 
                                         recipes={recipes}
                                         newRecipe={newRecipe} 
                                         chilis={chilis} 
@@ -222,6 +231,7 @@ export default class App extends Component {
                                         updateRecipe={updateRecipe} 
                                         vinegars={vinegars} 
                                         edit={edit}
+                                        closeEditForm={this.closeEditForm}
                                         setToggleApp={this.setToggleApp} 
                                         submitForm={this.submitForm}
                                         /> }/> 
