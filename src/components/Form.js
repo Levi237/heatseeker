@@ -122,6 +122,11 @@ export default class Form extends Component {
             [e.target.name]: e.target.value
         });
     };
+    setLabel = (e) => {
+        this.setState({
+            label: e.currentTarget.id,
+        })
+    }
 
     render(){
 
