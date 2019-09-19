@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 import '../Form.css'
 
-
 export default class RecipeList extends Component {
-
 
 render(){
     const { recipes, user, remove, showThisRecipe, deleteThis } = this.props
@@ -17,13 +15,18 @@ render(){
                 <div className="user-show-recipe" key={i}>
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
                     <form className="linkBtn" >
+
                         <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
                         <div key={i} className="recipe-data">
+                        <div className="labels pick-label">
+                            <div className={r.label}></div>
+                        </div>
                             <h3>{r.header}</h3>
                             <section>{r.style}</section>
-                            {/* <section>{dateCreated}</section> */}
+                            <section>{dateCreated}</section>
                         </div>
                         </button>
+                        
                     </form>
                 </div>
             )
