@@ -171,13 +171,14 @@ export default class Form extends Component {
         let editThis = []; 
         if (edit){
             // if recipe id includes edit value then editThis equals that.
-console.log("edit true")
-            // recipes.map((recipe) => {
-            //     if (recipe.includes(edit)){
-            //         editThis.push(recipe)
-            //     }
-            //     console.log(editThis)
-            // })
+// console.log("edit true")
+            recipes.map(recipe => {
+                if (recipe.id.includes(edit)){
+                    editThis.push(recipe)
+                    // console.log("yay")
+                }
+                // console.log(editThis)
+            })
         }
         
         const showExamples = examples.map((ex, i) => {
