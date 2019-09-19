@@ -9,7 +9,7 @@ render(){
 
         return(
             <div className="labels">
-            <div>
+                <div>
                 <div id="label1" className="label1" type="submit" onClick={(e) => {setLabel(e)}}>
                     <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
                     <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>

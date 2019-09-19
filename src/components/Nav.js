@@ -7,13 +7,13 @@ const Nav = ({order, user, logout}) =>
     <div className="navBox">
         { order
         ? <NavLink className="unlink">CREATE</NavLink>
-        : <NavLink activeClassName="" to={routes.FORM}>CREATE</NavLink>
+        : <NavLink activeClassName="activeNav" to={routes.FORM}>CREATE</NavLink>
         }
-        <NavLink activeClassName="" to={routes.HOME}>HOME</NavLink>
-        <NavLink activeClassName="" to={routes.INFO}>ABOUT</NavLink>
+        <NavLink activeClassName="activeNav" to={routes.HOME}>HOME</NavLink>
+        <NavLink activeClassName="activeNav" to={routes.INFO}>ABOUT</NavLink>
         { user 
-        ?  <NavLink activeClassName="" to={routes.ENTR} onClick={logout}>LOGOUT</NavLink> 
-        :  <NavLink activeClassName="" to={routes.LOGN}>LOGIN</NavLink>
+        ?  <NavLink activeClassName="activeNav" to={routes.ENTR} onClick={logout}>LOGOUT</NavLink> 
+        :  <NavLink activeClassName="activeNav" to={routes.LOGN}>LOGIN</NavLink>
         }
     </div>
 

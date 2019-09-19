@@ -24,12 +24,13 @@ export default class Show extends Component {
         const newFromDB = await firebase.firestore()
           .collection('recipes')
           .add({
+            header: newRecipe.header,
             style: newRecipe.style,
+            label: newRecipe.label,
             chili: newRecipe.chili,
             spice: newRecipe.spice,
             extra: newRecipe.extra,
             vinegar: newRecipe.vinegar,
-            label: newRecipe.label,
             creator: user.displayName,
             email: user.email,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -38,7 +39,7 @@ export default class Show extends Component {
       }
 
     render(){
-        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow } =  this.props
+        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID } =  this.props
     
         let recipe = []
         let addExtras = [];
@@ -76,7 +77,7 @@ export default class Show extends Component {
             {recipe &&
                 <>
                 {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
-                {  user ?  <h2>{user.displayName}'s</h2> : <h2>Your Recipe</h2> }
+                {  user ?  <h2>{recipe.header}</h2> : <h2>Your Recipe</h2> }
                     <div className="show-style-div">
                         <div className="show-left">
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
@@ -117,6 +118,7 @@ export default class Show extends Component {
                         { (user && !newRecipe) && <>
                             <button onClick={() => {closeShow();}}>Return Home</button>
                             <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
+                            <button value={recipe.id} onClick={(e) => {editRecipeID(e)}}>Edit</button>
                         </> }
                         { (user && newRecipe ) && <>
                             <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
@@ -126,6 +128,7 @@ export default class Show extends Component {
                             <button onClick={this.showEnter}>Save to Account</button>
                             <button onClick={() => {showOrder();}}>Complete Order</button>
                         </> }
+                        
                         
                     </div>
                 </>

@@ -33,10 +33,11 @@ export default class Form extends Component {
     state = {
         examples: [],
         header: null,
-        style: "Hot Sauce",
+        style: null,
+        label: "label2",
         chili: [],
         spice: {
-            name: "Pick a Spice",
+            name: "Pick a",
             items: []
         },
         extra: [],
@@ -45,13 +46,10 @@ export default class Form extends Component {
         },
         show: false,
         toggle: false,
-        label: "label2",
+
     }
     componentDidMount = () => {
         this.loadExamples();
-        if (this.props.newRecipe) {
-            this.goBack();
-        }
     }
     loadExamples(){
         firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
@@ -64,17 +62,6 @@ export default class Form extends Component {
                 examples: examples
             })
         })
-    }
-
-    goBack = () => {
-        const { newRecipe } = this.props
-        this.setState({
-            style: newRecipe.style,
-            chili: newRecipe.chili,
-            spice: newRecipe.spice,
-            extra: newRecipe.extra,
-            vinegar: newRecipe.vinegar
-        }) 
     }
 
     exampleToggle = (e, value) => {
@@ -102,7 +89,23 @@ export default class Form extends Component {
     }
 
 
-
+    // updateRecipe = (e) => {
+    //     const _id = e.currentTarget.id
+    //     firebase
+    //         .firestore()
+    //         .collection('recipes')
+    //         .doc(_id)
+    //         .update({
+    //             header: edit.header,
+    //             style: edit.style,
+    //             label: edit.label,
+    //             chili: edit.chili,
+    //             spice: edit.spice,
+    //             extra: edit.extra,
+    //             vinegar: edit.vinegar,
+    //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    //         })
+    // }
 
 
 
@@ -152,8 +155,8 @@ export default class Form extends Component {
 
     render(){
 
-        const { chili, spice, vinegar, extra, examples, style, label } = this.state
-        const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
+        const { chili, spice, vinegar, extra, examples, style, label, header } = this.state
+        const { chilis, spices, extras, vinegars, submitForm, newRecipe, user, recipes, edit } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
@@ -254,17 +257,20 @@ export default class Form extends Component {
                 <div className="pick-label labels ">
                     <div>
                     <div className={label}>
-                        <input className="brand-sauce" name="style" placeholder={(user) ? `${user.displayName}'s` : "Brand Name"} type="text" onChange={this.handleChange}/>
+                        <input className="brand-sauce" name="header" placeholder="BRAND IT" type="text" onChange={this.handleChange}/>
                         {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
                         {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                         {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
                         {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
-                        <input className="name-sauce" name="style" value={(user) ? `${style}` : "Sauce Name"}type="text" onChange={this.handleChange}/>
+                        <input className="name-sauce" name="style" placeholder="Name Your Sauce" type="text" onChange={this.handleChange}/>
                     </div>
                     </div>
                 </div>
                 <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
-                <div className="add-chili">{addChili}</div>
+                { chili[0]
+                ? <div className="add-chili">{addChili}</div>
+                : <div className="add-chili"><strong>Pick a couple Peppers</strong></div>
+                }   
                 <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
                 { (extra.length > 0) && 
                     <>
@@ -274,11 +280,8 @@ export default class Form extends Component {
                 }
                 <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
 
-            { chili[0] && <button className="saveBtn" type="submit">Review</button> }
-                {/* ? <button className="saveBtn" type="submit">Review</button> */}
-            { (!chili[0] && style) && <input className="saveBtn" type="text" value="add chili"/>}
-            { (!style && chili[0]) && <input className="saveBtn" type="text" value="add label text"/>}
-            { (!style && !chili[0]) && <input className="saveBtn" type="text" value="review"/>}
+            { (chili[0] && style && header) && <button className="saveBtn" type="submit">Review</button> }
+            { (!header || !style || !chili[0]) && <input className="saveBtn" type="text" value="..."/>}
                 
             </div>      
 

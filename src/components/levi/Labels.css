@@ -12,16 +12,16 @@
     background-image: url('../../img/labels/white-label.png');
 }
 .label1 > input::placeholder {
-    color: lightgray;
+    color: black;
 }
 .label2 > input::placeholder {
-    color: darkgray;
+    color: black;
 }
 .label3 > input::placeholder {
-    color: lightgrey;
+    color: white;
 }
     .label3 .brand-sauce, .label3 .name-sauce {
-        color: white;
+        color: black;
         text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
     }
 .label4 > input::placeholder {
