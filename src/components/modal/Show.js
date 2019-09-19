@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app'
 import Enter from '../Enter'
 
-import './Show.css'
+import '../levi/Labels.css'
 
 export default class Show extends Component {
     state = {
@@ -40,6 +40,7 @@ export default class Show extends Component {
         const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props
     
         let recipe = []
+
         let addExtras = [];
         let showSpices = [];
 
@@ -52,7 +53,9 @@ export default class Show extends Component {
         } else if (newRecipe){
                 recipe = newRecipe
         }
-    
+        if (recipe){
+            console.log(recipe.label)
+        }
         if (recipe && recipe.extra){
             let nre = recipe.extra
                 const addExtra = nre.map((data, i) => {
@@ -93,12 +96,31 @@ export default class Show extends Component {
                         }
                     </div>
                     <div className="new-recipe">
+
                     { recipe.chili[1] 
                     ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>
                     : <progress className="bored-bar" value={(recipe.chili[0].heat)} max="15"></progress> 
                     }
                     <br /><br/>
-                        <div className="show-recipe">
+
+<div className="pick-label labels show-left">
+    <div>
+        <div className={recipe.label}>
+            <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
+            { recipe.label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
+            { recipe.label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
+            { recipe.label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
+            { recipe.label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+            <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+                        <div className="show-recipe show-right">
                             { recipe.chili[1]
                             ? <><span>Pepper:</span><section><strong>{ recipe.chili[0].name } & { recipe.chili[1].name }</strong></section></>
                             : <><span>Pepper:</span><section><strong>{ recipe.chili[0].name }</strong></section></>
@@ -111,7 +133,25 @@ export default class Show extends Component {
                             : ""}
                             <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                             <span>Vinegar:</span>{ recipe.vinegar.name && <section><strong>{ recipe.vinegar.name }</strong></section>}
-                        </div><br/>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <br/>
+
+
+
+
+
+
+
+
 
                         { (user && !newRecipe) && <>
                             <button onClick={() => {closeShow();}}>Return Home</button>
