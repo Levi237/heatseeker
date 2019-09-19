@@ -263,11 +263,9 @@ export default class Edit extends Component {
                         <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
                     }
 
-                    {/* <button className="saveBtn" onClick={this.closeForm} type="submit">Update</button> */}
                     <button className="saveBtn" type="submit">Update</button>
                     <button className="saveBtn" type="submit" onClick={closeEditForm} >Close</button>
-
-                    
+                
                 </div>      
 
             </form>
