@@ -27,7 +27,7 @@ const Arrow = ({ text, className }) => {
 const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
-// NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.  NEED DEFAULT LABEL IMAGE
+// NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.
 
 export default class Form extends Component {
     state = {
@@ -74,22 +74,6 @@ export default class Form extends Component {
             vinegar: value.vinegar
         }) 
     }
-    setToggle = (e, value) => {
-        this.setState({
-            [e.target.name]: value
-        })
-    }
-
-
-
-
-    setLabel = (e) => {
-        this.setState({
-            label: e.currentTarget.id,
-        })
-    }
-
-
     extraToggle = (e, value) => {
         const { extra } = this.state;
         e.preventDefault();
@@ -120,7 +104,17 @@ export default class Form extends Component {
             })
         }
     }
+    setToggle = (e, value) => {
+        this.setState({
+            [e.target.name]: value
+        })
+    }
 
+    toggleChange = e => {
+        this.setState({
+            [e.target.name]: !e.target.value
+        })
+    }
     onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     }
@@ -129,22 +123,11 @@ export default class Form extends Component {
             [e.target.name]: e.target.value
         });
     };
-    toggleChange = e => {
-        this.setState({
-            [e.target.name]: !e.target.value
-        })
-    }
-    // closeScroll = e => {
-    //     this.setState({
-    //         examplesVisibility: false
-    //     });
-    // };
-
 
     render(){
 
         const { chili, spice, vinegar, extra, examples, style, label, header, examplesVisibility } = this.state
-        const { chilis, spices, extras, vinegars, submitForm, newRecipe, user, recipes, edit } = this.props
+        const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
