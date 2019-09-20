@@ -235,7 +235,7 @@ export default class Form extends Component {
             </div>   
 
             <div className="box1">
-                <div className="pick-label labels ">
+                <div className="pick-label">
                   <div>
                     <div className={label}>
                         <input className="brand-sauce" name="header" placeholder="BRAND IT" type="text" onChange={this.handleChange}/>
