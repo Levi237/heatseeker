@@ -18,12 +18,23 @@ render(){
 
                         <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
                         <div key={i} className="recipe-data">
-                        <div className="labels pick-label">
-                            <div className={r.label}></div>
-                        </div>
-                            <h3>{r.header}</h3>
-                            <section>{r.style}</section>
-                            <section>{dateCreated}</section>
+                            <div className="home-label labels pick-label ">
+                                <div className="show-left">
+                                    <div className={r.label}>
+                                        <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
+                                            {r.label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
+                                            {r.label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
+                                            {r.label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
+                                            {r.label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+                                        <h4>Hot Sauce</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="dataDiv show-right">
+                                <h3>{r.header}</h3>
+                                <section>{r.style}</section>
+                                <section>{dateCreated}</section>
+                            </div>
                         </div>
                         </button>
                         
