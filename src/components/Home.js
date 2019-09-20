@@ -85,10 +85,6 @@ export default class Home extends Component {
 
 
 
-                            <div className={userEdit ? "edit-container" : "off edit-container"}>
-                                <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
-                                <Username />
-                            </div>
 
 
 
@@ -96,10 +92,15 @@ export default class Home extends Component {
 
 
 
-                            
+
+
                         </div>
 
                         <div className="home-right">
+                        <div className={userEdit ? "edit-container" : "off edit-container"}>
+                                <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                                <Username />
+                        </div>
                         {   (userInfo) && <Info /> }
                         {   (userOrders) &&
                             <div className="home-show-orders">
