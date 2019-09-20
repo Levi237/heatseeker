@@ -40,7 +40,6 @@ export default class Show extends Component {
         const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props
     
         let recipe = []
-
         let addExtras = [];
         let showSpices = [];
 
@@ -103,22 +102,18 @@ export default class Show extends Component {
                     }
                     <br /><br/>
 
-<div className="pick-label show-left">
-    <div>
-        <div className={recipe.label}>
-            <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
-            { recipe.label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
-            { recipe.label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
-            { recipe.label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
-            { recipe.label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
-            <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
-        </div>
-    </div>
-</div>
-
-
-
-
+                        <div className="pick-label show-left">
+                            <div>
+                                <div className={recipe.label}>
+                                    <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
+                                    { recipe.label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
+                                    { recipe.label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
+                                    { recipe.label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
+                                    { recipe.label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+                                    <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
+                                </div>
+                            </div>
+                        </div>
 
                         <div className="show-recipe show-right">
                             { recipe.chili[1]
@@ -134,42 +129,23 @@ export default class Show extends Component {
                             <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                             <span>Vinegar:</span>{ recipe.vinegar.name && <section><strong>{ recipe.vinegar.name }</strong></section>}
                         </div>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <br/>
-
-
-
-
-
-
-
-
-<div className="show-buttons">
-
-
-                        { (user && !newRecipe) && <>
-                            <button onClick={() => {closeShow();}}>Return Home</button>
-                            <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
-                            <button value={recipe.id} onClick={(e) => {editRecipeID(e)}}>Edit</button>
-                            { edit && <Redirect to={'./edit-recipe'}/> }
-                        </> }
-                        { (user && newRecipe ) && <>
-                            <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
-                            <button onClick={() => {showOrder();}}>Complete Order</button>
-                        </> }
-                        { (!user && newRecipe ) && <>
-                            <button onClick={this.showEnter}>Save to Account</button>
-                            <button onClick={() => {showOrder();}}>Complete Order</button>
-                        </> }
-</div>                        
+                    <br/>
+                        <div className="show-buttons">
+                            { (user && !newRecipe) && <>
+                                <button onClick={() => {closeShow();}}>Return Home</button>
+                                <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
+                                <button value={recipe.id} onClick={(e) => {editRecipeID(e)}}>Edit</button>
+                                { edit && <Redirect to={'./edit-recipe'}/> }
+                            </> }
+                            { (user && newRecipe ) && <>
+                                <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
+                                <button onClick={() => {showOrder();}}>Complete Order</button>
+                            </> }
+                            { (!user && newRecipe ) && <>
+                                <button onClick={this.showEnter}>Save to Account</button>
+                                <button onClick={() => {showOrder();}}>Complete Order</button>
+                            </> }
+                        </div>    
                     </div>
                 </>
             }
