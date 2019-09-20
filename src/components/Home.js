@@ -80,10 +80,23 @@ export default class Home extends Component {
                                 userEdit={userEdit}
                                 toggleValue={this.toggleValue}
                             />
+
+
+
+
+
                             <div className={userEdit ? "edit-container" : "off edit-container"}>
                                 <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                 <Username />
                             </div>
+
+
+
+
+
+
+
+                            
                         </div>
 
                         <div className="home-right">
