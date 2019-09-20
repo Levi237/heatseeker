@@ -130,6 +130,7 @@ export default class Show extends Component {
                             <span>Vinegar:</span>{ recipe.vinegar.name && <section><strong>{ recipe.vinegar.name }</strong></section>}
                         </div>
                     <br/>
+                    </div>
                         <div className="show-buttons">
                             { (user && !newRecipe) && <>
                                 <button onClick={() => {closeShow();}}>Return Home</button>
@@ -146,7 +147,6 @@ export default class Show extends Component {
                                 <button onClick={() => {showOrder();}}>Complete Order</button>
                             </> }
                         </div>    
-                    </div>
                 </>
             }
             </>

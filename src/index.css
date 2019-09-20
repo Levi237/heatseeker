@@ -220,7 +220,7 @@ grid-template-areas:
 }
 
 .new-recipe {
-  width: 50vw;
+  width: 550px;
   min-width: 460px;
   margin: 0 auto;
   margin-bottom: 30px;
@@ -240,12 +240,7 @@ grid-template-areas:
   font-family: 'Smokum', 'Times New Roman', Times, serif;
   font-size: 1.5em;
 }
-.show-buttons {
-  width: 100vw;
-  margin-left: -22.5vw;
-  margin-top: 10px;
-  display: inline-block;
-}
+
 
 .order-form {
   height: 600px;
@@ -253,9 +248,14 @@ grid-template-areas:
   background-color: white;
 
 }
-.new-recipe button {
+.show-buttons {
+  width: 100vw;
+  margin-top: 10px;
+  display: inline-block;
+}
+.show-buttons button {
   height: 40px;
-  width: calc(30vw - 20px);
+  width: 180px;
   margin: 10px;
   border-radius: 3px;
 }
