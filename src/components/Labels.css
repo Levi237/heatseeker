@@ -95,6 +95,10 @@
     float: right;
 }
 
+.dataDiv {
+    width: 37vw;
+    margin: 1.5vw;
+}
 
 .home-label {
     transform: scale(.7);
