@@ -69,7 +69,7 @@ export default class Home extends Component {
             :  <>
                 {   (user && !user.displayName) && <Username /> }
                 {   user 
-                ?   <div className="home-container">
+                ?   <div className="home-contiainer">
 
                         <div className="home-left">
                             <h3><img src="chili-logo.png" alt="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
@@ -96,7 +96,7 @@ export default class Home extends Component {
                             </div>
                         }
                         {   (userCreations) &&
-                            <div className="home-show-lists">
+                            <div className="">
                                 <h2>CREATIONS</h2>
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 <RecipeList 

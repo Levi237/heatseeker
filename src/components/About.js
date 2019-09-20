@@ -14,6 +14,7 @@ const About = () =>
             <li>Create user accounts to save and view recipes</li>
             <li>Update or Delete your recipes</li>
             <li>Provide default recipe labels</li>
+            <li>Desktop only</li>
         </ul>
             <br/>
                         
@@ -35,7 +36,7 @@ const About = () =>
         <ul>
             <li>Label upload</li>
             <li>Menu toggle</li>
-            <li>Mobile Adjustments</li>
+            <li>Mobile Friendly</li>
             <li>Info/Help Modal to explain process</li>
             <li>Fix double click on example extras</li>
         </ul>
