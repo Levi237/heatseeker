@@ -246,7 +246,7 @@ export default class Edit extends Component {
                         }
                         </div>
                     </div>
-                    <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
+                    <div className="pick-mini-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
                     { chili[0] &&
                         <div className="add-chili">{addChili}</div>
                     }   

@@ -247,7 +247,7 @@ export default class Form extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="pick-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
+                <div className="pick-mini-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
                 { chili[0]
                 ? <div className="add-chili">{addChili}</div>
                 : <div className="add-chili"><strong>Pick a couple Peppers</strong></div>

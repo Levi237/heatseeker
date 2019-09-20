@@ -278,6 +278,7 @@ grid-template-areas:
 }
 .show-right {
   float: right;
+  margin: 10px;
 }
 .show-style-div > div {
   display: inline-block;

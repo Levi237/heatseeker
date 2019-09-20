@@ -66,7 +66,7 @@
 /********************************* SCALABLE */
 .labels > div > div {
     height: 20vw;
-    margin: 1.6vw 0;
+    margin: 1.6vw auto;
     min-width: 17vw;
     background-position: center;
     background-size: contain;
@@ -108,11 +108,11 @@
 }
 
 /****************************************************** MINI LABELS */
-.pick-labels {
+.pick-mini-labels {
     margin-bottom: -30px;
 }
 
-.pick-labels > div > div {
+.pick-mini-labels > div > div {
     display: inline-block;
     transform: scale(.3);
     margin: -9.5vw -6vw;
