@@ -28,12 +28,9 @@
     color: darkgray;
 }
 
-
-
 .label3 h3 {
     text-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black, 2px -2px 0 black;
 }
-
 .label3 h4 {
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
 }
@@ -42,7 +39,7 @@
 .pick-label > div > div {
     min-height: 250px;
     width: 200px;
-    margin: 0 auto 20px auto;
+    margin: 20px auto 20px auto;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -61,6 +58,10 @@
     height: 120px;
     margin: 10px auto 0 auto;
 }
+.home-label {
+    transform: scale(.7);
+    margin: 0 -15%;
+}
 
 /********************************* SCALABLE */
 .labels > div > div {
@@ -71,63 +72,18 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-
 .labels > div > div:hover {
     position: relative;
     z-index: 2
 }
 
-/* .labelDiv{
-    float: left;
-}
-.labelDiv img {
-    width: 5vw;
-    height: 5vw!important;
-}
-.labelDiv > div {
-    display: inline-block;
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
-    height: 12.5vw;
-    width: 10vw;
-    margin: 1.5vw;
-} */
-.labelData {
-    display: inline-block;
-    float: right;
-}
-
-.dataDiv {
-    width: 37vw;
-    margin: 1.5vw;
-}
-
-.home-label {
-    transform: scale(.7);
-    /* margin: -50%; */
-}
-
-.home-label > div > div {
-    margin: 1.6vw 0 0 -9vw;
-}
-
 .labels > div {
     position: relative
     }
+
 .labels h3 {
     font-size: 2.7vw;
     margin-top: 2.1vw;
-}
-.brand-sauce {
-    font-family: 'Smokum', 'Times New Roman', Times, serif;
-    font-size: 34px;
-    margin-top: 26px;
-    text-align: center;
-    width: 160px;
-    border: 0;
-    background-color: transparent;
 }
 .labels h4 {
     font-size: 1.3vw;
@@ -141,14 +97,19 @@
     margin: .8vw auto 0 auto;
 }
 
+.brand-sauce {
+    font-family: 'Smokum', 'Times New Roman', Times, serif;
+    font-size: 34px;
+    margin-top: 26px;
+    text-align: center;
+    width: 160px;
+    border: 0;
+    background-color: transparent;
+}
 
-
-
+/****************************************************** MINI LABELS */
 .pick-labels {
-    /* display: inline-block; */
     margin-bottom: -30px;
-    /* max-height: 200px; */
-    /* overflow: hidden; */
 }
 
 .pick-labels > div > div {
@@ -156,6 +117,3 @@
     transform: scale(.3);
     margin: -9.5vw -6vw;
 }
-/* .pick-labels h3, .pick-labels h4, .pick-labels img {
-    transform: scale(.7);
-} */

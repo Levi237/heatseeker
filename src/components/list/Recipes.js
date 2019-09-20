@@ -36,7 +36,7 @@ render(){
 
                         <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
                         <div key={i} className="recipe-data">
-                            <div className="home-label labels pick-label ">
+                            <div className="home-label pick-label ">
                                 <div className="show-left">
                                     <div className={r.label}>
                                         <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
