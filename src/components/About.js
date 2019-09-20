@@ -35,7 +35,6 @@ const About = () =>
         <ul>
             <li>Label upload</li>
             <li>Menu toggle</li>
-            <li>Menu toggle</li>
             <li>Mobile Adjustments</li>
             <li>Info/Help Modal to explain process</li>
             <li>Fix double click on example extras</li>

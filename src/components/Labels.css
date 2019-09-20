@@ -105,7 +105,9 @@
     /* margin: -50%; */
 }
 
-
+.home-label > div > div {
+    margin: 1.6vw 0 0 -9vw;
+}
 
 .labels > div {
     position: relative
