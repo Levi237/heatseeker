@@ -103,7 +103,7 @@ export default class Show extends Component {
                     }
                     <br /><br/>
 
-<div className="pick-label labels show-left">
+<div className="pick-label show-left">
     <div>
         <div className={recipe.label}>
             <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
