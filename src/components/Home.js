@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import Order from './Order'
-import Username from './Username';
-import Show     from './Show';
+import Order      from './Order'
+import Username   from './Username';
+import Show       from './Show';
 import RecipeList from './list/Recipes';
+import Menu       from './Menu'
+import Info       from './modal/Info'
 
-import Menu from './Menu'
-
-import Info from './modal/Info'
+import firebase   from 'firebase/app'
+import 'firebase/firestore'
 
 import './Home.css'
-import './levi/Headers.css'
-
-import firebase from 'firebase/app'
-import 'firebase/firestore'
 
 export default class Home extends Component {
     state = {
         remove: false,
+        dashOn: "",
         userEdit: false,
         userCreations: true,
         userOrders: false,
@@ -26,8 +24,10 @@ export default class Home extends Component {
     }
 
     toggleValue = (e) => {
+        console.log(e.target.name, "click")
+        let select = e.target.name
         this.setState({
-            [e.currentTarget.name]: !this.state[e.currentTarget.name]
+            dashOn: select
         });
     };
 
@@ -48,7 +48,7 @@ export default class Home extends Component {
     }
 
     render(){
-        const { remove, userEdit, userCreations, userOrders, userInfo } = this.state
+        const { remove, dashOn } = this.state
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props
         
         return(
@@ -74,10 +74,7 @@ export default class Home extends Component {
                         <div className="home-left">
                             <h3><img src="chili-logo.png" alt="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
                             <Menu 
-                                userInfo={userInfo} 
-                                userOrders={userOrders} 
-                                userCreations={userCreations} 
-                                userEdit={userEdit}
+                                dashOn={dashOn}
                                 toggleValue={this.toggleValue}
                             />
 
@@ -97,19 +94,22 @@ export default class Home extends Component {
                         </div>
 
                         <div className="home-right">
-                        <div className={userEdit ? "edit-container" : "off edit-container"}>
-                                <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
-                                <Username />
-                        </div>
-                        {   (userInfo) && <Info /> }
-                        {   (userOrders) &&
+                        {  (dashOn === "userEdit") &&
+                            <div className="edit-container">
+                                    <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                                    <Username />
+                            </div>
+                        }
+                            
+                        {   (dashOn === "userInfo") && <Info /> }
+                        {   (dashOn === "userOrders") &&
                             <div className="home-show-orders">
                                 <h2>ORDERS</h2>  
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
                                 <h4>Orders will display combinations of Recipes and Labels with a history of eCommerce orders.</h4>
                             </div>
                         }
-                        {   (userCreations) &&
+                        {   (dashOn === "userCreations") &&
                             <div className="">
                                 <h2>CREATIONS</h2>
                                 <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
