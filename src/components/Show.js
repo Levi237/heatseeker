@@ -25,6 +25,7 @@ export default class Show extends Component {
                 header: newRecipe.header,
                 style: newRecipe.style,
                 label: newRecipe.label,
+                icon: newRecipe.icon,
                 chili: newRecipe.chili,
                 spice: newRecipe.spice,
                 extra: newRecipe.extra,
@@ -110,6 +111,7 @@ export default class Show extends Component {
                                     { recipe.label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                                     { recipe.label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
                                     { recipe.label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+                                    { recipe.label === "label5" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                                     <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
                                 </div>
                             </div>

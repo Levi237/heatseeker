@@ -1,6 +1,3 @@
-.about {
-  padding: 20px;
-}
 .about > h2 > img {
   height: 100px;
   margin-bottom: -30px;
@@ -47,8 +44,6 @@
   border: 1px solid rgb(123, 63, 0);
   border-radius: 3px;
   margin-top: 10px;
-
-
 }
 
 .form-block button, .saveBtn {
@@ -66,10 +61,7 @@
 
 .registerBtn {
   float: right;
-
-
 }
-
 .loginBtn {
   float: left;
 }
@@ -104,21 +96,7 @@
     margin: 10px 27px;
     font-weight: 700;
   }
-  
-  .registerBtn {
-    float: right;
-  }
-  
-  .loginBtn {
-    float: left;
-  }
-  
-  .errorNotification {
-    height: 40px;
-  }
-  .App-logo {
-    height: 60px;
-}
+
 }
 
 

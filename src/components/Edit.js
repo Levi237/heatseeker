@@ -7,6 +7,7 @@ import Labels from './Labels'
 import * as routes from '../constants/routes';
 import firebase             from 'firebase/app'
 import 'firebase/firestore'
+
 import './Form.css'
 
 
@@ -34,6 +35,7 @@ export default class Edit extends Component {
         header: null,
         style: null,
         label: null,
+        icon: null,
         chili: [],
         spice: {},
         extra: [],
@@ -51,6 +53,7 @@ export default class Edit extends Component {
                         header: recipe.header,
                         style: recipe.style,
                         label: recipe.label,
+                        icon: recipe.icon,
                         chili: recipe.chili,
                         spice: recipe.spice,
                         extra: recipe.extra,
@@ -72,6 +75,7 @@ export default class Edit extends Component {
                 header: recipe.header,
                 style: recipe.style,
                 label: recipe.label,
+                icon: recipe.icon,
                 chili: recipe.chili,
                 spice: recipe.spice,
                 extra: recipe.extra,
@@ -224,7 +228,7 @@ export default class Edit extends Component {
                 </div>   
 
                 <div className="box1">
-                    <div className="pick-label labels ">
+                    <div className="pick-label">
                         <div>
                         { label &&
                             <div className={label}>
@@ -233,6 +237,7 @@ export default class Edit extends Component {
                                 {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                                 {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
                                 {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+                                {label === "label5" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                                 <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
                             </div>
                         }

@@ -162,7 +162,7 @@ export default class App extends Component {
       <div className="grid-container">
 
         <div className="grid-header">
-          <img src="HEATMAKERS.png" alt="logo title" />
+          <img src="HEATMAKERS2.png" alt="logo title" />
         </div>
 
         <div className="grid-nav">

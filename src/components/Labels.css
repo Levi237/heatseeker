@@ -11,6 +11,10 @@
 .label4 {
     background-image: url('../img/labels/white-label.png');
 }
+.label5 {
+    background-image: url('../img/labels/wood-frame-label.png');
+    color: rgb(123, 88, 65);
+}
 .label1 > input::placeholder {
     color: black;
 }
@@ -20,19 +24,22 @@
 .label3 > input::placeholder {
     color: white;
 }
-    .label3 .brand-sauce, .label3 .name-sauce {
-        color: black;
-        text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
-    }
 .label4 > input::placeholder {
-    color: darkgray;
+    color: black;
 }
-
-.label3 h3 {
-    text-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black, 2px -2px 0 black;
+.label5 > input::placeholder {
+    color: rgb(123, 88, 65);
 }
-.label3 h4 {
+.label3 .brand-sauce, .label3 .name-sauce, .label5 .brand-sauce, .label5 .name-sauce {
+    color: black;
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+}
+/* .label3 h3, .label5 h3 {
+    text-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black, 2px -2px 0 black;
+} */
+.label3 h4, .label5 h4, .label3 h3, .label5 h3 {
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
+    font-stretch: expanded;
 }
 
 /*********************************  FORM */
@@ -76,10 +83,9 @@
     position: relative;
     z-index: 2
 }
-
 .labels > div {
     position: relative
-    }
+}
 
 .labels h3 {
     font-size: 2.7vw;

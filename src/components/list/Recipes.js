@@ -47,6 +47,7 @@ render(){
                                                 {r.label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
                                                 {r.label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
                                                 {r.label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+                                                {r.label === "label5" && <img src="real-chili.jpg" alt="real-chili.jpg"/>}
                                             <h4>{r.style}e</h4>
                                         </div>
                                         

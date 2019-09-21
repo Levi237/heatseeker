@@ -34,6 +34,7 @@ export default class Form extends Component {
         header: null,
         style: null,
         label: "label2",
+        icon: "real-chili.jpg",
         chili: [],
         spice: {
             name: "Pick a",
@@ -123,14 +124,21 @@ export default class Form extends Component {
         });
     };
     setLabel = (e) => {
+        let labelImage = [];
+        const data = e.currentTarget.id
+        labelImage = data.split(" ")
+
+        // console.log(e.currentTarget.id, "id");
+        // console.log(e.currentTarget.name, "name");
         this.setState({
-            label: e.currentTarget.id,
+            label: labelImage[0],
+            icon: labelImage[1]
         })
     }
 
     render(){
 
-        const { chili, spice, vinegar, extra, examples, style, label, header, examplesVisibility } = this.state
+        const { chili, spice, vinegar, extra, examples, style, label, icon, header, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
@@ -239,10 +247,8 @@ export default class Form extends Component {
                   <div>
                     <div className={label}>
                         <input className="brand-sauce" name="header" placeholder="BRAND IT" type="text" onChange={this.handleChange}/>
-                        {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
-                        {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
-                        {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
-                        {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
+                        <img src={icon} alt="chili-burn.png" name="label1"/>
+
                         <input className="name-sauce" name="style" placeholder="Name Your Sauce" type="text" onChange={this.handleChange}/>
                     </div>
                   </div>
