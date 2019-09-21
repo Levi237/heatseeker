@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 
 import Order      from './Order'
 import Username   from './Username';
@@ -59,7 +58,8 @@ export default class Home extends Component {
                     newRecipe={newRecipe} 
                     updateForm={updateForm}
                     editRecipeID={editRecipeID}
-                    user={user}/> 
+                    user={user}
+                    /> 
             :  <>
                 {   (user && !user.displayName) && <Username /> }
                 {   user 
@@ -70,51 +70,32 @@ export default class Home extends Component {
                             <Menu 
                                 dashOn={dashOn}
                                 toggleValue={this.toggleValue}
-                            />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                />
                         </div>
 
                         <div className="home-right">
                         {  (dashOn === "userEdit") &&
-                            <div className="edit-container">
+                                <div className="edit-container">
                                     <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                     <Username />
-                            </div>
-                        }
-                            
+                                </div>
+                        }   
                         {   (dashOn === "userInfo") && <Info /> }
                         {   (dashOn === "userOrders") &&
-                            <div className="home-show-orders">
-                                <h2>ORDERS</h2>  
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                <h4>Orders will display combinations of Recipes and Labels with a history of eCommerce orders.</h4>
-                            </div>
+                                <div className="home-show-orders">
+                                    <h2>ORDERS</h2>  
+                                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                                    <h4>Orders will display Cards with a history of eCommerce orders.</h4>
+                                </div>
                         }
-                        {   (dashOn === "userCreations") &&
-                            <div className="">
-                                <h2>CREATIONS</h2>
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                        {   (dashOn === "userCreations") &&          
                                 <RecipeList 
                                     user={user} 
                                     recipes={recipes}
                                     remove={remove}
                                     deleteThis={this.deleteThis}
-                                    showThisRecipe={showThisRecipe} />                                       
-                            </div>
-                        }
+                                    showThisRecipe={showThisRecipe} 
+                                    /> }
                         </div>
                     </div>
                 :   <Info />

@@ -1,4 +1,5 @@
 import React from 'react';
+
 const Info = () => 
     <div className="info-container">
         <h1>WELCOME TO HEATMAKERS</h1>

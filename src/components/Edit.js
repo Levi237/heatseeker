@@ -8,9 +8,8 @@ import * as routes from '../constants/routes';
 import firebase             from 'firebase/app'
 import 'firebase/firestore'
 import './Form.css'
-// import { tsThisType } from '@babel/types';
 
-//Scroll Menu
+
 const MenuItem = ({text}) => {
     return <div className="menu-item">{text}</div>;
   };
@@ -28,7 +27,7 @@ const Arrow = ({ text, className }) => {
 const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
-// NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.  NEED DEFAULT LABEL IMAGE
+// NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.
 
 export default class Edit extends Component {
     state = {
@@ -44,12 +43,10 @@ export default class Edit extends Component {
         close: false,
     }
     componentDidMount = () => {
-        // let editThis = []; 
         const { recipes, edit } = this.props
         if (edit){
             recipes.map(recipe => {
                 if (recipe.id.includes(edit)){
-                    // editThis.push(recipe);
                     this.setState({
                         header: recipe.header,
                         style: recipe.style,
@@ -65,7 +62,6 @@ export default class Edit extends Component {
     }
 
     updateRecipe = async (e, recipe) => {
-        console.log("updateRecipe click")
         e.preventDefault();
         const _id = this.props.edit
         const update = await firebase
@@ -82,11 +78,10 @@ export default class Edit extends Component {
                 vinegar: recipe.vinegar,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
-            // .then(
-               this.setState({
-                    close: true,
-                })
-            // )         
+            this.setState({
+                close: true,
+            })   
+            return update    
     }
 
     setToggle = (e, value) => {
@@ -143,7 +138,7 @@ export default class Edit extends Component {
     render(){
 
         const { chili, spice, vinegar, extra, style, label, header } = this.state
-        const { chilis, spices, extras, vinegars, newRecipe, user, closeEditForm } = this.props
+        const { chilis, spices, extras, vinegars, user, closeEditForm } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 

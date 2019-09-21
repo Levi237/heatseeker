@@ -9,10 +9,8 @@ import Enter from './components/Enter';
 import Show  from './components/Show';
 import Edit  from './components/Edit';
 
-import HeadersExamples from './components/levi/Headers';
-import Labels          from './components/Labels';
-
 import * as routes from './constants/routes';
+
 import firebase    from 'firebase/app';
 import 'firebase/app';
 
@@ -157,14 +155,11 @@ export default class App extends Component {
     })
   }
 
-
-
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order, edit } = this.state
 
     return (
       <div className="grid-container">
-
 
         <div className="grid-header">
           <img src="HEATMAKERS.png" alt="logo title" />

@@ -78,9 +78,11 @@ render(){
     })
 
     return(
-        <>
-        {list}
-        </>
+        <div>
+            <h2>CREATIONS</h2>
+                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                {list}
+        </div>
     )
 }
 }
