@@ -13,12 +13,17 @@ const Info = () =>
         <h3>Need help getting started?  </h3><br/>
         Select one of the examples from the first, top row.<br />
         <h3>Know what you want?</h3><br/>
-        Select up to two Chilis. <br />
-        Pick a Spice Style<br />
-        Add other Flavors<br />
-        Pick a Vinegar<br />
-        Choose one of 4 Label styles<br/>
-        Name your Hot Sauce!<br />
+            <ul>
+                <li>Select up to two Chilis. </li>
+                <li>Pick a Spice Style</li>
+                <li>Add other Flavors</li>
+                <li>Pick a Vinegar</li>
+                <li>Choose one of 4 Label styles</li>
+                <li>liand your bottle</li>
+                <li>Name your Hot Sauce!</li>
+            </ul>
+
         EVENTUALLY add upload a Label, include Pricing and place your Order!!!<br />
+        <br/>
     </div>
 export default Info
