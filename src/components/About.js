@@ -20,7 +20,7 @@ const About = () =>
                         
         <h3>Current Development:</h3>
         <ul>
-            <li>Recipe Cards</li>
+            <li>Menu toggle</li>
         </ul>
             <br/>
         
@@ -35,7 +35,7 @@ const About = () =>
         <h3>Future Goals:</h3>
         <ul>
             <li>Label upload</li>
-            <li>Menu toggle</li>
+            <li>Recipe Card Styling</li>
             <li>Mobile Friendly</li>
             <li>Info/Help Modal to explain process</li>
             <li>Fix double click on example extras</li>

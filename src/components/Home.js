@@ -16,18 +16,12 @@ import './Home.css'
 export default class Home extends Component {
     state = {
         remove: false,
-        dashOn: "",
-        userEdit: false,
-        userCreations: true,
-        userOrders: false,
-        userInfo: false,
+        dashOn: "userInfo",
     }
 
     toggleValue = (e) => {
-        console.log(e.target.name, "click")
-        let select = e.target.name
         this.setState({
-            dashOn: select
+            dashOn: e.target.id
         });
     };
 
