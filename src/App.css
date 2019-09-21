@@ -11,9 +11,8 @@
   margin: 0 20vw;
 }
 .about-points li {
-  width: 50vw;
   text-align: right;
-  /* margin: 0 5vw; */
+  margin: 0 5vw;
 }
 .about-points ul{
   margin: 0;
