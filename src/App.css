@@ -1,8 +1,9 @@
 .about {
   padding: 20px;
 }
-.about > h1 > img {
+.about > h2 > img {
   height: 100px;
+  margin-bottom: -30px;
 }
 .about-points {
   width: 60vw;

@@ -1,9 +1,9 @@
 import React, { Component }        from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import About from './components/About';
+import About from './components/const/About';
 import Form  from './components/Form';
-import Nav   from './components/Nav';
+import Nav   from './components/const/Nav';
 import Home  from './components/Home';
 import Enter from './components/Enter';
 import Show  from './components/Show';
@@ -186,7 +186,19 @@ export default class App extends Component {
             <Route path={routes.LOGN} exact render={() => user 
                   ? <Redirect to={routes.HOME} /> 
                   : <Enter />} />
-            <Route path={routes.ENTR} exact render={() => <Enter />} />                          
+            <Route path={routes.ENTR} exact render={() => user 
+                  ? <Home 
+                      order={order}
+                      user={user} 
+                      recipes={recipes} 
+                      newRecipe={newRecipe} 
+                      show={show}
+                      edit={edit}
+                      showOrder={this.showOrder}
+                      closeShow={this.closeShow}
+                      editRecipeID={this.editRecipeID}
+                      showThisRecipe={this.showThisRecipe}/>
+                  : <Enter />} />                          
             <Route path={routes.FORM} exact render={() => 
                     <Form 
                       user={user} 

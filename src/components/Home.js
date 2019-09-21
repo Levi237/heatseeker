@@ -4,8 +4,8 @@ import Order      from './Order'
 import Username   from './Username';
 import Show       from './Show';
 import RecipeList from './list/Recipes';
-import Menu       from './Menu'
-import Info       from './modal/Info'
+import Menu       from './const/Menu'
+import Info       from './const/Info'
 
 import firebase   from 'firebase/app'
 import 'firebase/firestore'
@@ -67,13 +67,11 @@ export default class Home extends Component {
 
                         <div className="home-left">
                             <h3><img src="chili-logo.png" alt="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
-                            <Menu 
-                                dashOn={dashOn}
-                                toggleValue={this.toggleValue}
-                                />
+                            <Menu dashOn={dashOn} toggleValue={this.toggleValue} />
                         </div>
 
                         <div className="home-right">
+                        <br/>
                         {  (dashOn === "userEdit") &&
                                 <div className="edit-container">
                                     <button onClick={() => {this.showDelete()}}>Delete Recipes</button>

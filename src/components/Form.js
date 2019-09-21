@@ -225,13 +225,13 @@ export default class Form extends Component {
                 <div className="chiliSection">
                     <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
                 </div>
-                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
-                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
-                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                    <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
             </div>   
 
             <div className="box1">
