@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Orders extends Component {
+export default class OrderList extends Component {
     render(){
 
         return(

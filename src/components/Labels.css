@@ -123,3 +123,13 @@
     transform: scale(.3);
     margin: -9.5vw -6vw;
 }
+
+
+
+@media screen and (max-width: 767px) {
+    .pick-mini-labels > div > div {
+        display: inline-block;
+        transform: scale(1.1);
+        margin: 0 -18vw 14vw -18vw;
+    }
+}

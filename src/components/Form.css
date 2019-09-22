@@ -12,6 +12,9 @@
     display: inline-block;
     padding: 0 10px 0 40px;
 }
+.box1 h2 {
+    text-align: center;
+}
 .box1 ol {
     margin: 0;
     text-align: right;
@@ -21,9 +24,7 @@
     width: calc(100vw - 350px);
     display: inline-block;
 }
-.box1 h2 {
-    text-align: center;
-}
+
 .add-chili {
     text-align: right;
 }
@@ -215,9 +216,11 @@ background-image:
         display: block;
         float: none;
         margin: 0 10vw;
+        padding: 0;
         /* text-align: left; */
     }
-    .box2 {
+      
+  .box2 {
         width: 100vw;
         display: block;
         margin-bottom: auto;

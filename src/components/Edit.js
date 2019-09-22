@@ -138,7 +138,7 @@ export default class Edit extends Component {
 
     render(){
 
-        const { chili, spice, vinegar, extra, style, label, header } = this.state
+        const { chili, spice, vinegar, extra, style, label, icon, header } = this.state
         const { chilis, spices, extras, vinegars, user, closeEditForm } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
@@ -233,11 +233,7 @@ export default class Edit extends Component {
                         { label &&
                             <div className={label}>
                                 <input className="brand-sauce" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
-                                {label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
-                                {label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
-                                {label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
-                                {label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
-                                {label === "label5" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
+                                <img src={icon} alt={icon} name="label1"/>
                                 <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
                             </div>
                         }

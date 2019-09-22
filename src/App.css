@@ -70,7 +70,7 @@
   height: 40px;
 }
 
-@media screen and (max-width: 767) {
+@media screen and (max-width: 767px) {
   .home {
     width: 96vw;
     padding: 2vw;
@@ -94,7 +94,18 @@
     background-color: rgb(123, 63, 0);
     text-align: center;
     margin: 10px 27px;
+    margin: 20px auto 10px auto;
     font-weight: 700;
+  }
+  .about > h2 > img {
+    height: 40px;
+    margin-bottom: -10px;
+    margin-top: 10px;
+  }
+  .about-points {
+    width: 90vw;
+    text-align: justify;
+    margin: 0 5vw;
   }
 
 }

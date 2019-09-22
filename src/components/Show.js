@@ -75,6 +75,22 @@ export default class Show extends Component {
 
         return(
             <>
+                <div className="show-buttons">
+                    { (user && !newRecipe) && <>
+                        <button onClick={() => {closeShow();}}>Return Home</button>
+                        <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
+                        <button value={recipe.id} onClick={(e) => {editRecipeID(e)}}>Edit</button>
+                        { edit && <Redirect to={'./edit-recipe'}/> }
+                    </> }
+                    { (user && newRecipe ) && <>
+                        <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
+                        <button onClick={() => {showOrder();}}>Complete Order</button>
+                    </> }
+                    { (!user && newRecipe ) && <>
+                        <button onClick={this.showEnter}>Save to Account</button>
+                        <button onClick={() => {showOrder();}}>Complete Order</button>
+                    </> }
+                </div>    
             {recipe &&
                 <>
                 {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
@@ -107,11 +123,7 @@ export default class Show extends Component {
                             <div>
                                 <div className={recipe.label}>
                                     <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
-                                    { recipe.label === "label1" && <img src="chili-burn.png" alt="chili-burn.png" name="label1"/>}
-                                    { recipe.label === "label2" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
-                                    { recipe.label === "label3" && <img src="chili-outline-bw-line.png" alt="chili-outline-bw-line.png" />}
-                                    { recipe.label === "label4" && <img src="chili-logo.png" alt="chili-logo.png"/>}
-                                    { recipe.label === "label5" && <img src="real-chili.jpg" alt="real-chili.jpg" />}
+                                    <img src={recipe.icon} alt={recipe.icon} name="label1"/>
                                     <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
                                 </div>
                             </div>
@@ -133,22 +145,6 @@ export default class Show extends Component {
                         </div>
                     <br/>
                     </div>
-                        <div className="show-buttons">
-                            { (user && !newRecipe) && <>
-                                <button onClick={() => {closeShow();}}>Return Home</button>
-                                <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
-                                <button value={recipe.id} onClick={(e) => {editRecipeID(e)}}>Edit</button>
-                                { edit && <Redirect to={'./edit-recipe'}/> }
-                            </> }
-                            { (user && newRecipe ) && <>
-                                <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
-                                <button onClick={() => {showOrder();}}>Complete Order</button>
-                            </> }
-                            { (!user && newRecipe ) && <>
-                                <button onClick={this.showEnter}>Save to Account</button>
-                                <button onClick={() => {showOrder();}}>Complete Order</button>
-                            </> }
-                        </div>    
                 </>
             }
             </>
