@@ -358,7 +358,11 @@ grid-template-areas:
   h3 {
     font-size: 5vw;
   }
-
+  .info-container li {
+    text-align: right;
+    margin: 0;
+    padding-right: 5vw;
+}
   .App-logo {
     height: 30px;
   }
