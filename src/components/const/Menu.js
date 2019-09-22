@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Menu = ({dashOn, toggleValue}) => {
     return(
-        <>
+        <div className="menu-container">
             <Link  to='./create-recipe'>
                 <button onClick={toggleValue} type="button" to={'./create-recipe'}>Create Hotsauce</button>
             </Link>
@@ -11,7 +11,7 @@ const Menu = ({dashOn, toggleValue}) => {
             <button onClick={toggleValue} type="button" className={(dashOn === "userCreations" && "dash-on")} id="userCreations">Show Creations</button>
             <button onClick={toggleValue} type="button" className={(dashOn === "userOrders" && "dash-on")} id="userOrders">Show Orders</button>
             <button onClick={toggleValue} type="button" className={(dashOn === "userEdit" && "dash-on")} id="userEdit">Edit Account</button>
-        </>        
+        </div>        
     )
 }
 export default Menu
