@@ -326,7 +326,7 @@ grid-template-areas:
     grid-gap: 0;
   }
   .grid-heaader {
-    padding-top: 8vw;
+    /* padding-top: 8vw; */
   }
   .grid-header > img {
     height: 14vw;
@@ -336,9 +336,10 @@ grid-template-areas:
     text-align: center;
     position: fixed;
     width: 100vw;
+    z-index: 500;
   }
   .navBox {
-    margin: 1.5vw 0 !important;
+    margin: 1.7vw 0 !important;
   }
   .navBox > a {
     font-size: 4vw;
