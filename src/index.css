@@ -231,13 +231,27 @@ grid-template-areas:
 }
 
 .show-recipe {
-  width: 300px;
+  width: 280px;
 }
 .show-recipe .chalk-line {
   width: 300px;
 }
 
 .show-recipe span {
+  float: left;
+  margin-left: 20px;
+  font-family: 'Smokum', 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+}
+
+.card-recipe {
+  width: 280px;
+}
+.card-recipe .chalk-line {
+  width: 300px;
+}
+
+.card-recipe span {
   float: left;
   margin-left: 20px;
   font-family: 'Smokum', 'Times New Roman', Times, serif;
@@ -288,12 +302,32 @@ grid-template-areas:
   margin: -10px 25vw 0px 25vw;
   /* height: 80px; */
 }
+
+.show-style-div .show-style, .show-style-div  img {
+  display: inline-block;
+  /* width: 50vw; */
+  /* margin: -10px 25vw 0px 25vw; */
+  /* height: 80px; */
+}
+.float-left {
+  float: left
+}
+.float-right {
+  float: right
+}
 .show-left {
   float: left;
 }
 .show-right {
   float: right;
-  margin: 10px;
+  margin: 10px 20px 10px 0;
+}
+.card-left {
+  float: left;
+}
+.card-right {
+  float: right;
+  margin: 10px 20px 10px 0;
 }
 .show-style-div > div {
   display: inline-block;
@@ -372,6 +406,41 @@ grid-template-areas:
   .App-logo {
     height: 30px;
   }
+  .show-right {
+    /* float: right; */
+    margin-top: 10px ;
+  }
+  .show-buttons button {
+    width: 25vw;
+    /* margin-top: 10px; */
+    /* display: inline-block; */
+}
+  .card-right {
+    float: right;
+    margin: 10px 0 0 0;
+  }
+  .show-style-div {
+    width: 100vw;
+    margin: 0;
+    /* height: 80px; */
+  }
+
+  .card-recipe {
+    width: 280px;
+  }
+  .card-recipe .chalk-line {
+    width: 300px;
+  }
+  
+  .card-recipe span {
+    float: left;
+    margin-left: 20px;
+    font-family: 'Smokum', 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+  }
+
+
+
 
   .new-recipe {
     width: 100vw;

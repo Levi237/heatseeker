@@ -134,6 +134,24 @@
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 @media screen and (max-width: 767px) {
+    .linkBtn {
+        height: 205px;
+        min-width: 450px;
+    }
+    .user-show-recipe {
+        /* position: relative; */
+        width: 90vw;
+        /* height: 10vw; */
+        margin: 10px auto;
+    }
+    .show-recipe .chalk-line {
+        width: 300px;
+    }
+    .card-recipe .chalk-line {
+        width: 30vw;
+    }
+
+
     .userHome div {
         display: block;
     }
@@ -166,12 +184,7 @@
         margin: 1vw;
         height: 40px;
     }
-    .user-show-recipe {
-        position: relative;
-        width: 60vw;
-        height: 10vw;
-        margin: 10px auto ;
-    }
+
     .edit-container {
         width: 80vw;
         margin: 0 auto;

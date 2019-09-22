@@ -39,18 +39,18 @@ render(){
                             <div key={i} className="recipe-data">
                             
                                 <div className="home-label pick-label ">
-                                    <div className="show-left">
+                                    <div className="card-left">
 
                                         <div className={r.label}>
                                             <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
                                                 <img src={r.icon} alt={r.icon} name="label1"/>
-                                            <h4>{r.style}e</h4>
+                                            <h4>{r.style}</h4>
                                         </div>
                                         
                                     </div>
                                 </div>
-                                <div className="dataDiv show-right">
-                                    <div className="show-recipe show-right">
+                                {/* <div className="dataDiv show-right"> */}
+                                    <div className="card-recipe card-right">
 
                                         <section><strong>{dateCreated}</strong></section>
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
@@ -63,7 +63,7 @@ render(){
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                                         <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section>}
                                     </div>
-                                </div>
+                                {/* </div> */}
 
                             </div>
                             

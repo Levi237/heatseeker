@@ -96,17 +96,17 @@ export default class Show extends Component {
                 {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
                 {  user ?  <h2>{recipe.header}</h2> : <h2>Your Recipe</h2> }
                     <div className="show-style-div">
-                        <div className="show-left">
+                        <div className="float-left">
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
                         </div>
                         <div className="show-style">
                             {recipe.style}
                         </div>
                         { recipe.chili[1]
-                        ? <div className="show-right">
+                        ? <div className="float-right">
                             <img src={`../chilis/${recipe.chili[1].src}`} alt={recipe.chili[1].name} className="chili"/>
                             </div>
-                        : <div className="show-right">
+                        : <div className="float-right">
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
                             </div>
                         }
