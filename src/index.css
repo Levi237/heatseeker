@@ -97,9 +97,9 @@ grid-template-areas:
 .grid-header {
   grid-area: header;
   background-image: url('./img/wood-panel-vintage.png');
+  background-color: orangered;
   background-repeat: repeat-x;
   background-size: contain;
-  background-color: orangered;
   text-align: center;
 }
 
@@ -316,14 +316,17 @@ grid-template-areas:
 
 @media screen and (max-width: 767px) {
   .grid-container {
-    grid-template-rows: 20vw 8vw auto 40px;
+    grid-template-rows: 8vw 20vw auto 40px;
     grid-template-columns: 100vw;
   grid-template-areas:
-    ' header '
     ' nav '
+    ' header '
     ' main '
     ' footer ';
     grid-gap: 0;
+  }
+  .grid-heaader {
+    padding-top: 8vw;
   }
   .grid-header > img {
     height: 14vw;
@@ -331,6 +334,8 @@ grid-template-areas:
   }
   .grid-nav {
     text-align: center;
+    position: fixed;
+    width: 100vw;
   }
   .navBox {
     margin: 1.5vw 0 !important;
@@ -378,16 +383,3 @@ grid-template-areas:
     width: 100vw;
   }
 }
-
-
-
-
-
-
-
-/* background-repeat: no-repeat;
-background-size: contain;
-position: relative;
-height: 15vw;
-width: 10vw;
-margin: 1.5vw; */

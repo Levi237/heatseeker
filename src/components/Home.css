@@ -161,7 +161,7 @@
     .home-left > h3 {
         z-index: 5;
     }
-    .home-left > button {
+    .home-left button {
         display: inline-block;
         margin: 1vw;
         height: 40px;
