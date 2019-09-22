@@ -127,9 +127,6 @@ export default class Form extends Component {
         let labelImage = [];
         const data = e.currentTarget.id
         labelImage = data.split(" ")
-
-        // console.log(e.currentTarget.id, "id");
-        // console.log(e.currentTarget.name, "name");
         this.setState({
             label: labelImage[0],
             icon: labelImage[1]
