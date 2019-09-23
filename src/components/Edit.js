@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Redirect }         from 'react-router-dom';
-// import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
-import Labels from './Labels'
-// import Simplify from './Simplify'
+import Labels from './Labels';
+import Label from './const/Label';
+import Select from './Select';
+
 
 import * as routes from '../constants/routes';
 import firebase             from 'firebase/app'
 import 'firebase/firestore'
 
 import './Form.css'
-import Select from './Select';
 
 // NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.
 
@@ -72,15 +72,19 @@ export default class Edit extends Component {
             return update    
     }
 
-    setToggle = (e, value) => {
+    handleChange = e => {
         this.setState({
-            [e.target.name]: value
-        })
-    }
-
+            [e.target.name]: e.target.value
+        });
+    };
     setLabel = (e) => {
         this.setState({
             label: e.currentTarget.id,
+        })
+    }
+    setToggle = (e, value) => {
+        this.setState({
+            [e.target.name]: value
         })
     }
     extraToggle = (e, value) => {
@@ -113,12 +117,6 @@ export default class Edit extends Component {
             })
         }
     }
-
-    handleChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    };
 
     render(){
 
@@ -170,11 +168,18 @@ export default class Edit extends Component {
                     <div className="pick-label">
                         <div>
                         { label &&
-                            <div className={label}>
-                                <input className="brand-header" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
-                                <img src={icon} alt={icon} name="label1"/>
-                                <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
-                            </div>
+                        <Label 
+                            handleChange={this.handleChange}
+                            icon={icon}
+                            label={label}
+                            header={header}
+                            style={style}
+                        />
+                            // <div className={label}>
+                            //     <input className="brand-header" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
+                            //     <img src={icon} alt={icon} name="label1"/>
+                            //     <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
+                            // </div>
                         }
                         </div>
                     </div>

@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Redirect }         from 'react-router-dom';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
-import Labels from './Labels'
-import Select from './Select';
-import firebase             from 'firebase/app'
+import Labels               from './Labels';
+import Label                from './const/Label';
+import Select               from './Select';
+
+import firebase             from 'firebase/app';
 import 'firebase/firestore'
+
 import './Form.css'
 
 //Scroll Menu
@@ -31,8 +34,8 @@ const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 export default class Form extends Component {
     state = {
         examples: [],
-        header: null,
-        style: null,
+        header: "HEATMAKERS",
+        style: "XX Sauce",
         label: "label2",
         icon: "real-chili.jpg",
         chili: [],
@@ -138,7 +141,7 @@ export default class Form extends Component {
         const { chili, spice, vinegar, extra, examples, style, label, icon, header, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
 
-                const showExamples = examples.map((ex, i) => {
+        const showExamples = examples.map((ex, i) => {
             return(
                 <section className="chiliSection" key={i}>
                 <button name={ex} value={ex} className={((chili === ex.chili && spice === ex.spice) ? "active select-btn" : "select-btn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
@@ -199,12 +202,13 @@ export default class Form extends Component {
             <div className="box1">
                 <div className="pick-label">
                   <div>
-                    <div className={label}>
-                        <input className="brand-header" name="header" placeholder="BRAND IT" type="text" onChange={this.handleChange}/>
-                        <img src={icon} alt="chili-burn.png" name="label1"/>
-
-                        <input className="name-sauce" name="style" placeholder="Name Your Sauce" type="text" onChange={this.handleChange}/>
-                    </div>
+                  <Label 
+                            handleChange={this.handleChange}
+                            icon={icon}
+                            label={label}
+                            header={header}
+                            style={style}
+                        />
                   </div>
                 </div>
                 <div className="pick-mini-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
