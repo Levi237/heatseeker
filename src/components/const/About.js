@@ -29,7 +29,7 @@ const About = () =>
             
             <h3>Points of Pride:</h3>
                 <ul>
-                    <li>Photoshoped header from screenshot of google font</li>
+                    <li>Photoshop header from screenshot of google font</li>
                     <li>Full Stack w/ Firebase | React | CSS | JS</li>
                     <li>Minimal imports</li>
                 </ul>
