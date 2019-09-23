@@ -16,7 +16,7 @@ const About = () =>
                     <li>Create user accounts to save and view recipes</li>
                     <li>Update or Delete your recipes</li>
                     <li>Provide default recipe labels</li>
-                    <li>Desktop only</li>
+                    {/* <li>Desktop only</li> */}
                 </ul>
                 <br/>
                             
