@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import firebase from 'firebase/app'
-import Enter from '../Enter'
+import Enter from './Enter'
 
-import './Show.css'
+import './Labels.css'
 
 export default class Show extends Component {
     state = {
         login: false,
     }
+
     showEnter = () => {
         this.setState({
           ...this.state,
@@ -15,29 +17,28 @@ export default class Show extends Component {
         })
       }
 
-      onClose = (e) => {
-        this.props.onClose && this.props.onClose(e);
+    saveForm = async () => {
+        const { newRecipe, user } = this.props
+        const newFromDB = await firebase.firestore()
+            .collection('recipes')
+            .add({
+                header: newRecipe.header,
+                style: newRecipe.style,
+                label: newRecipe.label,
+                icon: newRecipe.icon,
+                chili: newRecipe.chili,
+                spice: newRecipe.spice,
+                extra: newRecipe.extra,
+                vinegar: newRecipe.vinegar,
+                creator: user.displayName,
+                email: user.email,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+        return newFromDB
     }
 
-      saveForm = async () => {
-          const { newRecipe, user } = this.props
-        const newFromDB = await firebase.firestore()
-          .collection('recipes')
-          .add({
-            style: newRecipe.style,
-            chili: newRecipe.chili,
-            spice: newRecipe.spice,
-            extra: newRecipe.extra,
-            vinegar: newRecipe.vinegar,
-            creator: user.displayName,
-            email: user.email,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          })
-          return newFromDB
-      }
-
     render(){
-        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow } =  this.props
+        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props
     
         let recipe = []
         let addExtras = [];
@@ -52,7 +53,9 @@ export default class Show extends Component {
         } else if (newRecipe){
                 recipe = newRecipe
         }
-    
+        if (recipe){
+            console.log(recipe.label)
+        }
         if (recipe && recipe.extra){
             let nre = recipe.extra
                 const addExtra = nre.map((data, i) => {
@@ -72,33 +75,61 @@ export default class Show extends Component {
 
         return(
             <>
+                <div className="show-buttons">
+                    { (user && !newRecipe) && <>
+                        <button onClick={() => {closeShow();}}>Return Home</button>
+                        <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
+                        <button value={recipe.id} onClick={(e) => {editRecipeID(e)}}>Edit</button>
+                        { edit && <Redirect to={'./edit-recipe'}/> }
+                    </> }
+                    { (user && newRecipe ) && <>
+                        <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
+                        <button onClick={() => {showOrder();}}>Complete Order</button>
+                    </> }
+                    { (!user && newRecipe ) && <>
+                        <button onClick={this.showEnter}>Save to Account</button>
+                        <button onClick={() => {showOrder();}}>Complete Order</button>
+                    </> }
+                </div>    
             {recipe &&
                 <>
                 {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
-                {  user ?  <h2>{user.displayName}'s</h2> : <h2>Your Recipe</h2> }
+                {  user ?  <h2>{recipe.header}</h2> : <h2>Your Recipe</h2> }
                     <div className="show-style-div">
-                        <div className="show-left">
+                        <div className="float-left">
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
                         </div>
                         <div className="show-style">
                             {recipe.style}
                         </div>
                         { recipe.chili[1]
-                        ? <div className="show-right">
+                        ? <div className="float-right">
                             <img src={`../chilis/${recipe.chili[1].src}`} alt={recipe.chili[1].name} className="chili"/>
                             </div>
-                        : <div className="show-right">
+                        : <div className="float-right">
                             <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
                             </div>
                         }
                     </div>
                     <div className="new-recipe">
+
                     { recipe.chili[1] 
                     ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>
                     : <progress className="bored-bar" value={(recipe.chili[0].heat)} max="15"></progress> 
                     }
                     <br /><br/>
-                        <div className="show-recipe">
+
+                        <div className="pick-label show-left">
+                            <div>
+                                <div className={recipe.label}>
+                                    <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
+                                    <img src={recipe.icon} alt={recipe.icon} name="label1"/>
+                                    <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="show-recipe show-right">
                             { recipe.chili[1]
                             ? <><span>Pepper:</span><section><strong>{ recipe.chili[0].name } & { recipe.chili[1].name }</strong></section></>
                             : <><span>Pepper:</span><section><strong>{ recipe.chili[0].name }</strong></section></>
@@ -111,21 +142,8 @@ export default class Show extends Component {
                             : ""}
                             <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                             <span>Vinegar:</span>{ recipe.vinegar.name && <section><strong>{ recipe.vinegar.name }</strong></section>}
-                        </div><br/>
-
-                        { (user && !newRecipe) && <>
-                            <button onClick={() => {closeShow();}}>Return Home</button>
-                            <button onClick={() => {showOrder(); closeShow();}}>Complete Order</button>
-                        </> }
-                        { (user && newRecipe ) && <>
-                            <button onClick={() => {this.saveForm(); clearNewRecipe()}}>Save & Return Home</button>
-                            <button onClick={() => {showOrder();}}>Complete Order</button>
-                        </> }
-                        { (!user && newRecipe ) && <>
-                            <button onClick={this.showEnter}>Save to Account</button>
-                            <button onClick={() => {showOrder();}}>Complete Order</button>
-                        </> }
-                        
+                        </div>
+                    <br/>
                     </div>
                 </>
             }

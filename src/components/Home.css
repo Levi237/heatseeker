@@ -1,4 +1,3 @@
-
 .home-left {
     display: inline-block;
     width: 30vw;
@@ -33,33 +32,7 @@
 }
 
 
-.linkBtn {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-}
 
-.user-show-recipe {
-    position: relative;
-    display: inline-block;
-    width: 30vw;
-    height: 6vw;
-    margin: 10px auto 0 auto;
-}
-
-.list-left, .list-right {
-    display: inline-block;
-    max-width: 33vw;
-    position: relative;
-    top: 0;
-}
-.list-left {
-    float: left;
-}
-.list-right {
-    float: right;
-    margin-right: 2.5vw;
-}
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
 /***************************************           SHOW            ***************************************/
@@ -105,32 +78,29 @@
     z-index: 5;
 }
 
-.edit-container {
+.home-edit {
     overflow: hidden;
     width: 18vw;
     margin: 0 auto;
     max-height: 140px;
     transition: all 1s ease;
 }
-.off.edit-container {
+.off.home-edit {
     transition: all 1s;
     position: relative;
     max-height: 0px;
 }
-.edit-container input {
+.home-edit input {
     width: 17vw;
     transition: all .5s linear;
 }
 
-
 .off{
     display: none;
 }
-
 .on {
     background-color: orangered;
 }
-
 
 .home-show-orders {
     width: 60vw;
@@ -139,7 +109,6 @@
 
 .user-icon {
     height: .8em;
-
 }
 
 .label {
@@ -154,7 +123,13 @@
 /*********************************************************************************************************/
 @media screen and (max-width: 767px) {
 
-    .userHome div {
+
+    .card-recipe .chalk-line {
+        width: 30vw;
+    }
+
+
+    .home-container div {
         display: block;
     }
 
@@ -166,13 +141,6 @@
         width: 100vw;
         max-width: 100vw;
         position: relative;
-    }
-    .list-left {
-        float: none;
-    }
-    .list-right {
-        float: none;
-        margin-right: 2.5vw;
     }
     .home-show-orders {
         width: 100vw;
@@ -188,22 +156,17 @@
     .home-left > h3 {
         z-index: 5;
     }
-    .home-left > button {
+    .home-left button {
         display: inline-block;
         margin: 1vw;
         height: 40px;
     }
-    .user-show-recipe {
-        position: relative;
-        width: 60vw;
-        height: 10vw;
-        margin: 10px auto ;
-    }
-    .edit-container {
+
+    .home-edit {
         width: 80vw;
         margin: 0 auto;
     }
-    .edit-container input {
+    .home-edit input {
         width: 60vw;
         margin: 0 10vw;
     }

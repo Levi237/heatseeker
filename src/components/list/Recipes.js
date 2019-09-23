@@ -1,44 +1,65 @@
 import React, { Component } from 'react';
-import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import '../Form.css'
-//Scroll Menu
-const MenuItem = ({text}) => {
-    return <div className="menu-item">{text}</div>;
-  };
-export const Menu = (list) =>
-  list.map(el => {
-    const {name} = el;
- 
-    return <MenuItem text={name} key={name} />;
-  });
-const Arrow = ({ text, className }) => {
-  return (
-    <div className={className}>{text}</div>
-  );
-};
-const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
 
-export default class RecipeList extends Component {
-    // state = {}
+export default class Recipes extends Component {
 
 render(){
     const { recipes, user, remove, showThisRecipe, deleteThis } = this.props
-       
+
+    let addExtras = [];
+    let showSpices = [];
     const list = recipes.map((r, i) => {
+        if (r && r.extra){
+            let nre = r.extra
+                const addExtra = nre.map((data, i) => {
+                    return(
+                        <li key={i}>{data.name}</li>
+                    )
+                })
+                addExtras.push(addExtra)
+            let nrs = r.spice.items;
+            const showSpice = nrs.map((data, i) => {
+                return(
+                    <li key={i}>{data}</li>
+                )
+            })
+            showSpices.push(showSpice)
+        }
         if (r.email && r.email === user.email && r.timestamp  && !r.delete){
             let dateCreated = r.timestamp.toDate().toDateString()
 
             return(
-                <div className="user-show-recipe" key={i}>
+                <div className="recipe-container">
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
-                    <form className="linkBtn" >
-                        <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
-                        <div key={i} className="recipe-data">
-                            <section>{r.style}</section>
-                            <section>{dateCreated}</section>
-                        </div>
+                    <form className="recipe-link">   
+                        <button  className="recipe-link" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
+                                
+                                <div className="card-label pick-label ">
+
+                                    <div className="card-left">
+                                        <div className={r.label}>
+                                            <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
+                                                <img src={r.icon} alt={r.icon} />
+                                            <h4>{r.style}</h4>
+                                        </div> 
+                                    </div>
+
+                                    <div className="card-recipe card-right">
+                                        <section><strong>{dateCreated}</strong></section>
+                                        <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
+                                        { r.chili[1]
+                                        ? <><span>Pepper:</span><section><strong>{ r.chili[0].name } & { r.chili[1].name }</strong></section></>
+                                        : <><span>Pepper:</span><section><strong>{ r.chili[0].name }</strong></section></>
+                                        }
+                                        <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
+                                        <span>Spice:</span>{ r.spice.name && <section><strong>{ r.spice.name } Spice</strong></section> }
+                                        <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
+                                        <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section> }
+                                    </div>
+
+                                </div>
+                                
                         </button>
                     </form>
                 </div>
@@ -47,10 +68,11 @@ render(){
     })
 
     return(
-        <>
-        {/* <ScrollMenu data={list} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> */}
-        {list}
-        </>
+        <div>
+            <h2>CREATIONS</h2>
+                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                {list}
+        </div>
     )
 }
 }

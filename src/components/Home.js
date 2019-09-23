@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-import Order from './Order'
-import Username from './Username';
-import Show     from './modal/Show';
-import RecipeList from './list/Recipes';
-import Labels from './levi/Labels'
-import Info from './modal/Info'
+import Order      from './Order'
+import Username   from './Username';
+import Show       from './Show';
+import Recipes from './list/Recipes';
+import Menu       from './const/Menu'
+import Info       from './const/Info'
 
-// import './levi/Labels.css'
-import './Home.css'
-// import * as routes from './constants/routes'
-import firebase from 'firebase/app'
+import firebase   from 'firebase/app'
 import 'firebase/firestore'
+
+import './Home.css'
 
 export default class Home extends Component {
     state = {
         remove: false,
-        userEdit: false,
-        userCreations: true,
-        userOrders: false,
-        userInfo: false,
+        dashOn: "userInfo",
     }
 
     toggleValue = (e) => {
         this.setState({
-            [e.currentTarget.name]: !this.state[e.currentTarget.name]
+            dashOn: e.target.id
         });
     };
 
@@ -46,11 +41,11 @@ export default class Home extends Component {
     }
 
     render(){
-        const { remove, userEdit, userCreations, userOrders, userInfo } = this.state
-        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow } = this.props
+        const { remove, dashOn } = this.state
+        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props
         
         return(
-            <div className="userHome">
+            <div>
             {  (this.props.order) && <Order order={order} showOrder={showOrder} /> }
             
             {  show 
@@ -58,69 +53,47 @@ export default class Home extends Component {
                     closeShow={closeShow}
                     showOrder={showOrder}
                     show={show} 
+                    edit={edit}
                     recipes={recipes} 
                     newRecipe={newRecipe} 
                     updateForm={updateForm}
-                    user={user}/> 
+                    editRecipeID={editRecipeID}
+                    user={user}
+                    /> 
             :  <>
                 {   (user && !user.displayName) && <Username /> }
-
                 {   user 
-                ?   <div className="home-container">
+                ?   <div className="home-contiainer">
 
                         <div className="home-left">
-                            <h3><img src="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
-                                <button name="userInfo" type="button" className={userInfo ? "on" : ""} onClick={this.toggleValue}>How To</button>
-                                <Link  to='./create-sauce'><button type="button" to={'./create-sauce'}>Create Hotsauce</button></Link>
-                                <button name="userOrders" type="button" className={userOrders ? "on" : ""} onClick={this.toggleValue}>Show Orders</button>
-                                <button name="userCreations" type="button" className={userCreations ? "on" : ""} onClick={this.toggleValue}>Show Creations</button>
-                                <button name="userEdit" type="button" className={userEdit ? "on" : ""} onClick={this.toggleValue}>Edit Account</button>
-                            <div className={userEdit ? "edit-container" : "off edit-container"}>
-                                <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
-                                <Username />
-                            </div>
-                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                            <h3><img src="chili-logo.png" alt="chili-logo.png" className="user-icon"/> {user.displayName}</h3>
+                            <Menu dashOn={dashOn} toggleValue={this.toggleValue} />
                         </div>
 
                         <div className="home-right">
-                        {   (userInfo) &&
-
-                                <Info />
-
-                        }
-                        {   (userOrders) &&
-                            <div className="home-show-orders">
-                                <h2>ORDERS</h2>  
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                <h4>Orders will display combinations of Recipes and Labels with a history of eCommerce orders.</h4>
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/>
-                            </div>
-                        }
-                        {   (userCreations) &&
-                            <div className="home-show-lists">
-                                <h2>CREATIONS</h2>
-                                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                                <div className="list-left">
-                                    <h3>RECIPES</h3>
-                                    <img className="chalk chalk-top" src="chalkdarkorange.png" alt="line break"/> 
-                                        <div className="overflow-list">
-                                            <RecipeList 
-                                                user={user} 
-                                                recipes={recipes}
-                                                remove={remove}
-                                                deleteThis={this.deleteThis}
-                                                showThisRecipe={showThisRecipe} />
-                                        </div>
-                                        <img className="chalk chalk-bottom" src="chalkdarkorange.png" alt="line break"/>
+                        <br/>
+                        {  (dashOn === "userEdit") &&
+                                <div className="home-edit">
+                                    <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                                    <Username />
                                 </div>
-                                <div className="list-right">
-                                    <h3>LABELS</h3>
-                                    <img className="chalk chalk-top" src="chalkdarkorange.png" alt="line break"/> 
-                                        <Labels user={user} />
-                                    <img className="chalk chalk-bottom" src="chalkdarkorange.png" alt="line break"/>
-                                </div> 
-                            </div>
+                        }   
+                        {   (dashOn === "userInfo") && <Info /> }
+                        {   (dashOn === "userOrders") &&
+                                <div className="home-show-orders">
+                                    <h2>ORDERS</h2>  
+                                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                                    <h4>Orders will display Cards with a history of eCommerce orders.</h4>
+                                </div>
                         }
+                        {   (dashOn === "userCreations") &&          
+                                <Recipes 
+                                    user={user} 
+                                    recipes={recipes}
+                                    remove={remove}
+                                    deleteThis={this.deleteThis}
+                                    showThisRecipe={showThisRecipe} 
+                                    /> }
                         </div>
                     </div>
                 :   <Info />

@@ -19,17 +19,14 @@ export default class Username extends Component {
           displayName: this.state.name,
           // photoURL: "https://example.com/jane-q-user/profile.jpg"
         }).then(function() {
-          // Update successful.
         }).catch((error) => {
-            this.setState({updateErrors: error.message}) // need to add to state
+            this.setState({updateErrors: error.message}) 
         });
-    
       }
 
     render(){
         return(
             <form>
-            {/* <form onSubmit={this.updateUserName}> */}
                 <input type="text" onChange={this.handleChange} value={this.state.name} name="name" placeholder="Edit Name"/>
                 <button type="submit" onClick={this.updateUserName}>Save Name</button>
             </form>

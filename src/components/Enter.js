@@ -55,8 +55,8 @@ export default class Enter extends Component{
             <button className="registerBtn" onClick={() => this.getAction('login')}>Login</button>;
 
         return(
-            <div className="home">
-                <div className="form-block">
+            <div className="enter-container ">
+                <div className="enter-form">
             { newRecipe && <button className="close x" onClick={(e) => {onClose(e)}}>X</button> }
                     <div className="errorNotification">{errorNotification}</div>
                     <div id="title">{formTitle}</div>
