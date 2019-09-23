@@ -31,7 +31,7 @@ export default class Labels extends Component {
                 <div key={key}>
                 <div  id={`${label.header} ${label.icon}`} className={label.header} type="submit" onClick={(e) => {setLabel(e)}}>
                     <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
-                    <img src={label.icon} alt={label.icon}/>
+                    <img src={label.icon} alt={label.icon} value={label.icon}/>
                     <h4>Hot Sauce</h4>
                 </div>
                 </div>

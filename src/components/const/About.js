@@ -22,8 +22,8 @@ const About = () =>
                             
             <h3>Current Development:</h3>
                 <ul>
-                    <li>Mobile Friendly</li>
-                    <li>Recipe Card Styling</li>
+                    <li>Separate label images from background borders for more variety</li>
+                    <li>Label upload</li>
                 </ul>
                 <br/>
             
@@ -37,7 +37,8 @@ const About = () =>
             
             <h3>Future Goals:</h3>
                 <ul>
-                    <li>Label upload</li>
+                    <li>Mobile Friendly Show & Cards</li>
+                    <li>Consult UX on forms, cards & dashboard</li>
                     <li>Info/Help Modal to explain process</li>
                     <li>Fix double click on example extras</li>
                 </ul>

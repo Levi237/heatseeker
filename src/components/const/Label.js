@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Label = ({label, icon, style, header, handleChange, setToggle}) => {
+const Label = ({label, icon, style, header, handleChange}) => {
     return(
         <div className={label}>
             <input className="brand-header" name="header" placeholder={header} type="text" onChange={handleChange}/>

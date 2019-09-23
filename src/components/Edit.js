@@ -159,19 +159,21 @@ export default class Edit extends Component {
                     <div className="pick-label">
                         <div>
                         { label &&
-                        <Label 
-                            handleChange={this.handleChange}
-                            setToggle={this.setToggle}
-                            icon={icon}
-                            label={label}
-                            header={header}
-                            style={style}
-                            />
+                            <Label 
+                                label={label}
+                                icon={icon}
+                                header={header}
+                                style={style}
+                                handleChange={this.handleChange}
+                                />
                         }
                         </div>
                     </div>
                     <div className="pick-mini-labels">
-                        <Labels user ={user} setLabel={this.setLabel}/>
+                        <Labels 
+                            user ={user} 
+                            setLabel={this.setLabel}
+                            />
                     </div>
 
                     <Ingredients 

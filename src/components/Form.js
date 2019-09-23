@@ -36,7 +36,7 @@ export default class Form extends Component {
     state = {
         examples: [],
         header: "HEATMAKERS",
-        style: "XX Sauce",
+        style: "X Hot Sauce X",
         label: "label2",
         icon: "real-chili.jpg",
         chili: [],
@@ -205,7 +205,7 @@ export default class Form extends Component {
                         setLabel={this.setLabel}
                         />
                 </div>
-                <Ingredients 
+                    <Ingredients 
                         chili={chili} 
                         spice={spice} 
                         vinegar={vinegar }
