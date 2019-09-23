@@ -32,18 +32,6 @@
 }
 
 
-.linkBtn {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-}
-
-.user-show-recipe {
-    position: relative;
-    width: 500px;
-    height: 210px;
-    margin: 10px auto 0 auto;
-}
 
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -90,19 +78,19 @@
     z-index: 5;
 }
 
-.edit-container {
+.home-edit {
     overflow: hidden;
     width: 18vw;
     margin: 0 auto;
     max-height: 140px;
     transition: all 1s ease;
 }
-.off.edit-container {
+.off.home-edit {
     transition: all 1s;
     position: relative;
     max-height: 0px;
 }
-.edit-container input {
+.home-edit input {
     width: 17vw;
     transition: all .5s linear;
 }
@@ -134,23 +122,14 @@
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 @media screen and (max-width: 767px) {
-    .linkBtn {
-        height: 205px;
-        min-width: 450px;
-    }
-    .user-show-recipe {
-        /* position: relative; */
-        width: 90vw;
-        /* height: 10vw; */
-        margin: 10px auto;
-    }
+
 
     .card-recipe .chalk-line {
         width: 30vw;
     }
 
 
-    .userHome div {
+    .home-container div {
         display: block;
     }
 
@@ -183,11 +162,11 @@
         height: 40px;
     }
 
-    .edit-container {
+    .home-edit {
         width: 80vw;
         margin: 0 auto;
     }
-    .edit-container input {
+    .home-edit input {
         width: 60vw;
         margin: 0 10vw;
     }

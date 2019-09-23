@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Order      from './Order'
 import Username   from './Username';
 import Show       from './Show';
-import RecipeList from './list/Recipes';
+import Recipes from './list/Recipes';
 import Menu       from './const/Menu'
 import Info       from './const/Info'
 
@@ -45,7 +45,7 @@ export default class Home extends Component {
         const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props
         
         return(
-            <div className="userHome">
+            <div>
             {  (this.props.order) && <Order order={order} showOrder={showOrder} /> }
             
             {  show 
@@ -73,7 +73,7 @@ export default class Home extends Component {
                         <div className="home-right">
                         <br/>
                         {  (dashOn === "userEdit") &&
-                                <div className="edit-container">
+                                <div className="home-edit">
                                     <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
                                     <Username />
                                 </div>
@@ -87,7 +87,7 @@ export default class Home extends Component {
                                 </div>
                         }
                         {   (dashOn === "userCreations") &&          
-                                <RecipeList 
+                                <Recipes 
                                     user={user} 
                                     recipes={recipes}
                                     remove={remove}

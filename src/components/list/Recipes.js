@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import '../Form.css'
 
-export default class RecipeList extends Component {
+export default class Recipes extends Component {
 
 render(){
     const { recipes, user, remove, showThisRecipe, deleteThis } = this.props
@@ -30,28 +30,22 @@ render(){
             let dateCreated = r.timestamp.toDate().toDateString()
 
             return(
-                <div className="user-show-recipe" key={i}>
+                <div className="recipe-container">
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
+                    <form className="recipe-link">   
+                        <button  className="recipe-link" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
+                                
+                                <div className="card-label pick-label ">
 
-                    <form className="linkBtn" >
-                        <button  className="linkBtn" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
-
-                            <div key={i} className="recipe-data">
-                            
-                                <div className="home-label pick-label ">
                                     <div className="card-left">
-
                                         <div className={r.label}>
                                             <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
-                                                <img src={r.icon} alt={r.icon} name="label1"/>
+                                                <img src={r.icon} alt={r.icon} />
                                             <h4>{r.style}</h4>
-                                        </div>
-                                        
+                                        </div> 
                                     </div>
-                                </div>
-                                {/* <div className="dataDiv show-right"> */}
-                                    <div className="card-recipe card-right">
 
+                                    <div className="card-recipe card-right">
                                         <section><strong>{dateCreated}</strong></section>
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                                         { r.chili[1]
@@ -59,14 +53,13 @@ render(){
                                         : <><span>Pepper:</span><section><strong>{ r.chili[0].name }</strong></section></>
                                         }
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
-                                        <span>Spice:</span>{ r.spice.name && <section><strong>{ r.spice.name } Spice</strong></section>}
+                                        <span>Spice:</span>{ r.spice.name && <section><strong>{ r.spice.name } Spice</strong></section> }
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
-                                        <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section>}
+                                        <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section> }
                                     </div>
-                                {/* </div> */}
 
-                            </div>
-                            
+                                </div>
+                                
                         </button>
                     </form>
                 </div>

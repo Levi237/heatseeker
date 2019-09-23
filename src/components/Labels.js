@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './Labels.css'
-import './Home.css'
+// import './Home.css'
 
 export default class Labels extends Component {
     state ={
@@ -26,9 +26,9 @@ export default class Labels extends Component {
         const { labels } = this.state
         const { user, setLabel } = this.props
 
-        const makeList = labels.map((label) => {
+        const makeList = labels.map((label, key) => {
             return(
-                <div>
+                <div key={key}>
                 <div  id={`${label.header} ${label.icon}`} className={label.header} type="submit" onClick={(e) => {setLabel(e)}}>
                     <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
                     <img src={label.icon} alt={label.icon}/>

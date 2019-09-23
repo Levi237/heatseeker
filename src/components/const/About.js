@@ -1,7 +1,7 @@
 import React from 'react';
 
 const About = () => 
-    <div className="about">
+    <div className="about-container">
         <h2><img src="chili-logo.png" alt="logo"/>Create Your Own Hot Sauce<img src="chili-logo.png" alt="logo"/></h2>
         <br />
             <p>

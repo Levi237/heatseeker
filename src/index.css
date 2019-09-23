@@ -15,12 +15,12 @@ body {
 
 h1, h2, h3 {
   font-family: 'Smokum', 'Times New Roman', Times, serif;
+  margin-block-end: 0em;
 }
 
 h1 {
   font-size: 4em;
   margin-block-start: 10px;
-  margin-block-end: 0em;
   font-weight: bolder;
   letter-spacing: 3px;
 }
@@ -29,13 +29,11 @@ h2 {
   display: block;
   font-size: 3em;
   margin-block-start: 0em;
-  margin-block-end: 0em;
 }
 h3 {
   display: inline-block;
   font-size: 2em;
   margin-block-start: 0em;
-  margin-block-end: 0em;
 }
 
 button {
@@ -51,16 +49,46 @@ a {
   margin: -7vw;
 }
 
-.activeNav {
-  text-decoration: underline;
-}
-.dash-on {
-  background-color: orangered;
-}
+
+
 .info-container li {
   text-align: right;
   margin: 0 16vw;
   padding-right: 24px;
+}
+
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************         PROGRESS          ***************************************/
+/***************************************              BAR          ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+background-image:
+        -webkit-linear-gradient(top, 
+                                rgba(255, 255, 255, .25), 
+                                rgba(0, 0, 0, .25)),
+        -webkit-linear-gradient(left, rgb(255, 255, 0, 0), yellow, yellow, orange, #f44, red);
+
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    transition: width .5s linear;
+}
+
+.bored-bar {
+    width: calc(100% - 50px);
+    margin: 0px;
 }
 /*********************************************************************************************************/
 /***************************************                           ***************************************/
@@ -120,13 +148,17 @@ grid-template-areas:
   text-align: right;
 }
 
-.navBox {
+.nav-container {
   margin: 11px 0;
 }
-.navBox > a {
+.nav-container > a {
   padding: 0 30px 0 0;
   color: white;
   font-weight: 700;
+}
+
+.nav-active {
+  text-decoration: underline;
 }
 
 /*********************************************************************************************************/
@@ -160,6 +192,10 @@ grid-template-areas:
   grid-area: main;
   background-color: white;
   text-align: center;
+}
+
+.dash-on {
+  background-color: orangered;
 }
 
 /*********************************************************************************************************/
@@ -245,10 +281,11 @@ grid-template-areas:
 }
 
 .card-recipe {
-  width: 280px;
+  /* width: 280px; */
 }
 .card-recipe .chalk-line {
   width: 300px;
+  height: 5px;
 }
 
 .card-recipe span {
@@ -375,10 +412,10 @@ grid-template-areas:
     width: 100vw;
     z-index: 500;
   }
-  .navBox {
+  .nav-container {
     margin: 1.7vw 0 !important;
   }
-  .navBox > a {
+  .nav-container > a {
     font-size: 4vw;
     padding: 0 2vw ;
     color: white;
@@ -450,7 +487,7 @@ grid-template-areas:
     padding: 0;
   }
   .new-recipe .chalk-line {
-    width: 100vw;
+    /* width: 100vw; */
   }
   .chalk {
     width: 100vw;

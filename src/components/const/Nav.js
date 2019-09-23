@@ -4,16 +4,16 @@ import { NavLink } from 'react-router-dom';
 import * as routes from '../../constants/routes'
 
 const Nav = ({order, user, logout}) => 
-    <div className="navBox">
+    <div className="nav-container">
         { order
-        ? <NavLink className="unlink">CREATE</NavLink>
-        : <NavLink activeClassName="activeNav" to={routes.FORM}>CREATE</NavLink>
+        ? <NavLink>CREATE</NavLink>
+        : <NavLink activeClassName="nav-active" to={routes.FORM}>CREATE</NavLink>
         }
-        <NavLink activeClassName="activeNav" to={routes.HOME}>HOME</NavLink>
-        <NavLink activeClassName="activeNav" to={routes.INFO}>ABOUT</NavLink>
+        <NavLink activeClassName="nav-active" to={routes.HOME}>HOME</NavLink>
+        <NavLink activeClassName="nav-active" to={routes.INFO}>ABOUT</NavLink>
         { user 
-        ?  <NavLink activeClassName="activeNav" to={routes.ENTR} onClick={logout}>LOGOUT</NavLink> 
-        :  <NavLink activeClassName="activeNav" to={routes.LOGN}>LOGIN</NavLink>
+        ?  <NavLink activeClassName="nav-active" to={routes.ENTR} onClick={logout}>LOGOUT</NavLink> 
+        :  <NavLink activeClassName="nav-active" to={routes.LOGN}>LOGIN</NavLink>
         }
     </div>
 

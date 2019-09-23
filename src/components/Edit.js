@@ -138,7 +138,7 @@ export default class Edit extends Component {
 
     render(){
 
-        const { chili, spice, vinegar, extra, style, label, icon, header } = this.state
+        const { chili, spice, vinegar, extra, style, label, icon, header, close } = this.state
         const { chilis, spices, extras, vinegars, user, closeEditForm } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
@@ -151,68 +151,68 @@ export default class Edit extends Component {
         let extra6 = ""; if ( extra[5] ){ extra6 = extra[5] } 
         let extra7 = ""; if ( extra[6] ){ extra7 = extra[6] }
 
-        const chiliList = chilis.map((c, i) => {
+        const chiliList = chilis.map((ch, key) => {
             return(
-                <section className="chiliSection" key={i}>
-                    <button name="chili" value={c} className={(chili1.id === c.id || chili2.id === c.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.chiliToggle(e, c)}} type="button"></button>
-                    <section><img src={`../chilis/${c.src}`} alt={c.name}/><br/>{c.name}</section>
+                <section className="chiliSection" key={key}>
+                    <button name="chili" value={ch} className={(chili1.id === ch.id || chili2.id === ch.id ? "toggleOn edit-btn" : "edit-btn")} onClick={(e) => {this.chiliToggle(e, ch)}} type="button"></button>
+                    <section><img src={`../chilis/${ch.src}`} alt={ch.name}/><br/>{ch.name}</section>
                 </section>
             )
         })
-        const spiceList = spices.map((s, i) => {
-            const spiceItems= s.items.map((item, k) => {
+        const spiceList = spices.map((sp, i) => {
+            const spiceItems= sp.items.map((item, key) => {
                 return (
-                    <li key={k}>{item}</li>
+                    <li key={key}>{item}</li>
                 )
             })
             return (
                 <section className="spiceSection" key={i}>
                 
-                    <button name="spice" value={s} className={(spice.id === s.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, s)}} type="button"></button>
-                    <section>{s.name}<ul>{spiceItems}</ul></section>
+                    <button name="spice" value={sp} className={(spice.id === sp.id ? "toggleOn edit-btn" : "edit-btn")} onClick={(e) => {this.setToggle(e, sp)}} type="button"></button>
+                    <section>{sp.name}<ul>{spiceItems}</ul></section>
                 </section>
             )
         })
-        const extraList = extras.map((x, k) => {
+        const extraList = extras.map((ex, key) => {
             return (
-                <section className="chiliSection" id={`${x.name}`} key={k}>
-                    <button name="extra" value={x} className={(extra1.id === x.id || extra2.id === x.id || extra3.id === x.id || extra4.id === x.id || extra5.id === x.id || extra6.id === x.id || extra7.id === x.id ? "toggleOn btn" : "btn")} onClick={(e) => {this.extraToggle(e, x)}} type="button"></button>
-                    <section><img src={`../extras/${x.img}`} alt={`${x.name}`}/><br/>{x.name}</section>
+                <section className="chiliSection" id={`${ex.name}`} key={key}>
+                    <button name="extra" value={ex} className={(extra1.id === ex.id || extra2.id === ex.id || extra3.id === ex.id || extra4.id === ex.id || extra5.id === ex.id || extra6.id === ex.id || extra7.id === ex.id ? "toggleOn edit-btn" : "edit-btn")} onClick={(e) => {this.extraToggle(e, ex)}} type="button"></button>
+                    <section><img src={`../extras/${ex.img}`} alt={`${ex.name}`}/><br/>{ex.name}</section>
                 </section>
             )
         })
-        const vinegarList = vinegars.map((v, i) => {
+        const vinegarList = vinegars.map((vi, key) => {
             return(
-                <section className="chiliSection" key={i}>
-                    <button name="vinegar" className={(vinegar.name === v.name? "toggleOn btn" : "btn")} onClick={(e) => {this.setToggle(e, v)}} type="button"></button>
-                    <section><img src={`../vinegars/${v.img}`} alt={`${v.name}`}/><br/>{v.name}</section>
+                <section className="chiliSection" key={key}>
+                    <button name="vinegar" className={(vinegar.name === vi.name? "toggleOn edit-btn" : "edit-btn")} onClick={(e) => {this.setToggle(e, vi)}} type="button"></button>
+                    <section><img src={`../vinegars/${vi.img}`} alt={`${vi.name}`}/><br/>{vi.name}</section>
                 </section>
             )
         })
-        const addExtra = extra.map((e, i) => {
+        const addExtra = extra.map((ext, key) => {
             return(
-                <li key={i}>{e.name}</li>
+                <li key={key}>{ext.name}</li>
             )
         })
-        const addChili = chili.map((e, i) => {
+        const addChili = chili.map((chi, key) => {
             return(
-                <div key={i}><strong className="addChili">{e.name}</strong><br /></div>
+                <div key={key}><strong className="addChili">{chi.name}</strong><br /></div>
             )
         })
         return(
-            <div className="form container">
+            <div className="edit-container">
 
             <form onSubmit={(e) => { this.updateRecipe(e, this.state)}}>
 
-            {   this.state.close &&
+            {   close &&
                         <Redirect to={routes.HOME}/>
                     }
                 <div className="box2">
                     <div className="myProgress">
-                    { chili[1] ? 
-                        <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
-                        : 
-                        <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           }
+                    { chili[1] 
+                    ? <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
+                    : <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>   
+                    }
                     </div>
 
                     <div className="chiliSection">
@@ -232,7 +232,7 @@ export default class Edit extends Component {
                         <div>
                         { label &&
                             <div className={label}>
-                                <input className="brand-sauce" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
+                                <input className="brand-header" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
                                 <img src={icon} alt={icon} name="label1"/>
                                 <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
                             </div>
@@ -256,8 +256,8 @@ export default class Edit extends Component {
                         <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
                     }
 
-                    <button className="saveBtn" type="submit">Update</button>
-                    <button className="saveBtn" type="submit" onClick={closeEditForm} >Close</button>
+                    <button className="save-Btn" type="submit">Update</button>
+                    <button className="save-Btn" type="submit" onClick={closeEditForm} >Close</button>
                 
                 </div>      
 

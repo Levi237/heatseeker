@@ -30,13 +30,10 @@
 .label5 > input::placeholder {
     color: rgb(123, 88, 65);
 }
-.label3 .brand-sauce, .label3 .name-sauce, .label5 .brand-sauce, .label5 .name-sauce {
+.label3 .brand-header, .label3 .name-sauce, .label5 .brand-header, .label5 .name-sauce {
     color: black;
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
 }
-/* .label3 h3, .label5 h3 {
-    text-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black, 2px -2px 0 black;
-} */
 .label3 h4, .label5 h4, .label3 h3, .label5 h3 {
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, -1px 1px 0 black, 1px -1px 0 black;
     font-stretch: expanded;
@@ -65,7 +62,7 @@
     height: 120px;
     margin: 10px auto 0 auto;
 }
-.home-label {
+.card-label {
     transform: scale(.7);
     margin: 0 -15%;
 }
@@ -103,7 +100,7 @@
     margin: .8vw auto 0 auto;
 }
 
-.brand-sauce {
+.brand-header {
     font-family: 'Smokum', 'Times New Roman', Times, serif;
     font-size: 34px;
     margin-top: 26px;

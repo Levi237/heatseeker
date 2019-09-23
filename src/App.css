@@ -1,22 +1,51 @@
-.about > h2 > img {
-  height: 100px;
-  margin-bottom: -30px;
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************          RECIPE           ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+.recipe-link {
+  width: 100%;
+  height: 100%;
+  background-color: white;
 }
-.about-points {
-  width: 60vw;
-  text-align: justify;
-  margin: 0 20vw;
+.recipe-container {
+  position: relative;
+  width: 500px;
+  height: 210px;
+  margin: 10px auto 0 auto;
 }
-.about-points li {
-  text-align: right;
-  margin: 0 5vw;
-}
-.about-points ul{
-  margin: 0;
-}
-/* FORM-BLOCK */
 
-.home {
+@media screen and (max-width: 767px) {
+  .recipe-link {
+    height: 205px;
+    min-width: 450px;
+  }
+  .recipe-container {
+    width: 90vw;
+    margin: 10px auto;
+  }
+}
+
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************           EDIT            ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+.edit-btn {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
+  position: absolute;
+  border: none;
+}
+
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************           ENTER           ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+.enter-container {
   height: 100%;
   width: calc(100vw - 40px);
   padding: 20px;
@@ -29,7 +58,7 @@
   z-index: 1;
 }
 
-.form-block {
+.enter-form {
   width: 460px;
   height: 240px;
   border: 5px #000 solid;
@@ -37,16 +66,14 @@
   margin: 20px auto;
   background-color: #fff;
 }
-
-.form-block input {
+.enter-form input {
   height: 20px;
   width: 400px;
   border: 1px solid rgb(123, 63, 0);
   border-radius: 3px;
   margin-top: 10px;
 }
-
-.form-block button, .saveBtn {
+.enter-form button, .saveBtn {
   width: 80px;
   height: 30px;
   font-size: 14px;
@@ -65,26 +92,23 @@
 .loginBtn {
   float: left;
 }
-
 .errorNotification {
   height: 40px;
 }
 
 @media screen and (max-width: 767px) {
-  .home {
+  .enter-container {
     width: 96vw;
     padding: 2vw;
   }
   
-  .form-block {
+  .enter-form {
     width: 90vw;
   }
-  
-  .form-block input {
+  .enter-form input {
     width: 80vw;  
   }
-  
-  .form-block button, .saveBtn {
+  .enter-form button, .saveBtn {
     width: 80px;
     height: 30px;
     font-size: 14px;
@@ -97,7 +121,32 @@
     margin: 20px auto 10px auto;
     font-weight: 700;
   }
-  .about > h2 > img {
+}
+
+/*********************************************************************************************************/
+/***************************************                           ***************************************/
+/***************************************           ABOUT           ***************************************/
+/***************************************                           ***************************************/
+/*********************************************************************************************************/
+.about-container > h2 > img {
+  height: 100px;
+  margin-bottom: -30px;
+}
+.about-points {
+  width: 60vw;
+  text-align: justify;
+  margin: 0 20vw;
+}
+.about-points li {
+  text-align: right;
+  margin: 0 5vw;
+}
+.about-points ul{
+  margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .about-container > h2 > img {
     height: 40px;
     margin-bottom: -10px;
     margin-top: 10px;
@@ -107,7 +156,4 @@
     text-align: justify;
     margin: 0 5vw;
   }
-
 }
-
-
