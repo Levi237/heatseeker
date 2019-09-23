@@ -3,6 +3,7 @@ import { Redirect }         from 'react-router-dom';
 
 import Labels from './Labels';
 import Label from './const/Label';
+import Ingredients from './const/Ingredients'
 import Select from './Select';
 
 
@@ -123,16 +124,7 @@ export default class Edit extends Component {
         const { chili, spice, vinegar, extra, style, label, icon, header, close } = this.state
         const { chilis, spices, extras, vinegars, user, closeEditForm } = this.props
 
-        const addExtra = extra.map((ext, key) => {
-            return(
-                <li key={key}>{ext.name}</li>
-            )
-        })
-        const addChili = chili.map((chi, key) => {
-            return(
-                <div key={key}><strong className="addChili">{chi.name}</strong><br /></div>
-            )
-        })
+
         return(
             <div className="edit-container">
 
@@ -148,7 +140,6 @@ export default class Edit extends Component {
                     : <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>   
                     }
                     </div>
-
                         <Select 
                             chili={chili} 
                             spice={spice} 
@@ -170,38 +161,28 @@ export default class Edit extends Component {
                         { label &&
                         <Label 
                             handleChange={this.handleChange}
+                            setToggle={this.setToggle}
                             icon={icon}
                             label={label}
                             header={header}
                             style={style}
-                        />
-                            // <div className={label}>
-                            //     <input className="brand-header" name="header" placeholder={header} type="text" onChange={this.handleChange}/>
-                            //     <img src={icon} alt={icon} name="label1"/>
-                            //     <input className="name-sauce" name="style" placeholder={style} type="text" onChange={this.handleChange}/>
-                            // </div>
+                            />
                         }
                         </div>
                     </div>
-                    <div className="pick-mini-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
-                    { chili[0] &&
-                        <div className="add-chili">{addChili}</div>
-                    }   
-                    { spice.name &&
-                        <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
-                    }
-                    { (extra.length > 0) && 
-                        <>
-                        <div className="add-on"><strong>Add On: </strong></div>
-                        <ol>{addExtra}</ol><br />
-                        </> 
-                    }
-                    { vinegar.name &&
-                        <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
-                    }
+                    <div className="pick-mini-labels">
+                        <Labels user ={user} setLabel={this.setLabel}/>
+                    </div>
 
-                    <button className="save-Btn" type="submit">Update</button>
-                    <button className="save-Btn" type="submit" onClick={closeEditForm} >Close</button>
+                    <Ingredients 
+                        chili={chili} 
+                        spice={spice} 
+                        vinegar={vinegar }
+                        extra={extra} 
+                        />
+
+                    <button className="save-btn" type="submit">Update</button>
+                    <button className="save-btn" type="submit" onClick={closeEditForm} >Close</button>
                 
                 </div>      
 

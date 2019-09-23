@@ -4,12 +4,13 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels               from './Labels';
 import Label                from './const/Label';
+import Ingredients          from './const/Ingredients';
 import Select               from './Select';
 
 import firebase             from 'firebase/app';
-import 'firebase/firestore'
+import 'firebase/firestore';
 
-import './Form.css'
+import './Form.css';
 
 //Scroll Menu
 // const MenuItem = ({text}) => {
@@ -112,14 +113,10 @@ export default class Form extends Component {
             [e.target.name]: value
         })
     }
-
     toggleChange = e => {
         this.setState({
             [e.target.name]: !e.target.value
         })
-    }
-    onClose = (e) => {
-        this.props.onClose && this.props.onClose(e);
     }
     handleChange = e => {
         this.setState({
@@ -135,6 +132,9 @@ export default class Form extends Component {
             icon: labelImage[1]
         })
     }
+    onClose = (e) => {
+        this.props.onClose && this.props.onClose(e);
+    }
 
     render(){
 
@@ -147,17 +147,6 @@ export default class Form extends Component {
                 <button name={ex} value={ex} className={((chili === ex.chili && spice === ex.spice) ? "active select-btn" : "select-btn")}   onClick={(e) => {this.exampleToggle(e, ex)}} type="button"></button>
                 <section><img src={`../chilis/${ex.chili[0].src}`} alt={ex.style}/><br/>{ex.style}</section>
             </section>
-            )
-        })
-        
-        const addExtra = extra.map((ext, key) => {
-            return(
-                <li key={key}>{ext.name}</li>
-            )
-        })
-        const addChili = chili.map((chi, key) => {
-            return(
-                <div key={key}><strong className="addChili">{chi.name}</strong><br /></div>
             )
         })
        
@@ -183,50 +172,48 @@ export default class Form extends Component {
                 : <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           
                 }
                 </div>
-
-                    <Select 
-                            chili={chili} 
-                            spice={spice} 
-                            vinegar={vinegar }
-                            extra={extra} 
-                            chilis={chilis}
-                            spices={spices} 
-                            extras={extras} 
-                            vinegars={vinegars} 
-                            setToggle={this.setToggle}
-                            chiliToggle={this.chiliToggle}
-                            extraToggle={this.extraToggle}
-                            />
+                <Select 
+                    chili={chili} 
+                    spice={spice} 
+                    vinegar={vinegar }
+                    extra={extra} 
+                    chilis={chilis}
+                    spices={spices} 
+                    extras={extras} 
+                    vinegars={vinegars} 
+                    setToggle={this.setToggle}
+                    chiliToggle={this.chiliToggle}
+                    extraToggle={this.extraToggle}
+                    />
             </div>   
 
             <div className="box1">
                 <div className="pick-label">
                   <div>
-                  <Label 
-                            handleChange={this.handleChange}
-                            icon={icon}
-                            label={label}
-                            header={header}
-                            style={style}
+                    <Label 
+                        label={label}
+                        icon={icon}
+                        header={header}
+                        style={style}
+                        handleChange={this.handleChange}
                         />
                   </div>
                 </div>
-                <div className="pick-mini-labels"><Labels user ={user} setLabel={this.setLabel}/></div>
-                { chili[0]
-                ? <div className="add-chili">{addChili}</div>
-                : <div className="add-chili"><strong>Pick a couple Peppers</strong></div>
-                }   
-                <div className="add-spice"><strong>{spice.name.charAt(0).toUpperCase() + spice.name.slice(1)} Spice</strong></div>
-                { (extra.length > 0) && 
-                  <>
-                    <div className="add-on"><strong>Add On: </strong></div>
-                    <ol>{addExtra}</ol><br />
-                  </> 
-                }
-                <div className="add-extra"><strong>{vinegar.name.charAt(0).toUpperCase() + vinegar.name.slice(1)} Vinegar</strong></div>
+                <div className="pick-mini-labels">
+                    <Labels 
+                        user ={user} 
+                        setLabel={this.setLabel}
+                        />
+                </div>
+                <Ingredients 
+                        chili={chili} 
+                        spice={spice} 
+                        vinegar={vinegar }
+                        extra={extra} 
+                        />
 
-            { (chili[0] && style && header) && <button className="saveBtn" type="submit">Review</button> }
-            { (!header || !style || !chili[0]) && <input className="saveBtn" type="text" value="..."/>}
+            { (chili[0] && style && header) && <button className="save-btn" type="submit">Review</button> }
+            { (!header || !style || !chili[0]) && <input className="save-btn" type="text" value="..."/>}
                 
             </div>      
 

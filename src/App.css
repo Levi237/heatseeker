@@ -73,7 +73,7 @@
   border-radius: 3px;
   margin-top: 10px;
 }
-.enter-form button, .saveBtn {
+.enter-form button, .save-btn {
   width: 80px;
   height: 30px;
   font-size: 14px;
@@ -108,7 +108,7 @@
   .enter-form input {
     width: 80vw;  
   }
-  .enter-form button, .saveBtn {
+  .enter-form button, .save-btn {
     width: 80px;
     height: 30px;
     font-size: 14px;
