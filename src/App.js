@@ -10,9 +10,11 @@ import Show  from './components/Show';
 import Edit  from './components/Edit';
 
 import * as routes from './constants/routes';
-
-import firebase    from 'firebase/app';
-import 'firebase/app';
+import * as firebase from 'firebase/app';
+// import firebase    from 'firebase';
+// import  '../firebase';
+import { storage } from 'firebase/app';
+import 'firebase/storage'
 
 import './App.css';
 
@@ -29,6 +31,8 @@ export default class App extends Component {
       order: false,
       show: null,
       edit: null,
+      image: null,
+      url: "",
   }
 
   componentDidMount = () => {
@@ -154,9 +158,43 @@ export default class App extends Component {
       edit: null
     })
   }
+  fileSelectedHandler = (e) => {
+    // console.log(e.target.files[0])
+    if(e.target.files[0]){
+      const image = e.target.files[0]
+      this.setState(() => ({image}))
+
+    }
+  }
+  handleUpload =  () => {
+    const { image } = this.state
+      firebase
+        .storage()
+        .ref(`images/${image.name}`)
+        .put(image)
+        .on('state_changed', 
+          (snapshot) => {
+            console.log(snapshot)
+          }, 
+          (error) => {
+            console.log(error)
+          }, 
+          () => {
+            storage().ref('images').child(image.name).getDownloadURL().then(url => {
+              console.log(url)
+            })
+          }
+        )
+  }
+  
+
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order, edit } = this.state
+    
+    const uploadImage = <> <input type="file" onChange={this.fileSelectedHandler}/> <button onClick={() => {this.handleUpload()}}>Upload</button></>
+
+
 
     return (
       <div className="grid-container">
@@ -252,6 +290,7 @@ export default class App extends Component {
         
         <div className="grid-footer">
           <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
+{uploadImage}
           <section>&copy;LeviEiko.com</section><br />
           <section>&copy;HEATMAKERS</section>
         </div>
@@ -259,3 +298,4 @@ export default class App extends Component {
     );
   }
 }
+

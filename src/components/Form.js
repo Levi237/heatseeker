@@ -13,15 +13,6 @@ import 'firebase/firestore';
 import './Form.css';
 
 //Scroll Menu
-// const MenuItem = ({text}) => {
-//     return <div className="menu-item">{text}</div>;
-//   };
-// export const Menu = (list) =>
-//   list.map(el => {
-//     const {name} = el;
- 
-//     return <MenuItem text={name} key={name} />;
-//   });
 const Arrow = ({ text, className }) => {
   return (
     <div className={className}>{text}</div>
