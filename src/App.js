@@ -2,18 +2,15 @@ import React, { Component }        from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import About from './components/const/About';
-import Form  from './components/Form';
 import Nav   from './components/const/Nav';
 import Home  from './components/Home';
 import Enter from './components/Enter';
 import Show  from './components/Show';
-import Edit  from './components/Edit';
 import UploadImage  from './components/UploadImage';
-import MasterForm from './components/MasterForm';
+import MasterForm   from './components/MasterForm';
 
-import * as routes   from './constants/routes';
-import * as firebase from 'firebase/app';
-// import { storage }   from 'firebase/app';
+import * as routes  from './constants/routes';
+import firebase     from 'firebase/app';
 
 import './App.css';
 
@@ -30,8 +27,6 @@ export default class App extends Component {
       order: false,
       show: null,
       edit: null,
-      // image: null,
-      // url: "",
   }
 
   componentDidMount = () => {
@@ -157,41 +152,10 @@ export default class App extends Component {
       edit: null
     })
   }
-  // fileSelectedHandler = (e) => {
-  //   if(e.target.files[0]){
-  //     const image = e.target.files[0]
-  //     this.setState(() => ({image}))
-  //   }
-  // }
-  // handleUpload =  () => {
-  //   const { image } = this.state
-  //     firebase
-  //       .storage()
-  //       .ref(`images/${image.name}`)
-  //       .put(image)
-  //       .on('state_changed', 
-  //         (snapshot) => {
-  //           console.log(snapshot)
-  //         }, 
-  //         (error) => {
-  //           console.log(error)
-  //         }, 
-  //         () => {
-  //           storage().ref('images').child(image.name).getDownloadURL().then(url => {
-  //             console.log(url)
-  //           })
-  //         }
-  //       )
-  // }
-  
-
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order, edit } = this.state
-    
-
-
-
+  
     return (
       <div className="grid-container">
 
@@ -204,7 +168,7 @@ export default class App extends Component {
         </div>
 
         <div className="grid-main">
-        <UploadImage />
+        <UploadImage user={user}/>
           <Switch>
             <Route path={routes.HOME} render={() =>
                     <Home 
