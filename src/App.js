@@ -9,6 +9,7 @@ import Enter from './components/Enter';
 import Show  from './components/Show';
 import Edit  from './components/Edit';
 import UploadImage  from './components/UploadImage';
+import MasterForm from './components/MasterForm';
 
 import * as routes   from './constants/routes';
 import * as firebase from 'firebase/app';
@@ -234,7 +235,7 @@ export default class App extends Component {
                       showThisRecipe={this.showThisRecipe}/>
                   : <Enter />} />                          
             <Route path={routes.FORM} exact render={() => 
-                    <Form 
+                    <MasterForm 
                       user={user} 
                       recipes={recipes}
                       newRecipe={newRecipe} 
@@ -262,7 +263,7 @@ export default class App extends Component {
                       /> }/>    
             <Route path={routes.EDIT} exact render={() => !edit
                   ? <Redirect to={routes.HOME} /> 
-                  : <Edit                                         
+                  : <MasterForm                                         
                       user={user} 
                       recipes={recipes}
                       newRecipe={newRecipe} 

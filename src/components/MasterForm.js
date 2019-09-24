@@ -12,6 +12,9 @@ import 'firebase/firestore';
 
 import './Form.css';
 
+
+import * as routes from '../constants/routes';
+
 //Scroll Menu
 const Arrow = ({ text, className }) => {
   return (
@@ -42,10 +45,54 @@ export default class Form extends Component {
         show: false,
         toggle: false,
         examplesVisibility: false,
+        close: false,
 
     }
     componentDidMount = () => {
-        this.loadExamples();
+        const { recipes, edit } = this.props
+        if (edit){
+            recipes.forEach(recipe => {
+                if (recipe.id.includes(edit)){
+                    this.setState({
+                        header: recipe.header,
+                        style: recipe.style,
+                        label: recipe.label,
+                        icon: recipe.icon,
+                        chili: recipe.chili,
+                        spice: recipe.spice,
+                        extra: recipe.extra,
+                        vinegar: recipe.vinegar,
+                    })
+                }
+            })
+        } else {
+            this.loadExamples();
+
+        }
+    }
+
+    updateRecipe = async (e, recipe) => {
+        e.preventDefault();
+        const _id = this.props.edit
+        const update = await firebase
+            .firestore()
+            .collection('recipes')
+            .doc(_id)
+            .update({
+                header: recipe.header,
+                style: recipe.style,
+                label: recipe.label,
+                icon: recipe.icon,
+                chili: recipe.chili,
+                spice: recipe.spice,
+                extra: recipe.extra,
+                vinegar: recipe.vinegar,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+            this.setState({
+                close: true,
+            })   
+            return update    
     }
     loadExamples(){
         firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
@@ -128,9 +175,10 @@ export default class Form extends Component {
     }
 
     render(){
-
-        const { chili, spice, vinegar, extra, examples, style, label, icon, header, examplesVisibility } = this.state
-        const { chilis, spices, extras, vinegars, submitForm, newRecipe, user } = this.props
+        // const { chili, spice, vinegar, extra, style, label, icon, header, close } = this.state
+        // const { chilis, spices, extras, vinegars, user, closeEditForm } = this.props
+        const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, examplesVisibility } = this.state
+        const { chilis, spices, extras, vinegars, edit, submitForm, newRecipe, user, closeEditForm } = this.props
 
         const showExamples = examples.map((ex, i) => {
             return(
@@ -143,12 +191,15 @@ export default class Form extends Component {
        
         return(
             <div className="form-container">
+            
+            <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { submitForm(e, this.state)}}>
 
-            <form onSubmit={(e) => { submitForm(e, this.state)}}>
 
             { newRecipe &&
                 <Redirect to={'/save-recipe'} /> }  
-
+            {   close &&
+                        <Redirect to={routes.HOME}/>
+                    }
             <div className="box2">
             { examplesVisibility 
             ? <>
@@ -204,11 +255,18 @@ export default class Form extends Component {
                         />
 
 
-
-
-
-            { (chili[0] && style && header) && <button className="save-btn" type="submit">Review</button> }
-            { (!header || !style || !chili[0]) && <input className="save-btn" type="text" value="..."/>}
+            {edit && 
+                <>
+                    <button className="save-btn" type="submit">Update</button>
+                    <button className="save-btn" type="submit" onClick={closeEditForm} >Close</button>
+                </>
+            }
+            {!edit && 
+                <>
+                    { (chili[0] && style && header) && <button className="save-btn" type="submit">Review</button> }
+                    { (!header || !style || !chili[0]) && <input className="save-btn" type="text" value="..."/>}
+                </>
+            }
                 
             </div>      
 
