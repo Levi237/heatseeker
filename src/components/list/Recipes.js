@@ -9,7 +9,7 @@ render(){
 
     let addExtras = [];
     let showSpices = [];
-    const list = recipes.map((r, i) => {
+    const list = recipes.forEach((r, i) => {
         if (r && r.extra){
             let nre = r.extra
                 const addExtra = nre.map((data, i) => {

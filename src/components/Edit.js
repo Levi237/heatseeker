@@ -32,7 +32,7 @@ export default class Edit extends Component {
     componentDidMount = () => {
         const { recipes, edit } = this.props
         if (edit){
-            recipes.map(recipe => {
+            recipes.forEach(recipe => {
                 if (recipe.id.includes(edit)){
                     this.setState({
                         header: recipe.header,
