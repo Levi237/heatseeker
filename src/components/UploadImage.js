@@ -39,11 +39,18 @@ export default class UploadImage extends Component {
       
     render(){
         const { image, url } = this.state
-        const uploadImage = <> <input type="file" accept="image/*,.pdf" onChange={this.fileSelectedHandler}/> <button onClick={() => {this.handleUpload()}}>Upload</button></>
+        const uploadImage = <>
+                                <input type="file" accept="image/*,.pdf" onChange={this.fileSelectedHandler}/> 
+                                {image &&
+
+                                <button onClick={() => {this.handleUpload()}}>Upload</button>
+                                }
+                            </>
         return(
             <>
-            {uploadImage}
-            {url && <img src={url} alt={image.name}/>}
+            <h4>Dimensions must be 4:5 (200px wide by 250px high)</h4>
+            {!url && uploadImage}
+            {url && <img className="uploaded-image" src={url} alt={image.name}/>}
             </>
 
         )
