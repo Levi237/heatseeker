@@ -9,7 +9,7 @@ render(){
 
     let addExtras = [];
     let showSpices = [];
-    const list = recipes.forEach((r, i) => {
+    const list = recipes.map((r, key) => {
         if (r && r.extra){
             let nre = r.extra
                 const addExtra = nre.map((data, i) => {
@@ -28,9 +28,8 @@ render(){
         }
         if (r.email && r.email === user.email && r.timestamp  && !r.delete){
             let dateCreated = r.timestamp.toDate().toDateString()
-
             return(
-                <div className="recipe-container">
+                <div className="recipe-container" key={key}>
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
                     <form className="recipe-link">   
                         <button  className="recipe-link" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
