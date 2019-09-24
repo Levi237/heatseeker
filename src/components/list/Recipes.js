@@ -9,6 +9,7 @@ render(){
 
     let addExtras = [];
     let showSpices = [];
+    
     const list = recipes.map((r, key) => {
         if (r && r.extra){
             let nre = r.extra
@@ -33,9 +34,7 @@ render(){
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
                     <form className="recipe-link">   
                         <button  className="recipe-link" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
-                                
                                 <div className="card-label pick-label ">
-
                                     <div className="card-left">
                                         <div className={r.label}>
                                             <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
@@ -43,7 +42,6 @@ render(){
                                             <h4>{r.style}</h4>
                                         </div> 
                                     </div>
-
                                     <div className="card-recipe card-right">
                                         <section><strong>{dateCreated}</strong></section>
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
@@ -56,9 +54,7 @@ render(){
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                                         <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section> }
                                     </div>
-
-                                </div>
-                                
+                                </div> 
                         </button>
                     </form>
                 </div>

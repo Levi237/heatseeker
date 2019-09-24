@@ -12,7 +12,7 @@ import UploadImage  from './components/UploadImage';
 
 import * as routes   from './constants/routes';
 import * as firebase from 'firebase/app';
-import { storage }   from 'firebase/app';
+// import { storage }   from 'firebase/app';
 
 import './App.css';
 
@@ -29,8 +29,8 @@ export default class App extends Component {
       order: false,
       show: null,
       edit: null,
-      image: null,
-      url: "",
+      // image: null,
+      // url: "",
   }
 
   componentDidMount = () => {
@@ -156,32 +156,32 @@ export default class App extends Component {
       edit: null
     })
   }
-  fileSelectedHandler = (e) => {
-    if(e.target.files[0]){
-      const image = e.target.files[0]
-      this.setState(() => ({image}))
-    }
-  }
-  handleUpload =  () => {
-    const { image } = this.state
-      firebase
-        .storage()
-        .ref(`images/${image.name}`)
-        .put(image)
-        .on('state_changed', 
-          (snapshot) => {
-            console.log(snapshot)
-          }, 
-          (error) => {
-            console.log(error)
-          }, 
-          () => {
-            storage().ref('images').child(image.name).getDownloadURL().then(url => {
-              console.log(url)
-            })
-          }
-        )
-  }
+  // fileSelectedHandler = (e) => {
+  //   if(e.target.files[0]){
+  //     const image = e.target.files[0]
+  //     this.setState(() => ({image}))
+  //   }
+  // }
+  // handleUpload =  () => {
+  //   const { image } = this.state
+  //     firebase
+  //       .storage()
+  //       .ref(`images/${image.name}`)
+  //       .put(image)
+  //       .on('state_changed', 
+  //         (snapshot) => {
+  //           console.log(snapshot)
+  //         }, 
+  //         (error) => {
+  //           console.log(error)
+  //         }, 
+  //         () => {
+  //           storage().ref('images').child(image.name).getDownloadURL().then(url => {
+  //             console.log(url)
+  //           })
+  //         }
+  //       )
+  // }
   
 
 
