@@ -5,7 +5,6 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 import Labels               from './Labels';
 import Label                from './const/Label';
 import Ingredients          from './const/Ingredients';
-import Select               from './Select';
 
 import firebase             from 'firebase/app';
 import 'firebase/firestore';
