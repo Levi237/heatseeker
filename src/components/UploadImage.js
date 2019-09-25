@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import firebase from 'firebase/app';
-import { storage }   from 'firebase/app';
+import firebase    from 'firebase/app';
+import { storage } from 'firebase/app';
 import 'firebase/firestore';
 
 export default class UploadImage extends Component {
@@ -18,7 +18,7 @@ export default class UploadImage extends Component {
             .add({
                 img
             })
-            this.setState({ toggle: true })
+            this.setState({ toggle: true, image: null, img: null })
     }
     toggleUpload = () => {
         this.setState({ toggle: false })

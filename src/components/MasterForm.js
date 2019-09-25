@@ -5,6 +5,8 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 import Labels               from './Labels';
 import Label                from './const/Label';
 import Ingredients          from './const/Ingredients';
+import UploadImage          from './UploadImage';
+import Modal                from './modal/Modal';
 
 import firebase             from 'firebase/app';
 import 'firebase/firestore';
@@ -172,11 +174,16 @@ export default class Form extends Component {
     onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     }
-
+    showModal = () => {
+        this.setState({
+          ...this.state,
+          show: !this.state.show
+        })
+      }
     render(){
         // const { chili, spice, vinegar, extra, style, label, icon, header, close } = this.state
         // const { chilis, spices, extras, vinegars, user, closeEditForm } = this.props
-        const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, examplesVisibility } = this.state
+        const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, show, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, edit, submitForm, newRecipe, user, closeEditForm } = this.props
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
@@ -235,10 +242,13 @@ export default class Form extends Component {
             </section>
             )
         })
-       
+        
         return(
             <div className="form-container">
-            
+            <button onClick={() => {this.showModal()}}>Show Upload Modal</button>
+                <Modal show={show} onClose={this.showModal}>
+                    <UploadImage />
+                </Modal>
             <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { submitForm(e, this.state)}}>
 
 
@@ -283,6 +293,7 @@ export default class Form extends Component {
                         style={style}
                         handleChange={this.handleChange}
                         />
+
                   </div>
                 </div>
                 <div className="pick-mini-labels">
