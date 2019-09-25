@@ -7,6 +7,7 @@ import Label                from './const/Label';
 import Ingredients          from './const/Ingredients';
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
+import UserImages           from './UserImages';
 
 import firebase             from 'firebase/app';
 import 'firebase/firestore';
@@ -295,6 +296,7 @@ export default class Form extends Component {
                   </div>
                 </div>
                 <div className="pick-mini-labels">
+                    <UserImages />
                     <Labels 
                         user ={user} 
                         setLabel={this.setLabel}
