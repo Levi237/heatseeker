@@ -15,9 +15,7 @@ export default class UploadImage extends Component {
         const { img } = this.state
         const addLabelImage = firebase.firestore()
             .collection('labels')
-            .add({
-                img
-            })
+            .add({ img })
             this.setState({ toggle: true, image: null, img: null })
     }
     toggleUpload = () => {
@@ -26,11 +24,11 @@ export default class UploadImage extends Component {
     fileSelectedHandler = (e) => {
         if(e.target.files[0]){
           const image = e.target.files[0]
-          this.setState(() => ({image}))
+          this.setState(() => ({ image }))
         }
     }
 
-    handleUpload =  () => {
+    handleUpload = () => {
         const { image } = this.state
         const uid = firebase.auth().currentUser.uid;
         firebase
@@ -46,8 +44,7 @@ export default class UploadImage extends Component {
                     }, 
                 () => {
                     storage().ref(`images/${uid}`).child(image.name).getDownloadURL().then(url => {
-                        // console.log(url)
-                        this.setState({img: {url: url, uid: uid}})
+                        this.setState({ img: {url: url, uid: uid }})
                     })
                 }
             )  
