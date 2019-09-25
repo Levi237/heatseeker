@@ -60,7 +60,7 @@ export default class App extends Component {
         data['id'] = _doc.id;
         return data;
       });
-      this.setState({ chilis: chilis });
+      this.setState({ chilis });
     });
     firebase
     .firestore()
@@ -71,7 +71,7 @@ export default class App extends Component {
         data['id'] = _doc.id;
         return data;
       });
-      this.setState({ spices: spices });
+      this.setState({ spices });
     });
     firebase
     .firestore()
@@ -82,7 +82,7 @@ export default class App extends Component {
         data['id'] = _doc.id;
         return data;
       });
-      this.setState({ extras: extras });
+      this.setState({ extras });
     });
     firebase
     .firestore()
@@ -93,7 +93,7 @@ export default class App extends Component {
           data['id'] = _doc.id;
           return data;
       });
-      this.setState({ vinegars: vinegars });
+      this.setState({ vinegars });
     });
   }
 

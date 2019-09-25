@@ -102,9 +102,7 @@ export default class Form extends Component {
                 data['id'] = _doc.id;
                 return data
             });
-            this.setState({
-                examples: examples
-            })
+            this.setState({examples})
         })
     }
 
