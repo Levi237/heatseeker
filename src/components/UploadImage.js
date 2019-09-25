@@ -8,28 +8,28 @@ export default class UploadImage extends Component {
     state = {
         image: null,
         img: null,
+        toggle: true,
     }
+
     saveUserImage = () => {
         const { img } = this.state
-        // const { newRecipe, user } = this.props
         const addLabelImage = firebase.firestore()
             .collection('labels')
             .add({
                 img
             })
-        return addLabelImage
+            this.setState({ toggle: true })
     }
-
+    toggleUpload = () => {
+        this.setState({ toggle: false })
+    }
     fileSelectedHandler = (e) => {
         if(e.target.files[0]){
           const image = e.target.files[0]
-        //   image.name = `${this.props.user.uid}_${image.name}`
-          this.setState(() => ({
-              image: image
-            }))
-        //   this.setState(() => ({...image, name: uid+timestamp})) 
+          this.setState(() => ({image}))
         }
     }
+
     handleUpload =  () => {
         const { image } = this.state
         const uid = firebase.auth().currentUser.uid;
@@ -54,20 +54,25 @@ export default class UploadImage extends Component {
     }
 
     render(){
-        const { image, img } = this.state
+        const { image, img, toggle} = this.state
         const uploadImage = 
             <>
                 <input type="file" accept="image/*,.pdf" onChange={this.fileSelectedHandler}/> 
                 {image && <button onClick={() => {this.handleUpload()}}>Upload</button> }
             </>
-        return(<>
-            <h4>Dimensions must be 4:5 (200px wide by 250px high)</h4>
-            {!img && uploadImage}
-            {img && <>
-                <img className="uploaded-image" src={img.url} alt={image.name}/>
-                <br/>
-                <button onClick={() => {this.saveUserImage();}}>Save to Account</button>
+        return(
+        <div>
+            
+            { toggle ? <button onClick={() => {this.toggleUpload();}}>Upload Image</button>
+                : <>
+                <h4>Dimensions must be 4:5 (200px wide by 250px high)</h4>
+                {!img && uploadImage}
+                {img && <>
+                    <img className="uploaded-image" src={img.url} alt={image.name}/>
+                    <br/>
+                    <button onClick={() => {this.saveUserImage();}}>Save to Account</button>
+                </>}
             </>}
-        </>)
+        </div>)
     }
 }
