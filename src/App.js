@@ -168,7 +168,7 @@ export default class App extends Component {
         </div>
 
         <div className="grid-main">
-        <UploadImage user={user}/>
+        <UploadImage />
           <Switch>
             <Route path={routes.HOME} render={() =>
                     <Home 

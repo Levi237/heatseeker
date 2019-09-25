@@ -7,43 +7,54 @@ import 'firebase/firestore';
 export default class UploadImage extends Component {
     state = {
         image: null,
-        url: "",
+        img: null,
+    }
+    saveUserImage = () => {
+        const { img } = this.state
+        // const { newRecipe, user } = this.props
+        const addLabelImage = firebase.firestore()
+            .collection('labels')
+            .add({
+                img
+            })
+        return addLabelImage
     }
 
     fileSelectedHandler = (e) => {
         if(e.target.files[0]){
           const image = e.target.files[0]
-          this.setState(() => ({image}))
+        //   image.name = `${this.props.user.uid}_${image.name}`
+          this.setState(() => ({
+              image: image
+            }))
         //   this.setState(() => ({...image, name: uid+timestamp})) 
         }
     }
     handleUpload =  () => {
-    const { image } = this.state
-    const { uid } = this.props.user.uid
+        const { image } = this.state
+        const uid = firebase.auth().currentUser.uid;
         firebase
-        .storage()
-        .ref(`images/${image.name}`)
-        .put(image)
-        .on('state_changed', 
-            (snapshot) => {
-                console.log(snapshot)
-            }, 
-            (error) => {
-                console.log(error)
-            }, 
-            () => {
-                storage().ref('images').child(image.name).getDownloadURL().then(url => {
-                    console.log(url)
-                    this.setState({url: {link: url, uid: uid, timestamp: firebase.firestore.FieldValue.serverTimestamp()}})
-                })
-            }
-        )  
+            .storage()
+            .ref(`images/${uid}/${image.name}`)
+            .put(image)
+            .on('state_changed', 
+                (snapshot) => {
+                    console.log(snapshot)
+                }, 
+                (error) => {
+                    console.log("ERROR ===>", error)
+                    }, 
+                () => {
+                    storage().ref(`images/${uid}`).child(image.name).getDownloadURL().then(url => {
+                        // console.log(url)
+                        this.setState({img: {url: url, uid: uid}})
+                    })
+                }
+            )  
     }
-    saveUserImage = () => {
 
-    }
     render(){
-        const { image, url } = this.state
+        const { image, img } = this.state
         const uploadImage = 
             <>
                 <input type="file" accept="image/*,.pdf" onChange={this.fileSelectedHandler}/> 
@@ -51,8 +62,12 @@ export default class UploadImage extends Component {
             </>
         return(<>
             <h4>Dimensions must be 4:5 (200px wide by 250px high)</h4>
-            {!url && uploadImage}
-            {url && <><img className="uploaded-image" src={url.link} alt={image.name}/><button>Save to Account</button></>}
+            {!img && uploadImage}
+            {img && <>
+                <img className="uploaded-image" src={img.url} alt={image.name}/>
+                <br/>
+                <button onClick={() => {this.saveUserImage();}}>Save to Account</button>
+            </>}
         </>)
     }
 }
