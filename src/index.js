@@ -7,6 +7,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import dataReducer from './reducers/dataReducer'
+import userReducer from './reducers/userReducer'
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -29,16 +31,16 @@ export { storage, firebase as default }
 
 
 
-  let dataReducer = (state = [], action) => {
-    return state
-  }
-  let userReducer = (state = '', { type, payload }) => {
-    switch (type) {
-      case 'updateUser':
-        return payload;
-    }
-    return state
-  }
+  // let dataReducer = (state = [], action) => {
+  //   return state
+  // }
+  // let userReducer = (state = '', { type, payload }) => {
+  //   switch (type) {
+  //     case 'updateUser':
+  //       return payload;
+  //   }
+  //   return state
+  // }
 
   const allReducers = combineReducers({
     data: dataReducer,
@@ -50,7 +52,8 @@ export { storage, firebase as default }
         data: [{a: 'aaa', b:'bbb'}],
         user: 'bob'
       },
-      window.devToolsExtension && window.devToolsExtension()
+      // window.devToolsExtension && window.devToolsExtension()
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
   console.log(store.getState())
