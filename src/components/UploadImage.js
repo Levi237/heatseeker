@@ -13,10 +13,17 @@ export default class UploadImage extends Component {
 
     saveUserImage = () => {
         const { img } = this.state
+
         const addLabelImage = firebase.firestore()
             .collection('labels')
             .add({ img })
-            this.setState({ toggle: true, image: null, img: null })
+            this.setState({ 
+                toggle: true, 
+                image: null, 
+                img: null 
+            })
+
+
     }
     toggleUpload = () => {
         this.setState({ toggle: false })
@@ -55,7 +62,7 @@ export default class UploadImage extends Component {
         const uploadImage = 
             <>
                 <input type="file" accept="image/*,.pdf" onChange={this.fileSelectedHandler}/> 
-                {image && <button onClick={() => {this.handleUpload()}}>Upload</button> }
+                { image && <button onClick={() => {this.handleUpload()}}>Upload</button> }
             </>
         return(
         <div>
@@ -63,13 +70,13 @@ export default class UploadImage extends Component {
             { toggle ? <button onClick={() => {this.toggleUpload();}}>Upload Image</button>
                 : <>
                 <h4>Dimensions must be 4:5 (200px wide by 250px high)</h4>
-                {!img && uploadImage}
-                {img && <>
+                { !img && uploadImage}
+                { img && <>
                     <img className="uploaded-image" src={img.url} alt={image.name}/>
                     <br/>
                     <button onClick={() => {this.saveUserImage();}}>Save to Account</button>
-                </>}
-            </>}
+                </> }
+            </> }
         </div>)
     }
 }

@@ -8,6 +8,7 @@ import Ingredients          from './const/Ingredients';
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
 import UserImages           from './UserImages';
+import UploadedLabel          from './UploadedLabel'
 
 import firebase             from 'firebase/app';
 import 'firebase/firestore';
@@ -180,10 +181,9 @@ export default class Form extends Component {
         })
       }
     render(){
-        // const { chili, spice, vinegar, extra, style, label, icon, header, close } = this.state
-        // const { chilis, spices, extras, vinegars, user, closeEditForm } = this.props
         const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, show, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, edit, submitForm, newRecipe, user, closeEditForm } = this.props
+
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
         let extra1 = ""; if ( extra[0] ){ extra1 = extra[0] } 
@@ -242,91 +242,83 @@ export default class Form extends Component {
             )
         })
         
-        return(
+        return(<>
+            <Modal show={show} onClose={this.showModal}>
+                <UploadImage />
+            </Modal>
             <div className="form-container">
-            <button onClick={() => {this.showModal()}}>Show Upload Modal</button>
-                <Modal show={show} onClose={this.showModal}>
-                    <UploadImage />
-                </Modal>
-            <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { submitForm(e, this.state)}}>
-
-
-            { newRecipe &&
-                <Redirect to={'/save-recipe'} /> }  
-            {   close &&
-                        <Redirect to={routes.HOME}/>
+                <button onClick={() => {this.showModal()}}>Show Upload Modal</button>
+                <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { submitForm(e, this.state)}}>
+                { newRecipe && <Redirect to={'/save-recipe'} /> }  
+                { close     && <Redirect to={routes.HOME}/> }
+                    <div className="box2">
+                    { examplesVisibility 
+                    ? <>
+                        <button name="examplesVisibility" value={examplesVisibility} onClick={this.toggleChange}>Close</button>
+                        <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                        </>
+                    : <button name="examplesVisibility" value={examplesVisibility} onClick={this.handleChange}>Examples</button>
                     }
-            <div className="box2">
-            { examplesVisibility 
-            ? <>
-                <button name="examplesVisibility" value={examplesVisibility} onClick={this.toggleChange}>Close</button>
-                <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                </>
-            : <button name="examplesVisibility" value={examplesVisibility} onClick={this.handleChange}>Examples</button>
-            }
-                <div className="myProgress">
-                { chili[1] 
-                ? <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
-                : <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           
-                }
-                </div>
-                <div className="chiliSection">
-                    <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                </div>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                    <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
-                </div>   
-
-            <div className="box1">
-                <div className="pick-label">
-                  <div>
-                    <Label 
-                        label={label}
-                        icon={icon}
-                        header={header}
-                        style={style}
-                        handleChange={this.handleChange}
-                        />
-
-                  </div>
-                </div>
-                <div className="pick-mini-labels">
-                    <UserImages />
-                    <Labels 
-                        user ={user} 
-                        setLabel={this.setLabel}
-                        />
-                </div>
-                    <Ingredients 
-                        chili={chili} 
-                        spice={spice} 
-                        vinegar={vinegar }
-                        extra={extra} 
-                        />
-
-
-            {edit && 
-                <>
-                    <button className="save-btn" type="submit">Update</button>
-                    <button className="save-btn" type="submit" onClick={closeEditForm} >Close</button>
-                </>
-            }
-            {!edit && 
-                <>
-                    { (chili[0] && style && header) && <button className="save-btn" type="submit">Review</button> }
-                    { (!header || !style || !chili[0]) && <input className="save-btn" type="text" value="..."/>}
-                </>
-            }
-                
-            </div>      
-
-            </form>
+                        <div className="myProgress">
+                        { chili[1] 
+                        ? <progress className="bored-bar" value={(chili[0].heat + chili[1].heat)/2} max="15"></progress>
+                        : <progress className="bored-bar" value={chili[0] ? (chili[0].heat) : 0} max="15"></progress>           
+                        }
+                        </div>
+                        <div className="chiliSection">
+                            <ScrollMenu data={chiliList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                        </div>
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                            <ScrollMenu data={spiceList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                            <ScrollMenu data={extraList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>       
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                            <ScrollMenu data={vinegarList} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/> 
+                            <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
+                    </div>   
+                    <div className="box1">
+                        <div className="pick-label">
+                            <div>
+                                <Label 
+                                    label={label}
+                                    icon={icon}
+                                    header={header}
+                                    style={style}
+                                    handleChange={this.handleChange}
+                                    />
+                            </div>
+                        </div>
+                        <div className="pick-mini-labels">
+                            
+                            <UserImages />
+                            <Labels 
+                                user ={user} 
+                                setLabel={this.setLabel}
+                                >
+                                <UploadedLabel />
+                            </Labels>
+                        </div>
+                            <Ingredients 
+                                chili={chili} 
+                                spice={spice} 
+                                vinegar={vinegar }
+                                extra={extra} 
+                                />
+                        {edit && 
+                            <>
+                                <button className="save-btn" type="submit">Update</button>
+                                <button className="save-btn" type="submit" onClick={closeEditForm} >Close</button>
+                            </>
+                        }
+                        {!edit && 
+                            <>
+                                { (chili[0] && style && header) && <button className="save-btn" type="submit">Review</button> }
+                                { (!header || !style || !chili[0]) && <input className="save-btn" type="text" value="..."/>}
+                            </>
+                        }                       
+                    </div>      
+                </form>
             </div>
-        )
+        </>)
     }
 }

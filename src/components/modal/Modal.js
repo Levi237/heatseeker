@@ -14,7 +14,7 @@ export default class Model extends Component {
         return(
             <div className="modal">
                 <div>
-                    <button className="close x" onClick={(e) => {this.onClose(e)}}>
+                    <button className="close xClose" onClick={(e) => {this.onClose(e)}}>
                         X
                     </button>
 
