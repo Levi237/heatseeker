@@ -5,10 +5,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+import { createStore } from 'redux';
+
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
+
+  const reducer = () => {
+    return 'State'
+  }
+  const store = createStore(reducer);
 
   firebase.initializeApp({
     apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
@@ -22,7 +29,8 @@ import 'firebase/storage';
   const storage = firebase.storage();
   export { storage, firebase as default }
 
-
+  console.log(store.getState)
+  
   ReactDOM.render(
     <Router>
         <App />
