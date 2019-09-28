@@ -5,35 +5,69 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/storage';
+// import { arrayTypeAnnotation } from '@babel/types';
 
-  const reducer = () => {
-    return 'State'
+
+firebase.initializeApp({
+  apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
+  authDomain: "heatseeker-custom.firebaseapp.com",
+  databaseURL: "https://heatseeker-custom.firebaseio.com",
+  projectId: "heatseeker-custom",
+  storageBucket: "heatseeker-custom.appspot.com",
+  messagingSenderId: "419102714310",
+  appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`
+});
+const storage = firebase.storage();
+export { storage, firebase as default }
+
+
+
+  let dataReducer = (state = [], action) => {
+    return state
   }
-  const store = createStore(reducer);
+  let userReducer = (state = '', { type, payload }) => {
+    switch (type) {
+      case 'updateUser':
+        return payload;
+    }
+    return state
+  }
 
-  firebase.initializeApp({
-    apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
-    authDomain: "heatseeker-custom.firebaseapp.com",
-    databaseURL: "https://heatseeker-custom.firebaseio.com",
-    projectId: "heatseeker-custom",
-    storageBucket: "heatseeker-custom.appspot.com",
-    messagingSenderId: "419102714310",
-    appId: `${process.env.REACT_APP_FIREBASE_APP_ID}`
-  });
-  const storage = firebase.storage();
-  export { storage, firebase as default }
+  const allReducers = combineReducers({
+    data: dataReducer,
+    user: userReducer
+  })
+  const store = createStore(
+    allReducers, 
+      {
+        data: [{a: 'aaa', b:'bbb'}],
+        user: 'bob'
+      },
+      window.devToolsExtension && window.devToolsExtension()
+  );
 
-  console.log(store.getState)
-  
+  console.log(store.getState())
+
+  const updateUserAction = {
+    type: 'updateUser',
+    payload: {
+      user: 'John',
+    }
+  }
+  store.dispatch(updateUserAction)
+
   ReactDOM.render(
     <Router>
+      <Provider store={store}>
         <App />
+      </Provider>
     </Router>, 
     document.getElementById('root'));
 
