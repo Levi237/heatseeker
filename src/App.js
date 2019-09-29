@@ -6,15 +6,19 @@ import Nav   from './components/const/Nav';
 import Home  from './components/Home';
 import Enter from './components/Enter';
 import Show  from './components/Show';
-import UploadImage  from './components/UploadImage';
+// import UploadImage  from './components/UploadImage';
 import MasterForm   from './components/MasterForm';
+
+import { connect } from 'react-redux';
+import { updateUser } from './actions/userAction'
 
 import * as routes  from './constants/routes';
 import firebase     from 'firebase/app';
 
 import './App.css';
+// import { stat } from 'fs';
 
-export default class App extends Component {
+class App extends Component {
 
   state = {
       user: null,
@@ -27,13 +31,29 @@ export default class App extends Component {
       order: false,
       show: null,
       edit: null,
+
+      userName: null,
   }
 
   componentDidMount = () => {
     this.authListener();
     this.loadForm();
     this.loadRecipes();
+
+        // this.onUpdateUser();
   }
+  // componentWillUpdate = () => {
+
+  //   this.onUpdateUser();
+  // }
+  onUpdateUser =this.onUpdateUser.bind(this);
+
+onUpdateUser(e){
+  // e.preventDefault();
+  this.props.onUpdateUser(e.target.value);
+  // this.props.onUpdateUser('Sammy');
+}
+
 
   loadRecipes(){
     firebase
@@ -155,7 +175,7 @@ export default class App extends Component {
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order, edit } = this.state
-  
+    // console.log(this.props)
     return (
       <div className="grid-container">
 
@@ -253,9 +273,20 @@ export default class App extends Component {
           <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
           <section>&copy;LeviEiko.com</section><br />
           <section>&copy;HEATMAKERS</section>
+          {/* <div onClick={(e) => this.onUpdateUser(e)}>{this.props.userName}</div> */}
+          <input onChange={this.onUpdateUser}/>
+          {this.props.userName}
         </div>
       </div>
     );
   }
 }
+const mapStateToProps = state => ({
+  data: state.data,
+  userName: state.userName
+});
+const mapActionsToProps = {
+  onUpdateUser: updateUser
+};
 
+export default connect(mapStateToProps, mapActionsToProps)(App);

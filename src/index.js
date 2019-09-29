@@ -44,13 +44,13 @@ export { storage, firebase as default }
 
   const allReducers = combineReducers({
     data: dataReducer,
-    user: userReducer
+    userName: userReducer
   })
   const store = createStore(
     allReducers, 
       {
         data: [{a: 'aaa', b:'bbb'}],
-        user: 'bob'
+        userName: 'bob'
       },
       // window.devToolsExtension && window.devToolsExtension()
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -58,18 +58,18 @@ export { storage, firebase as default }
 
   console.log(store.getState())
 
-  const updateUserAction = {
-    type: 'updateUser',
-    payload: {
-      user: 'John',
-    }
-  }
-  store.dispatch(updateUserAction)
+  // const updateUserAction = {
+  //   type: 'updateUser',
+  //   payload: {
+  //     userName: 'John',
+  //   }
+  // }
+  // store.dispatch(updateUserAction)
 
   ReactDOM.render(
     <Router>
       <Provider store={store}>
-        <App />
+        <App aRandomProps="whatever"/>
       </Provider>
     </Router>, 
     document.getElementById('root'));
