@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import firebase from 'firebase/app';
-import Enter from './Enter';
-import Label from './const/Label';
+import { Redirect }         from 'react-router-dom';
+
+import firebase             from 'firebase/app';
+
+import Enter                from './Enter';
+import Label                from './const/Label';
 
 import './Labels.css';
 
@@ -13,7 +15,7 @@ export default class Show extends Component {
 
     showEnter = () => {
         this.setState({
-          ...this.state,
+        //   ...this.state,
           login: !this.state.login
         })
     };
@@ -35,14 +37,14 @@ export default class Show extends Component {
                 uid: firebase.auth().currentUser.uid,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
-        return newFromDB;
+        return newFromDB
     };
 
     render(){
-        const { login } = this.state
-        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props
+        const { login } = this.state;
+        const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props;
     
-        let recipe = []
+        let recipe = [];
         let addExtras = [];
         let showSpices = [];
 
@@ -54,24 +56,20 @@ export default class Show extends Component {
             })
         } else if (newRecipe){
                 recipe = newRecipe
-        }
+        };
 
         if (recipe && recipe.extra){
             let nre = recipe.extra
                 const addExtra = nre.map((data, i) => {
-                    return(
-                        <li key={i}>{data.name}</li>
-                    )
+                    return <li key={i}>{data.name}</li>
                 })
                 addExtras.push(addExtra)
             let nrs = recipe.spice.items;
             const showSpice = nrs.map((data, i) => {
-                return(
-                    <li key={i}>{data}</li>
-                )
+                return <li key={i}>{data}</li>
             })
             showSpices.push(showSpice)
-        }
+        };
 
         return(
             <>
@@ -91,7 +89,7 @@ export default class Show extends Component {
                         <button onClick={() => {showOrder();}}>Complete Order</button>
                     </> }
                 </div>    
-            {recipe &&
+            { recipe &&
                 <>
                 {  (!user && login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
                 {  user ?  <h2>{recipe.header}</h2> : <h2>Your Recipe</h2> }
@@ -126,15 +124,7 @@ export default class Show extends Component {
                             icon={recipe.icon}
                             header={recipe.header}
                             style={recipe.style}
-                            // handleChange={this.handleChange}
                             />
-                            {/* <div>
-                                <div className={recipe.label}>
-                                    <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
-                                    <img src={recipe.img? recipe.img.url : recipe.icon} alt={recipe.icon} name="label1"/>
-                                    <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
-                                </div>
-                            </div> */}
                         </div>
 
                         <div className="show-recipe show-right">
@@ -157,6 +147,6 @@ export default class Show extends Component {
             }
             </>
     
-        )
-    }
-}
+        );
+    };
+};

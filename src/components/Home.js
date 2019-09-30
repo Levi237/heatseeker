@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 
-import Order      from './Order'
-import Username   from './Username';
-import Show       from './Show';
-import Recipes from './list/Recipes';
-import Menu       from './const/Menu'
-import Info       from './const/Info'
+import Order    from './Order';
+import Username from './Username';
+import Show     from './Show';
+import Recipes  from './list/Recipes';
+import Menu     from './const/Menu';
+import Info     from './const/Info';
 
-import firebase   from 'firebase/app'
-import 'firebase/firestore'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
-import './Home.css'
+import './Home.css';
 
 export default class Home extends Component {
     state = {
         remove: false,
         dashOn: "userCreations",
-    }
+    };
 
     toggleValue = (e) => {
         this.setState({
@@ -28,7 +28,7 @@ export default class Home extends Component {
         this.setState({
           remove: !this.state.remove,
         })
-      }
+    };
     deleteThis = (e) => {
         const _id = e.currentTarget.value
         firebase
@@ -38,13 +38,13 @@ export default class Home extends Component {
             .update({
                 delete: true
             })
-    }
+    };
 
     render(){
-        const { remove, dashOn } = this.state
-        const { recipes, user, uid, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props
+        const { remove, dashOn } = this.state;
+        const { recipes, user, uid, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props;
         
-        return(
+        return (
             <div>
             {  (this.props.order) && <Order order={order} showOrder={showOrder} /> }
             
@@ -102,6 +102,6 @@ export default class Home extends Component {
                </>
             }
             </div>
-        )
-    }
-}
+        );
+    };
+};

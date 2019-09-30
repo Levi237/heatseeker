@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import firebase    from 'firebase/app';
-import { storage } from 'firebase/app';
+import firebase             from 'firebase/app';
+import { storage }          from 'firebase/app';
 import 'firebase/firestore';
 
 export default class UploadImage extends Component {
@@ -9,7 +9,7 @@ export default class UploadImage extends Component {
         image: null,
         img: null,
         toggle: true,
-    }
+    };
 
     saveUserImage = () => {
         const { img } = this.state
@@ -25,21 +25,21 @@ export default class UploadImage extends Component {
             if(img){
                 updateImageSelected(img)
             }
+    };
 
-    }
     toggleUpload = () => {
         this.setState({ toggle: false })
-    }
+    };
     fileSelectedHandler = (e) => {
         if(e.target.files[0]){
           const image = e.target.files[0]
           this.setState(() => ({ image }))
         }
-    }
+    };
 
     handleUpload = () => {
-        const { image } = this.state
-        const { uid } = this.props
+        const { image } = this.state;
+        const { uid } = this.props;
 
         firebase
             .storage()
@@ -58,28 +58,29 @@ export default class UploadImage extends Component {
                     })
                 }
             )  
-    }
+    };
 
     render(){
-        const { image, img, toggle} = this.state
+        const { image, img, toggle} = this.state;
+
         const uploadImage = 
             <>
                 <input type="file" accept="image/*,.pdf" onChange={this.fileSelectedHandler}/> 
                 { image && <button onClick={() => {this.handleUpload()}}>View Image</button> }
-            </>
+            </>;
+
         return(
-        <div>
-            
-            { toggle ? <button onClick={() => {this.toggleUpload();}}>Upload Image</button>
-                : <>
-                <h4>Upload Square Image: 1 x 1</h4>
-                { !img && uploadImage}
-                { img && <>
-                    <img className="uploaded-image" src={img.url} alt={image.name}/>
-                    <br/>
-                    <button onClick={() => {this.saveUserImage();}}>Save to Account</button>
+            <div>
+                { toggle ? <button onClick={() => {this.toggleUpload();}}>Upload Image</button>
+                    : <>
+                    <h4>Upload Square Image: 1 x 1</h4>
+                    { !img && uploadImage}
+                    { img && <>
+                        <img className="uploaded-image" src={img.url} alt={image.name}/>
+                        <br/>
+                        <button onClick={() => {this.saveUserImage();}}>Save to Account</button>
+                    </> }
                 </> }
-            </> }
-        </div>)
-    }
-}
+            </div>);
+    };
+};

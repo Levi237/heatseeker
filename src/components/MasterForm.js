@@ -67,9 +67,7 @@ export default class Form extends Component {
         } else {
             this.loadExamples();
         }
-        this.setState({
-            uid
-        })
+        this.setState({ uid })
     };
 
     updateRecipe = async (e, recipe) => {
@@ -103,13 +101,11 @@ export default class Form extends Component {
                 data['id'] = _doc.id;
                 return data
             });
-            this.setState({examples})
+            this.setState({ examples })
         })
     };
     updateImageSelected = img => {
-        this.setState({
-          img
-        })
+        this.setState({ img })
     };
     exampleToggle = (e, value) => {
         e.preventDefault();
@@ -127,7 +123,7 @@ export default class Form extends Component {
             this.setState(prevState => ({ 
                 extra: prevState.extra.filter(x => (
                     x.id !== value.id
-                ) )
+                ))
             }));
          }else{
             this.setState({
@@ -187,19 +183,18 @@ export default class Form extends Component {
         const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, show, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, edit, createNewRecipe, newRecipe, user, closeEditForm, uid } = this.props
 
-
-        let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
-        let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
-        let extra1 = ""; if ( extra[0] ){ extra1 = extra[0] } 
-        let extra2 = ""; if ( extra[1] ){ extra2 = extra[1] } 
-        let extra3 = ""; if ( extra[2] ){ extra3 = extra[2] } 
-        let extra4 = ""; if ( extra[3] ){ extra4 = extra[3] } 
-        let extra5 = ""; if ( extra[4] ){ extra5 = extra[4] } 
-        let extra6 = ""; if ( extra[5] ){ extra6 = extra[5] } 
-        let extra7 = ""; if ( extra[6] ){ extra7 = extra[6] }
+        let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] };        
+        let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] };
+        let extra1 = ""; if ( extra[0] ){ extra1 = extra[0] };
+        let extra2 = ""; if ( extra[1] ){ extra2 = extra[1] };
+        let extra3 = ""; if ( extra[2] ){ extra3 = extra[2] };
+        let extra4 = ""; if ( extra[3] ){ extra4 = extra[3] };
+        let extra5 = ""; if ( extra[4] ){ extra5 = extra[4] };
+        let extra6 = ""; if ( extra[5] ){ extra6 = extra[5] };
+        let extra7 = ""; if ( extra[6] ){ extra7 = extra[6] };
 
         const chiliList = chilis.map((ch, key) => {
-            return(
+            return (
                 <section className="chiliSection" key={key}>
                     <button name="chili" value={ch} className={(chili1.id === ch.id || chili2.id === ch.id ? "toggleOn select-btn" : "select-btn")} onClick={(e) => {this.chiliToggle(e, ch)}} type="button"></button>
                     <section><img src={`../chilis/${ch.src}`} alt={ch.name}/><br/>{ch.name}</section>
@@ -208,13 +203,10 @@ export default class Form extends Component {
         })
         const spiceList = spices.map((sp, i) => {
             const spiceItems= sp.items.map((item, key) => {
-                return (
-                    <li key={key}>{item}</li>
-                )
+                return <li key={key}>{item}</li>
             })
             return (
-                <section className="spiceSection" key={i}>
-                
+                <section className="spiceSection" key={i}> 
                     <button name="spice" value={sp} className={(spice.id === sp.id ? "toggleOn select-btn" : "select-btn")} onClick={(e) => {this.setToggle(e, sp)}} type="button"></button>
                     <section>{sp.name}<ul>{spiceItems}</ul></section>
                 </section>
@@ -261,7 +253,7 @@ export default class Form extends Component {
                     ? <>
                         <button name="examplesVisibility" value={examplesVisibility} onClick={this.toggleChange}>Close</button>
                         <ScrollMenu data={showExamples} arrowLeft={ArrowLeft} arrowRight={ArrowRight}/>
-                        </>
+                      </>
                     : <button name="examplesVisibility" value={examplesVisibility} onClick={this.handleChange}>Examples</button>
                     }
                         <div className="myProgress">
@@ -286,16 +278,15 @@ export default class Form extends Component {
                             ? <input onClick={() => {this.showModal()}}  value="Upload Label Icon"/>
                             : <div>Login to Upload Label Icon</div>
                             }
-                                <Label 
-                                    img={this.state.img}
-                                    label={label}
-                                    icon={icon}
-                                    header={header}
-                                    style={style}
-                                    handleChange={this.handleChange}
-                                    />
+                            <Label 
+                                img={this.state.img}
+                                label={label}
+                                icon={icon}
+                                header={header}
+                                style={style}
+                                handleChange={this.handleChange}
+                                />
                         <div className="pick-mini-labels">
-                        
                             <Labels 
                                 user ={user} 
                                 setLabel={this.setLabel}
@@ -317,6 +308,6 @@ export default class Form extends Component {
                     </div>      
                 </form>
             </div>
-        </>)
-    }
-}
+        </>);
+    };
+};
