@@ -91,6 +91,7 @@ export default class Form extends Component {
                 spice: recipe.spice,
                 extra: recipe.extra,
                 vinegar: recipe.vinegar,
+                img: recipe.img,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
             this.setState({
