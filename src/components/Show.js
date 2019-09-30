@@ -32,8 +32,6 @@ export default class Show extends Component {
                 vinegar: newRecipe.vinegar,
                 img: newRecipe.img,
                 uid: firebase.auth().currentUser.uid,
-                // creator: user.displayName,
-                // email: user.email,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
         return newFromDB
@@ -56,9 +54,7 @@ export default class Show extends Component {
         } else if (newRecipe){
                 recipe = newRecipe
         }
-        // if (recipe){
-        //     console.log(recipe.label)
-        // }
+
         if (recipe && recipe.extra){
             let nre = recipe.extra
                 const addExtra = nre.map((data, i) => {

@@ -1,7 +1,5 @@
 import React from 'react';
 
-// add div to crop image in center to certain size
-
 const Label = ({label, icon, style, header, handleChange, img}) => {
     return(
         <div className={label}>
@@ -11,5 +9,4 @@ const Label = ({label, icon, style, header, handleChange, img}) => {
         </div>
     )
 }
-
 export default Label

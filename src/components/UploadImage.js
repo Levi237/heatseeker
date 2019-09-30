@@ -24,7 +24,6 @@ export default class UploadImage extends Component {
             })
             if(img){
                 updateImageSelected(img)
-                // this.setState({img})
             }
 
     }
@@ -41,7 +40,7 @@ export default class UploadImage extends Component {
     handleUpload = () => {
         const { image } = this.state
         const { uid } = this.props
-        // const uid = firebase.auth().currentUser.uid;
+
         firebase
             .storage()
             .ref(`images/${uid}/${image.name}`)

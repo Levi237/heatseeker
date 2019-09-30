@@ -27,7 +27,7 @@ render(){
             })
             showSpices.push(showSpice)
         }
-        if (r && r.uid === uid && !r.delete){
+        if (r && r.uid === uid && r.timestamp && !r.delete){
             let dateCreated = r.timestamp.toDate().toDateString()
             return(
                 <div className="recipe-container" key={key}>
@@ -61,14 +61,13 @@ render(){
             )
         }
     })
-
-    return(
-        <div>
-            <h2>CREATIONS</h2>
-                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                {list}
-        </div>
-    )
-}
+        return(
+            <div>
+                <h2>CREATIONS</h2>
+                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                    {list}
+            </div>
+        )
+    }
 }
 

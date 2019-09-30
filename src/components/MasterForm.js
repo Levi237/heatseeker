@@ -4,20 +4,16 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels               from './Labels';
 import Label                from './const/Label';
-
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
-
 
 import firebase             from 'firebase/app';
 import 'firebase/firestore';
 
 import './Form.css';
 
-
 import * as routes from '../constants/routes';
 
-//Scroll Menu
 const Arrow = ({ text, className }) => {
   return (
       <div className={className}>{text}</div>
@@ -25,9 +21,6 @@ const Arrow = ({ text, className }) => {
     };
     const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
     const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
-    
-    // NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.
-
     
 export default class Form extends Component {
     state = {

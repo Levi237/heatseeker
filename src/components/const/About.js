@@ -16,14 +16,13 @@ const About = () =>
                     <li>Create user accounts to save and view recipes</li>
                     <li>Update or Delete your recipes</li>
                     <li>Provide default recipe labels</li>
-                    {/* <li>Desktop only</li> */}
+                    <li>Label icon upload</li>
                 </ul>
                 <br/>
                             
             <h3>Current Development:</h3>
                 <ul>
-                    <li>Separate label images from background borders for more variety</li>
-                    <li>Label upload</li>
+                    <li>Full label upload</li>
                 </ul>
                 <br/>
             
