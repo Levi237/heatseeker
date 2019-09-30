@@ -125,7 +125,7 @@ export default class Show extends Component {
                             <div>
                                 <div className={recipe.label}>
                                     <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
-                                    <img src={recipe.icon} alt={recipe.icon} name="label1"/>
+                                    <img src={recipe.img? recipe.img.url : recipe.icon} alt={recipe.icon} name="label1"/>
                                     <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
                                 </div>
                             </div>
