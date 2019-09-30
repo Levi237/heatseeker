@@ -22,7 +22,7 @@ const About = () =>
                             
             <h3>Current Development:</h3>
                 <ul>
-                    <li>Full label upload</li>
+                    <li>LABELS</li>
                 </ul>
                 <br/>
             
