@@ -9,6 +9,8 @@ import Show  from './components/Show';
 // import UploadImage  from './components/UploadImage';
 import MasterForm   from './components/MasterForm';
 
+import { createSelector } from 'reselect'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { updateUser } from './actions/userAction'
 
@@ -16,7 +18,7 @@ import * as routes  from './constants/routes';
 import firebase     from 'firebase/app';
 
 import './App.css';
-// import { stat } from 'fs';
+
 
 class App extends Component {
 
@@ -175,7 +177,7 @@ onUpdateUser(e){
 
   render(){
     const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order, edit } = this.state
-    // console.log(this.props)
+    console.log(this.props)
     return (
       <div className="grid-container">
 
@@ -281,16 +283,36 @@ onUpdateUser(e){
     );
   }
 }
-
-const mapStateToProps = (state, props) => {
-  console.log(props)
-  return {
-    data: state.data,
-    userName: state.userName
-  }
+const dataSelector = createSelector(
+  state => state.data,
+  data => data
+);
+const userNameSelector = createSelector(
+  state => state.userName,
+  userName => userName
+);
+const mapStateToProps = createSelector(
+  dataSelector,
+  userNameSelector,
+  (data, userName) => ({
+    data,
+    userName
+  })
+)
+// const mapStateToProps = (state, props) => {
+  // console.log(props)
+  // return {
+  //   data: state.data,
+  //   userName: state.userName,
+  //   userPlusProp: `${state.userName} ${props.aRandomProps}}`
+  // }
+// };
+const mapActionsToProps =  {
+    onUpdateUser: updateUser
 };
-const mapActionsToProps = {
-  onUpdateUser: updateUser
-};
+// const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
+//   console.log(propsFromState, propsFromDispatch, ownProps);
+//   return {};
+// }
 
 export default connect(mapStateToProps, mapActionsToProps)(App);

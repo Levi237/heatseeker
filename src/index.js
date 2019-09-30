@@ -5,7 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { combineReducers, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import { applyMiddleware, compose, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import dataReducer from './reducers/dataReducer'
 import userReducer from './reducers/userReducer'
@@ -46,14 +47,19 @@ export { storage, firebase as default }
     data: dataReducer,
     userName: userReducer
   })
+  const allStoreEnhancers = compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
   const store = createStore(
     allReducers, 
       {
         data: [{a: 'aaa', b:'bbb'}],
         userName: 'bob'
       },
+      allStoreEnhancers
       // window.devToolsExtension && window.devToolsExtension()
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 
   console.log(store.getState())
