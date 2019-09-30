@@ -4,7 +4,7 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels               from './Labels';
 import Label                from './const/Label';
-import Ingredients          from './const/Ingredients';
+// import Ingredients          from './const/Ingredients';
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
 import UserImages           from './UserImages';
@@ -298,12 +298,7 @@ export default class Form extends Component {
                                 <UploadedLabel />
                             </Labels>
                         </div>
-                            <Ingredients 
-                                chili={chili} 
-                                spice={spice} 
-                                vinegar={vinegar }
-                                extra={extra} 
-                                />
+                            {/* <Ingredients chili={chili} spice={spice} vinegar={vinegar }extra={extra} /> */}
                         {edit && 
                             <>
                                 <button className="save-btn" type="submit">Update</button>
