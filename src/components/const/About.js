@@ -36,7 +36,7 @@ const About = () =>
             
             <h3>Future Goals:</h3>
                 <ul>
-                    <li>Mobile Friendly Show & Cards</li>
+                    <li>Mobile Friendly</li>
                     <li>Consult UX on forms, cards & dashboard</li>
                     <li>Info/Help Modal to explain process</li>
                     <li>Fix double click on example extras</li>

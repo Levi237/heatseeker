@@ -4,6 +4,7 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels               from './Labels';
 import Label                from './const/Label';
+
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
 
@@ -250,7 +251,11 @@ export default class Form extends Component {
                 <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} />
             </Modal>
             <div className="form-container">
-                <button onClick={() => {this.showModal()}}>Show Upload Modal</button>
+            { user 
+            ? <button onClick={() => {this.showModal()}}>Upload Label Icon</button>
+            : <button>Login to Upload Label Icon</button>
+            }
+                {/* <button onClick={() => {this.showModal()}}>Show Upload Modal</button> */}
                 <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { createNewRecipe(e, this.state)}}>
                 { newRecipe && <Redirect to={'/save-recipe'} /> }  
                 { close     && <Redirect to={routes.HOME}/> }

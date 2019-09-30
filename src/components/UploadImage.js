@@ -70,7 +70,7 @@ export default class UploadImage extends Component {
         return(
         <div>
             
-            { toggle ? <button onClick={() => {this.toggleUpload();}}>Upload Image</button>
+            { toggle ? <button onClick={() => {this.toggleUpload();}}>View Image</button>
                 : <>
                 <h4>Upload Square Image: 1 x 1</h4>
                 { !img && uploadImage}
