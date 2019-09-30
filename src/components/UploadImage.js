@@ -65,12 +65,12 @@ export default class UploadImage extends Component {
         const uploadImage = 
             <>
                 <input type="file" accept="image/*,.pdf" onChange={this.fileSelectedHandler}/> 
-                { image && <button onClick={() => {this.handleUpload()}}>Upload</button> }
+                { image && <button onClick={() => {this.handleUpload()}}>View Image</button> }
             </>
         return(
         <div>
             
-            { toggle ? <button onClick={() => {this.toggleUpload();}}>View Image</button>
+            { toggle ? <button onClick={() => {this.toggleUpload();}}>Upload Image</button>
                 : <>
                 <h4>Upload Square Image: 1 x 1</h4>
                 { !img && uploadImage}

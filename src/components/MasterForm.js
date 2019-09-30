@@ -251,10 +251,7 @@ export default class Form extends Component {
                 <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} />
             </Modal>
             <div className="form-container">
-            { user 
-            ? <button onClick={() => {this.showModal()}}>Upload Label Icon</button>
-            : <button>Login to Upload Label Icon</button>
-            }
+
                 {/* <button onClick={() => {this.showModal()}}>Show Upload Modal</button> */}
                 <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { createNewRecipe(e, this.state)}}>
                 { newRecipe && <Redirect to={'/save-recipe'} /> }  
@@ -286,6 +283,10 @@ export default class Form extends Component {
                     </div>   
                     <div className="box1">
                         <div className="pick-label">
+                            { user 
+                            ? <input onClick={() => {this.showModal()}}  value="Upload Label Icon"/>
+                            : <div>Login to Upload Label Icon</div>
+                            }
                             <div>
                                 <Label 
                                     img={this.state.img}
