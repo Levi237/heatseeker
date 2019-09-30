@@ -281,10 +281,14 @@ onUpdateUser(e){
     );
   }
 }
-const mapStateToProps = state => ({
-  data: state.data,
-  userName: state.userName
-});
+
+const mapStateToProps = (state, props) => {
+  console.log(props)
+  return {
+    data: state.data,
+    userName: state.userName
+  }
+};
 const mapActionsToProps = {
   onUpdateUser: updateUser
 };
