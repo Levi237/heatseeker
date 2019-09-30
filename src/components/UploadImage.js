@@ -40,7 +40,8 @@ export default class UploadImage extends Component {
 
     handleUpload = () => {
         const { image } = this.state
-        const uid = firebase.auth().currentUser.uid;
+        const { uid } = this.props
+        // const uid = firebase.auth().currentUser.uid;
         firebase
             .storage()
             .ref(`images/${uid}/${image.name}`)

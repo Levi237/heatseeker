@@ -42,7 +42,7 @@ export default class Home extends Component {
 
     render(){
         const { remove, dashOn } = this.state
-        const { recipes, user, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props
+        const { recipes, user, uid, showThisRecipe, show, order, newRecipe, updateForm, showOrder, closeShow, editRecipeID, edit } = this.props
         
         return(
             <div>
@@ -88,6 +88,7 @@ export default class Home extends Component {
                         }
                         {   (dashOn === "userCreations") &&          
                                 <Recipes 
+                                    uid={uid}
                                     user={user} 
                                     recipes={recipes}
                                     remove={remove}

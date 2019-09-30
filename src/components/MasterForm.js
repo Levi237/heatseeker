@@ -21,14 +21,15 @@ import * as routes from '../constants/routes';
 //Scroll Menu
 const Arrow = ({ text, className }) => {
   return (
-    <div className={className}>{text}</div>
-  );
-};
-const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
+      <div className={className}>{text}</div>
+      );
+    };
+    const ArrowLeft  = Arrow({ text: '', className: 'arrow-prev' });
+    const ArrowRight = Arrow({ text: '', className: 'arrow-next' });
+    
+    // NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.
 
-// NEED PHOTO UPLOAD AND LABEL COMPONENT WITH PREVIEW OF BOTTLE?  SOMETHING WITH PHOTO UPLOAD.
-
+    
 export default class Form extends Component {
     state = {
         examples: [],
@@ -53,7 +54,7 @@ export default class Form extends Component {
 
     }
     componentDidMount = () => {
-        const { recipes, edit } = this.props
+        const { recipes, edit, uid } = this.props
         if (edit){
             recipes.forEach(recipe => {
                 if (recipe.id.includes(edit)){
@@ -71,8 +72,10 @@ export default class Form extends Component {
             })
         } else {
             this.loadExamples();
-
         }
+        this.setState({
+            uid
+        })
     }
 
     updateRecipe = async (e, recipe) => {
@@ -188,7 +191,8 @@ export default class Form extends Component {
       }
     render(){
         const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, show, examplesVisibility } = this.state
-        const { chilis, spices, extras, vinegars, edit, submitForm, newRecipe, user, closeEditForm } = this.props
+        const { chilis, spices, extras, vinegars, edit, createNewRecipe, newRecipe, user, closeEditForm, uid } = this.props
+
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] }  
         let chili2 = ""; if ( chili[1] ){ chili2 = chili[1] } 
@@ -250,11 +254,11 @@ export default class Form extends Component {
         
         return(<>
             <Modal show={show} onClose={this.showModal}>
-                <UploadImage updateImageSelected={this.updateImageSelected} />
+                <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} />
             </Modal>
             <div className="form-container">
                 <button onClick={() => {this.showModal()}}>Show Upload Modal</button>
-                <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { submitForm(e, this.state)}}>
+                <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { createNewRecipe(e, this.state)}}>
                 { newRecipe && <Redirect to={'/save-recipe'} /> }  
                 { close     && <Redirect to={routes.HOME}/> }
                     <div className="box2">
@@ -296,7 +300,7 @@ export default class Form extends Component {
                         </div>
                         <div className="pick-mini-labels">
                             
-                            <UserImages />
+                            <UserImages uid={uid} user={user}/>
                             <Labels 
                                 user ={user} 
                                 setLabel={this.setLabel}

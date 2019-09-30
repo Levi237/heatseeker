@@ -21,12 +21,18 @@ export default class UserImages extends Component {
 
     render(){
         const { labels } = this.state
+        const { uid } = this.props
+
         const labelsList = labels.map(label => {
-            return(
-                <div>
-                    <img className="uploaded-image" src={label.img.url}/>  
-                </div>
-            )
+            // console.log(uid, label.img.uid)
+            if (uid === label.img.uid){
+                // console.log("match")
+                return(
+                    <div>
+                        <img className="uploaded-image" src={label.img.url}/>  
+                    </div>
+                )
+            }
         })
         return(
             <>{labelsList}</>

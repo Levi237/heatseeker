@@ -31,8 +31,9 @@ export default class Show extends Component {
                 extra: newRecipe.extra,
                 vinegar: newRecipe.vinegar,
                 img: newRecipe.img,
-                creator: user.displayName,
-                email: user.email,
+                uid: firebase.auth().currentUser.uid,
+                // creator: user.displayName,
+                // email: user.email,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
         return newFromDB

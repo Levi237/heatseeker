@@ -18,6 +18,7 @@ export default class App extends Component {
 
   state = {
       user: null,
+      uid: null,
       chilis: [],
       spices: [],
       extras: [],
@@ -100,9 +101,12 @@ export default class App extends Component {
   authListener(){
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
-        this.setState({user: user.providerData[0]});
+        this.setState({
+          user: user.providerData[0],
+          uid: firebase.auth().currentUser.uid
+        });
       }else{
-        this.setState({user: null});
+        this.setState({user: null, uid: null});
       }
     });
   };
@@ -110,7 +114,7 @@ export default class App extends Component {
     firebase.auth().signOut();
   }
 
-  submitForm =  async (e, data) => {
+  createNewRecipe =  async (e, data) => {
     e.preventDefault();
     this.setState({
       newRecipe: data
@@ -154,7 +158,7 @@ export default class App extends Component {
   }
 
   render(){
-    const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, recipes, show, order, edit } = this.state
+    const { chilis, spices, extras, vinegars, newRecipe, updateRecipe, user, uid, recipes, show, order, edit } = this.state
   
     return (
       <div className="grid-container">
@@ -174,6 +178,7 @@ export default class App extends Component {
                     <Home 
                       order={order}
                       user={user} 
+                      uid={uid}
                       recipes={recipes} 
                       newRecipe={newRecipe} 
                       show={show}
@@ -189,6 +194,7 @@ export default class App extends Component {
                   ? <Home 
                       order={order}
                       user={user} 
+                      uid={uid}
                       recipes={recipes} 
                       newRecipe={newRecipe} 
                       show={show}
@@ -200,7 +206,8 @@ export default class App extends Component {
                   : <Enter />} />                          
             <Route path={routes.FORM} exact render={() => 
                     <MasterForm 
-                      user={user} 
+                      user={user}
+                      uid={uid} 
                       recipes={recipes}
                       newRecipe={newRecipe} 
                       chilis={chilis} 
@@ -209,7 +216,7 @@ export default class App extends Component {
                       vinegars={vinegars} 
                       edit={edit}
                       setToggleApp={this.setToggleApp} 
-                      submitForm={this.submitForm}
+                      createNewRecipe={this.createNewRecipe}
                       /> }/>
             <Route path={routes.SAVE} exact render={() => !newRecipe
                   ? <Redirect to={routes.HOME} /> 
@@ -229,6 +236,7 @@ export default class App extends Component {
                   ? <Redirect to={routes.HOME} /> 
                   : <MasterForm                                         
                       user={user} 
+                      uid={uid}
                       recipes={recipes}
                       newRecipe={newRecipe} 
                       chilis={chilis} 
@@ -239,7 +247,7 @@ export default class App extends Component {
                       edit={edit}
                       closeEditForm={this.closeEditForm}
                       setToggleApp={this.setToggleApp} 
-                      submitForm={this.submitForm}
+                      createNewRecipe={this.createNewRecipe}
                       /> }/> 
             <Route path={routes.INFO} exact render={() => 
                     <About /> }/>

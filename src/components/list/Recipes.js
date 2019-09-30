@@ -5,7 +5,7 @@ import '../Form.css'
 export default class Recipes extends Component {
 
 render(){
-    const { recipes, user, remove, showThisRecipe, deleteThis } = this.props
+    const { recipes, user, remove, showThisRecipe, deleteThis, uid } = this.props
 
     let addExtras = [];
     let showSpices = [];
@@ -27,7 +27,7 @@ render(){
             })
             showSpices.push(showSpice)
         }
-        if (r.email && r.email === user.email && r.timestamp  && !r.delete){
+        if (r.uid && r.uid === uid && r.timestamp  && !r.delete){
             let dateCreated = r.timestamp.toDate().toDateString()
             return(
                 <div className="recipe-container" key={key}>
