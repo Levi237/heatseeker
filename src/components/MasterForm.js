@@ -302,12 +302,12 @@ export default class Form extends Component {
                         </div>
                         <div className="pick-mini-labels">
                             
-                            <UserImages uid={uid} user={user}/>
+                            {/* <UserImages uid={uid} user={user}/> */}
                             <Labels 
                                 user ={user} 
                                 setLabel={this.setLabel}
                                 >
-                                <UploadedLabel />
+                                {/* <UploadedLabel /> */}
                             </Labels>
                         </div>
                             {/* <Ingredients chili={chili} spice={spice} vinegar={vinegar }extra={extra} /> */}
