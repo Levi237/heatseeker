@@ -290,6 +290,7 @@ export default class Form extends Component {
                         <div className="pick-label">
                             <div>
                                 <Label 
+                                    img={this.state.img}
                                     label={label}
                                     icon={icon}
                                     header={header}

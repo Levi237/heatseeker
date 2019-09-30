@@ -38,7 +38,7 @@ render(){
                                     <div className="card-left">
                                         <div className={r.label}>
                                             <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
-                                                <img src={r.icon} alt={r.icon} />
+                                                <img src={r.img ? r.img.url : r.icon} alt={r.icon} />
                                             <h4>{r.style}</h4>
                                         </div> 
                                     </div>

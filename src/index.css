@@ -54,7 +54,16 @@ a {
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 
-.label1 {
+.center-image {
+  overflow: hidden;
+  /* height: 140px; */
+  width: 140px;
+  margin: 0 auto;
+  /* text-align: center; */
+}
+
+
+/* .label1 {
   background-image: url('./img/labels/wood-label.png');
 }
 .label2 {
@@ -66,7 +75,9 @@ a {
 }
 .label4 {
   background-image: url('./img/labels/white-label.png');
-}
+} */
+
+
 
 
 
