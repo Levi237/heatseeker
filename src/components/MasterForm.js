@@ -4,11 +4,10 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels               from './Labels';
 import Label                from './const/Label';
-// import Ingredients          from './const/Ingredients';
+
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
-import UserImages           from './UserImages';
-import UploadedLabel          from './UploadedLabel'
+
 
 import firebase             from 'firebase/app';
 import 'firebase/firestore';
@@ -301,16 +300,13 @@ export default class Form extends Component {
                             </div>
                         </div>
                         <div className="pick-mini-labels">
-                            
-                            {/* <UserImages uid={uid} user={user}/> */}
+                        
                             <Labels 
                                 user ={user} 
                                 setLabel={this.setLabel}
                                 >
-                                {/* <UploadedLabel /> */}
                             </Labels>
                         </div>
-                            {/* <Ingredients chili={chili} spice={spice} vinegar={vinegar }extra={extra} /> */}
                         {edit && 
                             <>
                                 <button className="save-btn" type="submit">Update</button>

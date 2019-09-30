@@ -17,7 +17,6 @@ export default class Username extends Component {
         console.log(currentUser)
         currentUser.updateProfile({
           displayName: this.state.name,
-          // photoURL: "https://example.com/jane-q-user/profile.jpg"
         }).then(function() {
         }).catch((error) => {
             this.setState({updateErrors: error.message}) 

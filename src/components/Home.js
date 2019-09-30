@@ -15,7 +15,7 @@ import './Home.css'
 export default class Home extends Component {
     state = {
         remove: false,
-        dashOn: "userInfo",
+        dashOn: "userCreations",
     }
 
     toggleValue = (e) => {

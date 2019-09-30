@@ -24,9 +24,7 @@ export default class UserImages extends Component {
         const { uid } = this.props
 
         const labelsList = labels.map(label => {
-            // console.log(uid, label.img.uid)
             if (uid === label.img.uid){
-                // console.log("match")
                 return(
                     <div>
                         <img className="uploaded-image" src={label.img.url}/>  

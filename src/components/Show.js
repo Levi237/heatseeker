@@ -18,7 +18,7 @@ export default class Show extends Component {
       }
 
     saveForm = async () => {
-        const { newRecipe, user } = this.props
+        const { newRecipe } = this.props
         const newFromDB = await firebase.firestore()
             .collection('recipes')
             .add({
@@ -40,6 +40,7 @@ export default class Show extends Component {
     }
 
     render(){
+        const { login } = this.state
         const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props
     
         let recipe = []
@@ -55,9 +56,9 @@ export default class Show extends Component {
         } else if (newRecipe){
                 recipe = newRecipe
         }
-        if (recipe){
-            console.log(recipe.label)
-        }
+        // if (recipe){
+        //     console.log(recipe.label)
+        // }
         if (recipe && recipe.extra){
             let nre = recipe.extra
                 const addExtra = nre.map((data, i) => {
@@ -95,7 +96,7 @@ export default class Show extends Component {
                 </div>    
             {recipe &&
                 <>
-                {  (!user && this.state.login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
+                {  (!user && login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
                 {  user ?  <h2>{recipe.header}</h2> : <h2>Your Recipe</h2> }
                     <div className="show-style-div">
                         <div className="float-left">

@@ -73,7 +73,7 @@ export default class UploadImage extends Component {
             
             { toggle ? <button onClick={() => {this.toggleUpload();}}>Upload Image</button>
                 : <>
-                <h4>Dimensions must be 4:5 (200px wide by 250px high)</h4>
+                <h4>Upload Square Image: 1 x 1</h4>
                 { !img && uploadImage}
                 { img && <>
                     <img className="uploaded-image" src={img.url} alt={image.name}/>

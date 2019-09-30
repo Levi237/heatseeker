@@ -27,7 +27,7 @@ render(){
             })
             showSpices.push(showSpice)
         }
-        if (r.uid && r.uid === uid && r.timestamp  && !r.delete){
+        if (r && r.uid === uid && !r.delete){
             let dateCreated = r.timestamp.toDate().toDateString()
             return(
                 <div className="recipe-container" key={key}>
