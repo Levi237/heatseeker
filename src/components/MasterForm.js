@@ -49,6 +49,7 @@ export default class Form extends Component {
         toggle: false,
         examplesVisibility: false,
         close: false,
+        img: null,
 
     }
     componentDidMount = () => {
@@ -107,7 +108,11 @@ export default class Form extends Component {
             this.setState({examples})
         })
     }
-
+    updateImageSelected = img => {
+        this.setState({
+          img
+        })
+      }
     exampleToggle = (e, value) => {
         e.preventDefault();
         this.setState({
@@ -244,7 +249,7 @@ export default class Form extends Component {
         
         return(<>
             <Modal show={show} onClose={this.showModal}>
-                <UploadImage />
+                <UploadImage updateImageSelected={this.updateImageSelected} />
             </Modal>
             <div className="form-container">
                 <button onClick={() => {this.showModal()}}>Show Upload Modal</button>

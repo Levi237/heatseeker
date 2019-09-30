@@ -13,7 +13,7 @@ export default class UploadImage extends Component {
 
     saveUserImage = () => {
         const { img } = this.state
-
+        const { updateImageSelected } = this.props
         const addLabelImage = firebase.firestore()
             .collection('labels')
             .add({ img })
@@ -22,7 +22,10 @@ export default class UploadImage extends Component {
                 image: null, 
                 img: null 
             })
-
+            if(img){
+                updateImageSelected(img)
+                // this.setState({img})
+            }
 
     }
     toggleUpload = () => {
