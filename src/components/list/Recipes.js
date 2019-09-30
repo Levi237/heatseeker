@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import '../Form.css'
+import Label from '../const/Label';
+
+import '../Form.css';
 
 export default class Recipes extends Component {
 
@@ -34,13 +36,21 @@ render(){
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
                     <form className="recipe-link">   
                         <button  className="recipe-link" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
-                                <div className="card-label pick-label ">
+                                <div className="card-label">
                                     <div className="card-left">
-                                        <div className={r.label}>
+                                    <Label
+                            img={r.img}
+                            label={r.label}
+                            icon={r.icon}
+                            header={r.header}
+                            style={r.style}
+                            // handleChange={this.handleChange}
+                            />
+                                        {/* <div className={r.label}>
                                             <h3>{r ? `${r.header}` : "HEATMAKERS"}</h3>
                                                 <img src={r.img ? r.img.url : r.icon} alt={r.icon} />
                                             <h4>{r.style}</h4>
-                                        </div> 
+                                        </div>  */}
                                     </div>
                                     <div className="card-recipe card-right">
                                         <section><strong>{dateCreated}</strong></section>

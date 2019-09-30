@@ -44,8 +44,8 @@ export default class Form extends Component {
         examplesVisibility: false,
         close: false,
         img: null,
+    };
 
-    }
     componentDidMount = () => {
         const { recipes, edit, uid } = this.props
         if (edit){
@@ -70,7 +70,7 @@ export default class Form extends Component {
         this.setState({
             uid
         })
-    }
+    };
 
     updateRecipe = async (e, recipe) => {
         e.preventDefault();
@@ -95,7 +95,7 @@ export default class Form extends Component {
                 close: true,
             })   
             return update    
-    }
+    };
     loadExamples(){
         firebase.firestore().collection('examples').onSnapshot(serverUpdate => {
             const examples = serverUpdate.docs.map(_doc => {
@@ -105,12 +105,12 @@ export default class Form extends Component {
             });
             this.setState({examples})
         })
-    }
+    };
     updateImageSelected = img => {
         this.setState({
           img
         })
-      }
+    };
     exampleToggle = (e, value) => {
         e.preventDefault();
         this.setState({
@@ -119,7 +119,7 @@ export default class Form extends Component {
             extra: value.extra,
             vinegar: value.vinegar
         }) 
-    }
+    };
     extraToggle = (e, value) => {
         const { extra } = this.state;
         e.preventDefault();
@@ -134,7 +134,7 @@ export default class Form extends Component {
                 extra: [...extra, value]
             })
         }
-    }
+    };
     chiliToggle = (e, value) => {
         const { chili } = this.state
         e.preventDefault();;
@@ -149,17 +149,17 @@ export default class Form extends Component {
                 chili: [...chili, value]
             })
         }
-    }
+    };
     setToggle = (e, value) => {
         this.setState({
             [e.target.name]: value
         })
-    }
+    };
     toggleChange = e => {
         this.setState({
             [e.target.name]: !e.target.value
         })
-    }
+    };
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -173,16 +173,16 @@ export default class Form extends Component {
             label: labelImage[0],
             icon: labelImage[1]
         })
-    }
+    };
     onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
-    }
+    };
     showModal = () => {
         this.setState({
           ...this.state,
           show: !this.state.show
         })
-      }
+    };
     render(){
         const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, show, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, edit, createNewRecipe, newRecipe, user, closeEditForm, uid } = this.props
@@ -282,12 +282,10 @@ export default class Form extends Component {
                             <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
                     </div>   
                     <div className="box1">
-                        <div className="pick-label">
                             { user 
                             ? <input onClick={() => {this.showModal()}}  value="Upload Label Icon"/>
                             : <div>Login to Upload Label Icon</div>
                             }
-                            <div>
                                 <Label 
                                     img={this.state.img}
                                     label={label}
@@ -296,8 +294,6 @@ export default class Form extends Component {
                                     style={style}
                                     handleChange={this.handleChange}
                                     />
-                            </div>
-                        </div>
                         <div className="pick-mini-labels">
                         
                             <Labels 

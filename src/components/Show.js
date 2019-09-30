@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import firebase from 'firebase/app'
-import Enter from './Enter'
+import firebase from 'firebase/app';
+import Enter from './Enter';
+import Label from './const/Label';
 
-import './Labels.css'
+import './Labels.css';
 
 export default class Show extends Component {
     state = {
         login: false,
-    }
+    };
 
     showEnter = () => {
         this.setState({
           ...this.state,
           login: !this.state.login
         })
-      }
+    };
 
     saveForm = async () => {
         const { newRecipe } = this.props
@@ -34,8 +35,8 @@ export default class Show extends Component {
                 uid: firebase.auth().currentUser.uid,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
-        return newFromDB
-    }
+        return newFromDB;
+    };
 
     render(){
         const { login } = this.state
@@ -118,14 +119,22 @@ export default class Show extends Component {
                     }
                     <br /><br/>
 
-                        <div className="pick-label show-left">
-                            <div>
+                        <div className="show-left">
+                        <Label
+                            img={recipe.img}
+                            label={recipe.label}
+                            icon={recipe.icon}
+                            header={recipe.header}
+                            style={recipe.style}
+                            // handleChange={this.handleChange}
+                            />
+                            {/* <div>
                                 <div className={recipe.label}>
                                     <h3>{recipe ? `${recipe.header}` : "HEATMAKERS"}</h3>
                                     <img src={recipe.img? recipe.img.url : recipe.icon} alt={recipe.icon} name="label1"/>
                                     <h4>{recipe ? `${recipe.style}` : "Hot Sauce"}</h4>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="show-recipe show-right">

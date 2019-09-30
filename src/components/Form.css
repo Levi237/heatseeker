@@ -132,10 +132,12 @@ section > section {
 
 .name-sauce {
     height: 30px;
-    font-size: 16px;
+    /* font-size: 16px; */
+    font-size: 14px;
+    width: 125px;
     border: none;
     text-align: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     background-color: transparent;
     font-weight: 600;
 }

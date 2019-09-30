@@ -40,12 +40,14 @@
 }
 
 /*********************************  FORM */
-.pick-label > div > div {
-    min-height: 250px;
-    width: 200px;
+.pick-label > div {
+    min-height: 195px;
+    width: 135px;
+    /* min-height: 250px;
+    width: 200px; */
     margin: 20px auto 20px auto;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .pick-label h3 {
@@ -59,8 +61,10 @@
 }
 .pick-label img {
     display: block;
-    height: 120px;
-    width: 120px;
+    /* height: 120px;
+    width: 120px; */
+    height: 100px;
+    width: 100px;
     margin: 5px auto 0 auto;
 }
 .card-label {
@@ -103,10 +107,13 @@
 
 .brand-header {
     font-family: 'Smokum', 'Times New Roman', Times, serif;
-    font-size: 34px;
-    margin-top: 26px;
+    /* font-size: 34px;
+    margin-top: 26px; */
+    font-size: 28px;
+    margin-top: 20px;
     text-align: center;
-    width: 160px;
+    /* width: 160px; */
+    width: 125px;
     border: 0;
     background-color: transparent;
 }
