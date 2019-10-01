@@ -23,9 +23,12 @@
 }
 .label3 .brand-header::placeholder, .label3 .brand-header {
     color: #fff;
+    margin: 10px auto 5px auto;
 }
-.label3 .name-sauce::placeholder {
+
+.label3 .name-sauce, .label3 .name-sauce::placeholder {
     color: #000;
+    margin-top: 5px;
 }
 
 .label4 > input::placeholder {
