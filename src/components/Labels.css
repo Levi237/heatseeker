@@ -21,6 +21,7 @@
 .label2 > input::placeholder {
     color: #000;
 }
+
 .label3 .brand-header::placeholder, .label3 .brand-header {
     color: #fff;
     margin: 10px auto 5px auto;
@@ -52,10 +53,18 @@
     font-stretch: expanded;
 }
 .ounces {
-    font-size: 13px;
+    font-size: 9px;
+    margin-top: 3px;
 }
 .label1 .ounces {
 color: rgb(123, 88, 65);
+}
+.label2 .ounces {
+    color: #fff;
+}
+.label3 .ounces {
+    color: black;
+    font-weight: 600;
 }
 .label4 .ounces {
     color: #fff;
@@ -102,7 +111,7 @@ color: rgb(123, 88, 65);
     height: 80px;
 }
 .labels > div > div {
-margin: 0 4px;;
+margin: 0 4px;
 }
 
 .brand-header {
@@ -129,9 +138,9 @@ margin: 0 4px;;
 
 
 @media screen and (max-width: 767px) {
-    .pick-mini-labels > div > div {
+    /* .pick-mini-labels > div > div {
         display: inline-block;
         transform: scale(1.1);
         margin: 0 -18vw 14vw -18vw;
-    }
+    } */
 }

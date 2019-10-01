@@ -283,10 +283,10 @@ grid-template-areas:
 }
 
 .show-recipe {
-  width: 280px;
+  width: 240px;
 }
 .show-recipe .chalk-line {
-  width: 300px;
+  width: 260px;
 }
 
 .show-recipe span {
@@ -296,9 +296,6 @@ grid-template-areas:
   font-size: 1.5em;
 }
 
-.card-recipe {
-  /* width: 280px; */
-}
 .card-recipe .chalk-line {
   width: 300px;
   height: 5px;
@@ -320,7 +317,7 @@ grid-template-areas:
 }
 .show-buttons {
   width: 100vw;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   display: inline-block;
 }
 .show-buttons button {
@@ -366,17 +363,16 @@ grid-template-areas:
   float: left;
 }
 .show-left > div {
-  transform: scale(1.6);
-  margin-top: 50%;
+  transform: scale(1.9);
+  margin-top: 70%;
   margin-right: -80%;
+  /* margin-bottom: -20px; */
 }
 .show-right {
   float: right;
   margin: 10px 20px 10px 0;
 }
-.show-recipe .chalk-line {
-  width: 300px;
-}
+
 .card-left {
   float: left;
 }
@@ -406,7 +402,7 @@ grid-template-areas:
 
 @media screen and (max-width: 767px) {
   .grid-container {
-    grid-template-rows: 8vw 20vw auto 40px;
+    grid-template-rows: 8vw 20vw auto 20px;
     grid-template-columns: 100vw;
   grid-template-areas:
     ' nav '
@@ -435,9 +431,7 @@ grid-template-areas:
     color: #fff;
     font-weight: 700;
   }
-  .grid-footer {
-    padding: 10px 0 0 0;
-  }
+
   .grid-footer section {
     font-size: 10px;
   }
