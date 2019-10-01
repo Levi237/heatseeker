@@ -74,7 +74,7 @@ export default class Home extends Component {
                         <br/>
                         {  (dashOn === "userEdit") &&
                                 <div className="home-edit">
-                                    <button onClick={() => {this.showDelete()}}>Delete Recipes</button>
+                                    
                                     <Username />
                                 </div>
                         }   
@@ -86,7 +86,9 @@ export default class Home extends Component {
                                     <h4>Orders will display Cards with a history of eCommerce orders.</h4>
                                 </div>
                         }
-                        {   (dashOn === "userCreations") &&          
+                        {   (dashOn === "userCreations") &&  
+                            <>        
+                                <button onClick={() => {this.showDelete()}} className={remove ? "dash-on" : ""}>Delete Recipes</button>
                                 <Recipes 
                                     uid={uid}
                                     user={user} 
@@ -94,7 +96,9 @@ export default class Home extends Component {
                                     remove={remove}
                                     deleteThis={this.deleteThis}
                                     showThisRecipe={showThisRecipe} 
-                                    /> }
+                                    /> 
+                            </> 
+                        }
                         </div>
                     </div>
                 :   <Info />
