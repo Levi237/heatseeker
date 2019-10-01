@@ -58,33 +58,11 @@ a {
 /***************************************           LABELS           ***************************************/
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
-
 .center-image {
   overflow: hidden;
-  /* height: 140px; */
   width: 140px;
   margin: 0 auto;
-  /* text-align: center; */
 }
-
-
-/* .label1 {
-  background-image: url('./img/labels/wood-label.png');
-}
-.label2 {
-  background-image: url('./img/labels/green-red-white-label.png');
-}
-.label3 {
-  background-image: url('./img/labels/tiedye-example.png');
-  color: white;
-}
-.label4 {
-  background-image: url('./img/labels/white-label.png');
-} */
-
-
-
-
 
 .info-container li {
   text-align: right;
@@ -110,7 +88,7 @@ progress[value]::-webkit-progress-bar {
 }
 
 progress[value]::-webkit-progress-value {
-background-image:
+  background-image:
         -webkit-linear-gradient(top, 
                                 rgba(255, 255, 255, .25), 
                                 rgba(0, 0, 0, .25)),
@@ -132,7 +110,6 @@ background-image:
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 .grid-container {
-
   display: grid;
   width: 100vw;
   height: 100vh;
@@ -241,12 +218,10 @@ grid-template-areas:
 /*********************************************************************************************************/
 .grid-footer {
   grid-area: footer;
-  /* background-color: white; */
   padding: 0;
   background-image: url('./img/wood-panel-vintage.png');
   background-color: orangered;
   background-repeat: repeat-x;
-  /* background-size: contain; */
   text-align: right;
 }
 
@@ -340,7 +315,7 @@ grid-template-areas:
 .order-form {
   height: 600px;
   width: 100vw;
-  background-color: white;
+  background-color: #fff;
 
 }
 .show-buttons {
@@ -367,8 +342,6 @@ grid-template-areas:
   text-align: right;
 }
 
-
-
 .show-style {
   font-family: 'Smokum', 'Times New Roman', Times, serif;
   font-size: 2em;
@@ -378,14 +351,10 @@ grid-template-areas:
 .show-style-div {
   width: 50vw;
   margin: -10px 25vw 0px 25vw;
-  /* height: 80px; */
 }
 
 .show-style-div .show-style, .show-style-div  img {
   display: inline-block;
-  /* width: 50vw; */
-  /* margin: -10px 25vw 0px 25vw; */
-  /* height: 80px; */
 }
 .float-left {
   float: left
@@ -441,9 +410,7 @@ grid-template-areas:
     ' footer ';
     grid-gap: 0;
   }
-  .grid-heaader {
-    /* padding-top: 8vw; */
-  }
+
   .grid-header > img {
     height: 14vw;
     margin: 3vw auto;
@@ -460,7 +427,7 @@ grid-template-areas:
   .nav-container > a {
     font-size: 4vw;
     padding: 0 2vw ;
-    color: white;
+    color: #fff;
     font-weight: 700;
   }
   .grid-footer {
@@ -489,13 +456,10 @@ grid-template-areas:
     height: 30px;
   }
   .show-right {
-    /* float: right; */
     margin-top: 10px ;
   }
   .show-buttons button {
     width: 25vw;
-    /* margin-top: 10px; */
-    /* display: inline-block; */
 }
   .card-right {
     float: right;
@@ -504,7 +468,6 @@ grid-template-areas:
   .show-style-div {
     width: 100vw;
     margin: 0;
-    /* height: 80px; */
   }
 
   .card-recipe {
@@ -521,15 +484,9 @@ grid-template-areas:
     font-size: 1.5em;
   }
 
-
-
-
   .new-recipe {
     width: 100vw;
     padding: 0;
-  }
-  .new-recipe .chalk-line {
-    /* width: 100vw; */
   }
   .chalk {
     width: 100vw;
