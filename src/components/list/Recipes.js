@@ -30,7 +30,7 @@ render(){
             return (
                 <div className="recipe-container" key={key}>
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
-                    <form className="recipe-link">   
+                    {/* <div className="recipe-link">    */}
                         <button  className="recipe-link" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
                                 <div className="card-label">
                                     <div className="card-left">
@@ -56,7 +56,7 @@ render(){
                                     </div>
                                 </div> 
                         </button>
-                    </form>
+                    {/* </div> */}
                 </div>
             )
         }

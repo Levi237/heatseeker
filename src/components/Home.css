@@ -73,8 +73,8 @@
 }
 .deleteBtn {
     position: absolute;
-    left: 28vw;
-    top: .5vw;
+    left: 480px;
+    top: 20px;
     z-index: 5;
 }
 
