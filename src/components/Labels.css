@@ -21,20 +21,27 @@
 .label2 > input::placeholder {
     color: #000;
 }
-.label3 .brand-header::placeholder {
+.label3 .brand-header::placeholder, .label3 .brand-header {
     color: #fff;
 }
 .label3 .name-sauce::placeholder {
     color: #000;
 }
+
 .label4 > input::placeholder {
     color: #000;
 }
 .label5 > input::placeholder {
     color: rgb(123, 88, 65);
 }
-.label3 .brand-header, .label5 .brand-header, .label5 .name-sauce {
+.label5 .name-sauce::placeholder {
     color: #000;
+}
+.label5 .brand-header {
+    color: rgb(123, 88, 65);
+}
+.label3 .brand-header, .label5 .brand-header {
+    /* color: #000; */
     text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
 }
 .label5 h4, .label3 h3, .label5 h3 {
@@ -76,14 +83,17 @@ color: rgb(123, 88, 65);
     display: block;
     height: 100px;
     width: 100px;
-    margin: 5px auto 0 auto;
+    margin: 0 auto 5px auto;
 }
 .card-label {
     transform: scale(.7);
     margin: 0 -15%;
 }
 
-/********************************* SCALABLE */
+/********************************* labels */
+.labels {
+    height: 80px;
+}
 .labels > div > div {
 margin: 0 4px;;
 }

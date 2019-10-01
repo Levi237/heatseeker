@@ -46,9 +46,9 @@
 /***************************************                           ***************************************/
 /*********************************************************************************************************/
 .enter-container {
-  height: 100%;
-  width: calc(100vw - 40px);
-  padding: 20px;
+  height: calc(100vh - 184px);
+  width: 100vw;
+  /* padding: 20px; */
   margin-top: 0px;
   background-image: url('./img/tiedye.jpg');
   background-size: cover;

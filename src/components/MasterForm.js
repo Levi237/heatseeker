@@ -276,7 +276,7 @@ export default class Form extends Component {
                     <div className="box1">
                             { user 
                             ? <input onClick={() => {this.showModal()}}  value="Upload Label Icon"/>
-                            : <div>Login to Upload Label Icon</div>
+                            : <input value="Login to Upload Labels" type="button"/>
                             }
                             <Label 
                                 img={this.state.img}

@@ -258,9 +258,8 @@ export default class App extends Component {
         </div>     
         
         <div className="grid-footer">
-          <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/><br />
-          <section>&copy;LeviEiko.com</section><br />
-          <section>&copy;HEATMAKERS</section>
+          <img className="chalk-bottom" src="chalkdarkorange.png" alt="footer line break"/>
+          <small>&copy;<a href="levieiko.com">LeviEiko.com</a> | &copy;HEATMAKERS</small>
         </div>
       </div>
     );

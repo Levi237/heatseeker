@@ -31,7 +31,7 @@ export default class Labels extends Component {
                 <div key={key} className="pick-label">
 
                     <div  id={`${label.header} ${label.icon}`} className={label.header} type="submit" onClick={(e) => {setLabel(e)}}>
-                        <input className="brand-header" name="header" value={user ? `${user.displayName}'s` : "HEATMAKERS"} type="text"/>
+                        <input className="brand-header" name="header" value="HEATMAKERS" type="text"/>
                         <img src={label.icon} alt={label.icon} value={label.icon}/>
                         <input className="name-sauce" name="style" value={label.style} placeholder="X Hot Sauce X" type="text"/>
                         <div className="ounces">5 FL.OZ - 147ml</div>
