@@ -93,18 +93,10 @@ export default class Show extends Component {
                 <>
                 {  (!user && login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
                     <div className="new-recipe">
-<<<<<<< HEAD
-
-                    { recipe.chili[1] 
-                    ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>
-                    : <progress className="bored-bar" value={(recipe.chili[0].heat)} max="15"></progress> 
-                    }
-=======
                         { recipe.chili[1] 
                         ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>
                         : <progress className="bored-bar" value={(recipe.chili[0].heat)} max="15"></progress> 
                         }
->>>>>>> labels2
                         <div className="show-left">
                         <Label
                             img={recipe.img}
