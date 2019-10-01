@@ -73,9 +73,13 @@
 }
 .deleteBtn {
     position: absolute;
-    left: 480px;
-    top: 20px;
+    right: 0;
     z-index: 5;
+    margin: 5px;
+    background-color: orangered;
+    padding: 5px;
+    color: #fff;
+    font-weight: 800;
 }
 
 .home-edit {
