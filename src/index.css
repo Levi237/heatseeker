@@ -378,6 +378,7 @@ grid-template-areas:
 }
 .card-right {
   float: right;
+  width: 280px;
   margin: 10px 20px 10px 0;
 }
 .show-style-div > div {
@@ -472,6 +473,10 @@ grid-template-areas:
   .card-recipe {
     width: 280px;
   }
+  /* .card-recipe > div > div > ul > li {
+    font-size: 10px;
+    color: yellow;
+  } */
   .card-recipe .chalk-line {
     width: 300px;
   }

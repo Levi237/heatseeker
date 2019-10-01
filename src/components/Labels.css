@@ -81,7 +81,7 @@ color: rgb(123, 88, 65);
 .pick-label > div {
     height: 195px;
     width: 135px;
-    margin: 5px auto 20px auto;
+    margin: 20px auto;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -5,6 +5,7 @@ import firebase             from 'firebase/app';
 
 import Enter                from './Enter';
 import Label                from './const/Label';
+import Recipe               from './const/Recipe';
 
 import './Labels.css';
 
@@ -45,8 +46,8 @@ export default class Show extends Component {
         const { show, recipes, newRecipe, user, order, clearNewRecipe, showOrder, closeShow, editRecipeID, edit } =  this.props;
     
         let recipe = [];
-        let addExtras = [];
-        let showSpices = [];
+        
+        
 
         if (show || order){
             recipes.forEach(e => {
@@ -58,18 +59,18 @@ export default class Show extends Component {
                 recipe = newRecipe
         };
 
-        if (recipe && recipe.extra){
-            let nre = recipe.extra
-                const addExtra = nre.map((data, i) => {
-                    return <li key={i}>{data.name}</li>
-                })
-                addExtras.push(addExtra)
-            let nrs = recipe.spice.items;
-            const showSpice = nrs.map((data, i) => {
-                return <li key={i}>{data}</li>
-            })
-            showSpices.push(showSpice)
-        };
+        // if (recipe && recipe.extra){
+        //     let nre = recipe.extra
+        //         const addExtra = nre.map((data, i) => {
+        //             return <li key={i}>{data.name}</li>
+        //         })
+        //         addExtras.push(addExtra)
+        //     let nrs = recipe.spice.items;
+        //     const showSpice = nrs.map((data, i) => {
+        //         return <li key={i}>{data}</li>
+        //     })
+        //     showSpices.push(showSpice)
+        // };
 
         return(
             <>
@@ -106,8 +107,10 @@ export default class Show extends Component {
                             style={recipe.style}
                             />
                         </div>
-
-                        <div className="show-recipe show-right">
+                        <div className="show-right">
+                            <Recipe recipe={recipe} />
+                        </div>
+                        {/* <div className="show-recipe show-right">
                             { recipe.chili[1]
                             ? <><span>Pepper:</span><section><strong>{ recipe.chili[0].name } & { recipe.chili[1].name }</strong></section></>
                             : <><span>Pepper:</span><section><strong>{ recipe.chili[0].name }</strong></section></>
@@ -120,7 +123,7 @@ export default class Show extends Component {
                             : ""}
                             <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                             <span>Vinegar:</span>{ recipe.vinegar.name && <section><strong>{ recipe.vinegar.name }</strong></section>}
-                        </div>
+                        </div> */}
                     <br/>
                     </div>
                 </>

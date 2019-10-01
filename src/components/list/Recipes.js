@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Label from '../const/Label';
+import Label                from '../const/Label';
+import Recipe               from '../const/Recipe';
 
 import '../Form.css';
 
@@ -17,20 +18,19 @@ render(){
             let nre = r.extra
                 const addExtra = nre.map((data, i) => {
                     return <li key={i}>{data.name}</li>
-                })
-                addExtras.push(addExtra)
+                });
+                addExtras.push(addExtra);
             let nrs = r.spice.items;
             const showSpice = nrs.map((data, i) => {
                 return <li key={i}>{data}</li>
             })
-            showSpices.push(showSpice)
+            showSpices.push(showSpice);
         }
         if (r && r.uid === uid && r.timestamp && !r.delete){
-            let dateCreated = r.timestamp.toDate().toDateString()
+            let dateCreated = r.timestamp.toDate().toDateString();
             return (
                 <div className="recipe-container" key={key}>
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
-                    {/* <div className="recipe-link">    */}
                         <button  className="recipe-link" type="button" name="recipe" value={r.id} onClick={(e) => {showThisRecipe(e)}}>
                                 <div className="card-label">
                                     <div className="card-left">
@@ -43,7 +43,8 @@ render(){
                                         />
                                     </div>
                                     <div className="card-recipe card-right">
-                                        <section><strong>{dateCreated}</strong></section>
+                                    <Recipe recipe={r} />
+                                        {/* <section><strong>{dateCreated}</strong></section>
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                                         { r.chili[1]
                                         ? <><span>Pepper:</span><section><strong>{ r.chili[0].name } & { r.chili[1].name }</strong></section></>
@@ -52,11 +53,10 @@ render(){
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
                                         <span>Spice:</span>{ r.spice.name && <section><strong>{ r.spice.name } Spice</strong></section> }
                                         <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
-                                        <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section> }
+                                        <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section> } */}
                                     </div>
                                 </div> 
                         </button>
-                    {/* </div> */}
                 </div>
             )
         }
