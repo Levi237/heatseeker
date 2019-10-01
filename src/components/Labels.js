@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './Labels.css'
+import './Labels.css';
 
 export default class Labels extends Component {
     state ={
@@ -20,28 +20,30 @@ export default class Labels extends Component {
             header: "label5",
             icon: "real-chili.jpg"
         }]
-    }
+    };
+
     render(){
-        const { labels } = this.state
-        const { user, setLabel } = this.props
+        const { labels } = this.state;
+        const { user, setLabel } = this.props;
 
         const makeList = labels.map((label, key) => {
             return(
-                <div key={key}>
-                <div  id={`${label.header} ${label.icon}`} className={label.header} type="submit" onClick={(e) => {setLabel(e)}}>
-                    <h3>{user ? `${user.displayName}'s` : "HEATMAKERS"}</h3>
-                    <img src={label.icon} alt={label.icon} value={label.icon}/>
-                    <h4>Hot Sauce</h4>
-                </div>
-                {this.props.children}
+                <div key={key} className="pick-label">
+
+                    <div  id={`${label.header} ${label.icon}`} className={label.header} type="submit" onClick={(e) => {setLabel(e)}}>
+                        <input className="brand-header" name="header" value={user ? `${user.displayName}'s` : "HEATMAKERS"} type="text"/>
+                        <img src={label.icon} alt={label.icon} value={label.icon}/>
+                        <input className="name-sauce" name="style" value={label.style} placeholder="X Hot Sauce X" type="text"/>
+                        <div><small>5 FL.OZ - 147ml</small></div>
+                    </div>
                 </div>
             )
-        })
+        });
 
-            return(
+            return (
                 <div className="labels">
                     {makeList}                  
                 </div>
-            )
-        }
-    }
+            );
+        };
+    };
