@@ -7,7 +7,7 @@ const Label = ({label, icon, style, header, handleChange, img}) => {
                 <input className="brand-header" name="header" placeholder={header} type="text" onChange={handleChange}/>
                 <img src={img ? img.url : icon} alt={icon}/>          
                 <input className="name-sauce" name="style" placeholder={style} type="text" onChange={handleChange}/>
-                <div><small>5 FL.OZ - 147ml</small></div>
+                <div className="ounces">5 FL.OZ - 147ml</div>
             </div>
         </div>
     );

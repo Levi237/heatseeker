@@ -34,7 +34,7 @@ export default class Labels extends Component {
                         <input className="brand-header" name="header" value={user ? `${user.displayName}'s` : "HEATMAKERS"} type="text"/>
                         <img src={label.icon} alt={label.icon} value={label.icon}/>
                         <input className="name-sauce" name="style" value={label.style} placeholder="X Hot Sauce X" type="text"/>
-                        <div><small>5 FL.OZ - 147ml</small></div>
+                        <div className="ounces">5 FL.OZ - 147ml</div>
                     </div>
                 </div>
             )
