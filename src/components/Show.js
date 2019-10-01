@@ -92,31 +92,11 @@ export default class Show extends Component {
             { recipe &&
                 <>
                 {  (!user && login) && <Enter newRecipe={newRecipe} onClose={this.showEnter} /> }
-                {  user ?  <h2>{recipe.header}</h2> : <h2>Your Recipe</h2> }
-                    <div className="show-style-div">
-                        <div className="float-left">
-                            <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
-                        </div>
-                        <div className="show-style">
-                            {recipe.style}
-                        </div>
-                        { recipe.chili[1]
-                        ? <div className="float-right">
-                            <img src={`../chilis/${recipe.chili[1].src}`} alt={recipe.chili[1].name} className="chili"/>
-                            </div>
-                        : <div className="float-right">
-                            <img src={`../chilis/${recipe.chili[0].src}`} alt={recipe.chili[0].name} className="chili"/>
-                            </div>
-                        }
-                    </div>
                     <div className="new-recipe">
-
-                    { recipe.chili[1] 
-                    ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>
-                    : <progress className="bored-bar" value={(recipe.chili[0].heat)} max="15"></progress> 
-                    }
-                    <br /><br/>
-
+                        { recipe.chili[1] 
+                        ? <progress className="bored-bar" value={(recipe.chili[0].heat + recipe.chili[1].heat)/2} max="15"></progress>
+                        : <progress className="bored-bar" value={(recipe.chili[0].heat)} max="15"></progress> 
+                        }
                         <div className="show-left">
                         <Label
                             img={recipe.img}

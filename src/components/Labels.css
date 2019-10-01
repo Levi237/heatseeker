@@ -21,6 +21,7 @@
 .label2 > input::placeholder {
     color: #000;
 }
+
 .label3 .brand-header::placeholder, .label3 .brand-header {
     color: #fff;
     margin: 10px auto 5px auto;
@@ -57,6 +58,13 @@
 }
 .label1 .ounces {
 color: rgb(123, 88, 65);
+}
+.label2 .ounces {
+    color: #fff;
+}
+.label3 .ounces {
+    color: black;
+    font-weight: 600;
 }
 .label4 .ounces {
     color: #fff;
