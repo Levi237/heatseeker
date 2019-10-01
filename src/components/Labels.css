@@ -111,7 +111,7 @@ color: rgb(123, 88, 65);
     height: 80px;
 }
 .labels > div > div {
-margin: 0 4px;;
+margin: 0 4px;
 }
 
 .brand-header {
@@ -142,5 +142,8 @@ margin: 0 4px;;
         display: inline-block;
         transform: scale(1.1);
         margin: 0 -18vw 14vw -18vw;
+    }
+    .labels > div > div {
+        transform: scale(.6);
     }
 }
