@@ -52,7 +52,8 @@
     font-stretch: expanded;
 }
 .ounces {
-    font-size: 13px;
+    font-size: 9px;
+    margin-top: 3px;
 }
 .label1 .ounces {
 color: rgb(123, 88, 65);

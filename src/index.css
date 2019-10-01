@@ -366,8 +366,8 @@ grid-template-areas:
   float: left;
 }
 .show-left > div {
-  transform: scale(1.6);
-  margin-top: 50%;
+  transform: scale(1.9);
+  margin-top: 60%;
   margin-right: -80%;
 }
 .show-right {
