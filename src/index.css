@@ -368,6 +368,7 @@ grid-template-areas:
 .show-left > div {
   transform: scale(1.6);
   margin-top: 50%;
+  margin-right: -80%;
 }
 .show-right {
   float: right;
