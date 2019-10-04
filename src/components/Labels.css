@@ -13,7 +13,7 @@
 }
 .label5 {
     background-image: url('../img/labels/wood-frame-label.png');
-    color: rgb(123, 88, 65);
+    /* color: rgb(123, 88, 65); */
 }
 .label1 > input::placeholder {
     color: #000;
@@ -36,19 +36,20 @@
     color: #000;
 }
 .label5 > input::placeholder {
-    color: rgb(123, 88, 65);
-}
-.label5 .name-sauce::placeholder {
+    /* color: rgb(123, 88, 65); */
     color: #000;
 }
-.label5 .brand-header {
+/* .label5 .name-sauce::placeholder {
+    color: #000;
+} */
+/* .label5 .brand-header {
     color: rgb(123, 88, 65);
-}
-.label3 .brand-header, .label5 .brand-header {
+} */
+.label3 .brand-header {
     /* color: #000; */
     text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
 }
-.label5 h4, .label3 h3, .label5 h3 {
+.label3 h3,  {
     text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
     font-stretch: expanded;
 }
