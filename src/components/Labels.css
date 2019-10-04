@@ -1,12 +1,7 @@
-.label-body h3, .label-body h4{
-    /* display: block; */
-    /* font-size: 1.5em; */
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    /* font-weight: bold; */
+.label-content-container {
+    position: absolute;
 }
+
 
 
 .label1 {
@@ -27,6 +22,13 @@
 .labelX {
     background-image: url('../img/labels/tiedye-blank.png');
 }
+
+.label-frame {
+    z-index: 2;
+    position: absolute;    
+    min-height: 319px;
+    width: 100%;
+}
 .frame-wood {
     background-image: url('../img/labels/frame-wood.png');
     background-size: cover;
@@ -34,11 +36,83 @@
     z-index: 1;
     position: relative;
 }
+.frame-black {
+    border-top: 28px solid black;
+    border-bottom: 28px solid black;
+}
+.frame-green {
+    border-top: 28px solid green;
+    border-bottom: 28px solid green;
+}
+.frame-red {
+    border-top: 28px solid red;
+    border-bottom: 28px solid red;
+}
+.frame-white {
+    border-top: 28px solid white;
+    border-bottom: 28px solid white;
+}
+
+
+
+.label-content-container {
+    position: relative;
+    z-index: 10;
+}
+
+
+.label-body {
+    margin: -3px 0 0 0;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 375px;
+    max-height: 375px;
+    box-shadow: 0px 0px 15px black;
+}
+.label-body img {
+    display: block;
+    height: 200px;
+    width: 200px;
+    margin: 4px auto 0 auto;
+    z-index: 2;
+}
+.label-body h3, .label-body h4{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.text-outline {
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
+    font-stretch: expanded;
+}
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TEXT STYLING WITH COLORS */
 input {
     background-color: transparent;
     border: 0;
@@ -71,7 +145,6 @@ input {
 
 .label-name, .label-name input {
     font-family: Arial, Helvetica, sans-serif;
-    /* font-size: 14px; */
     font-size: 20px;
     text-align: center;
     width: 100%;
@@ -79,7 +152,6 @@ input {
 .label-name {
     height: 28px;
     position: relative;
-    /* padding: 5px 0; */
     margin: 8px 0 0 0;
     overflow: hidden;
     z-index: 2;
@@ -97,54 +169,6 @@ input {
     /* bottom: 10px; */
     margin-top: 14px;
 }
-
-.label-body {
-    margin: -3px 0 0 0;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 250px;
-    height: 375px;
-    max-height: 375px;
-    box-shadow: 0px 0px 15px black;
-}
-.label-body img {
-    display: block;
-    height: 200px;
-    width: 200px;
-    margin: 4px auto 0 auto;
-    z-index: 2;
-}
-
-
-.text-outline {
-    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
-    font-stretch: expanded;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* COLORS */
 .font-black, .font-black::placeholder {
     color: black;
 }
@@ -157,7 +181,25 @@ input {
 .font-green, .font-green::placeholder  {
     color: green;
 }
-
+.bg-green {
+    background-color: green;
+}
+.bg-red {
+    background-color: red;
+}
+.bg-white {
+    background-color: white;
+}
+.bg-black {
+    background-color: black;
+}
+.bg-wood {
+    background-image: url('../img/labels/wood-background.png');
+    background-size: cover;
+}
+.bg-tiedye {
+    background-image: url('../img/labels/tiedye-blank.png');
+}
 
 
 /* IMAGE BORDER BORDER LINE */
@@ -167,10 +209,10 @@ input {
     margin: 100px 23px 0 23px;
     height: 196px;
     width: 196px;
-    z-index: 3;
+    z-index: 11;
     position: absolute;
 }
-.border-line {
+.label-border {
     border-width: 2px;
     border-style: solid;
     margin: 36px 12px;
@@ -191,6 +233,23 @@ input {
 .border-white {
     border-color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
