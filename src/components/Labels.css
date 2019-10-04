@@ -27,20 +27,17 @@
 .labelX {
     background-image: url('../img/labels/tiedye-blank.png');
 }
+.frame-wood {
+    background-image: url('../img/labels/frame-wood.png');
+    background-size: cover;
+    height: 375px;
+    z-index: 1;
+    position: relative;
+}
 
 
-.font-black, .font-black::placeholder {
-    color: black;
-}
-.font-white, .font-white::placeholder  {
-    color: white;
-}
-.font-red, .font-red::placeholder  {
-    color: red;
-}
-.font-green, .font-green::placeholder  {
-    color: green;
-}
+
+
 
 input {
     background-color: transparent;
@@ -61,7 +58,7 @@ input {
     height: 40px;
     position: relative;
     padding: 5px 0;
-    margin: 46px 0 0 0;
+    margin: 44px 0 0 0;
     overflow: hidden;
     z-index: 1;
     background-color: white;
@@ -71,12 +68,34 @@ input {
     height: 40px;
     display: block;
 }
-.label-name {
 
+.label-name, .label-name input {
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-size: 14px; */
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+.label-name {
+    height: 28px;
+    position: relative;
+    /* padding: 5px 0; */
+    margin: 8px 0 0 0;
+    overflow: hidden;
+    z-index: 2;
+    background-color: white;
+    display: inline-block;
+}
+.label-name input{
+    height: 28px;
+    display: block;
 }
 .label-oz {
-    font-size: 9px;
-    margin-top: 3px;
+    font-size: 18px;
+    margin-top: 0px;
+    font-weight: 700;
+    /* bottom: 10px; */
+    margin-top: 14px;
 }
 
 .label-body {
@@ -87,12 +106,15 @@ input {
     background-repeat: no-repeat;
     width: 250px;
     height: 375px;
+    max-height: 375px;
+    box-shadow: 0px 0px 15px black;
 }
 .label-body img {
     display: block;
     height: 200px;
     width: 200px;
-    margin: 10px auto 0px auto;
+    margin: 4px auto 0 auto;
+    z-index: 2;
 }
 
 
@@ -103,68 +125,96 @@ input {
 
 
 
-.form-container > form {
-    margin-top: 5px;
-}
 
-/*********************************  FORM */
-.pick-label > div {
 
-}
-.pick-label h3 {
-    font-size: 34px;
-    margin-top: 26px;
-}
-.pick-label h4 {
-    margin-top: 0px;
-    padding: 5px 0 ;
-    width: 100%;
-}
-.pick-label img {
-    display: block;
-    height: 100px;
-    width: 100px;
-    margin: 0 auto 0px auto;
-}
-.card-label {
-    transform: scale(.7);
-    margin: 0 -15%;
-}
 
-/********************************* labels */
-.labels {
-    height: 80px;
-}
-.labels > div > div {
-margin: 0 4px;
-}
 
-.brand-header {
-    font-family: 'Smokum', 'Times New Roman', Times, serif;
-    font-size: 28px;
-    margin-top: 20px;
-    text-align: center;
-    width: 125px;
-    border: 0;
-    background-color: transparent;
-}
 
-/****************************************************** MINI LABELS */
-.pick-mini-labels {
-    margin-bottom: -30px;
-}
 
-.pick-mini-labels > div > div {
-    display: inline-block;
-    transform: scale(.3);
-    margin: -80px -50px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* COLORS */
+.font-black, .font-black::placeholder {
+    color: black;
+}
+.font-white, .font-white::placeholder  {
+    color: white;
+}
+.font-red, .font-red::placeholder  {
+    color: red;
+}
+.font-green, .font-green::placeholder  {
+    color: green;
 }
 
 
 
-@media screen and (max-width: 767px) {
-
+/* IMAGE BORDER BORDER LINE */
+.image-border {
+    border-width: 4px;
+    border-style: solid;
+    margin: 100px 23px 0 23px;
+    height: 196px;
+    width: 196px;
+    z-index: 3;
+    position: absolute;
 }
+.border-line {
+    border-width: 2px;
+    border-style: solid;
+    margin: 36px 12px;
+    height: 302px;
+    width: 224px;
+    z-index: 0;
+    position: absolute;
+}
+.border-black {
+    border-color: black;
+}
+.border-green {
+    border-color: green;
+}
+.border-red {
+    border-color: red;
+}
+.border-white {
+    border-color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -318,3 +368,71 @@ margin: 0 4px;
         margin: 0 -18vw 14vw -18vw;
     } */
 }
+
+
+
+.form-container > form {
+    margin-top: 5px;
+}
+
+/*********************************  FORM */
+.pick-label > div {
+
+}
+.pick-label h3 {
+    font-size: 34px;
+    margin-top: 26px;
+}
+.pick-label h4 {
+    margin-top: 0px;
+    padding: 5px 0 ;
+    width: 100%;
+}
+.pick-label img {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto 0px auto;
+}
+.card-label {
+    transform: scale(.7);
+    margin: 0 -15%;
+}
+
+/********************************* labels */
+.labels {
+    height: 80px;
+}
+.labels > div > div {
+margin: 0 4px;
+}
+
+.brand-header {
+    font-family: 'Smokum', 'Times New Roman', Times, serif;
+    font-size: 28px;
+    margin-top: 20px;
+    text-align: center;
+    width: 125px;
+    border: 0;
+    background-color: transparent;
+}
+
+/****************************************************** MINI LABELS */
+.pick-mini-labels {
+    margin-bottom: -30px;
+}
+
+.pick-mini-labels > div > div {
+    display: inline-block;
+    transform: scale(.3);
+    margin: -80px -50px;
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+}
+
+
+
