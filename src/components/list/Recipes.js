@@ -62,11 +62,13 @@ render(){
         }
     });
         return(
-            <div>
+            <>
                 <h2>CREATIONS</h2>
-                    <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
-                    {list}
-            </div>
+                <img className="chalk" src="chalkdarkorange.png" alt="line break"/> 
+                <div className="overflow">
+                        {list}
+                </div>
+            </>
         );
     };
 };
