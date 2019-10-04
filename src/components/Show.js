@@ -108,7 +108,20 @@ export default class Show extends Component {
                             />
                         </div>
                         <div className="show-right">
-                            <Recipe recipe={recipe} />
+                                                    {/* <TestLabel /> */}
+                            
+                    <div className="">
+                    {/* <div className={`${recipe.label} label-bg label-body`}> */}
+                        <div className="labelX label-bg label-body">
+                            <div className="label-header">
+                                <input name="header" placeholder={recipe.header} type="text"/>
+                            </div>
+                            <img src={recipe.img ? recipe.img.url : recipe.icon} alt={recipe.icon}/>          
+                            <input className="label-name" name="style" placeholder={recipe.style} type="text"/>
+                            <div className="label-oz">5 FL.OZ - 147ml</div>
+                        </div>
+                    </div>
+                            {/* <Recipe recipe={recipe} /> */}
                         </div>
                         {/* <div className="show-recipe show-right">
                             { recipe.chili[1]

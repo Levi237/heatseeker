@@ -88,6 +88,10 @@ export default class Home extends Component {
                         }
                         {   (dashOn === "userCreations") &&  
                             <>        
+
+
+
+
                                 <button onClick={() => {this.showDelete()}} className={remove ? "dash-on" : ""}>Delete Recipes</button>
                                 <Recipes 
                                     uid={uid}

@@ -1,3 +1,14 @@
+.label-body h3, .label-body h4{
+    /* display: block; */
+    /* font-size: 1.5em; */
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    /* font-weight: bold; */
+}
+
+
 .label1 {
     background-image: url('../img/labels/wood-label.png');
 }
@@ -6,50 +17,217 @@
 }
 .label3 {
     background-image: url('../img/labels/tiedye-example.png');
-    color: #fff;
 }
 .label4 {
     background-image: url('../img/labels/white-label.png');
 }
 .label5 {
     background-image: url('../img/labels/wood-frame-label.png');
-    /* color: rgb(123, 88, 65); */
 }
-.label1 > input::placeholder {
+.labelX {
+    background-image: url('../img/labels/tiedye-blank.png');
+}
+
+
+.font-black, .font-black::placeholder {
+    color: black;
+}
+.font-white, .font-white::placeholder  {
+    color: white;
+}
+.font-red, .font-red::placeholder  {
+    color: red;
+}
+.font-green, .font-green::placeholder  {
+    color: green;
+}
+
+input {
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: auto;
+
+}
+.label-header, .label-header input{
+    font-family: 'Smokum', 'Times New Roman', Times, serif;
+    font-size: 52px;
+    text-align: center;
+    width: 100%;
+
+}
+.label-header {
+    height: 40px;
+    position: relative;
+    padding: 5px 0;
+    margin: 46px 0 0 0;
+    overflow: hidden;
+    z-index: 1;
+    background-color: white;
+    display: inline-block;
+} 
+.label-header input{
+    height: 40px;
+    display: block;
+}
+.label-name {
+
+}
+.label-oz {
+    font-size: 9px;
+    margin-top: 3px;
+}
+
+.label-body {
+    margin: -3px 0 0 0;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 375px;
+}
+.label-body img {
+    display: block;
+    height: 200px;
+    width: 200px;
+    margin: 10px auto 0px auto;
+}
+
+
+.text-outline {
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
+    font-stretch: expanded;
+}
+
+
+
+.form-container > form {
+    margin-top: 5px;
+}
+
+/*********************************  FORM */
+.pick-label > div {
+
+}
+.pick-label h3 {
+    font-size: 34px;
+    margin-top: 26px;
+}
+.pick-label h4 {
+    margin-top: 0px;
+    padding: 5px 0 ;
+    width: 100%;
+}
+.pick-label img {
+    display: block;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto 0px auto;
+}
+.card-label {
+    transform: scale(.7);
+    margin: 0 -15%;
+}
+
+/********************************* labels */
+.labels {
+    height: 80px;
+}
+.labels > div > div {
+margin: 0 4px;
+}
+
+.brand-header {
+    font-family: 'Smokum', 'Times New Roman', Times, serif;
+    font-size: 28px;
+    margin-top: 20px;
+    text-align: center;
+    width: 125px;
+    border: 0;
+    background-color: transparent;
+}
+
+/****************************************************** MINI LABELS */
+.pick-mini-labels {
+    margin-bottom: -30px;
+}
+
+.pick-mini-labels > div > div {
+    display: inline-block;
+    transform: scale(.3);
+    margin: -80px -50px;
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.label1 {
+    background-image: url('../img/labels/wood-label.png');
+}
+.label2 {
+    background-image: url('../img/labels/green-red-white-label.png');
+}
+.label3 {
+    background-image: url('../img/labels/tiedye-example.png');
+    /* color: #fff; */
+}
+.label4 {
+    background-image: url('../img/labels/white-label.png');
+}
+.label5 {
+    background-image: url('../img/labels/wood-frame-label.png');
+}
+/* .label1 > input::placeholder {
     color: #000;
 }
 .label2 > input::placeholder {
     color: #000;
-}
+} */
 
 .label3 .brand-header::placeholder, .label3 .brand-header {
     color: #fff;
-    margin: 10px auto 5px auto;
+    margin: 20px auto 0px auto;
 }
 
 .label3 .name-sauce, .label3 .name-sauce::placeholder {
     color: #000;
-    margin-top: 5px;
+    margin: 3px auto 1px auto;
 }
 
-.label4 > input::placeholder {
+/* .label4 > input::placeholder {
     color: #000;
 }
 .label5 > input::placeholder {
-    /* color: rgb(123, 88, 65); */
     color: #000;
-}
-/* .label5 .name-sauce::placeholder {
-    color: #000;
-} */
-/* .label5 .brand-header {
-    color: rgb(123, 88, 65);
 } */
 .label3 .brand-header {
-    /* color: #000; */
     text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
 }
-.label3 h3,  {
+.label3 h3  {
     text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
     font-stretch: expanded;
 }
@@ -96,12 +274,7 @@ color: rgb(123, 88, 65);
     padding: 5px 0 ;
     width: 100%;
 }
-.pick-label img {
-    display: block;
-    height: 100px;
-    width: 100px;
-    margin: 0 auto 5px auto;
-}
+v
 .card-label {
     transform: scale(.7);
     margin: 0 -15%;
