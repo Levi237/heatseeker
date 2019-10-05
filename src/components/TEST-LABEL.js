@@ -1,13 +1,19 @@
 import React from 'react';
 
-const TestLabel = ({label, icon, style, header, handleChange, img}) => {
+const TestLabel = ({recipe}) => {
     return (
-        <div className="pick-label">
-            <div className={label}>
-                <input className="brand-header" name="header" placeholder={header} type="text" onChange={handleChange}/>
-                <img src={img ? img.url : icon} alt={icon}/>          
-                <input className="name-sauce" name="style" placeholder={style} type="text" onChange={handleChange}/>
-                <div className="ounces">5 FL.OZ - 147ml</div>
+        <div className="bg-wood label-bg label-body">
+        {/* <div className={`${recipe.label} label-bg label-body`}> */}
+            <div className="label-frame frame-green"></div>
+            <div className="label-border border-line border-red"></div>
+            <div className="image-border border-green"></div>
+            <div className="label-content-container">
+                <div className="label-header">
+                    <input className="font-black" name="header" placeholder={recipe.header} type="text"/>
+                </div>
+                <img src={recipe.img ? recipe.img.url : recipe.icon} alt={recipe.icon}/>          
+                <input className="font-black label-name" name="style" placeholder={recipe.style} type="text"/>
+                <div className="label-oz">5 FL.OZ - 147ml</div>
             </div>
         </div>
     );

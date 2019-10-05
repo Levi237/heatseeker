@@ -2,33 +2,55 @@
     position: absolute;
 }
 
-
-
-.label1 {
-    background-image: url('../img/labels/wood-label.png');
+/******************************************************************************************/
+/*************************************** BACKGROUND ***************************************/
+/******************************************************************************************/
+.bg-green {
+    background-color: green;
 }
-.label2 {
-    background-image: url('../img/labels/green-red-white-label.png');
+.bg-red {
+    background-color: red;
 }
-.label3 {
-    background-image: url('../img/labels/tiedye-example.png');
+.bg-orangered {
+    background-color: orangered;
 }
-.label4 {
-    background-image: url('../img/labels/white-label.png');
+.bg-white {
+    background-color: white;
 }
-.label5 {
-    background-image: url('../img/labels/wood-frame-label.png');
+.bg-black {
+    background-color: black;
 }
-.labelX {
+.bg-wood {
+    background-image: url('../img/labels/wood-background.png');
+    background-size: cover;
+}
+.bg-tiedye {
     background-image: url('../img/labels/tiedye-blank.png');
+    background-size: cover;
 }
 
-.label-frame {
-    z-index: 2;
-    position: absolute;    
-    min-height: 319px;
-    width: 100%;
+/******************************************************************************************/
+/*************************************** FONT COLOR ***************************************/
+/******************************************************************************************/
+.font-black, .font-black::placeholder {
+    color: black;
 }
+.font-white, .font-white::placeholder  {
+    color: white;
+}
+.font-red, .font-red::placeholder  {
+    color: red;
+}
+.font-green, .font-green::placeholder  {
+    color: green;
+}
+
+
+
+
+/******************************************************************************************/
+/***************************************** FRAME ******************************************/
+/******************************************************************************************/
 .frame-wood {
     background-image: url('../img/labels/frame-wood.png');
     background-size: cover;
@@ -52,6 +74,55 @@
     border-top: 28px solid white;
     border-bottom: 28px solid white;
 }
+.label-frame {
+    z-index: 2;
+    position: absolute;    
+    min-height: 319px;
+    width: 100%;
+}
+
+
+
+/******************************************************************************************/
+/***************************************** BORDER *****************************************/
+/******************************************************************************************/
+.border-black {
+    border-color: black;
+}
+.border-green {
+    border-color: green;
+}
+.border-red {
+    border-color: red;
+}
+.border-white {
+    border-color: white;
+}
+/* IMAGE BORDER BORDER LINE */
+.image-border {
+    border-width: 4px;
+    border-style: solid;
+    margin: 100px 23px 0 23px;
+    height: 196px;
+    width: 196px;
+    z-index: 11;
+    position: absolute;
+}
+.label-border {
+    border-width: 2px;
+    border-style: solid;
+    margin: 36px 12px;
+    height: 302px;
+    width: 224px;
+    z-index: 0;
+    position: absolute;
+}
+
+
+
+
+
+
 
 
 
@@ -59,7 +130,6 @@
     position: relative;
     z-index: 10;
 }
-
 
 .label-body {
     margin: -3px 0 0 0;
@@ -135,7 +205,7 @@ input {
     margin: 44px 0 0 0;
     overflow: hidden;
     z-index: 1;
-    background-color: white;
+    /* background-color: white; */
     display: inline-block;
 } 
 .label-header input{
@@ -148,6 +218,7 @@ input {
     font-size: 20px;
     text-align: center;
     width: 100%;
+    font-weight: 600;
 }
 .label-name {
     height: 28px;
@@ -155,7 +226,7 @@ input {
     margin: 8px 0 0 0;
     overflow: hidden;
     z-index: 2;
-    background-color: white;
+    /* background-color: white; */
     display: inline-block;
 }
 .label-name input{
@@ -169,70 +240,9 @@ input {
     /* bottom: 10px; */
     margin-top: 14px;
 }
-.font-black, .font-black::placeholder {
-    color: black;
-}
-.font-white, .font-white::placeholder  {
-    color: white;
-}
-.font-red, .font-red::placeholder  {
-    color: red;
-}
-.font-green, .font-green::placeholder  {
-    color: green;
-}
-.bg-green {
-    background-color: green;
-}
-.bg-red {
-    background-color: red;
-}
-.bg-white {
-    background-color: white;
-}
-.bg-black {
-    background-color: black;
-}
-.bg-wood {
-    background-image: url('../img/labels/wood-background.png');
-    background-size: cover;
-}
-.bg-tiedye {
-    background-image: url('../img/labels/tiedye-blank.png');
-}
 
 
-/* IMAGE BORDER BORDER LINE */
-.image-border {
-    border-width: 4px;
-    border-style: solid;
-    margin: 100px 23px 0 23px;
-    height: 196px;
-    width: 196px;
-    z-index: 11;
-    position: absolute;
-}
-.label-border {
-    border-width: 2px;
-    border-style: solid;
-    margin: 36px 12px;
-    height: 302px;
-    width: 224px;
-    z-index: 0;
-    position: absolute;
-}
-.border-black {
-    border-color: black;
-}
-.border-green {
-    border-color: green;
-}
-.border-red {
-    border-color: red;
-}
-.border-white {
-    border-color: white;
-}
+
 
 
 

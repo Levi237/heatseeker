@@ -7,6 +7,8 @@ import Enter                from './Enter';
 import Label                from './const/Label';
 import Recipe               from './const/Recipe';
 
+import TestLabel            from './TEST-LABEL'
+
 import './Labels.css';
 
 export default class Show extends Component {
@@ -108,7 +110,7 @@ export default class Show extends Component {
                             />
                         </div>
                         <div className="show-right">
-                                                    {/* <TestLabel /> */}
+                                                    <TestLabel recipe={recipe}/>
                             
                    
                    
@@ -119,26 +121,13 @@ export default class Show extends Component {
                    
                    
                    
-                    <div className="bg-wood label-bg label-body">
-                    {/* <div className={`${recipe.label} label-bg label-body`}> */}
-                        <div className="label-frame frame-green"></div>
-                        <div className="label-border border-line border-red"></div>
-                        <div className="image-border border-green"></div>
-                        <div className="label-content-container">
-                            <div className="label-header ">
-                                <input name="header" placeholder={recipe.header} type="text"/>
-                            </div>
-                            <img src={recipe.img ? recipe.img.url : recipe.icon} alt={recipe.icon}/>          
-                            <input className="label-name" name="style" placeholder={recipe.style} type="text"/>
-                            <div className="label-oz">5 FL.OZ - 147ml</div>
-                        </div>
-                    </div>
 
 
 
 
 
-                            {/* <Recipe recipe={recipe} /> */}
+
+                            <Recipe recipe={recipe} />
                         </div>
                         {/* <div className="show-recipe show-right">
                             { recipe.chili[1]
