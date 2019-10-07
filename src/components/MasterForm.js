@@ -4,6 +4,7 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels               from './Labels';
 import Label                from './const/Label';
+import TestLabel            from './TEST-LABEL'
 
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
@@ -44,6 +45,19 @@ export default class Form extends Component {
         examplesVisibility: false,
         close: false,
         img: null,
+
+        labelMaker: {
+            topBar: null,
+            headerBar: null,
+            outerBorder: null,
+            innerBorder: null, 
+            nameBar: null,
+            bottomBar: null,
+            imgCover: null,
+            imgIcon: null,
+            icon: null,
+            background: null,
+        }
     };
 
     componentDidMount = () => {
@@ -278,7 +292,7 @@ export default class Form extends Component {
                             ? <input onClick={() => {this.showModal()}}  value="Upload Label Icon"/>
                             : <input value="Login to Upload Labels" type="button"/>
                             }
-                            <Label 
+                            {/* <Label 
                                 img={this.state.img}
                                 label={label}
                                 icon={icon}
@@ -292,7 +306,8 @@ export default class Form extends Component {
                                 setLabel={this.setLabel}
                                 >
                             </Labels>
-                        </div>
+                        </div> */}
+                        <TestLabel />
                         {edit && 
                             <>
                                 <button className="save-btn" type="submit">Update</button>

@@ -6,9 +6,9 @@
 /*********************************************************************************************************/
 .box1 {
     float: left;
-    width: calc(26vw - 0px);
+    width: 50vw;
+    /* width: calc(26vw - 0px); */
     display: inline-block;
-    /* padding: 0 1vw 0 5vw; */
     min-width: 280px;
 }
 .box1 h2 {
@@ -20,7 +20,8 @@
 }
 
 .box2 {
-    width: calc(100vw - 280px);
+    width: 50vw;
+    /* width: calc(100vw - 280px); */
     display: inline-block;
     max-width: 800px;
 }
@@ -132,8 +133,6 @@ section > section {
 }
 
 .name-sauce {
-    /* height: 30px; */
-    /* font-size: 16px; */
     font-size: 14px;
     width: 125px;
     border: none;

@@ -7,7 +7,7 @@ import Enter                from './Enter';
 import Label                from './const/Label';
 import Recipe               from './const/Recipe';
 
-import TestLabel            from './TEST-LABEL'
+// import TestLabel            from './TEST-LABEL'
 
 import './Labels.css';
 
@@ -110,7 +110,7 @@ export default class Show extends Component {
                             />
                         </div>
                         <div className="show-right">
-                                                    <TestLabel recipe={recipe}/>
+                                                   
                             
                    
                    

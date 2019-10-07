@@ -27,7 +27,7 @@ render(){
             showSpices.push(showSpice);
         }
         if (r && r.uid === uid && r.timestamp && !r.delete){
-            let dateCreated = r.timestamp.toDate().toDateString();
+            // let dateCreated = r.timestamp.toDate().toDateString();
             return (
                 <div className="recipe-container" key={key}>
                     <button className={remove ? "deleteBtn" : "hide-delete deteleBtn"} value={r.id} onClick={deleteThis}>X</button>
@@ -43,17 +43,7 @@ render(){
                                         />
                                     </div>
                                     <div className="card-recipe card-right">
-                                    <Recipe recipe={r} />
-                                        {/* <section><strong>{dateCreated}</strong></section>
-                                        <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
-                                        { r.chili[1]
-                                        ? <><span>Pepper:</span><section><strong>{ r.chili[0].name } & { r.chili[1].name }</strong></section></>
-                                        : <><span>Pepper:</span><section><strong>{ r.chili[0].name }</strong></section></>
-                                        }
-                                        <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
-                                        <span>Spice:</span>{ r.spice.name && <section><strong>{ r.spice.name } Spice</strong></section> }
-                                        <img className="chalk-line" src="chalkdarkorange.png" alt="line break"/>
-                                        <span>Vinegar:</span>{ r.vinegar.name && <section><strong>{ r.vinegar.name }</strong></section> } */}
+                                        <Recipe recipe={r} />
                                     </div>
                                 </div> 
                         </button>
