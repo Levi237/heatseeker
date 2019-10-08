@@ -4,7 +4,8 @@ import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
 import Labels               from './Labels';
 import Label                from './const/Label';
-import TestLabel            from './TEST-LABEL'
+import TestLabel            from './TEST-LABEL';
+import TestToggle           from './TEST-TOGGLE';
 
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
@@ -47,16 +48,16 @@ export default class Form extends Component {
         img: null,
 
         labelMaker: {
-            topBar: null,
-            headerBar: null,
-            outerBorder: null,
-            innerBorder: null, 
-            nameBar: null,
-            bottomBar: null,
-            imgCover: null,
-            imgIcon: null,
-            icon: null,
-            background: null,
+            // topBar: null,
+            // headerBar: null,
+            // outerBorder: null,
+            // innerBorder: null, 
+            // nameBar: null,
+            // bottomBar: null,
+            // imgCover: null,
+            // imgIcon: null,
+            // icon: null,
+            // background: null,
         }
     };
 
@@ -194,7 +195,7 @@ export default class Form extends Component {
         })
     };
     render(){
-        const { chili, spice, vinegar, extra, examples, style, label, icon, header, close, show, examplesVisibility } = this.state
+        const { chili, spice, vinegar, extra, examples, style, labelMaker, img, icon, header, close, show, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, edit, createNewRecipe, newRecipe, user, closeEditForm, uid } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] };        
@@ -307,8 +308,9 @@ export default class Form extends Component {
                                 >
                             </Labels>
                         </div> */}
-                        <TestLabel />
-                        {edit && 
+                        <TestLabel icon={icon} img={img} labelMaker={labelMaker}/>
+
+                        {edit &&
                             <>
                                 <button className="save-btn" type="submit">Update</button>
                                 <button className="save-btn" type="submit" onClick={closeEditForm} >Close</button>

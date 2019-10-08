@@ -438,7 +438,9 @@ grid-template-areas:
     color: #fff;
     font-weight: 700;
   }
-
+  .grid-main {
+    overflow: visible;
+  }
   .grid-footer section {
     font-size: 10px;
   }
