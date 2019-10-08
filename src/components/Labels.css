@@ -52,7 +52,7 @@
     height: 60px;
     overflow: hidden;
     display: block;
-    margin: 0 0 5px 0;
+    margin: 0 0 4px 0;
     border: 1px solid black;
 }
 .label-toggle-container input {
@@ -65,7 +65,6 @@
 }
 .label-toggle-container {
     float: right;
-    /* top: 0; */
     width: 42px;
     margin: 0 0 0 20px;
     display: inline-block;
@@ -73,29 +72,25 @@
 .label-maker-container {
     display: inline-block;
     max-width: 280px;
-    /* float: left; */
-/* position: absolute; */
 }
 .label-maker-canvas {
-    /* display: inline-block; */
     width: 320px;
     margin: 0 auto;
 }
 .color-box-container h5 {
-    font-size: 0.83em;
+    font-size: 1em;
     margin-block-start: 0em;
     margin-block-end: 0em;
 }
 .color-box-container {
-    /* height: 10px; */
-    margin-top: 30px;
+    margin-top: 15px;
 }
 .box {
     height: 20px;
     width: 20px;
     display: inline-block;
     border: 1px solid black;
-    margin: 10px 1px 0 1px;
+    margin: 2px 1px 0 1px;
 }
 .none {
     border: transparent;
@@ -113,18 +108,23 @@
 
 
 .select-outer-bars {
-    border-top: 8px solid green !important;
-    border-bottom: 8px solid green !important;
+    border-top: 8px solid !important;
+    border-top-color: red !important;
+    border-bottom: 8px solid !important;
+    border-bottom-color: green !important;
 }
 .select-inner-bars {
     max-height: 42px;
     margin-top: 10px;
-    border-top: 10px solid green !important;
+    border-top: 10px solid;
+    border-top-color: red !important;
     border-bottom: 5px solid green !important;
+    border-bottom-color: green !important;
 }
 
 .select-outer-border {
-    border: 1px solid green;
+    border: 1px solid;
+    border-color: green;
     position: relative;
     z-index: 500;
     height: 40px;
@@ -133,7 +133,8 @@
 }
 
 .select-inner-border {
-    border: 2px solid green;
+    border: 2px solid;
+    border-color: green;
     position: relative;
     z-index: 5000;
     height: 18px;
@@ -145,6 +146,20 @@
     font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
 }
+.select-background {
+    border-top:  60px solid;
+    border-top-color: green;          /* same as parent height */
+    border-right: 40px solid transparent;
+}
+
+@media screen and (max-width: 340px) {
+    .label-toggle-container {
+        margin: 0 8px 0 0;
+        display: inline-block;
+        height: 60px;
+    }
+}
+
 /******************************************************************************************/
 /*************************************** BACKGROUND ***************************************/
 /******************************************************************************************/
