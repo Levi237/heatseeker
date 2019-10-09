@@ -27,10 +27,10 @@
 }
 @media screen and (max-width: 767px) {
     .box1 {
-        width: calc(100vw - 20px);
+        width: 100vw;
         display: block;
         float: none;
-        margin: 0 10px;
+        margin: 0;
         padding: 0;
     }
     .box2 {

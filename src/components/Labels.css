@@ -1,47 +1,78 @@
+.label-navigation {
+    width: calc(100vw - 0px);
+    /* border: 1px solid black; */
+    background: radial-gradient(circle farthest-side, lightgray, silver);
+    /* margin-bottom: 2px; */
+    height: 60px;
+}
+.label-navigation > section {
+    display: inline-block;
+    /* height: 40px; */
+    font-size: 40px;
+    padding: 6px 0 0 0;
+}
+.label-navigation section:first-of-type {
+    width: calc(100vw - 81px);
+    text-align: left;
+}
+.label-navigation > section:last-of-type {
+    border-left: 1px solid gray;
+    width: 60px;
+}
+.label-navigation input {
+    font-size: 40px;
+    max-width: 20px;
+}
+
+
 /******************************************************************************************/
 /*************************************** BACKGROUND ***************************************/
 /******************************************************************************************/
-.selector > .clear {
+.selector .clear {
     background-color: transparent;
+    border: 2px solid black; 
+    height: 56px;
+    width: 56px;
+    /* margin: -2px; */
 }
-.selector > .green {
+.selector .green {
     background-color: green;
 }
-.selector > .yellow {
+.selector .yellow {
     background-color: yellow;
 }
-.selector > .orange {
+.selector .orange {
     background-color: orange;
 }
-.selector > .orangered {
+.selector .orangered {
     background-color: orangered;
 }
-.selector > .red {
+.selector .red {
     background-color: red;
 }
-.selector > .pink {
+.selector .pink {
     background-color: pink;
 }
-.selector > .white {
+.selector .white {
     background-color: white;
 }
-.selector > .black {
+.selector .black {
     background-color: black;
 }
-.selector > .dodgerblue {
+.selector .dodgerblue {
     background-color: dodgerblue;
 }
-.selector > .navy {
+.selector .navy {
     background-color: navy;
 }
-.selector > .purple {
+.selector .purple {
     background-color: purple;
 }
-.selector > .wood {
+.selector .wood {
     background-image: url('../img/labels/wood-background.png');
     background-size: cover;
 }
-.selector > .tiedye {
+.selector .tiedye {
     background-image: url('../img/labels/tiedye-blank.png');
     background-size: cover;
 }
@@ -52,22 +83,41 @@
     height: 60px;
     overflow: hidden;
     display: block;
-    margin: 0 0 4px 0;
+    margin: 0 0 0 0px;
     border: 1px solid black;
+    position: absolute;
+}
+.label-toggle-container .theme {
+    width: 40px;
+    height: 60px;
+    overflow: hidden;
+    display: block;
+    margin: 250px 0 0 0;
+    border: 1px solid black;
+    bottom: 0;
+    position: relative;
+}
+.label-toggle-container .upload {
+    width: 40px;
+    height: 60px;
+    overflow: hidden;
+    display: block;
+    margin: 10px 0 0 0;
+    border: 1px solid black;
+    bottom: 0;
+    position: relative;
 }
 .label-toggle-container input {
     width: 40px;
     height: 60px;
     overflow: hidden;
     display: block;
-    /* margin: 0 0 5px 0; */
-    /* border: 1px solid black; */
 }
 .label-toggle-container {
     float: right;
     width: 42px;
     margin: 0 0 0 20px;
-    display: inline-block;
+    /* display: inline-block; */
 }
 .label-maker-container {
     display: inline-block;
@@ -83,14 +133,27 @@
     margin-block-end: 0em;
 }
 .color-box-container {
-    margin-top: 15px;
+    margin-top: 20px;
+}
+.color-box {
+width: 100vw;
+    max-height: 70px;
+    overflow-x: auto;
+    position: relative;
+}
+.color-box > div {
+    min-width: 800px;
+    position: relative;
+    max-height: 60px;
+    overflow: hidden;
+    /* left: 0; */
 }
 .box {
-    height: 20px;
-    width: 20px;
+    height: 60px;
+    width: 60px;
     display: inline-block;
-    border: 1px solid black;
-    margin: 2px 1px 0 1px;
+    /* border: 1px solid black; */
+    /* margin: 2px 1px 0 1px; */
 }
 .none {
     border: transparent;
@@ -108,47 +171,48 @@
 
 
 .select-outer-bars {
-    border-top: 8px solid !important;
-    border-top-color: red !important;
-    border-bottom: 8px solid !important;
-    border-bottom-color: green !important;
+    border-top: 7px solid;
+    border-top-color: gray !important;
+    border-bottom: 7px solid;
+    border-bottom-color: gray !important;
 }
 .select-inner-bars {
-    max-height: 42px;
+    max-height: 40px;
     margin-top: 10px;
-    border-top: 10px solid;
-    border-top-color: red !important;
-    border-bottom: 5px solid green !important;
-    border-bottom-color: green !important;
+    border-top: 9px solid;
+    border-top-color: lightslategray !important;
+    border-bottom: 4px solid  !important;
+    border-bottom-color: lightslategray !important;
 }
 
 .select-outer-border {
     border: 1px solid;
-    border-color: green;
+    border-color: gray;
     position: relative;
-    z-index: 500;
-    height: 40px;
+    z-index: 50;
+    height: 42px;
     width: 30px;
-    margin: -50px 4px;
+    margin: -52px 4px;
 }
 
 .select-inner-border {
     border: 2px solid;
-    border-color: green;
+    border-color: grey;
     position: relative;
-    z-index: 5000;
+    z-index: 50;
     height: 18px;
     width: 18px;
     margin: 14px 4px 0 4px;
 }
 .select-text-color {
-    color: green;
+    color: black;
     font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
+    z-index: 60;
 }
 .select-background {
     border-top:  60px solid;
-    border-top-color: green;          /* same as parent height */
+    border-top-color: lightgray;          /* same as parent height */
     border-right: 40px solid transparent;
 }
 
@@ -169,6 +233,9 @@
 .bg-red {
     background-color: red;
 }
+.bg-yellow {
+    background-color: yellow;
+}
 .bg-orangered {
     background-color: orangered;
 }
@@ -187,25 +254,7 @@
     background-size: cover;
 }
 
-/******************************************************************************************/
-/*************************************** FONT COLOR ***************************************/
-/******************************************************************************************/
-.font-black, .font-black::placeholder {
-    color: black;
-}
-.font-white, .font-white::placeholder  {
-    color: white;
-}
-.font-red, .font-red::placeholder  {
-    color: red;
-}
-.font-orangered, .font-orangered::placeholder  {
-    color: orangered;
-}
-.font-green, .font-green::placeholder  {
-    color: green;
-}
-
+k
 
 
 
@@ -387,7 +436,6 @@ input {
     margin: 0;
     padding: 0;
     height: auto;
-
 }
 .label-header, .label-header input{
     font-family: 'Smokum', 'Times New Roman', Times, serif;

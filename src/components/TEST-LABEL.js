@@ -31,8 +31,8 @@ export default class TestLabel extends Component {
                     {/* <div className="image-border border-green"></div> */}
                     <div name="topBar" className="top-bar bar-green"></div>
                     <div name="bottomBar" className="bottom-bar bar-green"></div>
-                    <div name="headerBar" className="header-bar bg-green"></div>
-                    <div name="nameBar" className="name-bar bg-green"></div>
+                    <div name="headerBar" className="header-bar bg-orangered"></div>
+                    <div name="nameBar" className="name-bar bg-white"></div>
                     <div name="outerBorder" className="outer-border border-green"></div>
                     <div name="innerBorder" className="inner-border border-red"></div>
 
@@ -43,7 +43,7 @@ export default class TestLabel extends Component {
                         </div>
                         <img src={img ? img.url : icon} alt={img ? img.url : icon}/>  
                         {/* <img alt={icon} src={`${icon}`}/>           */}
-                        <input className="font-black label-name bg-green" name="style" type="text"/>        
+                        <input className="font-black label-name bg-yellow" name="style" type="text"/>        
                         {/* <input className="font-black label-name" name="style" placeholder={recipe.style} type="text"/> */}
                         <div className="label-oz font-black">5 FL.OZ - 147ml</div>
                     </div>
@@ -51,37 +51,26 @@ export default class TestLabel extends Component {
                 <TestToggle />
                 </div>
                 <div className="color-box-container">
-                    <h5>Upper</h5>
-                    <div className="color-box selector">
-                        <div className="box clear" name="clear"></div>
-                        <div className="box tiedye" name="tiedye"></div>
-                        <div className="box wood" name="wood"></div>
-                        <div className="box white" name="white"></div>
-                        <div className="box black" name="black"></div>
-                        <div className="box green" name="green"></div>
-                        <div className="box yellow" name="yellow"></div>
-                        <div className="box orangered" name="orangered"></div>
-                        <div className="box red" name="red"></div>
-                        <div className="box pink" name="pink"></div>
-                        <div className="box dodgerblue" name="dodgerblue"></div>
-                        <div className="box navy" name="navy"></div>
-                        <div className="box purple" name="purple"></div>
+                    <div className="label-navigation">
+                        <section>Selected Item</section><section><input value="<"/> <input value=">" /></section>
                     </div>
-                    <h5>Lower</h5>
                     <div className="color-box selector">
-                        <div className="box clear" name="clear"></div>
-                        <div className="box tiedye" name="tiedye"></div>
-                        <div className="box wood" name="wood"></div>
-                        <div className="box white" name="white"></div>
-                        <div className="box black" name="black"></div>
-                        <div className="box green" name="green"></div>
-                        <div className="box yellow" name="yellow"></div>
-                        <div className="box orangered" name="orangered"></div>
-                        <div className="box red" name="red"></div>
-                        <div className="box pink" name="pink"></div>
-                        <div className="box dodgerblue" name="dodgerblue"></div>
-                        <div className="box navy" name="navy"></div>
-                        <div className="box purple" name="purple"></div>
+                        <div>
+                            <section className="box clear" name="clear"></section>
+                            <section className="box tiedye" name="tiedye"></section>
+                            <section className="box wood" name="wood"></section>
+                            <section className="box white" name="white"></section>
+                            <section className="box black" name="black"></section>
+                            <section className="box green" name="green"></section>
+                            <section className="box yellow" name="yellow"></section>
+                            <section className="box orange" name="orange"></section>
+                            <section className="box orangered" name="orangered"></section>
+                            <section className="box red" name="red"></section>
+                            <section className="box pink" name="pink"></section>
+                            <section className="box dodgerblue" name="dodgerblue"></section>
+                            <section className="box navy" name="navy"></section>
+                            <section className="box purple" name="purple"></section>
+                        </div>
                     </div>
                 </div>
             </>
