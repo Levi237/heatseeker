@@ -1,8 +1,6 @@
 .label-navigation {
     width: calc(100vw - 0px);
-    /* border: 1px solid black; */
-    background: radial-gradient(circle farthest-side, lightgray, silver);
-    /* margin-bottom: 2px; */
+    background: radial-gradient(circle farthest-side, lightgray, rgb(128, 128, 128, .8));
     height: 60px;
 }
 .label-navigation > section {
