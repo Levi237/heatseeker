@@ -230,7 +230,7 @@ width: 100vw;
     width: 18px;
     margin: 14px 4px 0 4px;
 }
-.select-text-color {
+.select-text {
     color: black;
     font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
@@ -253,17 +253,32 @@ width: 100vw;
 /******************************************************************************************/
 /*************************************** BACKGROUND ***************************************/
 /******************************************************************************************/
-.bg-green {
-    background-color: green;
+.bg-purple {
+    background-color: purple;
+}
+.bg-pink {
+    background-color: pink;
 }
 .bg-red {
     background-color: red;
 }
+.bg-orangered {
+    background-color: orangered;
+}
+.bg-orange {
+    background-color: orange;
+}
 .bg-yellow {
     background-color: yellow;
 }
-.bg-orangered {
-    background-color: orangered;
+.bg-green {
+    background-color: green;
+}
+.bg-dodgerblue {
+    background-color: dodgerblue;
+}
+.bg-navy {
+    background-color: navy;
 }
 .bg-white {
     background-color: white;
