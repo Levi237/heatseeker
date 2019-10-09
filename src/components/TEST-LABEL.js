@@ -17,7 +17,7 @@ export default class TestLabel extends Component {
         background: null,
     }
     render(){
-        const {icon, img, labelMaker} = this.props
+        const {icon, img, labelMaker, user, showModal} = this.props
 
 
         return (
@@ -48,7 +48,7 @@ export default class TestLabel extends Component {
                         <div className="label-oz font-black">5 FL.OZ - 147ml</div>
                     </div>
                 </div>
-                <TestToggle />
+                <TestToggle user={user} showModal={showModal}/>
                 </div>
                 <div className="color-box-container">
                     <div className="label-navigation">

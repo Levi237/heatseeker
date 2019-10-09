@@ -393,7 +393,6 @@ width: 100vw;
 
 .top-bar {
     border-top: 28px solid;
-    /* border-color: white; */
     z-index: 2;
     position: absolute;    
     min-height: 319px;
@@ -401,18 +400,12 @@ width: 100vw;
 }
 .bottom-bar {
     border-bottom: 28px solid;
-    /* border-color: white; */
     z-index: 2;
     position: absolute;    
     min-height: 348px;
     width: 100%;
 }
-/* .label-frame {
-    z-index: 2;
-    position: absolute;    
-    min-height: 319px;
-    width: 100%;
-} */
+
 
 
 /******************************************************************************************/
@@ -429,15 +422,6 @@ width: 100vw;
     z-index: 11;
     position: absolute;
 }
-/* .image-border {
-    border-width: 4px;
-    border-style: solid;
-    margin: 100px 23px 0 23px;
-    height: 196px;
-    width: 196px;
-    z-index: 11;
-    position: absolute;
-} */
 
 .outer-border {
     border-width: 2px;
@@ -448,15 +432,6 @@ width: 100vw;
     z-index: 0;
     position: absolute;
 }
-/* .label-border {
-    border-width: 2px;
-    border-style: solid;
-    margin: 36px 12px;
-    height: 302px;
-    width: 224px;
-    z-index: 0;
-    position: absolute;
-} */
 
 
 
@@ -656,12 +631,7 @@ input {
 .label5 {
     background-image: url('../img/labels/wood-frame-label.png');
 }
-/* .label1 > input::placeholder {
-    color: #000;
-}
-.label2 > input::placeholder {
-    color: #000;
-} */
+
 
 .label3 .brand-header::placeholder, .label3 .brand-header {
     color: #fff;
@@ -673,12 +643,7 @@ input {
     margin: 3px auto 1px auto;
 }
 
-/* .label4 > input::placeholder {
-    color: #000;
-}
-.label5 > input::placeholder {
-    color: #000;
-} */
+
 .label3 .brand-header {
     text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000;
 }
@@ -767,11 +732,7 @@ margin: 0 4px;
 
 
 @media screen and (max-width: 767px) {
-    /* .pick-mini-labels > div > div {
-        display: inline-block;
-        transform: scale(1.1);
-        margin: 0 -18vw 14vw -18vw;
-    } */
+
 }
 
 

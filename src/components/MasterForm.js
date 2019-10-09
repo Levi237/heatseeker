@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Redirect }         from 'react-router-dom';
 import ScrollMenu           from 'react-horizontal-scrolling-menu';
 
-import Labels               from './Labels';
-import Label                from './const/Label';
+// import Labels               from './Labels';
+// import Label                from './const/Label';
 import TestLabel            from './TEST-LABEL';
-import TestToggle           from './TEST-TOGGLE';
+// import TestToggle           from './TEST-TOGGLE';
 
 import UploadImage          from './UploadImage';
 import Modal                from './modal/Modal';
@@ -189,6 +189,7 @@ export default class Form extends Component {
         this.props.onClose && this.props.onClose(e);
     };
     showModal = () => {
+        console.log('click')
         this.setState({
           ...this.state,
           show: !this.state.show
@@ -308,7 +309,7 @@ export default class Form extends Component {
                                 >
                             </Labels>
                         </div> */}
-                        <TestLabel icon={icon} img={img} labelMaker={labelMaker}/>
+                        <TestLabel icon={icon} img={img} labelMaker={labelMaker} showModal={this.showModal} user={user}/>
 
                         {edit &&
                             <>
