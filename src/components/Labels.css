@@ -301,7 +301,39 @@ width: 100vw;
 /**************************************************************************************************/
 /***************************************** BORDER COLORS ******************************************/
 /**************************************************************************************************/
-
+.border-purple {
+    border-color: purple !important;
+}
+.border-pink {
+    border-color: pink !important;
+}
+.border-red {
+    border-color: red !important;
+}
+.border-orangered {
+    border-color: orangered !important;
+}
+.border-orange {
+    border-color: orange !important;
+}
+.border-yellow {
+    border-color: yellow !important;
+}
+.border-green {
+    border-color: green !important;
+}
+.border-dodgerblue {
+    border-color: dodgerblue !important;
+}
+.border-navy {
+    border-color: navy !important;
+}
+.border-white {
+    border-color: white !important;
+}
+.border-black {
+    border-color: black !important;
+}
 .frame-wood {
     background-image: url('../img/labels/frame-wood.png');
     background-size: cover;
@@ -309,6 +341,52 @@ width: 100vw;
     z-index: 1;
     position: relative;
 }
+
+/************************************************************************************************/
+/***************************************** TEXT COLORS ******************************************/
+/************************************************************************************************/
+.text-purple {
+    color: purple !important;
+}
+.text-pink {
+    color: pink !important;
+}
+.text-red {
+    color: red !important;
+}
+.text-orangered {
+    color: orangered !important;
+}
+.text-orange {
+    color: orange !important;
+}
+.text-yellow {
+    color: yellow !important;
+}
+.text-green {
+    color: green !important;
+}
+.text-dodgerblue {
+    color: dodgerblue !important;
+}
+.text-navy {
+    color: navy !important;
+}
+.text-white {
+    color: white !important;
+}
+.text-black {
+    color: black !important;
+}
+
+
+
+
+
+
+
+
+
 
 
 
