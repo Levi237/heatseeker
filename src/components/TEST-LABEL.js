@@ -33,7 +33,7 @@ export default class TestLabel extends Component {
                     <div name="bottomBar" className="bottom-bar bar-green"></div>
                     <div name="headerBar" className="header-bar bg-orangered"></div>
                     <div name="nameBar" className="name-bar bg-white"></div>
-                    <div name="outerBorder" className="outer-border border-green"></div>
+                    <div name="outerBorder" className="outer-border border-black"></div>
                     <div name="innerBorder" className="inner-border border-red"></div>
 
                     <div className="label-content-container">
@@ -52,7 +52,7 @@ export default class TestLabel extends Component {
                 </div>
                 <div className="color-box-container">
                     <div className="label-navigation">
-                        <section>Selected Item</section><section><input value="<"/> <input value=">" /></section>
+                        <section>Selected Item</section><section><div className="arrow-left"></div><div className="arrow-right"></div></section>
                     </div>
                     <div className="color-box selector">
                         <div>
