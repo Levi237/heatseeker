@@ -145,7 +145,6 @@
     float: right;
     width: 42px;
     margin: 0 0 0 20px;
-    /* display: inline-block; */
 }
 .label-maker-container {
     display: inline-block;
@@ -180,8 +179,6 @@ width: 100vw;
     height: 60px;
     width: 60px;
     display: inline-block;
-    /* border: 1px solid black; */
-    /* margin: 2px 1px 0 1px; */
 }
 .none {
     border: transparent;
@@ -195,21 +192,23 @@ width: 100vw;
 
 
 
+/******************************************************************************************/
+/***************************************   CANVAS   ***************************************/
+/******************************************************************************************/
 
 
-
-.select-outer-bars {
+.select-frame {
     border-top: 7px solid;
     border-top-color: gray !important;
     border-bottom: 7px solid;
     border-bottom-color: gray !important;
 }
-.select-inner-bars {
+.select-bars {
     max-height: 40px;
     margin-top: 10px;
     border-top: 9px solid;
     border-top-color: lightslategray !important;
-    border-bottom: 4px solid  !important;
+    border-bottom: 4px solid;
     border-bottom-color: lightslategray !important;
 }
 
@@ -222,7 +221,6 @@ width: 100vw;
     width: 30px;
     margin: -52px 4px;
 }
-
 .select-inner-border {
     border: 2px solid;
     border-color: grey;
