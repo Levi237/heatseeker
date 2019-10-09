@@ -17,7 +17,7 @@ export default class TestLabel extends Component {
         background: null,
     }
     render(){
-        const {icon, img, labelMaker, user, showModal} = this.props
+        const {icon, img, labelMaker, user, showModal, samplesModal} = this.props
 
 
         return (

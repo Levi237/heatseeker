@@ -188,15 +188,15 @@ export default class Form extends Component {
     onClose = (e) => {
         this.props.onClose && this.props.onClose(e);
     };
-    showModal = () => {
-        console.log('click')
+    showModal = (e) => {
+        console.log("click showModal", this.state.show.name, ":show", e.currentTarget)
         this.setState({
           ...this.state,
-          show: !this.state.show
+          show: e.currentTarget.name
         })
     };
     render(){
-        const { chili, spice, vinegar, extra, examples, style, labelMaker, img, icon, header, close, show, examplesVisibility } = this.state
+        const { chili, spice, vinegar, extra, examples, style, labelMaker, img, icon, header, close, show, samples, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, edit, createNewRecipe, newRecipe, user, closeEditForm, uid } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] };        
@@ -256,11 +256,11 @@ export default class Form extends Component {
         
         return(<>
             <Modal show={show} onClose={this.showModal}>
-                <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} />
+            { show === "upload" && <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} /> }
+            { show === "samples" && <div>Provide Samples</div>}
             </Modal>
             <div className="form-container">
 
-                {/* <button onClick={() => {this.showModal()}}>Show Upload Modal</button> */}
                 <form onSubmit={edit ? (e) => { this.updateRecipe(e, this.state)} : (e) => { createNewRecipe(e, this.state)}}>
                 { newRecipe && <Redirect to={'/save-recipe'} /> }  
                 { close     && <Redirect to={routes.HOME}/> }
@@ -290,25 +290,7 @@ export default class Form extends Component {
                             <img className="chalk" src="chalkdarkorange.png" alt="line break"/>  
                     </div>   
                     <div className="box1">
-                            { user 
-                            ? <input onClick={() => {this.showModal()}}  value="Upload Label Icon"/>
-                            : <input value="Login to Upload Labels" type="button"/>
-                            }
-                            {/* <Label 
-                                img={this.state.img}
-                                label={label}
-                                icon={icon}
-                                header={header}
-                                style={style}
-                                handleChange={this.handleChange}
-                                />
-                        <div className="pick-mini-labels">
-                            <Labels 
-                                user ={user} 
-                                setLabel={this.setLabel}
-                                >
-                            </Labels>
-                        </div> */}
+
                         <TestLabel icon={icon} img={img} labelMaker={labelMaker} showModal={this.showModal} user={user}/>
 
                         {edit &&

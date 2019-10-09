@@ -11,12 +11,12 @@ const TestToggle = ({user, showModal}) => {
             <div><input type="button" className="select-borders" name=""></input><div className="select-outer-border"><div className="select-inner-border"></div></div></div>
             <section><input type="button" className="text-icon select-text" name="" value="T" /></section>
             <section>
-                <input type="button" className="next-icon search-samples" name="" value="Themes" />
+                <input type="button" className="next-icon search-samples" onClick={(e) => showModal(e)} name="samples" value="Themes" />
             </section>
             <section>
                 {/* <input type="button" className="next-icon upload-images" name="" value="Upload" /> */}
                 { user
-                ? <input className="next-icon upload-images" onClick={() => showModal()} value="Upload"/>
+                ? <input className="next-icon upload-images" onClick={(e) => showModal(e)} name="upload" value="Upload"/>
                 : <input type="button" className="next-icon upload-images" name="" value="LogIn to Upload" />
                 }
             </section>
