@@ -189,7 +189,6 @@ export default class Form extends Component {
         this.props.onClose && this.props.onClose(e);
     };
     showModal = (e) => {
-        console.log("click showModal", this.state.show.name, ":show", e.currentTarget)
         this.setState({
           ...this.state,
           show: e.currentTarget.name
@@ -256,8 +255,14 @@ export default class Form extends Component {
         
         return(<>
             <Modal show={show} onClose={this.showModal}>
-            { show === "upload" && <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} /> }
-            { show === "samples" && <div>Provide Samples</div>}
+            { show === "upload" && 
+                <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} /> }
+            { show === "samples" && 
+                <div>Provide Samples</div>}
+            { show === "text" && 
+                <div>Provide Modal to add Text and change colors</div> }
+            { show === "info" && 
+                <div>Provide Explanation of Label Maker</div> }
             </Modal>
             <div className="form-container">
 
@@ -302,7 +307,7 @@ export default class Form extends Component {
                         {!edit && 
                             <>
                                 { (chili[0] && style && header) && <button className="save-btn" type="submit">Review</button> }
-                                { (!header || !style || !chili[0]) && <input className="save-btn" type="text" value="..."/>}
+                                { (!header || !style || !chili[0]) && <input className="save-btn" type="text" placeholder="..."/>}
                             </>
                         }                       
                     </div>      
