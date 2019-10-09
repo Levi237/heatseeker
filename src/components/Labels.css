@@ -131,10 +131,6 @@
 }
 
 
-
-
-
-
 .label-toggle-container input {
     width: 40px;
     height: 60px;
@@ -169,7 +165,7 @@ width: 100vw;
     position: relative;
 }
 .color-box > div {
-    min-width: 800px;
+    min-width: 840px;
     position: relative;
     max-height: 60px;
     overflow: hidden;

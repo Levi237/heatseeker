@@ -195,7 +195,7 @@ export default class Form extends Component {
         })
     };
     render(){
-        const { chili, spice, vinegar, extra, examples, style, labelMaker, img, icon, header, close, show, samples, examplesVisibility } = this.state
+        const { chili, spice, vinegar, extra, examples, style, labelMaker, img, icon, header, close, show, examplesVisibility } = this.state
         const { chilis, spices, extras, vinegars, edit, createNewRecipe, newRecipe, user, closeEditForm, uid } = this.props
 
         let chili1 = ""; if ( chili[0] ){ chili1 = chili[0] };        
@@ -255,14 +255,14 @@ export default class Form extends Component {
         
         return(<>
             <Modal show={show} onClose={this.showModal}>
-            { show === "upload" && 
-                <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} /> }
-            { show === "samples" && 
-                <div>Provide Samples</div>}
-            { show === "text" && 
-                <div>Provide Modal to add Text and change colors</div> }
-            { show === "info" && 
-                <div>Provide Explanation of Label Maker</div> }
+                { show === "upload" && 
+                    <UploadImage uid={uid} updateImageSelected={this.updateImageSelected} /> }
+                { show === "samples" && 
+                    <div>Provide Samples</div>}
+                { show === "text" && 
+                    <div>Provide Modal to add Text and change colors</div> }
+                { show === "info" && 
+                    <div>Provide Explanation of Label Maker</div> }
             </Modal>
             <div className="form-container">
 

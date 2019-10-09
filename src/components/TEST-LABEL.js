@@ -17,7 +17,7 @@ export default class TestLabel extends Component {
         background: null,
     }
     render(){
-        const {icon, img, labelMaker, user, showModal, samplesModal} = this.props
+        const { icon, img, labelMaker, user, showModal } = this.props
 
 
         return (
@@ -52,7 +52,25 @@ export default class TestLabel extends Component {
                 </div>
                 <div className="color-box-container">
                     <div className="label-navigation">
-                        <section>Selected Item</section><section><div className="arrow-left"></div><div className="arrow-right"></div></section>
+
+                        <section>
+                            <select>
+                                <option name="" value="">Background</option>
+                                <option name="" value="">Top Frame</option>
+                                <option name="" value="">Title Bar</option>
+                                <option name="" value="">Title Text</option>
+                                <option name="" value="">Outer Border</option>
+                                <option name="" value="">Inner Border</option>
+                                <option name="" value="">Name Bar</option>
+                                <option name="" value="">Name Text</option>
+                                <option name="" value="">Bottom Frame</option>
+                                <option name="" value="">Bottom Text</option>
+                            </select>
+                        </section>
+                        <section>
+                            <div className="arrow-left"></div>
+                            <div className="arrow-right"></div>
+                        </section>
                     </div>
                     <div className="color-box selector">
                         <div>

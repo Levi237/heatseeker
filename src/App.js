@@ -6,7 +6,7 @@ import Nav   from './components/const/Nav';
 import Home  from './components/Home';
 import Enter from './components/Enter';
 import Show  from './components/Show';
-import UploadImage  from './components/UploadImage';
+// import UploadImage  from './components/UploadImage';
 import MasterForm   from './components/MasterForm';
 
 import * as routes  from './constants/routes';

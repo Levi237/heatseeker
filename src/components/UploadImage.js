@@ -25,6 +25,7 @@ export default class UploadImage extends Component {
             if(img){
                 updateImageSelected(img)
             }
+            return addLabelImage
     };
 
     toggleUpload = () => {
