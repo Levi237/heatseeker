@@ -14,7 +14,13 @@ export default class TestLabel extends Component {
         imgCover: null,
         imgIcon: null,
         icon: null,
-        background: null,
+        background: "clear",
+        topFrame: "clear",
+        bottomFrame: "clear",
+        headerBar: "clear",
+        nameBar: "clear",
+        outerBorder: "clear",
+        innerBorder: "clear",
     }
     render(){
         const { icon, img, labelMaker, user, showModal } = this.props
@@ -24,8 +30,8 @@ export default class TestLabel extends Component {
             <>
                 <div className="label-maker-canvas">
                 <div className="label-maker-container bg-wood label-bg label-body">
-                    <div name="topBar" className="top-bar bar-green"></div>
-                    <div name="bottomBar" className="bottom-bar bar-green"></div>
+                    <div name="topFrame" className="top-bar bar-green"></div>
+                    <div name="bottomFrame" className="bottom-bar bar-green"></div>
                     <div name="headerBar" className="header-bar bg-orangered"></div>
                     <div name="nameBar" className="name-bar bg-white"></div>
                     <div name="outerBorder" className="outer-border border-black"></div>
