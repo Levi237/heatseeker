@@ -24,11 +24,6 @@ export default class TestLabel extends Component {
             <>
                 <div className="label-maker-canvas">
                 <div className="label-maker-container bg-wood label-bg label-body">
-
-                {/* <div className={`${recipe.label} label-bg label-body`}> */}
-                    {/* <div className="label-frame frame-wood"></div> */}
-                    {/* <div className="label-border border-red"></div> */}
-                    {/* <div className="image-border border-green"></div> */}
                     <div name="topBar" className="top-bar bar-green"></div>
                     <div name="bottomBar" className="bottom-bar bar-green"></div>
                     <div name="headerBar" className="header-bar bg-orangered"></div>
@@ -39,12 +34,9 @@ export default class TestLabel extends Component {
                     <div className="label-content-container">
                         <div className="label-header bar-green">
                             <input className="font-black bg-red" name="header" type="text"/>
-                            {/* <input className="font-black" name="header" placeholder={recipe.header} type="text"/> */}
                         </div>
                         <img src={img ? img.url : icon} alt={img ? img.url : icon}/>  
-                        {/* <img alt={icon} src={`${icon}`}/>           */}
                         <input className="font-black label-name bg-yellow" name="style" type="text"/>        
-                        {/* <input className="font-black label-name" name="style" placeholder={recipe.style} type="text"/> */}
                         <div className="label-oz font-black">5 FL.OZ - 147ml</div>
                     </div>
                 </div>
@@ -53,11 +45,11 @@ export default class TestLabel extends Component {
                 <div className="color-box-container">
                     <div className="label-navigation">
 
-                        <section>
+                        <div>
                             <select>
                                 <option name="" value="">Background</option>
                                 <option name="" value="">Top Frame</option>
-                                <option name="" value="">Title Bar</option>
+                                <option name="" value="">Header Bar</option>
                                 <option name="" value="">Title Text</option>
                                 <option name="" value="">Outer Border</option>
                                 <option name="" value="">Inner Border</option>
@@ -66,11 +58,11 @@ export default class TestLabel extends Component {
                                 <option name="" value="">Bottom Frame</option>
                                 <option name="" value="">Bottom Text</option>
                             </select>
-                        </section>
-                        <section>
-                            <div className="arrow-left"></div>
-                            <div className="arrow-right"></div>
-                        </section>
+                        </div>
+                        <div>
+                            <section className="arrow-left"></section>
+                            <section className="arrow-right"></section>
+                        </div>
                     </div>
                     <div className="color-box selector">
                         <div>
