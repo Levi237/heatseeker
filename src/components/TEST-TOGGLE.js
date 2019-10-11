@@ -14,20 +14,7 @@ import React from 'react';
 const TestToggle = ({user, showModal}) => {
     return (
         <>
-        <div className="label-key-container">
-            <div className="select-background bg-wood" name="background"></div>
-            <div className="select-top-frame border-black" name="topFrame"></div>
-            <div className="select-bottom-frame border-black" name="bottomFrame"></div>
-            <div className="select-header-bar border-red" name="headerBar"></div>
-            <div className="select-name-bar border-yellow" name="nameBar"></div>
-            <div>
-                <div className="select-outer-border border-black" name="outerBorder">
-                    <div className="select-inner-border border-red" name="innerBorder"></div>
-                </div>
-            </div>
 
-
-        </div>
         <div className="label-tools-container">
             <section><input type="button" className="text-icon select-text" onClick={(e) => showModal(e)} name="text" value="T" /></section>
             <section>

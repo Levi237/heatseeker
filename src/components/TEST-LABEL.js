@@ -14,44 +14,58 @@ export default class TestLabel extends Component {
         imgCover: null,
         imgIcon: null,
         icon: null,
-        background: "clear",
-        topFrame: "clear",
-        bottomFrame: "clear",
-        headerBar: "green",
-        headerColor: "pink",
-        nameBar: "clear",
-        nameColor: "black",
-        outerBorder: "clear",
-        innerBorder: "clear",
+        background: "wood",
+        topFrame: "green",
+        bottomFrame: "green",
+        bottomTextColor: "white",
+        headerBar: "white",
+        headerTextColor: "black",
+        nameBar: "white",
+        nameTextColor: "black",
+        outerBorder: "black",
+        innerBorder: "black",
     }
     render(){
-        const { background, topFrame, bottomFrame, headerBar, nameBar, outerBorder, innerBorder, nameColor, headerColor } = this.state
+        const { background, topFrame, bottomFrame, headerBar, nameBar, outerBorder, innerBorder, nameTextColor, headerTextColor, bottomTextColor } = this.state
         const { icon, img, labelMaker, user, showModal } = this.props
 
 
         return (
             <>
                 <div className="label-maker-canvas">
-                <div className="label-maker-container bg-wood label-bg label-body">
+                <div className={`label-maker-container bg-${background} label-bg label-body`}>
                     <div name="topFrame" className={`top-bar border-${topFrame}`}></div>
-                    {/* <div name="topFrame" className="top-bar border-green"></div> */}
                     <div name="bottomFrame" className={`bottom-bar border-${bottomFrame}`}></div>
-                    {/* <div name="headerBar" className={`header-bar bg-${headerBar}`}></div> */}
                     <div name="nameBar" className={`name-bar bg-${nameBar}`}></div>
                     <div name="outerBorder" className={`outer-border border-${outerBorder}`}></div>
                     <div name="innerBorder" className={`inner-border border-${innerBorder}`}></div>
 
                     <div className="label-content-container">
                         <div name="headerBar" className={`label-header header-bar bg-${headerBar}`}>
-                            <input className={`text-${headerColor}`} name="header" type="text"/>
+                            <input className={`text-${headerTextColor}`} name="header" type="text"/>
                         </div>
                         <img src={img ? img.url : icon} alt={img ? img.url : icon}/>  
                         <div className={`name-bar bg-${nameBar} label-name}`} >
-                            <input name="nameBar" className={`name-bar label-name text-${nameColor}`} name="style" type="text"/>        
+                            <input name="nameBar" className={`name-bar label-name text-${nameTextColor}`} name="style" type="text"/>        
                         </div>
-                        <div className="label-oz font-black">5 FL.OZ - 147ml</div>
+                        <div className={`label-oz text-${bottomTextColor}`}>5 FL.OZ - 147ml</div>
                     </div>
                 </div>
+                
+
+                <div className="label-key-container">
+                    <div className={`select-background bg-${background}`} name="background"></div>
+                    <div className={`select-top-frame border-${topFrame}`} name="topFrame"></div>
+                    <div className={`select-bottom-frame border-${bottomFrame}`} name="bottomFrame"></div>
+                    <div className={`select-header-bar border-${headerBar}`} name="headerBar"></div>
+                    <div className={`select-name-bar border-${nameBar}`} name="nameBar"></div>
+                    <div>
+                        <div className={`select-outer-border border-${outerBorder}`} name="outerBorder">
+                            <div className={`select-inner-border border-${innerBorder}`} name="innerBorder"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <TestToggle user={user} showModal={showModal}/>
                 </div>
                 <div className="color-box-container">
