@@ -45,7 +45,7 @@ export default class TestLabel extends Component {
                             <input className={`text-${headerTextColor}`} name="header" type="text"/>
                         </div>
                         <img src={img ? img.url : icon} alt={img ? img.url : icon}/>  
-                        <div className={`name-bar bg-${nameBar} label-name}`} >
+                        <div className={`name-bar bg-${nameBar} label-name`} >
                             <input name="nameBar" className={`name-bar label-name text-${nameTextColor}`} name="style" type="text"/>        
                         </div>
                         <div className={`label-oz text-${bottomTextColor}`}>5 FL.OZ - 147ml</div>
