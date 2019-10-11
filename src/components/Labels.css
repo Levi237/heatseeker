@@ -2,8 +2,8 @@
     width: 0; 
     height: 0; 
     margin: 0 10px;
-    border-top: 25px solid transparent;
-    border-bottom: 25px solid transparent;   
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;   
     display: inline-block;
 }
 .arrow-right {
@@ -16,7 +16,7 @@
 .label-navigation {
     width: calc(100vw - 0px);
     background: radial-gradient(circle farthest-side, rgb(211, 211, 211), rgb(128, 128, 128, .8));
-    height: 60px;
+    height: 50px;
 }
 .label-navigation select {
     font-size: 30px;
@@ -30,8 +30,9 @@
     border-left: 1px solid gray;
     width: 80px;
     float: right;
-    padding: 5px;
+    padding: 13px 0 0 0;
     margin-bottom: -5px;
+    height: 37px;
 }
 .label-navigation input {
     font-size: 40px;
@@ -286,6 +287,9 @@ width: 100vw;
 /**************************************************************************************************/
 /*************************************** BACKGROUND COLORS  ***************************************/
 /**************************************************************************************************/
+.bg-clear {
+    background-color: transparent;
+}
 .bg-purple {
     background-color: purple;
 }
@@ -334,6 +338,9 @@ width: 100vw;
 /**************************************************************************************************/
 /***************************************** BORDER COLORS ******************************************/
 /**************************************************************************************************/
+.border-clear {
+    border-color: transparent !important;
+}
 .border-purple {
     border-color: purple !important;
 }
@@ -378,6 +385,9 @@ width: 100vw;
 /************************************************************************************************/
 /***************************************** TEXT COLORS ******************************************/
 /************************************************************************************************/
+.text-clear {
+    color: transparent !important;
+}
 .text-purple {
     color: purple !important;
 }
