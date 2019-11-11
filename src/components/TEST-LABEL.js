@@ -73,16 +73,16 @@ export default class TestLabel extends Component {
 
                         <div>
                             <select>
-                                <option name="" value="">Background</option>
-                                <option name="" value="">Top Frame</option>
-                                <option name="" value="">Header Bar</option>
-                                <option name="" value="">Title Text</option>
-                                <option name="" value="">Outer Border</option>
-                                <option name="" value="">Inner Border</option>
-                                <option name="" value="">Name Bar</option>
-                                <option name="" value="">Name Text</option>
-                                <option name="" value="">Bottom Frame</option>
-                                <option name="" value="">Bottom Text</option>
+                                <option name="background" value="">Background</option>
+                                <option name="topFrame" value="">Top Frame</option>
+                                <option name="HeaderBar" value="">Header Bar</option>
+                                <option name="headerTextColor" value="">Header Text</option>
+                                <option name="outerBorder" value="">Outer Border</option>
+                                <option name="innterBorder" value="">Inner Border</option>
+                                <option name="nameBar" value="">Name Bar</option>
+                                <option name="nameTextColor" value="">Name Text</option>
+                                <option name="bottomFrame" value="">Bottom Frame</option>
+                                <option name="bottomTextColor" value="">Bottom Text</option>
                             </select>
                         </div>
                         <div>
